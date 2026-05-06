@@ -1,0 +1,66 @@
+# Define macros for LFS and text handling
+[attr]lfs               filter=lfs diff=lfs merge=lfs -text
+[attr]godot-text        text eol=lf linguist-language=gdscript
+
+# Godot source files
+*.gd                    godot-text
+*.tscn                  text eol=lf
+*.tres                  text eol=lf
+*.godot                 text eol=lf
+*.import                text eol=lf
+
+# Shader files
+*.gdshader              text linguist-language=glsl
+*.gdshaderinc           text linguist-language=glsl
+
+# LFS: Images
+*.png                   lfs
+*.jpg                   lfs
+*.jpeg                  lfs
+*.webp                  lfs
+*.svg                   lfs
+*.tga                   lfs
+*.bmp                   lfs
+*.exr                   lfs
+*.hdr                   lfs
+*.ico                   lfs
+
+# LFS: Audio
+*.wav                   lfs
+*.mp3                   lfs
+*.ogg                   lfs
+*.flac                  lfs
+
+# LFS: 3D Models & Animations
+*.fbx                   lfs
+*.FBX                   lfs
+*.gltf                  lfs
+*.glb                   lfs
+*.obj                   lfs
+*.blend                 lfs
+*.blend1                lfs
+*.dae                   lfs
+
+# LFS: Fonts
+*.ttf                   lfs
+*.otf                   lfs
+*.woff2                 lfs
+
+# LFS: Godot Binary Resources
+*.pck                   lfs
+*.res                   lfs
+
+# LFS: Compiled Binaries & Libraries
+*.dll                   lfs
+*.so                    lfs
+*.dylib                 lfs
+*.a                     lfs
+*.lib                   lfs
+*.exe                   lfs
+*.bin                   lfs
+
+# LFS: Archives
+*.zip                   lfs
+*.7z                    lfs
+*.tar.gz                lfs
+*.rar                   lfs

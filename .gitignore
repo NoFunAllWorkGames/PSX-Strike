@@ -1,0 +1,31 @@
+# Godot-specific ignores
+.godot/
+*.import
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+bin/
+obj/
+
+# Tool-specific ignores
+.vscode/
+.idea/
+*.swp
+*.tmp
+
+# AI/LLM IDE & Assistant ignores
+.cursor/
+.windsurf/
+.codeium/
+.continuation/
+.aider*
+.aiexclude
+.cursorignore
+.cursorindexingignore
+.codeiumignore
+.geminiignore
+
+# OS-generated files
+.DS_Store
+Thumbs.db
