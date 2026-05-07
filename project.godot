@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="ProjectStrike"
+run/main_scene="uid://bl6lu8aby3qjs"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -20,11 +21,9 @@ buses/default_bus_layout="uid://c822lej8x7u2s"
 
 [autoload]
 
+AudioManager="*uid://b1mn5oeq37vy3"
 SignalBus="*uid://6173t3eux0kq"
 SaveManager="*uid://qx5hf4utwy5"
-AudioManager="*uid://b1mn5oeq37vy3"
-GameManager="*uid://cj6nack0x76gm"
-LevelManager="*uid://cypch28oc8tde"
 
 [input]
 

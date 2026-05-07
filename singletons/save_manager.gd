@@ -11,7 +11,9 @@ signal save_failed(error: String)
 
 # TODO: Create error feedback not just null
 func save() -> void:
-	var run :RunData = GameManager.current_run
+	# TODO: This is wrong. Think how to get actually the RunData
+	# This line is just there so it doesn't crash
+	var run :RunData = RunData.new()
 	if run == null:
 		save_failed.emit("No active run")
 		return
