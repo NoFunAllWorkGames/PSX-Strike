@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b1mn5oeq37vy3"]
+
+[ext_resource type="Script" uid="uid://cf0c0blyjb41f" path="res://singletons/audio_manager.gd" id="1_bss8u"]
+
+[sub_resource type="AudioStream" id="AudioStream_3vl8u"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_bss8u"]
+polyphony = 16
+
+[sub_resource type="AudioStream" id="AudioStream_bss8u"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_qa3ht"]
+polyphony = 5
+
+[node name="AudioManager" type="Node" unique_id=1424082835 node_paths=PackedStringArray("Music_Player", "SFX_Player", "UI_Player", "Voice_Player")]
+script = ExtResource("1_bss8u")
+Music_Player = NodePath("Music_Player")
+SFX_Player = NodePath("SFX_Player")
+UI_Player = NodePath("UI_Player")
+Voice_Player = NodePath("Voice_Player")
+
+[node name="Music_Player" type="AudioStreamPlayer" parent="." unique_id=1622618172]
+stream = SubResource("AudioStream_3vl8u")
+bus = &"Music"
+
+[node name="SFX_Player" type="AudioStreamPlayer" parent="." unique_id=1444227902]
+stream = SubResource("AudioStreamPolyphonic_bss8u")
+bus = &"SFX"
+
+[node name="UI_Player" type="AudioStreamPlayer" parent="." unique_id=1712793311]
+stream = SubResource("AudioStream_bss8u")
+bus = &"UI"
+
+[node name="Voice_Player" type="AudioStreamPlayer" parent="." unique_id=695671396]
+stream = SubResource("AudioStreamPolyphonic_qa3ht")
+bus = &"Voice"

@@ -23,4 +23,26 @@ Git
 To set up Git LFS you have to do these steps after cloning:  
 `git lfs install`  
 `git config lfs.locksverify false`  
-`git lfs pull`  
+`git lfs pull`
+
+
+Coding
+------
+
+
+### Creating a new scene from Template
+
+`Template.tscn`  Instead of building that structure from scratch, **inherit** from it:
+
+1. In the top menu **Scene**, select **New Inherited Scene**
+2. Select `Scenes/Template.tscn`
+3. Save the new `.tscn` file 
+4. The inherited scene shows the full Template tree in the editor; nodes marked
+   with a chain icon are locked to the parent scene and can only be modified
+   there. Add level-specific nodes freely on top
+
+
+### src
+
+All GDScript source. Each subfolder is a self-contained category — scripts
+should only reach across categories via `SignalBus` or the other Singeltons/autoloaded managers

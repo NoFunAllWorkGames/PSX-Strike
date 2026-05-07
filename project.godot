@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="ProjectStrike"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://c822lej8x7u2s"
+
+[autoload]
+
+SignalBus="*uid://6173t3eux0kq"
+SaveManager="*uid://qx5hf4utwy5"
+AudioManager="*uid://b1mn5oeq37vy3"
+GameManager="*uid://cj6nack0x76gm"
+LevelManager="*uid://cypch28oc8tde"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
