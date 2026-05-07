@@ -4,7 +4,7 @@ signal level_loaded(scene_path: String)
 signal level_complete()
 signal player_spawn_requested(position: Vector3)
 
-var default_player_scene: PackedScene
+@export var default_player_scene: PackedScene
 
 var _active_spawn_position: Vector3 = Vector3.ZERO
 var _active_spawn_set: bool = false
@@ -59,7 +59,10 @@ func _do_load(path: String) -> void:
 	_spawn_player()
 
 func _get_level_config() -> LevelConfig:
-	return get_tree().get_first_node_in_group("level_config") as LevelConfig
+	var current :Node = get_tree().current_scene.find_children("*", "LevelConfig", true, false)[0]
+	if current == null:
+		return null
+	return current as LevelConfig
 
 func _spawn_player() -> void:
 	var spawn_pos := get_spawn_position()
@@ -73,7 +76,7 @@ func _spawn_player() -> void:
 
 	# 2. Determine which scene to instantiate:
 	# LevelConfig override → global default.
-	var config := _get_level_config()
+	var config :LevelConfig = _get_level_config()
 	var scene_to_use: PackedScene = null
 	if config and config.player_scene:
 		scene_to_use = config.player_scene

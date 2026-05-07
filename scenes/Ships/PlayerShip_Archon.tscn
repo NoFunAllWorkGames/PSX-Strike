@@ -1,3 +1,28 @@
 [gd_scene format=3 uid="uid://duiklfa8xdjer"]
 
-[node name="PlayerShipArchon" type="Node3D" unique_id=34192894]
+[ext_resource type="Script" uid="uid://banmxady1gnji" path="res://src/ships/player_ship_archon.gd" id="1_uaftn"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f42qb"]
+radius = 0.6
+
+[sub_resource type="BoxMesh" id="BoxMesh_t3yy4"]
+size = Vector3(1.2, 0.45, 2.8)
+
+[node name="PlayerShipArchon" type="CharacterBody3D" unique_id=34192894]
+script = ExtResource("1_uaftn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=565055451]
+shape = SubResource("CapsuleShape3D_f42qb")
+
+[node name="Visual" type="MeshInstance3D" parent="." unique_id=1353798468]
+mesh = SubResource("BoxMesh_t3yy4")
+
+[node name="CameraPivot" type="Marker3D" parent="." unique_id=1704637794]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot" unique_id=2117862425]
+spring_length = 7.5
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D" unique_id=1935825821]
+current = true
+fov = 80.0

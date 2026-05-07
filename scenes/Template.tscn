@@ -1,11 +1,9 @@
 [gd_scene format=3 uid="uid://cocc38n36ifjn"]
 
 [ext_resource type="Script" uid="uid://vs833piiwfqp" path="res://src/config/level_config.gd" id="1_8qyk2"]
+[ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="2_wx2au"]
 
-[sub_resource type="Resource" id="Resource_qg51b"]
-metadata/__load_path__ = "res://src/prefabs/characters/DemoPlayer.tscn"
-
-[node name="Scene" type="Node2D" unique_id=1408701904]
+[node name="Scene" type="Node3D" unique_id=1084463961]
 
 [node name="Starters" type="Node" parent="." unique_id=1624242098]
 
@@ -13,7 +11,7 @@ metadata/__load_path__ = "res://src/prefabs/characters/DemoPlayer.tscn"
 
 [node name="LevelConfig" type="Node" parent="Managers" unique_id=545558491]
 script = ExtResource("1_8qyk2")
-player_scene = SubResource("Resource_qg51b")
+player_scene = ExtResource("2_wx2au")
 
 [node name="Canvases" type="Node" parent="." unique_id=1266257925]
 
