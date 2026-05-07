@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bl6lu8aby3qjs"]
+
+[ext_resource type="Script" uid="uid://wkn6ou0g1ylf" path="res://src/ui/main_menu.gd" id="1_menum"]
+[ext_resource type="PackedScene" uid="uid://x7df5teokeca" path="res://scenes/Space.tscn" id="2_space"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=2128258435]
+script = ExtResource("1_menum")
+start_scene = ExtResource("2_space")
+
+[node name="Control" type="Control" parent="." unique_id=1683662775]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundImage" type="TextureRect" parent="Control" unique_id=1680957298]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1319060639]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=832852888]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="GameName" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=782610253]
+layout_mode = 2
+theme_override_font_sizes/font_size = 76
+text = "Project Strike"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1035408229]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 32
+
+[node name="Start" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1952212904]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Start"
+
+[node name="Load" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=488434203]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Load"
+
+[node name="Credits" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1135007803]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Credits"
+
+[node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1105971633]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
