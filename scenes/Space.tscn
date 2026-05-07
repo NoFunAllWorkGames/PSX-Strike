@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://x7df5teokeca"]
+
+[ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_3swrr"]
+[ext_resource type="Sky" uid="uid://wimhj3dn3heq" path="res://assets/Skybox/NightSkyHDRI007 /NightSkyHDRI007_2K.tres" id="2_c73yp"]
+
+[sub_resource type="Environment" id="Environment_l0l3b"]
+background_mode = 2
+sky = ExtResource("2_c73yp")
+ambient_light_source = 1
+tonemap_mode = 3
+glow_enabled = true
+
+[node name="Scene" unique_id=1408701904 instance=ExtResource("1_3swrr")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1617069734]
+environment = SubResource("Environment_l0l3b")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="1" unique_id=1584876970]
+transform = Transform3D(1, 0, 0, 0, 0.8813694, 0.4724277, 0, -0.4724277, 0.8813694, 0, 6.565431, 0)
+shadow_enabled = true
