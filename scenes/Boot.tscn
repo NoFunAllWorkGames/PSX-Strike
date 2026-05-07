@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://cx7rnwbk4p8qt"]
-
-[ext_resource type="Script" uid="uid://bm4qxtk7qaw2n" path="res://src/config/game_config.gd" id="1_gcfg"]
-[ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="2_wcbet"]
-
-[node name="Boot" type="Node" unique_id=312984710]
-script = ExtResource("1_gcfg")
-next_scene = ExtResource("2_wcbet")

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_3swrr"]
 [ext_resource type="Sky" uid="uid://wimhj3dn3heq" path="res://assets/Skybox/NightSkyHDRI007 /NightSkyHDRI007_2K.tres" id="2_c73yp"]
 [ext_resource type="Script" uid="uid://dc1adp2x5x3yf" path="res://src/circular_asteroid_test.gd" id="2_l0l3b"]
+[ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="3_3hkh3"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_l0l3b"]
 
@@ -22,6 +23,10 @@ glow_enabled = true
 [node name="Asteroids" type="MultiMeshInstance3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1263407639]
 multimesh = SubResource("MultiMesh_3hkh3")
 script = ExtResource("2_l0l3b")
+
+[node name="PlayerShipArchon" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("3_3hkh3")]
+
+[node name="SpawnPoint" type="Marker3D" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="1" unique_id=206917417]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="World" parent_id_path=PackedInt32Array(1213749867) index="4" unique_id=1617069734]
 environment = SubResource("Environment_l0l3b")
