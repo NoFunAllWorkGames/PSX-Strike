@@ -3,6 +3,8 @@ extends CharacterBody3D
 @export var acceleration: float = 18.0
 @export var deceleration: float = 12.0
 @export var max_speed: float = 40.0
+@export var turn_speed_degrees: float = 90.0
+@export var pitch_speed_degrees: float = 75.0
 @export var look_sensitivity: float = 0.003
 @export var min_pitch_degrees: float = -45.0
 @export var max_pitch_degrees: float = 45.0
@@ -19,6 +21,8 @@ func _ready() -> void:
 	_camera_yaw = camera_pivot.rotation.y
 
 func _physics_process(delta: float) -> void:
+	_apply_turning(delta)
+	_apply_pitching(delta)
 	_apply_movement(delta)
 	move_and_slide()
 
@@ -63,6 +67,20 @@ func _unhandled_input(event: InputEvent) -> void:
 
 ## Space movement magic
 ## Throwaway code for grayboxing
+func _apply_turning(delta: float) -> void:
+	var turn_input := Input.get_action_strength("ship_yaw_left") - Input.get_action_strength("ship_yaw_right")
+	if is_zero_approx(turn_input):
+		return
+
+	rotate_y(turn_input * deg_to_rad(turn_speed_degrees) * delta)
+
+func _apply_pitching(delta: float) -> void:
+	var pitch_input := Input.get_action_strength("ship_pitch_up") - Input.get_action_strength("ship_pitch_down")
+	if is_zero_approx(pitch_input):
+		return
+
+	rotate_object_local(Vector3.RIGHT, pitch_input * deg_to_rad(pitch_speed_degrees) * delta)
+
 func _apply_movement(delta: float) -> void:
 	# The player tries to push forward but have to counteract the still remaining backwards velocity
 	var forward_input := Input.get_action_strength("ship_forward") - Input.get_action_strength("ship_back")
