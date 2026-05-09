@@ -17,10 +17,10 @@ size = Vector3(5, 5, 5)
 
 [sub_resource type="Environment" id="Environment_l0l3b"]
 background_mode = 2
+background_energy_multiplier = 0.25
 sky = ExtResource("2_c73yp")
-ambient_light_source = 1
+ambient_light_sky_contribution = 0.2
 tonemap_mode = 3
-glow_enabled = true
 
 [node name="Scene" unique_id=1408701904 instance=ExtResource("1_3swrr")]
 
@@ -58,7 +58,7 @@ use_collision = true
 collision_mask = 66
 script = ExtResource("3_yl7bd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="World/Environment/SpaceStation" index="0" unique_id=1325313887]
+[node name="InsideLight" type="OmniLight3D" parent="World/Environment/SpaceStation" index="0" unique_id=1325313887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47268486)
 light_energy = 3.519
 light_bake_mode = 1
@@ -69,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0482998)
 size = Vector3(10, 10, 10)
 material = SubResource("StandardMaterial3D_yl7bd")
 
-[node name="Entry" type="CSGBox3D" parent="World/Environment/SpaceStation/Hull" index="0" unique_id=1019731145]
+[node name="EntryHole" type="CSGBox3D" parent="World/Environment/SpaceStation/Hull" index="0" unique_id=1019731145]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5847397)
 operation = 2
 size = Vector3(5, 5, 5)
@@ -83,6 +83,10 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Environment/SpaceStation/Hull/Area3D" index="0" unique_id=840013725]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.86234665)
 shape = SubResource("BoxShape3D_3hkh3")
+
+[node name="SpawnUndockStation" type="Marker3D" parent="World/Environment/SpaceStation" index="2" unique_id=922225489]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, -5.203661)
+gizmo_extents = 1.0
 
 [node name="PlayerShipArchon" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("3_3hkh3")]
 collision_layer = 2

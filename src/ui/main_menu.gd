@@ -12,7 +12,7 @@ func _ready() -> void:
 func _on_start_pressed() -> void:
 	if start_scene == null:
 		return
-	get_tree().change_scene_to_file.call_deferred(start_scene.resource_path)
+	GameManager.transition_to(start_scene.resource_path)
 
 func _on_quit_pressed() -> void:
 	get_tree().quit()

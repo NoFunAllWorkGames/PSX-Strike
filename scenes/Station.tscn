@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfs2woos2i6n6"]
 
 [ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_66bpb"]
-[ext_resource type="Script" path="res://src/ui/station.gd" id="2_station"]
+[ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station.gd" id="2_station"]
 
 [sub_resource type="Environment" id="Environment_66bpb"]
 background_mode = 3
@@ -92,10 +92,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "test"
 
-[node name="Button4" type="Button" parent="Canvases/CanvasLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" index="3" unique_id=1988813574]
+[node name="undock" type="Button" parent="Canvases/CanvasLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" index="3" unique_id=1988813574]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "test"
+text = "Undock"
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=784646800]
 
