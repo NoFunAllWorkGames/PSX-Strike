@@ -80,16 +80,19 @@ theme_override_constants/separation = 21
 [node name="Button" type="Button" parent="Canvases/CanvasLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" index="0" unique_id=456226324]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
+disabled = true
 text = "test"
 
-[node name="Button2" type="Button" parent="Canvases/CanvasLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" index="1" unique_id=2130985888]
+[node name="upgrade" type="Button" parent="Canvases/CanvasLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" index="1" unique_id=2130985888]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "test"
+disabled = true
+text = "Upgrade"
 
 [node name="Button3" type="Button" parent="Canvases/CanvasLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" index="2" unique_id=316648595]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
+disabled = true
 text = "test"
 
 [node name="undock" type="Button" parent="Canvases/CanvasLayer/Control/MarginContainer/HBoxContainer/VBoxContainer" index="3" unique_id=1988813574]
