@@ -1,6 +1,7 @@
 extends Node
 
 var PlayerShip
+var _player_in_dock_zone: bool = false
 
 func _ready() -> void:
 	GameManager.PlayerShip = $"../../Characters/PlayerShipArchon" as CharacterBody3D
@@ -15,12 +16,20 @@ func _exit_tree() -> void:
 	InputManager.interact_pressed.disconnect(_on_interact_pressed)
 
 func _on_interact_pressed() -> void:
+	if not _player_in_dock_zone:
+		return
 	GameManager.transition_to("res://scenes/Station.tscn")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body != PlayerShip:
+		return
+	_player_in_dock_zone = true
 	SignalBus.display_action_label.emit("Press G to enter")
 	
 func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body != PlayerShip:
+		return
+	_player_in_dock_zone = false
 	SignalBus.display_action_label.emit("")
 
 func undock_ship():

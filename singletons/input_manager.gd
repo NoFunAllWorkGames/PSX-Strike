@@ -44,9 +44,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	match GameManager.game_state:
 		Enums.GameState.SPACE:
 			_handle_space_unhandled(event)
-		Enums.GameState.STATION:
-			_handle_station_unhandled(event)
-		Enums.GameState.MAIN_MENU:
+		Enums.GameState.STATION, Enums.GameState.MAIN_MENU:
 			pass
 
 
@@ -57,11 +55,6 @@ func _handle_space_unhandled(event: InputEvent) -> void:
 		mouse_look_relative.emit(event.relative)
 	elif enable_freelook_click_capture and event is InputEventMouseButton and event.pressed:
 		capture_mouse()
-
-
-func _handle_station_unhandled(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_action_pressed("interact"):
-		interact_pressed.emit()
 
 
 func capture_mouse() -> void:
