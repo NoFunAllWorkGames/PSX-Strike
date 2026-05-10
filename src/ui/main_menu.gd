@@ -15,4 +15,4 @@ func _on_start_pressed() -> void:
 	GameManager.transition_to(start_scene.resource_path)
 
 func _on_quit_pressed() -> void:
-	get_tree().quit()
+	GameManager.quit_game()
