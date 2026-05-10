@@ -8,17 +8,20 @@ func _ready() -> void:
 	var area_3d: Area3D = get_node("Hull/Area3D")
 	area_3d.body_entered.connect(_on_area_3d_body_entered)
 	area_3d.body_exited.connect(_on_area_3d_body_exited)
+	InputManager.interact_pressed.connect(_on_interact_pressed)
 	undock_ship()
+
+func _exit_tree() -> void:
+	InputManager.interact_pressed.disconnect(_on_interact_pressed)
+
+func _on_interact_pressed() -> void:
+	GameManager.transition_to("res://scenes/Station.tscn")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	SignalBus.display_action_label.emit("Press G to enter")
 	
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	SignalBus.display_action_label.emit("")
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_action_pressed("interact"):
-		GameManager.transition_to("res://scenes/Station.tscn")
 
 func undock_ship():
 	print("Undocking ship")

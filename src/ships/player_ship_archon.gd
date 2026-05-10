@@ -17,8 +17,14 @@ var _look_pitch: float = 0.0
 var _camera_yaw: float = 0.0
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	InputManager.capture_mouse()
+	InputManager.enable_freelook_click_capture = true
+	InputManager.mouse_look_relative.connect(_on_mouse_look_relative)
 	_camera_yaw = camera_pivot.rotation.y
+
+func _exit_tree() -> void:
+	InputManager.enable_freelook_click_capture = false
+	InputManager.mouse_look_relative.disconnect(_on_mouse_look_relative)
 
 func _physics_process(delta: float) -> void:
 	_apply_turning(delta)
@@ -26,67 +32,53 @@ func _physics_process(delta: float) -> void:
 	_apply_movement(delta)
 	move_and_slide()
 
-# Quick and dirty mouse look
-# It should not be in this ship file
-# Just for grayboxing
-func _unhandled_input(event: InputEvent) -> void:
-	# Mouse movement
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		var yaw_delta: float = -event.relative.x * look_sensitivity
-		var desired_yaw: float = _camera_yaw + yaw_delta
+# Quick and dirty mouse look (driven by InputManager); should not live here long-term — grayboxing only.
+func _on_mouse_look_relative(relative: Vector2) -> void:
+	var yaw_delta: float = -relative.x * look_sensitivity
+	var desired_yaw: float = _camera_yaw + yaw_delta
 
-		# Let the camera freelook, but when it gets close to looking "back" the ship,
-		# rotate the ship instead so controls don't feel inverted.
-		var yaw_limit: float = deg_to_rad(camera_yaw_limit_degrees)
-		if desired_yaw > yaw_limit:
-			var pivot_delta: float = yaw_limit - _camera_yaw
-			var ship_delta: float = yaw_delta - pivot_delta
-			_camera_yaw = yaw_limit
-			rotate_y(ship_delta)
-		elif desired_yaw < -yaw_limit:
-			var pivot_delta: float = -yaw_limit - _camera_yaw
-			var ship_delta: float = yaw_delta - pivot_delta
-			_camera_yaw = -yaw_limit
-			rotate_y(ship_delta)
-		else:
-			_camera_yaw = desired_yaw
+	var yaw_limit: float = deg_to_rad(camera_yaw_limit_degrees)
+	if desired_yaw > yaw_limit:
+		var pivot_delta: float = yaw_limit - _camera_yaw
+		var ship_delta: float = yaw_delta - pivot_delta
+		_camera_yaw = yaw_limit
+		rotate_y(ship_delta)
+	elif desired_yaw < -yaw_limit:
+		var pivot_delta: float = -yaw_limit - _camera_yaw
+		var ship_delta: float = yaw_delta - pivot_delta
+		_camera_yaw = -yaw_limit
+		rotate_y(ship_delta)
+	else:
+		_camera_yaw = desired_yaw
 
-		_look_pitch = clampf(
-			_look_pitch - event.relative.y * look_sensitivity,
-			deg_to_rad(min_pitch_degrees),
-			deg_to_rad(max_pitch_degrees)
-		)
-		camera_pivot.rotation.y = _camera_yaw
-		camera_pivot.rotation.x = _look_pitch
-	# if the mouse is clicked, capture the mouse
-	elif event is InputEventMouseButton and event.pressed:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	# Release the mouse look on escape
-	elif event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	_look_pitch = clampf(
+		_look_pitch - relative.y * look_sensitivity,
+		deg_to_rad(min_pitch_degrees),
+		deg_to_rad(max_pitch_degrees)
+	)
+	camera_pivot.rotation.y = _camera_yaw
+	camera_pivot.rotation.x = _look_pitch
 
 ## Space movement magic
 ## Throwaway code for grayboxing
 func _apply_turning(delta: float) -> void:
-	var turn_input := Input.get_action_strength("ship_yaw_left") - Input.get_action_strength("ship_yaw_right")
+	var turn_input := InputManager.get_ship_yaw_axis()
 	if is_zero_approx(turn_input):
 		return
 
 	rotate_y(turn_input * deg_to_rad(turn_speed_degrees) * delta)
 
 func _apply_pitching(delta: float) -> void:
-	var pitch_input := Input.get_action_strength("ship_pitch_up") - Input.get_action_strength("ship_pitch_down")
+	var pitch_input := InputManager.get_ship_pitch_axis()
 	if is_zero_approx(pitch_input):
 		return
 
 	rotate_object_local(Vector3.RIGHT, pitch_input * deg_to_rad(pitch_speed_degrees) * delta)
 
 func _apply_movement(delta: float) -> void:
-	# The player tries to push forward but have to counteract the still remaining backwards velocity
-	var forward_input := Input.get_action_strength("ship_forward") - Input.get_action_strength("ship_back")
-	# same but for sideways movement
-	var strafe_input := Input.get_action_strength("ship_strafe_right") - Input.get_action_strength("ship_strafe_left")
-	var vertical_input := Input.get_action_strength("ship_ascend") - Input.get_action_strength("ship_descend")
+	var forward_input := InputManager.get_ship_forward_axis()
+	var strafe_input := InputManager.get_ship_strafe_axis()
+	var vertical_input := InputManager.get_ship_vertical_axis()
 
 	var target_velocity: Vector3 = Vector3.ZERO
 	var local_dir: Vector3 = Vector3(strafe_input, vertical_input, -forward_input)
