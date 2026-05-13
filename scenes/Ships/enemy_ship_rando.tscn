@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://b7bodi22eo6l7" path="res://assets/flare_0.png" id="1_5fbqj"]
 [ext_resource type="Script" uid="uid://docj8om136amr" path="res://src/ships/enemy_ship_rando.gd" id="1_trtub"]
+[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/ships/enemy_ship_rando_res.gd" id="2_h0scj"]
+
+[sub_resource type="Resource" id="Resource_h5a4a"]
+script = ExtResource("2_h0scj")
+metadata/_custom_type_script = "uid://bc7d2og3hegar"
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_gpl07"]
 radius = 1.0
@@ -23,6 +28,10 @@ rings = 0
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.90000004)
 albedo_texture = ExtResource("1_5fbqj")
+emission_enabled = true
+emission = Color(0, 0, 1, 1)
+emission_energy_multiplier = 0.0
+billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_h5a4a"]
 material = SubResource("StandardMaterial3D_h0scj")
@@ -35,14 +44,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:mesh:material:albedo_color")
+tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(0, 0, 1, 0.9019608), Color(0, 0, 1, 0.101960786)]
+"values": [16.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_3s1mv"]
@@ -59,6 +68,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.90000004)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3x5ep"]
 _data = {
@@ -68,6 +89,7 @@ _data = {
 
 [node name="EnemyShipRando" type="RigidBody3D" unique_id=128073042]
 script = ExtResource("1_trtub")
+enemy_ship_data = SubResource("Resource_h5a4a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1740205885]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
