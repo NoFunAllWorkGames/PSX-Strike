@@ -5,7 +5,36 @@
 [ext_resource type="Script" uid="uid://cbdjubbobjtoo" path="res://src/ui/action_prompt.gd" id="2_irlk4"]
 [ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="3_3hkh3"]
 [ext_resource type="MultiMesh" uid="uid://2xx6jvea3f7r" path="res://assets/asteroidsMesh.tres" id="3_irlk4"]
+[ext_resource type="Script" uid="uid://d5625svdj516" path="res://src/ships/enemy_spawn_slot.gd" id="3_oo3mg"]
 [ext_resource type="Script" uid="uid://bdgcsfkbcq73p" path="res://src/interactables/space_station_outside.gd" id="3_yl7bd"]
+[ext_resource type="PackedScene" uid="uid://ccjx4jgvuw1lh" path="res://scenes/Ships/enemy_ship_rando.tscn" id="4_4pnen"]
+[ext_resource type="Resource" uid="uid://cgcqq1finjs42" path="res://src/ships/enemy_ship_rando.tres" id="4_324nc"]
+[ext_resource type="Script" uid="uid://b2s52ydusuhmc" path="res://src/border_area.gd" id="5_suwts"]
+[ext_resource type="Script" uid="uid://q4v0ljs4it4q" path="res://src/enemy_spawner.gd" id="6_4nemy"]
+
+[sub_resource type="Resource" id="Resource_4pnen"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_k628k"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_hfb1i"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_evf20"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_0sxw4"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_324nc"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl7bd"]
 
@@ -15,6 +44,9 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3hkh3"]
 size = Vector3(5, 5, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_irlk4"]
+size = Vector3(50, 50, 50)
+
 [sub_resource type="Environment" id="Environment_l0l3b"]
 background_mode = 2
 background_energy_multiplier = 0.25
@@ -23,6 +55,11 @@ ambient_light_sky_contribution = 0.2
 tonemap_mode = 3
 
 [node name="Scene" unique_id=1408701904 instance=ExtResource("1_3swrr")]
+
+[node name="EnemySpawner" type="Node" parent="Managers" parent_id_path=PackedInt32Array(832875041) index="0" unique_id=1847293847]
+script = ExtResource("6_4nemy")
+_enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_4pnen"), SubResource("Resource_k628k"), SubResource("Resource_hfb1i"), SubResource("Resource_evf20"), SubResource("Resource_0sxw4")])
+enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_324nc")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Canvases" parent_id_path=PackedInt32Array(1266257925) index="0" unique_id=473764402]
 
@@ -87,6 +124,13 @@ shape = SubResource("BoxShape3D_3hkh3")
 [node name="SpawnUndockStation" type="Marker3D" parent="World/Environment/SpaceStation" index="2" unique_id=922225489]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, -5.203661)
 gizmo_extents = 1.0
+
+[node name="Border" type="Area3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1796679235]
+collision_mask = 2
+script = ExtResource("5_suwts")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Environment/Border" index="0" unique_id=242463493]
+shape = SubResource("BoxShape3D_irlk4")
 
 [node name="PlayerShipArchon" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("3_3hkh3")]
 collision_layer = 2

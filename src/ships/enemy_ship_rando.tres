@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="EnemyShipData" format=3 uid="uid://cgcqq1finjs42"]
+
+[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/ships/enemy_ship_rando_res.gd" id="1_k43mq"]
+
+[resource]
+script = ExtResource("1_k43mq")
+metadata/_custom_type_script = "uid://bc7d2og3hegar"
