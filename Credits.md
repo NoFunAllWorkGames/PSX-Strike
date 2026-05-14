@@ -1,20 +1,16 @@
 Team
 =====
 
-Original Idea:
+**Original Idea:**  
 Suntyger from New Horizon Studios
 
-Development:
+**Everything:**  
 B1773rm4n
-
-Art and 3D:
-Hoowup
-
-
-
 
 Resources
 ==========
 
-flare_0 for enemy_ship_rando
-https://opengameart.org/content/flare-effect-blender
+| Asset name | Used for | Source |
+| ---        | ---      | ---    |
+| flare_0 | Signal light at enemy ship | https://opengameart.org/content/flare-effect-blender |
+| Night Sky HDRI 007 | Space background | https://ambientcg.com/view?id=NightSkyHDRI007 |
