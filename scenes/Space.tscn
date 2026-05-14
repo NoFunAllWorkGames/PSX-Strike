@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://cgcqq1finjs42" path="res://src/ships/enemy_ship_rando.tres" id="4_324nc"]
 [ext_resource type="Script" uid="uid://b2s52ydusuhmc" path="res://src/border_area.gd" id="5_suwts"]
 [ext_resource type="Script" uid="uid://q4v0ljs4it4q" path="res://src/enemy_spawner.gd" id="6_4nemy"]
+[ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/gaussian_asteroid.gd" id="10_4pnen"]
 
 [sub_resource type="Resource" id="Resource_4pnen"]
 script = ExtResource("3_oo3mg")
@@ -96,6 +97,7 @@ horizontal_alignment = 3
 script = ExtResource("2_irlk4")
 
 [node name="Asteroids" type="MultiMeshInstance3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1545041538]
+visible = false
 multimesh = ExtResource("3_irlk4")
 
 [node name="SpaceStation" type="CSGCombiner3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="1" unique_id=1998275679]
@@ -141,6 +143,11 @@ collision_shape_3d = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Environment/Border" index="0" unique_id=242463493]
 shape = SubResource("BoxShape3D_irlk4")
+
+[node name="NoiseAsteroid" type="Area3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=1610750277]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
+script = ExtResource("10_4pnen")
+spread = 200.0
 
 [node name="PlayerShipArchon" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("3_3hkh3")]
 collision_layer = 2
