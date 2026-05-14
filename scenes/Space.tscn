@@ -36,6 +36,14 @@ metadata/_custom_type_script = "uid://d5625svdj516"
 script = ExtResource("3_oo3mg")
 metadata/_custom_type_script = "uid://d5625svdj516"
 
+[sub_resource type="Resource" id="Resource_cnqk1"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_h4icn"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl7bd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irlk4"]
@@ -56,10 +64,11 @@ tonemap_mode = 3
 
 [node name="Scene" unique_id=1408701904 instance=ExtResource("1_3swrr")]
 
-[node name="EnemySpawner" type="Node" parent="Managers" parent_id_path=PackedInt32Array(832875041) index="0" unique_id=1847293847]
+[node name="EnemySpawner" type="Node" parent="Managers" parent_id_path=PackedInt32Array(832875041) index="0" unique_id=1847293847 node_paths=PackedStringArray("border_area")]
 script = ExtResource("6_4nemy")
+border_area = NodePath("../../World/Environment/Border")
 _enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_4pnen"), SubResource("Resource_k628k"), SubResource("Resource_hfb1i"), SubResource("Resource_evf20"), SubResource("Resource_0sxw4")])
-enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_324nc")])
+enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_324nc"), SubResource("Resource_cnqk1"), SubResource("Resource_h4icn")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Canvases" parent_id_path=PackedInt32Array(1266257925) index="0" unique_id=473764402]
 
@@ -125,9 +134,10 @@ shape = SubResource("BoxShape3D_3hkh3")
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, -5.203661)
 gizmo_extents = 1.0
 
-[node name="Border" type="Area3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1796679235]
+[node name="Border" type="Area3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1796679235 node_paths=PackedStringArray("collision_shape_3d")]
 collision_mask = 2
 script = ExtResource("5_suwts")
+collision_shape_3d = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="World/Environment/Border" index="0" unique_id=242463493]
 shape = SubResource("BoxShape3D_irlk4")

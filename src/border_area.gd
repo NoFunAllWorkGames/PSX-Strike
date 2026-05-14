@@ -1,7 +1,7 @@
 extends Area3D
 
-@onready var player_ship: CharacterBody3D = GameManager.PlayerShip
-@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
+var player_ship: CharacterBody3D = GameManager.PlayerShip
+@export var collision_shape_3d: CollisionShape3D
 
 
 func _ready() -> void:

@@ -23,38 +23,33 @@ const RANDOM_START_EXTRUDE: float = 100.0
 func _ready() -> void:
 	for slot in _enemy_spawn_slots:
 		if slot != null:
-			spawn_enemy_from_slot(slot, Vector3.ZERO)
-
+			var enemy_ship := spawn_enemy_from_slot(slot, Vector3.ZERO)
+			enemySpawnTreePoint.add_child(enemy_ship)
 
 func spawn_enemy_at(global_position: Vector3) -> RigidBody3D:
 	var data: EnemyShipData = enemy_ship_data.duplicate(true) as EnemyShipData
 	return _spawn_with_data(data, global_position)
 
 
-func spawn_enemy_from_slot(slot: EnemySpawnSlot, anchor_global: Vector3) -> RigidBody3D:
+func spawn_enemy_from_slot(slot: EnemySpawnSlot, origin_point: Vector3) -> RigidBody3D:
 	var data: EnemyShipData = slot.enemy_ship_data.duplicate(true) as EnemyShipData
 	var enemy
 	if slot.random_start:
-		_apply_random_starting_point(data, anchor_global)
-		enemy = _spawn_with_data(data, anchor_global)
+		_apply_random_starting_point(data, origin_point)
+		enemy = _spawn_with_data(data, origin_point)
 	return enemy 
 
 
-func _apply_random_starting_point(data: EnemyShipData, anchor_global: Vector3) -> void:
-	if border_area == null:
-		push_warning("EnemySpawner: random_start requested but border_area is not assigned.")
-		return
+func _apply_random_starting_point(data: EnemyShipData, origin_point: Vector3) -> void:
 	var edge_point: Vector3 = border_area.get_random_point_on_any_edge()
 	var direction: Vector3 = border_area.get_random_direction_vector()
 	var world_spawn: Vector3 = edge_point + direction * RANDOM_START_EXTRUDE
-	data.starting_point = world_spawn - anchor_global
+	data.starting_point = world_spawn - origin_point
 
 
-func _spawn_with_data(data: EnemyShipData, anchor_global: Vector3) -> RigidBody3D:
-	var node := enemy_scene.instantiate()
-	var enemy := node as RigidBody3D
-	enemy.enemy_ship_data = data
-	enemy.speed = data.speed
-	enemySpawnTreePoint.add_child(enemy)
-	enemy.global_position = anchor_global + data.starting_point
-	return enemy
+func _spawn_with_data(data: EnemyShipData, origin_point: Vector3) -> RigidBody3D:
+	var new_ship_instance := enemy_scene.instantiate() as RigidBody3D
+	new_ship_instance.enemy_ship_data = data
+	enemySpawnTreePoint.add_child(new_ship_instance)
+	new_ship_instance.global_position = origin_point + data.starting_point
+	return new_ship_instance
