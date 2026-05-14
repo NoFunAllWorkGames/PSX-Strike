@@ -6,16 +6,6 @@ var player_ship: CharacterBody3D = GameManager.PlayerShip
 
 func _ready() -> void:
 	body_exited.connect(_on_body_exited)
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "1")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "2")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "3")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "4")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "5")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "6")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "7")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "8")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "9")
-	spawn_debug_marker_with_label(get_random_point_on_any_edge(), "10")
 
 func _on_body_exited(body: Node3D):
 	if body == player_ship:
@@ -71,70 +61,50 @@ func create_area_edge_segments() -> PackedVector3Array:
 		
 	return global_segments
 
-func get_random_point_on_any_edge() -> Vector3:
-	var edges: PackedVector3Array = create_area_edge_segments()
+## Uniform on box hull: face weighted by area, then two uniforms on that face (shape-local AABB).
+func get_random_point_on_box_surface() -> Vector3:
+	var shape := collision_shape_3d.shape
+	var mesh := shape.get_debug_mesh()
+	var aabb := mesh.get_aabb()
+	var szv := aabb.size
+	if szv.x <= 0.0 or szv.y <= 0.0 or szv.z <= 0.0:
+		return collision_shape_3d.global_position
+
+	var mn := aabb.position
+	var mx := mn + szv
+	var tf := collision_shape_3d.global_transform
+
+	var wx: float = szv.y * szv.z
+	var wy: float = szv.x * szv.z
+	var wz: float = szv.x * szv.y
+	var total: float = 2.0 * (wx + wy + wz)
+	var r: float = randf() * total
+
+	var local: Vector3
+	if r < wx:
+		local = Vector3(mn.x, mn.y + randf() * szv.y, mn.z + randf() * szv.z)
+	elif r < 2.0 * wx:
+		local = Vector3(mx.x, mn.y + randf() * szv.y, mn.z + randf() * szv.z)
+	elif r < 2.0 * wx + wy:
+		local = Vector3(mn.x + randf() * szv.x, mn.y, mn.z + randf() * szv.z)
+	elif r < 2.0 * wx + 2.0 * wy:
+		local = Vector3(mn.x + randf() * szv.x, mx.y, mn.z + randf() * szv.z)
+	elif r < 2.0 * wx + 2.0 * wy + wz:
+		local = Vector3(mn.x + randf() * szv.x, mn.y + randf() * szv.y, mn.z)
+	else:
+		local = Vector3(mn.x + randf() * szv.x, mn.y + randf() * szv.y, mx.z)
+
+	return tf * local
 	
-	# Verify that the array contains valid edge data
-	if edges.is_empty():
-		return Vector3.ZERO
-		
-	# 1. Calculate the total number of distinct edges (24 vertices / 2 = 12 edges)
-	var total_edges: int = edges.size() / 2
-	
-	# 2. Select a random edge index between 0 and 11
-	var random_edge_index: int = randi() % total_edges
-	
-	# 3. Retrieve the start and end global positions for the selected edge
-	var start_idx: int = random_edge_index * 2
-	var edge_start: Vector3 = edges[start_idx]
-	var edge_end: Vector3 = edges[start_idx + 1]
-	
-	# 4. Pick a random interpolation factor between 0.0 (start) and 1.0 (end)
-	var random_weight: float = randf()
-	
-	# 5. Linearly interpolate between the two points to find the position in world space
-	var random_point: Vector3 = edge_start.lerp(edge_end, random_weight)
-	
-	return random_point
 
-func spawn_debug_marker_with_label(position_3d: Vector3, label_text: String):
-	# 1. Instantiate the base marker (Sphere)
-	var marker = MeshInstance3D.new()
-	var sphere_mesh = SphereMesh.new()
-	sphere_mesh.radius = 0.2
-	sphere_mesh.height = 0.4
-	marker.mesh = sphere_mesh
-
-	var material = StandardMaterial3D.new()
-	material.albedo_color = Color(1, 0, 0) # Red
-	material.shading_mode = StandardMaterial3D.SHADING_MODE_UNSHADED
-	marker.material_override = material
-
-	# Position the sphere at the exact coordinate
-	marker.position = position_3d
-	add_child(marker)
-
-	# 2. Instantiate the text label
-	var label = Label3D.new()
-	label.text = label_text
-	label.fixed_size = true
-	label.font_size = 8
-	label.billboard = BaseMaterial3D.BILLBOARD_ENABLED
-	label.no_depth_test = true
-
-	# Position the label slightly above the sphere (Y-axis offset)
-	var offset_y = 0.5
-	label.position = position_3d + Vector3(0, offset_y, 0)
-	add_child(label)
-
-func get_random_direction_vector() -> Vector3:
-	var edge_points: PackedVector3Array = create_area_edge_segments()
-
-	var edge1 := randi() % edge_points.size()
-	var edge2 := randi() % edge_points.size()
-
-	var point1: Vector3 = edge_points[edge1]
-	var point2: Vector3 = edge_points[edge2]
-
-	var direction_vector: Vector3 = (point2 - point1).normalized()
-	return direction_vector
+func get_random_direction_vector(start_point: Vector3) -> Vector3:
+	if collision_shape_3d == null:
+		return Vector3.FORWARD
+	var p2 := get_random_point_on_box_surface()
+	var chord := p2 - start_point
+	if chord.length_squared() < 1e-12:
+		return (collision_shape_3d.global_position - start_point).normalized()
+	var toward_center := collision_shape_3d.global_position - start_point
+	if chord.dot(toward_center) < 0.0:
+		chord = -chord
+	return chord.normalized()

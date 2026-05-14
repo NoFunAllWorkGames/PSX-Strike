@@ -45,6 +45,34 @@ metadata/_custom_type_script = "uid://d5625svdj516"
 script = ExtResource("3_oo3mg")
 metadata/_custom_type_script = "uid://d5625svdj516"
 
+[sub_resource type="Resource" id="Resource_784v2"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_e6n18"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_n2hb1"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_3bb6r"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_06510"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_8fmln"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
+[sub_resource type="Resource" id="Resource_aa0bs"]
+script = ExtResource("3_oo3mg")
+metadata/_custom_type_script = "uid://d5625svdj516"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl7bd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irlk4"]
@@ -54,7 +82,7 @@ albedo_color = Color(1, 0, 0, 1)
 size = Vector3(5, 5, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_irlk4"]
-size = Vector3(50, 50, 50)
+size = Vector3(500, 500, 500)
 
 [sub_resource type="Environment" id="Environment_l0l3b"]
 background_mode = 2
@@ -69,7 +97,7 @@ tonemap_mode = 3
 script = ExtResource("6_4nemy")
 border_area = NodePath("../../World/Environment/Border")
 _enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_4pnen"), SubResource("Resource_k628k"), SubResource("Resource_hfb1i"), SubResource("Resource_evf20"), SubResource("Resource_0sxw4")])
-enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_324nc"), SubResource("Resource_cnqk1"), SubResource("Resource_h4icn")])
+enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_324nc"), SubResource("Resource_cnqk1"), SubResource("Resource_h4icn"), SubResource("Resource_784v2"), SubResource("Resource_e6n18"), SubResource("Resource_n2hb1"), SubResource("Resource_3bb6r"), SubResource("Resource_06510"), SubResource("Resource_8fmln"), SubResource("Resource_aa0bs")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Canvases" parent_id_path=PackedInt32Array(1266257925) index="0" unique_id=473764402]
 
