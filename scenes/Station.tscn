@@ -2,18 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_66bpb"]
 [ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station.gd" id="2_station"]
+[ext_resource type="AudioStream" uid="uid://dasn6p12iij6t" path="res://assets/Sounds/353159__kinoton__room-tone-sci-fi-large-hall.ogg" id="3_t16i2"]
+[ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="5_qjulp"]
 
 [sub_resource type="Environment" id="Environment_66bpb"]
 background_mode = 3
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_66bpb"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_veut8"]
+size = Vector3(1.235, 2.82, 0.52)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t3yy4"]
+size = Vector3(1.2, 0.45, 2.8)
+
+[sub_resource type="PrismMesh" id="PrismMesh_fy63f"]
+size = Vector3(1.2, 1.5, 0.45)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjll1"]
+points = PackedVector3Array(0.028088098, 0.67977977, 0.22053385, -0.58154756, -0.7236678, -0.225, -0.5754761, -0.7160502, 0.225, 0.5720238, -0.7236678, -0.225, 0.0065299356, 0.7236678, -0.225, 0.56595236, -0.7160502, 0.225, -0.015739687, 0.7106508, 0.22331233, 0.5542297, -0.6355743, -0.2180219, 0.5542297, -0.6355743, 0.22040287, -0.015739687, 0.7106508, -0.22093137, -0.56225926, -0.6556482, 0.21981691, -0.56225926, -0.6556482, -0.21743594, 0.0064110737, 0.7160502, 0.225, 0.028088098, 0.67977977, -0.21815288)
 
 [sub_resource type="Animation" id="Animation_wy22o"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Ship:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,22 +34,46 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Engine_Hovering:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_t16i2"]
 resource_name = "hover"
-length = 5.0
+length = 8.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Ship:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.00029309132, 2, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1, 0), Vector3(0, -1, 0), Vector3(0, 0, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5, 0), Vector3(0, 0, 0), Vector3(0, -1.5, 0), Vector3(0, -0.00021982193, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Engine_Hovering:pitch_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2.0, 1.0, 2.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_47i8t"]
@@ -124,11 +160,36 @@ spot_range = 9.971667
 [node name="Camera3D" type="Camera3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="4" unique_id=1498511072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.8821)
 
-[node name="Ship" type="MeshInstance3D" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=304858990]
-transform = Transform3D(-3.090862e-08, 0.70710677, 0.70710677, -1, -4.371139e-08, 0, 3.090862e-08, -0.70710677, 0.70710677, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_66bpb")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="5" unique_id=865072657]
+stream = ExtResource("3_t16i2")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Characters/Ship" index="0" unique_id=1505904149]
-root_node = NodePath("../..")
+[node name="PlayerShipArchon" type="CharacterBody3D" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894]
+transform = Transform3D(-0.9054355, 0, 0.42448393, 0, 1, 0, -0.42448393, 0, -0.9054355, 0, 0, 0)
+
+[node name="Body_Collision" type="CollisionShape3D" parent="World/Characters/PlayerShipArchon" index="0" unique_id=565055451]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+shape = SubResource("BoxShape3D_veut8")
+
+[node name="Body_Mesh" type="MeshInstance3D" parent="World/Characters/PlayerShipArchon" index="1" unique_id=1353798468]
+mesh = SubResource("BoxMesh_t3yy4")
+
+[node name="Head_Mesh" type="MeshInstance3D" parent="World/Characters/PlayerShipArchon" index="2" unique_id=1637692257]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.1501198)
+mesh = SubResource("PrismMesh_fy63f")
+
+[node name="Head_Collision" type="CollisionShape3D" parent="World/Characters/PlayerShipArchon" index="3" unique_id=894148406]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.1501198)
+shape = SubResource("ConvexPolygonShape3D_qjll1")
+
+[node name="Engine_Hovering" type="AudioStreamPlayer" parent="World/Characters/PlayerShipArchon" index="4" unique_id=202474421]
+stream = ExtResource("5_qjulp")
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Characters/PlayerShipArchon" index="5" unique_id=1505904149]
 libraries/ = SubResource("AnimationLibrary_47i8t")
 autoplay = &"hover"
