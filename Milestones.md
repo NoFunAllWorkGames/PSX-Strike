@@ -4,12 +4,12 @@ Milestones
 MVP
 ---
 
-- Space Scene
-- Player-ship movement
-- Camera Movement
-- Space Station Spawning
-- Asteroid Spawning
-- Collision physics
+- Space Scene ✅
+- Player-ship movement ✅
+- Camera Movement ✅
+- Space Station Spawning ✅
+- Asteroid Spawning ✅
+- Collision physics ✅
 - Concept art of ship, turrets, station, enemy ships, and the Entity
 - Main song
 - Ship reactor & thuster sound effects

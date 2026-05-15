@@ -4,9 +4,15 @@ Todo
 MVP
 ---
 
+- Fix Controls
 
 
-Optional
----------
+Vertical Slice 
+--------------
 
-- Save Load System
+
+Milestone 1
+-----------
+
+Milestone 2
+-----------

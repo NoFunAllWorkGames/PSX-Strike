@@ -1,43 +1,60 @@
 @tool
 extends Area3D
 
-@export var generate_button: bool = false : set = _set_generate
+@export_tool_button("Create Asteroids", "CreateIcon") var create_button = create_asteroids
+@export_tool_button("Clear Asteroids", "ClearIcon") var clear_button = clear_asteroids
 @export var count: int = 100
 @export var spread: float = 50.0 # Replaces noise_strength
 
-func _set_generate(_val: bool) -> void:
-	clear_elements()
+func create_asteroids() -> void:
+	clear_asteroids()
 	spawn_gaussian_cloud()
 
-func clear_elements() -> void:
+func clear_asteroids() -> void:
 	for child in get_children():
-		if child is MeshInstance3D:
-			child.free()
+		child.free()
 
 func spawn_gaussian_cloud() -> void:
 	var sphere_res = SphereMesh.new()
 	sphere_res.radius = 0.5
 	sphere_res.height = 1.0
 
+	# Create the shape resource once to reuse for performance
+	var collision_shape_res = SphereShape3D.new()
+	collision_shape_res.radius = 0.5
+
 	for i in range(count):
-		# Generate a random direction vector on a unit sphere
 		var direction = Vector3(
 			randfn(0, 1),
 			randfn(0, 1),
 			randfn(0, 1)
 		).normalized()
 		
-		# randfn(mean, deviation) creates the "clumping" effect
-		# Most values will be near 0, fewer will be near the 'spread'
 		var distance = randfn(0, spread)
-		
 		var final_pos = direction * distance
 		
+		# Create Physics Body
+		var static_body = StaticBody3D.new()
+		static_body.collision_layer = 1
+		static_body.collision_mask = 0
+		
+		# Create MeshInstance
 		var mesh_instance = MeshInstance3D.new()
 		mesh_instance.mesh = sphere_res
-		add_child(mesh_instance)
+		
+		# Create CollisionShape
+		var collision_shape = CollisionShape3D.new()
+		collision_shape.shape = collision_shape_res
+		
+		# Assemble Hierarchy
+		static_body.add_child(mesh_instance)
+		static_body.add_child(collision_shape)
+		add_child(static_body)
 		
 		if Engine.is_editor_hint():
-			mesh_instance.owner = get_tree().edited_scene_root
+			var root = get_tree().edited_scene_root
+			static_body.owner = root
+			mesh_instance.owner = root
+			collision_shape.owner = root
 			
-		mesh_instance.transform.origin = final_pos
+		static_body.transform.origin = final_pos
