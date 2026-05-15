@@ -1,6 +1,6 @@
 extends Control
 
-@onready var undock_button = get_node("MarginContainer/HBoxContainer/VBoxContainer/undock")
+@onready var undock_button = get_node("MarginContainer/VBoxContainer/undock")
 
 func _ready() -> void:
 	InputManager.release_mouse()

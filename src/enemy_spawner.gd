@@ -4,7 +4,7 @@ extends Node
 @export var enemy_ship_data: EnemyShipData = preload("res://src/ships/enemy_ship_rando.tres")
 @export var border_area: Area3D
 
-@onready var enemySpawnTreePoint := $"../../World/Enemies"
+@onready var enemySpawnTreePoint := $"../../HBoxContainer/SubViewportContainer/SubViewport/World/Enemies"
 
 @export_storage var _enemy_spawn_slots: Array[EnemySpawnSlot] = []
 

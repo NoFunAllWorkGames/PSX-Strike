@@ -29,9 +29,14 @@ InputManager="*uid://dj6onx707gyts"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
+window/size/viewport_width=426
+window/size/viewport_height=240
+window/size/initial_position_type=3
+window/size/initial_position=Vector2i(943, 239)
+window/size/initial_screen=1
+window/size/window_width_override=852
+window/size/window_height_override=480
+window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
 [input]

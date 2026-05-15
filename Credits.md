@@ -14,8 +14,9 @@ Resources
 | ---        | ---      | ---    |
 | flare_0 | Signal light at enemy ship | https://opengameart.org/content/flare-effect-blender |
 | Night Sky HDRI 007 | Space background | https://ambientcg.com/view?id=NightSkyHDRI007 |
-| 353159__kinoton__room-tone-sci-fi-large-hall | Space Station Ambient |https://freesound.org/people/Kinoton/sounds/353159/|
-| 130883__karma-ron__mysterion-low-ship-humming|Space Scene Space Ship Idle |https://freesound.org/people/Karma-Ron/sounds/130883/|
+| 353159__kinoton__room-tone-sci-fi-large-hall | Space Station Ambient | https://freesound.org/people/Kinoton/sounds/353159/ |
+| 130883__karma-ron__mysterion-low-ship-humming| Space Scene Space Ship Idle | https://freesound.org/people/Karma-Ron/sounds/130883/ |
+| WallTextureSpaceStation_Tripwire_Pinterest | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
 
 Unused Resources
 ----------------
