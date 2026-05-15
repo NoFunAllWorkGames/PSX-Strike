@@ -17,10 +17,10 @@ MVP
 Vertical Slice 
 --------------
 
-- Mining Laser 🚧
-- Cargo capacity & Hull integrity HUD elements
+- Mining Laser ✅
+- Cargo capacity & Hull integrity HUD elements 🚧
 - Destroyed asteroids create resources to be collected when flown into
-- Switching & Firing Armements (Laser repeater, Ballistic Cannon, Missile pod) & Ammo counters
+- Switching & Firing Armaments (Laser repeater, Ballistic Cannon, Missile pod) & Ammo counters
 - Turrets can be deployed
 - Returning to the station will deposit resources and generate currency
 - Enemy ships can spawn and will shoot at the player ( Just need 1 behavior; sturdy for now)
@@ -31,7 +31,7 @@ Vertical Slice
 - asteroid models
 - One enemy ship model (Sturdy)
 - Basic Entity design
-- Sound effects for mining laser, armements, turret deployment, and collisions
+- Sound effects for mining laser, armaments, turret deployment, and collisions
 - One Ambient gameplay sound track
 
 Milestone 1
