@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://banmxady1gnji" path="res://src/ships/player_ship_archon.gd" id="1_uaftn"]
 [ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="2_fy63f"]
+[ext_resource type="Script" uid="uid://co7qjmw5034m6" path="res://src/actions/shooting.gd" id="3_qjll1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veut8"]
 size = Vector3(1.235, 2.82, 0.52)
@@ -48,3 +49,8 @@ stream = ExtResource("2_fy63f")
 autoplay = true
 bus = &"SFX"
 parameters/looping = true
+
+[node name="Components" type="Node3D" parent="." unique_id=587559025]
+
+[node name="Shooting" type="Node3D" parent="Components" unique_id=1339923666]
+script = ExtResource("3_qjll1")

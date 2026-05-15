@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dgnkhrwei01qs"]
+
+[ext_resource type="Script" uid="uid://dfoebjwwt1k4a" path="res://src/actions/mining_laser.gd" id="1_3yb6q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yb6q"]
+shading_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ds5mv"]
+material = SubResource("StandardMaterial3D_3yb6q")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.0
+radial_segments = 4
+
+[node name="MiningLaser" type="Node3D" unique_id=1540017152]
+script = ExtResource("1_3yb6q")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1118427114]
+collision_mask = 5
+
+[node name="LaserMeshInstance" type="MeshInstance3D" parent="." unique_id=1296448054]
+mesh = SubResource("CylinderMesh_ds5mv")

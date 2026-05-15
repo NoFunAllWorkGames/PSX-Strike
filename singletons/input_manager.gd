@@ -51,6 +51,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func _handle_space_unhandled(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_action_pressed("interact"):
 		interact_pressed.emit()
+	elif event.is_action_pressed("Shoot"):
+		SignalBus.shoot_action_pressed.emit()
+	elif event.is_action_released("Shoot"):
+		SignalBus.shoot_action_released.emit()
 	elif event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		mouse_look_relative.emit(event.relative)
 	elif enable_freelook_click_capture and event is InputEventMouseButton and event.pressed:
