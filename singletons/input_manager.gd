@@ -65,10 +65,6 @@ func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
-func get_ship_yaw_axis() -> float:
-	return Input.get_action_strength("ship_yaw_left") - Input.get_action_strength("ship_yaw_right")
-
-
 func get_ship_pitch_axis() -> float:
 	return Input.get_action_strength("ship_pitch_up") - Input.get_action_strength("ship_pitch_down")
 
