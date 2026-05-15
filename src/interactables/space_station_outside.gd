@@ -35,12 +35,15 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 func undock_ship():
 	print("Undocking ship")
 	# Start from Main Menu
-	if GameManager.previous_scene_path == "res://scenes/Main_Menu.tscn":
-		print("Undocking ship from main menu")
-		var spawn_position := $SpawnUndockStation.global_position as Vector3
-		var spawn_position_direction := $SpawnUndockStation.global_rotation as Vector3
-		PlayerShip.global_position = spawn_position
-		PlayerShip.global_rotation = spawn_position_direction
+	# This code is deactivated because I don't know why I wanted to
+	# set the position when the player starts the game.
+	# It should be easier to use the pre-set position
+	#if GameManager.previous_scene_path == "res://scenes/Main_Menu.tscn":
+		#print("Undocking ship from main menu")
+		#var spawn_position := $SpawnUndockStation.global_position as Vector3
+		#var spawn_position_direction := $SpawnUndockStation.global_rotation as Vector3
+		#PlayerShip.global_position = spawn_position
+		#PlayerShip.global_rotation = spawn_position_direction
 
 	# Start from Station
 	if GameManager.previous_scene_path == "res://scenes/Station.tscn":
