@@ -12,7 +12,7 @@ MVP
 - Collision physics ✅
 - Concept art of ship, turrets, station, enemy ships, and the Entity
 - Main song
-- Ship reactor & thuster sound effects
+- Ship reactor & thuster sound effects ✅
 
 Vertical Slice 
 --------------
