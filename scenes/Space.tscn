@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://cgcqq1finjs42" path="res://src/ships/enemy_ship_rando.tres" id="4_324nc"]
 [ext_resource type="Script" uid="uid://b2s52ydusuhmc" path="res://src/border_area.gd" id="5_suwts"]
 [ext_resource type="Script" uid="uid://q4v0ljs4it4q" path="res://src/enemy_spawner.gd" id="6_4nemy"]
+[ext_resource type="Script" uid="uid://df6832ebx1vmt" path="res://src/ui/cargo_capacity.gd" id="7_4pnen"]
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/gaussian_asteroid.gd" id="10_4pnen"]
 
 [sub_resource type="Resource" id="Resource_4pnen"]
@@ -72,6 +73,12 @@ metadata/_custom_type_script = "uid://d5625svdj516"
 script = ExtResource("3_oo3mg")
 metadata/_custom_type_script = "uid://d5625svdj516"
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pnen"]
+bg_color = Color(0, 0.73333335, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k628k"]
+bg_color = Color(0.73333335, 0, 0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yl7bd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_irlk4"]
@@ -114,6 +121,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 44.0
+offset_top = 15.0
+offset_right = 44.0
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -122,6 +133,77 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 horizontal_alignment = 3
 script = ExtResource("2_irlk4")
+
+[node name="CargoCapacity" type="MarginContainer" parent="Canvases/CanvasLayer/SpaceUI" index="1" unique_id=1631608309]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -256.0
+offset_bottom = 256.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_right = 16
+script = ExtResource("7_4pnen")
+
+[node name="ProgressBar" type="ProgressBar" parent="Canvases/CanvasLayer/SpaceUI/CargoCapacity" index="0" unique_id=1799037081]
+custom_minimum_size = Vector2(32, 512)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_4pnen")
+step = 1.0
+fill_mode = 3
+
+[node name="Label" type="Label" parent="Canvases/CanvasLayer/SpaceUI/CargoCapacity/ProgressBar" index="0" unique_id=1019791805]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -6.5
+offset_top = 4.1799927
+offset_right = 6.5
+offset_bottom = 27.180115
+grow_horizontal = 2
+grow_vertical = 0
+text = "Cargo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="MarginContainer" parent="Canvases/CanvasLayer/SpaceUI" index="2" unique_id=814881232]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="ProgressBar" type="ProgressBar" parent="Canvases/CanvasLayer/SpaceUI/Health" index="0" unique_id=945942421]
+custom_minimum_size = Vector2(512, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_k628k")
+step = 1.0
+value = 100.0
+fill_mode = 1
+
+[node name="Label" type="Label" parent="Canvases/CanvasLayer/SpaceUI/Health/ProgressBar" index="0" unique_id=864087933]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = -9.0
+grow_horizontal = 2
+text = "Health"
 
 [node name="SpaceStation" type="CSGCombiner3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1998275679]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.893639)
