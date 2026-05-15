@@ -10,14 +10,14 @@ MVP
 - Space Station Spawning ✅
 - Asteroid Spawning ✅
 - Collision physics ✅
-- Concept art of ship, turrets, station, enemy ships, and the Entity
-- Main song
+- Concept art of ship, turrets, station, enemy ships, and the Entity ❌
+- Main song ❌
 - Ship reactor & thuster sound effects ✅
 
 Vertical Slice 
 --------------
 
-- Mining Laser
+- Mining Laser 🚧
 - Cargo capacity & Hull integrity HUD elements
 - Destroyed asteroids create resources to be collected when flown into
 - Switching & Firing Armements (Laser repeater, Ballistic Cannon, Missile pod) & Ammo counters
