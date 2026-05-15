@@ -100,6 +100,12 @@ It is important that while this takes place in the wider universe that we never 
 **Visuals**
 ============
 
+Resolution and sizing
+---------------------
+
+The game will be run in **426x240** which is a widescreen version of the original **320 × 240** NTSC Standard original PSX size.  
+The main window will remain at the original **320 × 240** resolution but it will have two added sidebars with a resolution of **53x240** each. To make the game easier to see on modern displays it will by default scale the window by a factor 2, while remaining the original internal resolution.
+
 **Visual Aesthetic**
 --------------------
 
@@ -214,8 +220,7 @@ The aesthetic of the music and sounds of this game will be eerie and unsettling,
 ---------
 
 * **Dave (Suntyger)** - Original Idea, abandoned
-* **B1773rm4n** - Developer
-* **Hoowup** - Artist
+* **B1773rm4n** - Everything else
 
 
 **Release**
