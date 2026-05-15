@@ -6,6 +6,10 @@ extends Area3D
 @export var count: int = 100
 @export var spread: float = 50.0 # Replaces noise_strength
 
+func _ready() -> void:
+	if not Engine.is_editor_hint():
+		tag_asteroid_children()
+
 func create_asteroids() -> void:
 	clear_asteroids()
 	spawn_gaussian_cloud()
@@ -50,7 +54,8 @@ func spawn_gaussian_cloud() -> void:
 		static_body.add_child(mesh_instance)
 		static_body.add_child(collision_shape)
 		add_child(static_body)
-		
+		tag_asteroid(static_body)
+
 		if Engine.is_editor_hint():
 			var root = get_tree().edited_scene_root
 			static_body.owner = root
@@ -58,3 +63,11 @@ func spawn_gaussian_cloud() -> void:
 			collision_shape.owner = root
 			
 		static_body.transform.origin = final_pos
+
+func tag_asteroid_children() -> void:
+	for child in get_children():
+		if child is StaticBody3D:
+			tag_asteroid(child)
+
+func tag_asteroid(body: StaticBody3D) -> void:
+	body.add_to_group("Asteroid")

@@ -4,16 +4,31 @@ extends Node3D
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var laser_mesh: MeshInstance3D = $LaserMeshInstance
 
+func _ready() -> void:
+	_update_raycast_length()
+
+func _update_raycast_length() -> void:
+	ray_cast_3d.target_position = Vector3(0, 0, -max_length)
+
 func _physics_process(delta: float) -> void:
 	var target_point: Vector3
+	var hit_object
 	
 	if ray_cast_3d.is_colliding():
 		target_point = ray_cast_3d.get_collision_point()
+		hit_object = ray_cast_3d.get_collider()
+		process_hit_object(hit_object)
 	else:
 		# If no collision, extend to maximum range
 		target_point = ray_cast_3d.global_transform * Vector3(0, 0, -max_length)
 	
 	update_laser_geometry(target_point)
+
+func process_hit_object(hit_object):
+	if hit_object == null:
+		return
+	if hit_object.is_in_group("Asteroid"):
+		hit_object.queue_free()
 
 func update_laser_geometry(target_point: Vector3) -> void:
 	var origin_point: Vector3 = ray_cast_3d.global_position
