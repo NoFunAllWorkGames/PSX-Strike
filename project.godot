@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="ProjectStrike"
-run/main_scene="uid://bl6lu8aby3qjs"
+run/main_scene="uid://x7df5teokeca"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://bvxdihgjfpcl4"
+config/icon="uid://bvxdihgjfpcl4"
 
 [audio]
 

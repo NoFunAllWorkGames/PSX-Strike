@@ -10,6 +10,9 @@ B1773rm4n
 Resources
 ==========
 
+Downloaded Assets
+-----------------
+
 | Asset name | Used for | Source |
 | ---        | ---      | ---    |
 | flare_0 | Signal light at enemy ship | https://opengameart.org/content/flare-effect-blender |
@@ -19,6 +22,15 @@ Resources
 | WallTextureSpaceStation_Tripwire_Pinterest | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
 | asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering | https://www.vecteezy.com/vector-art/41412951-black-vector-asteroid-icon-isolated-on-white-background |
 | 833495__wavewire__lootpickup_feedback.ogg | When Asteroid Resource Pickup Collected | https://freesound.org/people/Wavewire/sounds/833495/ |
+
+
+Self-Created Assets
+-------------------
+
+| Asset name | Used for | Creator |
+| ---        | ---      | ---    |
+| Icon_v1 | Splash and Icon | B1773rm4n |
+
 
 Unused Resources
 ----------------
