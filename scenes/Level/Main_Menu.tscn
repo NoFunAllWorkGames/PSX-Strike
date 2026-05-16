@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bl6lu8aby3qjs"]
 
 [ext_resource type="Script" uid="uid://wkn6ou0g1ylf" path="res://src/ui/main_menu.gd" id="1_menum"]
-[ext_resource type="PackedScene" uid="uid://x7df5teokeca" path="res://scenes/Space.tscn" id="2_space"]
+[ext_resource type="PackedScene" uid="uid://x7df5teokeca" path="res://scenes/Level/Space.tscn" id="2_space"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=2128258435]
 script = ExtResource("1_menum")

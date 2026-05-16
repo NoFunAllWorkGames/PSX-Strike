@@ -28,7 +28,7 @@ func _ready() -> void:
 	_ship_yaw = rotation.y
 	_look_pitch = rotation.x
 	camera_pivot.rotation = Vector3.ZERO
-	current_weapon = preload("res://scenes/Actions/mining_laser.tscn")
+	current_weapon = preload("res://scenes/Objects/mining_laser.tscn")
 
 func _exit_tree() -> void:
 	InputManager.enable_freelook_click_capture = false

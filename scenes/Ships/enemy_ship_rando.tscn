@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://ccjx4jgvuw1lh"]
 
-[ext_resource type="Texture2D" uid="uid://b7bodi22eo6l7" path="res://assets/flare_0.png" id="1_5fbqj"]
+[ext_resource type="Texture2D" uid="uid://b7bodi22eo6l7" path="res://assets/Textures/flare_0.png" id="1_5fbqj"]
 [ext_resource type="Script" uid="uid://docj8om136amr" path="res://src/ships/enemy_ship_rando.gd" id="1_trtub"]
-[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/ships/enemy_ship_rando_res.gd" id="2_h0scj"]
+[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_rando_res.gd" id="2_h0scj"]
 
 [sub_resource type="Resource" id="Resource_h5a4a"]
 script = ExtResource("2_h0scj")

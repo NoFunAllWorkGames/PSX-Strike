@@ -1,6 +1,6 @@
 extends Node
 
-const PAUSE_MENU_SCENE := preload("res://scenes/Pause_Menu.tscn")
+const PAUSE_MENU_SCENE := preload("res://scenes/UI/Pause_Menu.tscn")
 
 var PlayerShip: CharacterBody3D
 var previous_scene_path: String = ""
@@ -25,11 +25,11 @@ func _sync_state_from_current_scene() -> void:
 
 func _apply_state_from_scene_path(path: String) -> void:
 	match path:
-		"res://scenes/Main_Menu.tscn":
+		"res://scenes/Level/Main_Menu.tscn":
 			game_state = Enums.GameState.MAIN_MENU
-		"res://scenes/Space.tscn":
+		"res://scenes/Level/Space.tscn":
 			game_state = Enums.GameState.SPACE
-		"res://scenes/Station.tscn":
+		"res://scenes/Level/Station.tscn":
 			game_state = Enums.GameState.STATION
 		_:
 			pass

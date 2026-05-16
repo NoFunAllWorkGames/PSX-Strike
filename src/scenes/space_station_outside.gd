@@ -18,7 +18,7 @@ func _exit_tree() -> void:
 func _on_interact_pressed() -> void:
 	if not _player_in_dock_zone:
 		return
-	GameManager.transition_to("res://scenes/Station.tscn")
+	GameManager.transition_to("res://scenes/Level/Station.tscn")
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body != PlayerShip:
@@ -38,7 +38,7 @@ func undock_ship():
 	# This code is deactivated because I don't know why I wanted to
 	# set the position when the player starts the game.
 	# It should be easier to use the pre-set position
-	#if GameManager.previous_scene_path == "res://scenes/Main_Menu.tscn":
+	#if GameManager.previous_scene_path == "res://scenes/Level/Main_Menu.tscn":
 		#print("Undocking ship from main menu")
 		#var spawn_position := $SpawnUndockStation.global_position as Vector3
 		#var spawn_position_direction := $SpawnUndockStation.global_rotation as Vector3
@@ -46,7 +46,7 @@ func undock_ship():
 		#PlayerShip.global_rotation = spawn_position_direction
 
 	# Start from Station
-	if GameManager.previous_scene_path == "res://scenes/Station.tscn":
+	if GameManager.previous_scene_path == "res://scenes/Level/Station.tscn":
 		print("Undocking ship from station")
 		var spawn_position = $SpawnUndockStation.global_position as Vector3
 		var marker_basis = $SpawnUndockStation.global_transform.basis

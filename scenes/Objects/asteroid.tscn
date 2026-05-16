@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e830b2yg26ei"]
 
-[ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/interactables/asteroid.gd" id="1_akfqu"]
+[ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/scenes/asteroid.gd" id="1_akfqu"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_akfqu"]
 

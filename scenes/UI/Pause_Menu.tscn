@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://djhtcgttpg1oo"]
 
-[ext_resource type="Script" uid="uid://crdxwk33o1qc3" path="res://scenes/pause_menu.gd" id="1_pause"]
+[ext_resource type="Script" uid="uid://crdxwk33o1qc3" path="res://src/ui/pause_menu.gd" id="1_ckicd"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1957793238]
 process_mode = 3
 layer = 128
-script = ExtResource("1_pause")
+script = ExtResource("1_ckicd")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=641602846]
 anchors_preset = 15

@@ -1,7 +1,7 @@
 extends Resource
 class_name EnemySpawnSlot
 
-const DEFAULT_ENEMY_SHIP_DATA := preload("res://src/ships/enemy_ship_rando.tres")
+const DEFAULT_ENEMY_SHIP_DATA := preload("res://src/data/enemy_ship_rando.tres")
 
 @export var enemy_scene: PackedScene = preload("res://scenes/Ships/enemy_ship_rando.tscn")
 @export var enemy_ship_data: EnemyShipData = DEFAULT_ENEMY_SHIP_DATA

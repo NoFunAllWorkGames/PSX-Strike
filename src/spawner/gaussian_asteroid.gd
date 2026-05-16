@@ -11,7 +11,7 @@ extends Area3D
 @export var max_health: float = 100.0
 @export var health: float = 100.0
 
-const asteroid_scene := preload("res://scenes/asteroid.tscn")
+const asteroid_scene := preload("res://scenes/Objects/asteroid.tscn")
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():

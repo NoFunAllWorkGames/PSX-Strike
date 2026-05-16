@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qq7vhqfe5vax"]
 
-[ext_resource type="Script" uid="uid://rmuxinxt0ku2" path="res://src/asteroid_pickup.gd" id="1_m4tws"]
-[ext_resource type="Texture2D" uid="uid://caq1albo86lvj" path="res://assets/asteroid-icon_vecteezy.png" id="1_updaf"]
+[ext_resource type="Script" uid="uid://rmuxinxt0ku2" path="res://src/scenes/asteroid_pickup.gd" id="1_m4tws"]
+[ext_resource type="Texture2D" uid="uid://caq1albo86lvj" path="res://assets/Textures/asteroid-icon_vecteezy.png" id="1_updaf"]
 [ext_resource type="AudioStream" uid="uid://dpdy3pxukjjac" path="res://assets/Sounds/833495__wavewire__lootpickup_feedback.ogg" id="3_wusco"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m4tws"]

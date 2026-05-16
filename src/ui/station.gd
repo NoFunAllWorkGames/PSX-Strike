@@ -8,4 +8,4 @@ func _ready() -> void:
 
 func _on_undock_pressed() -> void:
 	print("Undock button pressed")
-	GameManager.transition_to("res://scenes/Space.tscn")
+	GameManager.transition_to("res://scenes/Level/Space.tscn")

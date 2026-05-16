@@ -9,12 +9,12 @@ class_name Asteroid
 @export var health: float
 @export var gained_resource: int
 
-var asteroid_pickup = preload("res://scenes/asteroid_pickup.tscn")
+var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
 
 func _ready() -> void:
 	add_to_group("Asteroid")
-
+	
 func take_damage(applied_damage: float) -> void:
 	health -= applied_damage
 	SignalBus.display_asteroid_lifebar.emit(self)

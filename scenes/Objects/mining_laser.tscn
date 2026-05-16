@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dgnkhrwei01qs"]
 
-[ext_resource type="Script" uid="uid://dfoebjwwt1k4a" path="res://src/actions/mining_laser.gd" id="1_3yb6q"]
+[ext_resource type="Script" uid="uid://dfoebjwwt1k4a" path="res://src/components/mining_laser.gd" id="1_3yb6q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yb6q"]
 shading_mode = 0
