@@ -3,12 +3,23 @@ extends Area3D
 
 @export_tool_button("Create Asteroids", "CreateIcon") var create_button = create_asteroids
 @export_tool_button("Clear Asteroids", "ClearIcon") var clear_button = clear_asteroids
+@export_group("Field Settings")
 @export var count: int = 100
 @export var spread: float = 50.0 # Replaces noise_strength
 
+@export_group("Asteroid Settings")
+@export var max_health: float = 100.0
+@export var health: float = 100.0
+
+const asteroid_scene := preload("res://scenes/asteroid.tscn")
+
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		tag_asteroid_children()
+		SignalBus.damage_asteroid.connect(_on_damage_asteroid)
+
+func _on_damage_asteroid(target, damage) -> void:
+	if is_instance_valid(target) and target.has_method("take_damage"):
+		target.take_damage(damage)
 
 func create_asteroids() -> void:
 	clear_asteroids()
@@ -19,13 +30,6 @@ func clear_asteroids() -> void:
 		child.free()
 
 func spawn_gaussian_cloud() -> void:
-	var sphere_res = SphereMesh.new()
-	sphere_res.radius = 0.5
-	sphere_res.height = 1.0
-
-	# Create the shape resource once to reuse for performance
-	var collision_shape_res = SphereShape3D.new()
-	collision_shape_res.radius = 0.5
 
 	for i in range(count):
 		var direction = Vector3(
@@ -36,38 +40,19 @@ func spawn_gaussian_cloud() -> void:
 		
 		var distance = randfn(0, spread)
 		var final_pos = direction * distance
-		
-		# Create Physics Body
-		var static_body = StaticBody3D.new()
-		static_body.collision_layer = 1
-		static_body.collision_mask = 0
-		
-		# Create MeshInstance
-		var mesh_instance = MeshInstance3D.new()
-		mesh_instance.mesh = sphere_res
-		
-		# Create CollisionShape
-		var collision_shape = CollisionShape3D.new()
-		collision_shape.shape = collision_shape_res
-		
-		# Assemble Hierarchy
-		static_body.add_child(mesh_instance)
-		static_body.add_child(collision_shape)
-		add_child(static_body)
-		tag_asteroid(static_body)
+				
+		# Add Data
+		health = 50.0
+		# First number is random cap, second number is always added
+		var gained_resource :float = randi() % 10 + 1
+
+		var asteroid_instance = asteroid_scene.instantiate()
+		asteroid_instance.transform.origin = final_pos
+		asteroid_instance.health = health
+		asteroid_instance.max_health = health
+		asteroid_instance.gained_resource = gained_resource
+		add_child(asteroid_instance)
 
 		if Engine.is_editor_hint():
 			var root = get_tree().edited_scene_root
-			static_body.owner = root
-			mesh_instance.owner = root
-			collision_shape.owner = root
-			
-		static_body.transform.origin = final_pos
-
-func tag_asteroid_children() -> void:
-	for child in get_children():
-		if child is StaticBody3D:
-			tag_asteroid(child)
-
-func tag_asteroid(body: StaticBody3D) -> void:
-	body.add_to_group("Asteroid")
+			asteroid_instance.owner = root

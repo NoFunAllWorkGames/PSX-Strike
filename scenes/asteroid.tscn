@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://e830b2yg26ei"]
+
+[ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/interactables/asteroid.gd" id="1_akfqu"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_akfqu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6mo6b"]
+
+[node name="Asteroid" type="RigidBody3D" unique_id=1904658444]
+collision_layer = 65
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_akfqu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1550071547]
+mesh = SubResource("SphereMesh_akfqu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2099872403]
+shape = SubResource("SphereShape3D_6mo6b")

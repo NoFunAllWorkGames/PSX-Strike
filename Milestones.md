@@ -19,10 +19,10 @@ Vertical Slice
 
 - Mining Laser ✅
 - Cargo capacity & Hull integrity HUD elements ✅
-- Destroyed asteroids create resources to be collected when flown into 🚧
+- Destroyed asteroids create resources to be collected when flown into ✅
 - Switching & Firing Armaments (Laser repeater, Ballistic Cannon, Missile pod) & Ammo counters
 - Turrets can be deployed
-- Returning to the station will deposit resources and generate currency
+- Returning to the station will deposit resources and generate currency 🚧
 - Enemy ships can spawn and will shoot at the player ( Just need 1 behavior; sturdy for now)
 - The Entity can spawn and will chase the player
 - Basic ship model, including mining laser & armaments

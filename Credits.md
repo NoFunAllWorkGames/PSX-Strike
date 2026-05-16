@@ -17,6 +17,8 @@ Resources
 | 353159__kinoton__room-tone-sci-fi-large-hall | Space Station Ambient | https://freesound.org/people/Kinoton/sounds/353159/ |
 | 130883__karma-ron__mysterion-low-ship-humming| Space Scene Space Ship Idle | https://freesound.org/people/Karma-Ron/sounds/130883/ |
 | WallTextureSpaceStation_Tripwire_Pinterest | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
+| asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering | https://www.vecteezy.com/vector-art/41412951-black-vector-asteroid-icon-isolated-on-white-background |
+| 833495__wavewire__lootpickup_feedback.ogg | When Asteroid Resource Pickup Collected | https://freesound.org/people/Wavewire/sounds/833495/ |
 
 Unused Resources
 ----------------

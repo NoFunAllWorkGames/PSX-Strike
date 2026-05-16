@@ -10,6 +10,8 @@ extends CharacterBody3D
 @export var min_pitch_degrees: float = -45.0
 @export var max_pitch_degrees: float = 45.0
 
+@onready var cargo: CargoComponent = $Components/Cargo
+
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera_3d: Camera3D = $CameraPivot/SpringArm3D/Camera3D
 @onready var engine_hovering: AudioStreamPlayer = $Engine_Hovering
@@ -79,7 +81,6 @@ func _apply_movement(delta: float) -> void:
 
 	var blend_weight := acceleration if target_velocity != Vector3.ZERO else deceleration
 	velocity = velocity.move_toward(target_velocity, blend_weight * delta)
-
 
 func _update_engine_hovering_pitch() -> void:
 	var speed_ratio := 0.0

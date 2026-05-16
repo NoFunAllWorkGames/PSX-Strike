@@ -11,8 +11,9 @@
 [ext_resource type="Script" uid="uid://b2s52ydusuhmc" path="res://src/border_area.gd" id="5_suwts"]
 [ext_resource type="Script" uid="uid://q4v0ljs4it4q" path="res://src/enemy_spawner.gd" id="6_4nemy"]
 [ext_resource type="Texture2D" uid="uid://bk17n28e3ovi6" path="res://assets/WallTextureSpaceStation_Tripwire_Pinterest.jpg" id="6_k628k"]
-[ext_resource type="Script" uid="uid://df6832ebx1vmt" path="res://src/ui/cargo_capacity.gd" id="7_4pnen"]
+[ext_resource type="Script" uid="uid://df6832ebx1vmt" path="res://src/ui/cargo_capacity_view.gd" id="7_4pnen"]
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/gaussian_asteroid.gd" id="10_4pnen"]
+[ext_resource type="Script" uid="uid://fm6pi8klcq1f" path="res://src/ui/damagebar_view.gd" id="14_hfb1i"]
 
 [sub_resource type="Resource" id="Resource_4pnen"]
 script = ExtResource("3_oo3mg")
@@ -100,6 +101,9 @@ anti_aliasing = false
 bg_color = Color(0.73333335, 0, 0, 1)
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sxw4"]
+bg_color = Color(0.73333335, 0, 0, 1)
+
 [node name="Scene" unique_id=1408701904 instance=ExtResource("1_3swrr")]
 
 [node name="EnemySpawner" type="Node" parent="Managers" parent_id_path=PackedInt32Array(832875041) index="0" unique_id=1847293847 node_paths=PackedStringArray("border_area")]
@@ -170,9 +174,10 @@ collision_shape_3d = NodePath("CollisionShape3D")
 shape = SubResource("BoxShape3D_irlk4")
 
 [node name="NoiseAsteroid" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1610750277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -100)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75)
 script = ExtResource("10_4pnen")
 spread = 200.0
+health = 50.0
 
 [node name="PlayerShipArchon" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("3_3hkh3")]
 collision_layer = 2
@@ -267,6 +272,31 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_k628k")
 step = 1.0
 value = 100.0
 fill_mode = 1
+
+[node name="Damagebar" type="ProgressBar" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="3" unique_id=1475009817]
+custom_minimum_size = Vector2(64, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -30.0
+offset_right = 32.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_0sxw4")
+step = 1.0
+rounded = true
+show_percentage = false
+script = ExtResource("14_hfb1i")
+
+[node name="Timer" type="Timer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Damagebar" index="0" unique_id=56455347]
+wait_time = 2.0
+one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Right" parent_id_path=PackedInt32Array(1952944656) index="0" unique_id=1566733448]
 z_index = -1
