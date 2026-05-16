@@ -1,11 +1,17 @@
 Team
 =====
 
-**Original Idea:**  
-Suntyger from New Horizon Studios
+ **B1773rm4n** from NoFunAllWorkGames
+- Everything
 
-**Everything:**  
-B1773rm4n
+**Suntyger** from New Horizon Studios
+- Original Idea
+- Creation of the original GDD
+- Creation of the Milestones
+
+**francobhalla**
+- Creation of SoundDesignPlan.md
+
 
 Resources
 ==========
