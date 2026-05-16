@@ -83,7 +83,6 @@ _data = {
 }
 
 [node name="Scene" unique_id=1408701904 instance=ExtResource("1_66bpb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00021982193, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Canvases" parent_id_path=PackedInt32Array(1266257925) index="0" unique_id=907530879]
 

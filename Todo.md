@@ -11,5 +11,7 @@ Vertical Slice
 Milestone 1
 -----------
 
+- having the healthbars on top of the asteroid instead of static on the UI
+
 Milestone 2
 -----------
