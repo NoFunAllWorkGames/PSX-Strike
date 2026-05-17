@@ -4,9 +4,8 @@ Todo
 Vertical Slice 
 --------------
 
-- Overhaul Sound Design plan
 - The visuals for the laser beam are all wrong, it doesn't hit where it seems to hit
-
+- Add at least control overview in the settings menu
 
 Milestone 1
 -----------
