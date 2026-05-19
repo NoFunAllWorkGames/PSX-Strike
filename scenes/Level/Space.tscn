@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_3swrr"]
 [ext_resource type="Sky" uid="uid://wimhj3dn3heq" path="res://assets/Skybox/NightSkyHDRI007/NightSkyHDRI007_2K.tres" id="2_c73yp"]
 [ext_resource type="Script" uid="uid://cbdjubbobjtoo" path="res://src/ui/action_prompt.gd" id="2_irlk4"]
-[ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="3_3hkh3"]
+[ext_resource type="Script" uid="uid://dsei3auxk88gc" path="res://src/scenes/space_manager.gd" id="2_p5kko"]
 [ext_resource type="Script" uid="uid://d5625svdj516" path="res://src/ships/enemy_spawn_slot.gd" id="3_oo3mg"]
 [ext_resource type="Script" uid="uid://bdgcsfkbcq73p" path="res://src/scenes/space_station_outside.gd" id="3_yl7bd"]
 [ext_resource type="PackedScene" uid="uid://ccjx4jgvuw1lh" path="res://scenes/Ships/enemy_ship_rando.tscn" id="4_4pnen"]
@@ -104,7 +104,8 @@ anti_aliasing = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sxw4"]
 bg_color = Color(0.73333335, 0, 0, 1)
 
-[node name="Scene" unique_id=1408701904 instance=ExtResource("1_3swrr")]
+[node name="Space" unique_id=1408701904 instance=ExtResource("1_3swrr")]
+script = ExtResource("2_p5kko")
 
 [node name="EnemySpawner" type="Node" parent="Managers" parent_id_path=PackedInt32Array(832875041) index="0" unique_id=1847293847 node_paths=PackedStringArray("border_area")]
 script = ExtResource("6_4nemy")
@@ -129,11 +130,12 @@ grow_vertical = 2
 texture = ExtResource("6_k628k")
 expand_mode = 3
 
-[node name="SpaceStation" type="CSGCombiner3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1998275679]
+[node name="SpaceStation" type="CSGCombiner3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1998275679 node_paths=PackedStringArray("space_station_entry_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.893639)
 use_collision = true
 collision_mask = 66
 script = ExtResource("3_yl7bd")
+space_station_entry_area = NodePath("Hull/Area3D")
 
 [node name="InsideLight" type="OmniLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation" index="0" unique_id=1325313887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47268486)
@@ -174,15 +176,10 @@ collision_shape_3d = NodePath("CollisionShape3D")
 shape = SubResource("BoxShape3D_irlk4")
 
 [node name="NoiseAsteroid" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1610750277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.946777)
 script = ExtResource("10_4pnen")
 spread = 200.0
 health = 50.0
-
-[node name="PlayerShipArchon" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("3_3hkh3")]
-collision_layer = 2
-
-[node name="SpawnPoint" type="Marker3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters" parent_id_path=PackedInt32Array(356321642) index="1" unique_id=206917417]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SubViewportContainer/SubViewport/World" parent_id_path=PackedInt32Array(1213749867) index="4" unique_id=1617069734]
 environment = SubResource("Environment_l0l3b")

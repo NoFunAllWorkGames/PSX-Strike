@@ -56,3 +56,6 @@ func spawn_gaussian_cloud() -> void:
 		if Engine.is_editor_hint():
 			var root = get_tree().edited_scene_root
 			asteroid_instance.owner = root
+			
+		# Group assignment must occur after owner assignment and use the persistent flag
+		asteroid_instance.add_to_group("Asteroid", true)

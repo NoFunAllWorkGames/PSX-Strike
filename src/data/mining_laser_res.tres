@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MiningLaserData" format=3 uid="uid://kvqgurxfsi7r"]
+
+[ext_resource type="Script" uid="uid://dpdu1v0510uo6" path="res://src/data/mining_laser_data.gd" id="1_64d2s"]
+
+[resource]
+script = ExtResource("1_64d2s")
+metadata/_custom_type_script = "uid://cpflil6wh3sod"

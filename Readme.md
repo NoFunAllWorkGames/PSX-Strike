@@ -5,12 +5,13 @@ Project Strike
 - See the [Milestones](Milestones.md)
 - See [Credits and Attributions](Credits.md)  
 - See the [Todo list](Todo.md)  
+- See the [Sound Design Plan](SoundDesignPlan.md)  
 
 Project Idea and progress
 -------------------------
 
 The project was created by Suntyger for New Horizon Studios. After around 1 week of creation of the team, only B1773rm4n has created anything to the repository. Suntyger become unresponsive and the other team members also just abandoned the project.
-So B1773rm4n continued this idea as a fork of the original repository. The goal shifted from a release on Itch.io towards the PSX Game Jam, which was orginally just a milestone, is now the final purpose of this project.
+So B1773rm4n continued this idea as a fork of the original repository. The goal shifted from a release on Itch.io towards the PSX Game Jam, which was orginally just a milestone, is now the primary purpose of this project.
 
 Goal
 ----

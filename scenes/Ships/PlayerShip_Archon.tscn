@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://duiklfa8xdjer"]
 
 [ext_resource type="Script" uid="uid://banmxady1gnji" path="res://src/ships/player_ship_archon.gd" id="1_uaftn"]
+[ext_resource type="Resource" uid="uid://b24lvmtude8j1" path="res://src/data/cargo_res.tres" id="2_b1s2j"]
 [ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="2_fy63f"]
 [ext_resource type="Script" uid="uid://co7qjmw5034m6" path="res://src/components/shooting.gd" id="3_qjll1"]
-[ext_resource type="Script" uid="uid://stwgi4s8ktjn" path="res://src/components/cargo.gd" id="4_5iwu1"]
+[ext_resource type="Script" uid="uid://jd23mfxamfk3" path="res://src/components/cargo_component.gd" id="4_5iwu1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veut8"]
 size = Vector3(1.235, 2.82, 0.52)
@@ -18,6 +19,7 @@ size = Vector3(1.2, 1.5, 0.45)
 points = PackedVector3Array(0.028088098, 0.67977977, 0.22053385, -0.58154756, -0.7236678, -0.225, -0.5754761, -0.7160502, 0.225, 0.5720238, -0.7236678, -0.225, 0.0065299356, 0.7236678, -0.225, 0.56595236, -0.7160502, 0.225, -0.015739687, 0.7106508, 0.22331233, 0.5542297, -0.6355743, -0.2180219, 0.5542297, -0.6355743, 0.22040287, -0.015739687, 0.7106508, -0.22093137, -0.56225926, -0.6556482, 0.21981691, -0.56225926, -0.6556482, -0.21743594, 0.0064110737, 0.7160502, 0.225, 0.028088098, 0.67977977, -0.21815288)
 
 [node name="PlayerShipArchon" type="CharacterBody3D" unique_id=34192894]
+collision_layer = 2
 collision_mask = 101
 script = ExtResource("1_uaftn")
 
@@ -59,4 +61,4 @@ script = ExtResource("3_qjll1")
 
 [node name="Cargo" type="Node3D" parent="Components" unique_id=725962350]
 script = ExtResource("4_5iwu1")
-metadata/_custom_type_script = "uid://stwgi4s8ktjn"
+data = ExtResource("2_b1s2j")

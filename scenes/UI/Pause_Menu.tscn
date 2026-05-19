@@ -23,17 +23,15 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Continue"
 
-[node name="Load" type="Button" parent="CenterContainer/VBoxContainer" unique_id=69891182]
+[node name="Save" type="Button" parent="CenterContainer/VBoxContainer" unique_id=69891182]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-disabled = true
-text = "Load"
-
-[node name="Save" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1031317034]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-disabled = true
 text = "Save"
+
+[node name="Load" type="Button" parent="CenterContainer/VBoxContainer" unique_id=1031317034]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Load"
 
 [node name="Quit" type="Button" parent="CenterContainer/VBoxContainer" unique_id=742790046]
 layout_mode = 2
@@ -41,4 +39,6 @@ theme_override_font_sizes/font_size = 16
 text = "Quit"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

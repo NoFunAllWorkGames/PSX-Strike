@@ -10,25 +10,23 @@ extends CharacterBody3D
 @export var min_pitch_degrees: float = -45.0
 @export var max_pitch_degrees: float = 45.0
 
-@onready var cargo: CargoComponent = $Components/Cargo
-
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera_3d: Camera3D = $CameraPivot/SpringArm3D/Camera3D
 @onready var engine_hovering: AudioStreamPlayer = $Engine_Hovering
+@onready var current_weapon = preload("res://scenes/Objects/mining_laser.tscn")
 
 var _ship_yaw: float = 0.0
 var _look_pitch: float = 0.0
 
-var current_weapon
-
-func _ready() -> void:
+func _enter_tree() -> void:
 	InputManager.capture_mouse()
 	InputManager.enable_freelook_click_capture = true
 	InputManager.mouse_look_relative.connect(_on_mouse_look_relative)
+
+func _ready() -> void:
 	_ship_yaw = rotation.y
 	_look_pitch = rotation.x
 	camera_pivot.rotation = Vector3.ZERO
-	current_weapon = preload("res://scenes/Objects/mining_laser.tscn")
 
 func _exit_tree() -> void:
 	InputManager.enable_freelook_click_capture = false
@@ -41,6 +39,16 @@ func _physics_process(delta: float) -> void:
 	_update_engine_hovering_pitch()
 
 func _on_mouse_look_relative(relative: Vector2) -> void:
+	# TODO: This is checked too often
+	# It is supposed to cover the case that undock_ship() pushes
+	# the player and change the camera, but
+	# mouselook isn't updated
+	# Reason why this was added is that the view
+	# was flipped after undocking
+	_ship_yaw = rotation.y
+	_look_pitch = rotation.x
+
+	# Apply the incoming mouse delta as normal
 	_ship_yaw -= relative.x * look_sensitivity
 	_look_pitch = clampf(
 		_look_pitch - relative.y * look_sensitivity,

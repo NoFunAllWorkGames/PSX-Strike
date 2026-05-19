@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://cfs2woos2i6n6"]
 
 [ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_66bpb"]
-[ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station.gd" id="2_station"]
+[ext_resource type="Script" uid="uid://2oris1t1saux" path="res://src/scenes/station.gd" id="2_4dbit"]
+[ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station_left_buttons.gd" id="2_station"]
 [ext_resource type="AudioStream" uid="uid://dasn6p12iij6t" path="res://assets/Sounds/353159__kinoton__room-tone-sci-fi-large-hall.ogg" id="3_t16i2"]
 [ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="5_qjulp"]
+[ext_resource type="Script" uid="uid://c4q6dri8n2xsu" path="res://src/ui/station_right_column.gd" id="6_p6bjf"]
 
 [sub_resource type="Environment" id="Environment_66bpb"]
 background_mode = 3
@@ -82,7 +84,8 @@ _data = {
 &"hover": SubResource("Animation_t16i2")
 }
 
-[node name="Scene" unique_id=1408701904 instance=ExtResource("1_66bpb")]
+[node name="Station" unique_id=1408701904 instance=ExtResource("1_66bpb")]
+script = ExtResource("2_4dbit")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Canvases" parent_id_path=PackedInt32Array(1266257925) index="0" unique_id=907530879]
 
@@ -123,11 +126,10 @@ theme_override_font_sizes/font_size = 8
 disabled = true
 text = "Upgrade"
 
-[node name="Button3" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="2" unique_id=316648595]
+[node name="Sell" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="2" unique_id=316648595]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-disabled = true
-text = "test"
+text = "Sell Resource"
 
 [node name="undock" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="3" unique_id=1988813574]
 layout_mode = 2
@@ -192,3 +194,65 @@ parameters/looping = true
 root_node = NodePath("../../../../../../..")
 libraries/ = SubResource("AnimationLibrary_47i8t")
 autoplay = &"hover"
+
+[node name="Right" parent="HBoxContainer" parent_id_path=PackedInt32Array(1439984215) index="2" unique_id=1952944656]
+script = ExtResource("6_p6bjf")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Right" index="0" unique_id=262170700]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -60.5
+offset_right = 66.0
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Right/MarginContainer" index="0" unique_id=1810562819]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer" index="0" unique_id=126188825]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="MoneyPanel" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer" index="0" unique_id=1509913976]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="MoneyLabel" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/MoneyPanel" index="0" unique_id=1737955464]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Money"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/MoneyPanel" index="1" unique_id=2029197699]
+layout_mode = 2
+
+[node name="MoneyValue" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/MoneyPanel/CenterContainer" index="0" unique_id=1867360820]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="ResourcePanel" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer" index="1" unique_id=597197440]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 4
+
+[node name="ResourceLabel" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/ResourcePanel" index="0" unique_id=966244182]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Resources"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/ResourcePanel" index="1" unique_id=1140177812]
+layout_mode = 2
+
+[node name="ResourceValue" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/ResourcePanel/CenterContainer" index="0" unique_id=987218467]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[connection signal="pressed" from="HBoxContainer/Left/MarginContainer/VBoxContainer/Sell" to="." method="_on_sell_pressed"]

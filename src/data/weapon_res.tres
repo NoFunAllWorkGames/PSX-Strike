@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://bkfi221gqq2f6"]
+
+[ext_resource type="Script" uid="uid://cpflil6wh3sod" path="res://src/data/weapon_data.gd" id="1_gfxk4"]
+[ext_resource type="PackedScene" uid="uid://dgnkhrwei01qs" path="res://scenes/Objects/mining_laser.tscn" id="1_vesin"]
+
+[resource]
+script = ExtResource("1_gfxk4")
+weapon_id = "mining_laser"
+weapon_name = "Mining Laser"
+scene_path = ExtResource("1_vesin")
+metadata/_custom_type_script = "uid://cpflil6wh3sod"

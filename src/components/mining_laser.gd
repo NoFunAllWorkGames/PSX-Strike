@@ -1,9 +1,13 @@
 extends Node3D
 
-@export var damage_per_second: float = 50.0
-@export var max_length: float = 100.0
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var laser_mesh: MeshInstance3D = $LaserMeshInstance
+var damage_per_second = 100
+var max_length = 100
+
+# This is currently not using:
+# mining_laser_data.gd
+# mining_laser_res.tres
 
 func _ready() -> void:
 	_update_raycast_length()
@@ -25,7 +29,6 @@ func _physics_process(delta: float) -> void:
 		target_point = ray_cast_3d.global_transform * Vector3(0, 0, -max_length)
 
 	update_laser_geometry(target_point)
-
 
 func process_hit_object(hit_object: Asteroid, damage: float) -> void:
 	SignalBus.damage_asteroid.emit(hit_object, damage)
