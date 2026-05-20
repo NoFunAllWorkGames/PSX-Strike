@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://dgnkhrwei01qs"]
 
 [ext_resource type="Script" uid="uid://dfoebjwwt1k4a" path="res://src/components/mining_laser.gd" id="1_3yb6q"]
+[ext_resource type="AudioStream" uid="uid://df1o0qo7qtrcj" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage1.wav" id="2_m4xnj"]
+[ext_resource type="AudioStream" uid="uid://yfgarl1mkppo" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage2.wav" id="3_nor83"]
+[ext_resource type="AudioStream" uid="uid://bygemvgcpdxp5" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage3.wav" id="4_7hevo"]
+[ext_resource type="AudioStream" uid="uid://bqvr7uq5symg3" path="res://assets/Sounds/Laser/LaserFire/LaserFire1.wav" id="5_j0c47"]
+[ext_resource type="AudioStream" uid="uid://dnwoox0dsfrx2" path="res://assets/Sounds/Laser/LaserFire/LaserFire2.wav" id="6_qri3k"]
+[ext_resource type="AudioStream" uid="uid://bymcbccaj826t" path="res://assets/Sounds/Laser/LaserFire/LaserFire3.wav" id="7_os6a8"]
+[ext_resource type="AudioStream" uid="uid://b8d4033xl7e5b" path="res://assets/Sounds/Laser/LaserFire/LaserFire4.wav" id="8_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://bi2b5onbgili7" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid1.wav" id="9_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://bpe6tyjs81j83" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid2.wav" id="10_6n34o"]
+[ext_resource type="AudioStream" uid="uid://c1kx84f2lhu0n" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid3.wav" id="11_1jkkl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yb6q"]
 shading_mode = 0
@@ -12,6 +22,25 @@ bottom_radius = 0.05
 height = 1.0
 radial_segments = 4
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_os6a8"]
+streams_count = 3
+stream_0/stream = ExtResource("2_m4xnj")
+stream_1/stream = ExtResource("3_nor83")
+stream_2/stream = ExtResource("4_7hevo")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v7p4l"]
+streams_count = 4
+stream_0/stream = ExtResource("5_j0c47")
+stream_1/stream = ExtResource("6_qri3k")
+stream_2/stream = ExtResource("7_os6a8")
+stream_3/stream = ExtResource("8_v7p4l")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6n34o"]
+streams_count = 3
+stream_0/stream = ExtResource("9_v7p4l")
+stream_1/stream = ExtResource("10_6n34o")
+stream_2/stream = ExtResource("11_1jkkl")
+
 [node name="MiningLaser" type="Node3D" unique_id=1540017152]
 script = ExtResource("1_3yb6q")
 
@@ -20,3 +49,16 @@ collision_mask = 69
 
 [node name="LaserMeshInstance" type="MeshInstance3D" parent="." unique_id=1296448054]
 mesh = SubResource("CylinderMesh_ds5mv")
+
+[node name="OnHitAudio" type="AudioStreamPlayer" parent="." unique_id=1319964675]
+stream = SubResource("AudioStreamRandomizer_os6a8")
+bus = &"SFX"
+
+[node name="OnStartShootingAudio" type="AudioStreamPlayer" parent="." unique_id=1353806585]
+stream = SubResource("AudioStreamRandomizer_v7p4l")
+bus = &"SFX"
+
+[node name="OnMissAudio" type="AudioStreamPlayer" parent="." unique_id=883383462]
+stream = SubResource("AudioStreamRandomizer_6n34o")
+volume_db = 1.0
+bus = &"SFX"

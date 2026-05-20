@@ -2,6 +2,10 @@ extends Node3D
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var laser_mesh: MeshInstance3D = $LaserMeshInstance
+@onready var on_hit_audio: AudioStreamPlayer = $OnHitAudio
+@onready var on_miss_audio: AudioStreamPlayer = $OnMissAudio
+@onready var on_start_shooting_audio: AudioStreamPlayer = $OnStartShootingAudio
+
 var damage_per_second = 100
 var max_length = 100
 
@@ -10,6 +14,7 @@ var max_length = 100
 # mining_laser_res.tres
 
 func _ready() -> void:
+	on_start_shooting_audio.play()
 	_update_raycast_length()
 
 func _update_raycast_length() -> void:
@@ -18,15 +23,31 @@ func _update_raycast_length() -> void:
 func _physics_process(delta: float) -> void:
 	var target_point: Vector3
 	var hit_object
+	var is_colliding: bool = ray_cast_3d.is_colliding()
 
-	if ray_cast_3d.is_colliding():
+	if is_colliding:
 		target_point = ray_cast_3d.get_collision_point()
 		hit_object = ray_cast_3d.get_collider()
-		if hit_object != null and hit_object.is_in_group("Asteroid") and hit_object is Asteroid:
+		var is_asteroid: bool = hit_object != null and hit_object.is_in_group("Asteroid") and hit_object is Asteroid
+
+		if is_asteroid:
 			process_hit_object(hit_object as Asteroid, damage_per_second * delta)
+			
+			if not on_hit_audio.playing: on_hit_audio.play()
+			if on_miss_audio.playing: on_miss_audio.stop()
+		# nothing is hit, shooting into the void
+		else:
+			# Handles hitting non-asteroid objects if they exist
+			target_point = ray_cast_3d.global_transform * Vector3(0, 0, -max_length)
+
+			if not on_miss_audio.playing: on_miss_audio.play()
+			if on_hit_audio.playing: on_hit_audio.stop()
 	else:
 		# If no collision, extend to maximum range
 		target_point = ray_cast_3d.global_transform * Vector3(0, 0, -max_length)
+
+		if not on_miss_audio.playing: on_miss_audio.play()
+		if on_hit_audio.playing: on_hit_audio.stop()
 
 	update_laser_geometry(target_point)
 

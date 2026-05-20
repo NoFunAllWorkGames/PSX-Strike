@@ -37,6 +37,32 @@ Self-Created Assets
 | ---        | ---      | ---    |
 | Icon_v1 | Splash and Icon | B1773rm4n |
 
+Audio Self-Created Assets
+-------------------------
+
+| Asset name | Used for | Creator |
+| ---        | ---      | ---    |
+| LaserBeamVoid3.wav | Mining Laser | francobhalla | 
+| LaserBeamVoid1.wav | Mining Laser | francobhalla | 
+| LaserBeamVoid1.wav | Mining Laser | francobhalla | 
+| LaserBeamVoid2.wav | Mining Laser | francobhalla | 
+| LaserBeamVoid2.wav | Mining Laser | francobhalla | 
+| LaserBeamVoid3.wav | Mining Laser | francobhalla | 
+| LaserBeamDamage1.wav | Mining Laser | francobhalla | 
+| LaserBeamDamage2.wav | Mining Laser | francobhalla | 
+| LaserBeamDamage3.wav | Mining Laser | francobhalla | 
+| LaserBeamDamage2.wav | Mining Laser | francobhalla | 
+| LaserBeamDamage3.wav | Mining Laser | francobhalla | 
+| LaserBeamDamage1.wav | Mining Laser | francobhalla | 
+| LaserFire1.wav | Mining Laser | francobhalla | 
+| LaserFire4.wav | Mining Laser | francobhalla | 
+| LaserFire2.wav | Mining Laser | francobhalla | 
+| LaserFire3.wav | Mining Laser | francobhalla | 
+| LaserFire4.wav | Mining Laser | francobhalla | 
+| LaserFire2.wav | Mining Laser | francobhalla | 
+| LaserFire1.wav | Mining Laser | francobhalla | 
+| LaserFire3.wav | Mining Laser | francobhalla | 
+
 
 Unused Resources
 ----------------
