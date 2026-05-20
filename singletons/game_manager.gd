@@ -29,6 +29,9 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	call_deferred("_sync_state_from_current_scene")
 
+	# If the game just started from nowhere, don't do anything
+	if not game_state and not current_scene_path and not PlayerShip:
+		return
 	if not load_game():
 			initialize_new_game()
 
@@ -74,7 +77,8 @@ func transition_to(target_path: String) -> void:
 	execute_transition.call_deferred(target_path)
 
 func execute_transition(target_path: String) -> void:
-	detach_player_ship()
+	if game_state != Enums.GameState.MAIN_MENU:
+		detach_player_ship()
 	var error := get_tree().change_scene_to_file(target_path)
 	if error == OK:
 		set_gamestate_according_to_level(target_path)
