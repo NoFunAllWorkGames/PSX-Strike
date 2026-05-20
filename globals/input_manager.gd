@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 	_last_escape_ms = now
 
 	match GameManager.game_state:
-		Enums.GameState.SPACE, Enums.GameState.STATION:
+		Enums.GameState.SPACE, Enums.GameState.STATION, Enums.GameState.LOADED, Enums.GameState.NEW_GAME:
 			GameManager.open_pause_overlay()
 		Enums.GameState.PAUSED:
 			GameManager.close_pause_overlay()
@@ -42,7 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	match GameManager.game_state:
-		Enums.GameState.SPACE:
+		Enums.GameState.SPACE, Enums.GameState.LOADED, Enums.GameState.NEW_GAME:
 			_handle_space_unhandled(event)
 		Enums.GameState.STATION, Enums.GameState.MAIN_MENU:
 			pass

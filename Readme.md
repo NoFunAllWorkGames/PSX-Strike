@@ -20,6 +20,17 @@ The project is part of the [PSX Horror Jam](https://itch.io/jam/psx-horror-jam)
 Goal is to provide a functional game which satisfies the criteria of the Jam  
 The deadline __is July 11th 2026 at 1:23 AM__  
 
+AI Usage
+--------
+
+- __No__ AI assets. Not even for prototyping. Instead free assets are used as placeholder when necessary.
+- **Coding**: 
+    - IDE autocomplete: To a normal amount, mostly convenience
+    - Asking questions: As a StackOverflow replacement
+    - Code suggestions: I force myself to type the code manually instead of copy&pasting it. This limits how much I will use but also naturally makes me think if it's an improvement or not.
+
+I take full ownership and responsibility for the code. Feel free to read it.
+
 Git
 ---
 

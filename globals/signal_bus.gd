@@ -4,10 +4,6 @@ extends Node
 # but all IDEs will complain about it, so we ignore it
 @warning_ignore_start("unused_signal")
 
-# Level & Scene
-signal scene_transition_started(from_scene: String, to_scene: String)
-signal scene_transition_finished(scene_name: String)
-
 # UI
 ## General
 signal update_ui()
@@ -29,6 +25,3 @@ signal player_resource_received(amount: int)
 
 # Environment
 signal damage_asteroid(asteroid: Asteroid, amount: float)
-
-# Station
-signal change_station_resource_balance(amount: int)

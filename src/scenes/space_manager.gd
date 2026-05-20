@@ -1,38 +1,36 @@
 extends Node
 
 func _ready() -> void:
+	
+	# Just for Space Scene debugging
+	# Because I don't want to start the game from the main menu
+	if not GameManager.game_state:
+		GameManager.load_game()
+		
+	GameManager.game_state = Enums.GameState.SPACE
 
 	# Initialize GameManager.PlayerShip
+	if not is_instance_valid(GameManager.PlayerShip):
+		GameManager.PlayerShip = GameManager.PLAYER_SHIP_SCENE.instantiate()
+
 	# Instantiating make overwrites an already existing ship
 	# on the other hand the level is the one that creates the ship
 	const Player_Parent_Node := NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters")
 	var player_parent_node: Node = get_node(Player_Parent_Node)
 
-	# Always clean-instantiate the template node base first inside the new scene tree context
-	const PLAYER_SHIP_ARCHON = preload("res://scenes/Ships/PlayerShip_Archon.tscn")
-	GameManager.PlayerShip = PLAYER_SHIP_ARCHON.instantiate() as CharacterBody3D
-	GameManager.PlayerShip.name = GameManager.PLAYER_SHIP_NODE_NAME
 
-	if GameManager.game_state == Enums.GameState.NEW_GAME:
-		# Standard default spawn placement logic
-		GameManager.PlayerShip.position = Vector3(0.0, 0.0, 8.0)
-		GameManager.PlayerShip.rotation_degrees = Vector3(0.0, -180.0, 0.0)
-
-	elif GameManager.game_state == Enums.GameState.LOADED:
-		# Manually apply the precise saved coordinates stored in GameManager 
-		# AFTER instantiation overrides them with defaults
-		pass
-	else:
-		# The same, just be fixed
-		GameManager.PlayerShip.transform = GameManager.saved_player_transform
-	
 	# Attach the configured node instance to the active tree hierarchy
 	player_parent_node.add_child(GameManager.PlayerShip)
 
+	if GameManager.game_state in [Enums.GameState.LOADED, Enums.GameState.NEW_GAME]:
+		GameManager.PlayerShip.transform = GameManager.saved_player_transform
+	
 	var regular_undock: bool = GameManager.previous_scene_path == "res://scenes/Level/Station.tscn" and GameManager.game_state != Enums.GameState.LOADED
 	if regular_undock:
 		undock_ship()
-		
+	else:
+		GameManager.PlayerShip.global_transform = GameManager.saved_player_transform
+
 	SignalBus.update_ui.emit()
 
 func undock_ship():

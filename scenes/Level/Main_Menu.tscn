@@ -52,11 +52,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Start"
 
-[node name="Load" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=488434203]
+[node name="NewGame" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=488434203]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-disabled = true
-text = "Load"
+text = "New Game"
 
 [node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1408124819]
 layout_mode = 2
@@ -74,3 +73,12 @@ text = "Credits"
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Quit"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=873486148]
+oversampling_override = 1.0
+title = "You sure?"
+initial_position = 1
+ok_button_text = "Delete"
+dialog_text = "Delete the savegame?"
+dialog_autowrap = true
+cancel_button_text = "NO!"

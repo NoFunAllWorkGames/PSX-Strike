@@ -1,6 +1,12 @@
 Sound Design Plan
 =================
 
+Legend:   
+🔴 Not started: Stopped / No progress / Some issue   
+🟡 Prototype: First iteration, can be shipped if necessary   
+🟢 Final version: Complete, no revisions needed anymore
+
+
 UI/Main menu
 ------------
 
@@ -13,10 +19,10 @@ The Ship
 
 **Engine**:
 
-- Idle
-- Accelerate
-- Deaccelerate
-- Max/constant speed
+- Idle 🟡
+- Accelerate 🟡
+- Deaccelerate 🟡
+- Max/constant speed 🟡
 
 **Collision**:
 
@@ -34,9 +40,9 @@ The Ship
 **Weaponry:**
 
 - Mining Laser:
-    - Fire - Igniting the Laser 
-    - Constant fire into the void - Laser sound looped
-    - Laser touching the rock/asteroid/enemy ship - Burn sound
+    - Fire - Igniting the Laser 🟡
+    - Constant fire into the void - Laser sound looped 🟡
+    - Laser touching the rock/asteroid/enemy ship - Burn sound 🟡
     - Mode Switch sound
     - Overheat Error sound
 - Mining Laser to Armament Switch Sound
@@ -60,7 +66,7 @@ The Ship
 
 **Cargo:**
 
-- Collection
+- Collection 🟡
 - Deposit
 
 Enemies
@@ -68,7 +74,7 @@ Enemies
 
 **Ships**:
 
-- Engine sounds
+- Engine sounds 🟡
 - Shoot sounds based on their weapon
 
 **The Entity**
@@ -89,15 +95,3 @@ Gameplay Messages/Errors
 
 - Low Fuel
 - Empty Fuel
-
-
-      
-
-
-
-
-
-
-
-
-

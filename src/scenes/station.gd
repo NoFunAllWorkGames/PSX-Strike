@@ -3,6 +3,7 @@ extends Node
 const StationResourcesDataFile = preload("res://src/data/station_resources_data.gd")
 
 func _ready() -> void:
+	GameManager.game_state = Enums.GameState.STATION
 	var unloaded_amount: int = GameManager.cargo.unload_all_resources()
 	GameManager.station_resources.resources_amount += unloaded_amount
 	# seemingly the node tree isn't built yet. So this doesn't work
