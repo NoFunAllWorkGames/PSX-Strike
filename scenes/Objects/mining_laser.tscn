@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://dgnkhrwei01qs"]
 
 [ext_resource type="Script" uid="uid://dfoebjwwt1k4a" path="res://src/components/mining_laser.gd" id="1_3yb6q"]
-[ext_resource type="AudioStream" uid="uid://df1o0qo7qtrcj" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage1.wav" id="2_m4xnj"]
-[ext_resource type="AudioStream" uid="uid://yfgarl1mkppo" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage2.wav" id="3_nor83"]
-[ext_resource type="AudioStream" uid="uid://bygemvgcpdxp5" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage3.wav" id="4_7hevo"]
-[ext_resource type="AudioStream" uid="uid://bqvr7uq5symg3" path="res://assets/Sounds/Laser/LaserFire/LaserFire1.wav" id="5_j0c47"]
-[ext_resource type="AudioStream" uid="uid://dnwoox0dsfrx2" path="res://assets/Sounds/Laser/LaserFire/LaserFire2.wav" id="6_qri3k"]
-[ext_resource type="AudioStream" uid="uid://bymcbccaj826t" path="res://assets/Sounds/Laser/LaserFire/LaserFire3.wav" id="7_os6a8"]
-[ext_resource type="AudioStream" uid="uid://b8d4033xl7e5b" path="res://assets/Sounds/Laser/LaserFire/LaserFire4.wav" id="8_v7p4l"]
-[ext_resource type="AudioStream" uid="uid://bi2b5onbgili7" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid1.wav" id="9_v7p4l"]
-[ext_resource type="AudioStream" uid="uid://bpe6tyjs81j83" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid2.wav" id="10_6n34o"]
-[ext_resource type="AudioStream" uid="uid://c1kx84f2lhu0n" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid3.wav" id="11_1jkkl"]
+[ext_resource type="AudioStream" uid="uid://cixymi8nqtvmh" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage1.ogg" id="2_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://bjbh83vvkjtfs" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage2.ogg" id="3_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://drc3rmwubww5n" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage3.ogg" id="4_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://b76lq5a7fsvyn" path="res://assets/Sounds/Laser/LaserFire/LaserFire1.ogg" id="5_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://0klhajd0tgv3" path="res://assets/Sounds/Laser/LaserFire/LaserFire2.ogg" id="6_6n34o"]
+[ext_resource type="AudioStream" uid="uid://1qicynrl6m3j" path="res://assets/Sounds/Laser/LaserFire/LaserFire3.ogg" id="7_1jkkl"]
+[ext_resource type="AudioStream" uid="uid://djddafem0iskt" path="res://assets/Sounds/Laser/LaserFire/LaserFire4.ogg" id="8_jfyxt"]
+[ext_resource type="AudioStream" uid="uid://bkgpx3wm5tl8j" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid1.ogg" id="9_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://b37qcdewcna2" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid2.ogg" id="10_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://bx5y00ilryshe" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid3.ogg" id="11_v7p4l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yb6q"]
 shading_mode = 0
@@ -24,22 +24,22 @@ radial_segments = 4
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_os6a8"]
 streams_count = 3
-stream_0/stream = ExtResource("2_m4xnj")
-stream_1/stream = ExtResource("3_nor83")
-stream_2/stream = ExtResource("4_7hevo")
+stream_0/stream = ExtResource("2_v7p4l")
+stream_1/stream = ExtResource("3_v7p4l")
+stream_2/stream = ExtResource("4_v7p4l")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v7p4l"]
 streams_count = 4
-stream_0/stream = ExtResource("5_j0c47")
-stream_1/stream = ExtResource("6_qri3k")
-stream_2/stream = ExtResource("7_os6a8")
-stream_3/stream = ExtResource("8_v7p4l")
+stream_0/stream = ExtResource("5_v7p4l")
+stream_1/stream = ExtResource("6_6n34o")
+stream_2/stream = ExtResource("7_1jkkl")
+stream_3/stream = ExtResource("8_jfyxt")
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_6n34o"]
 streams_count = 3
 stream_0/stream = ExtResource("9_v7p4l")
-stream_1/stream = ExtResource("10_6n34o")
-stream_2/stream = ExtResource("11_1jkkl")
+stream_1/stream = ExtResource("10_v7p4l")
+stream_2/stream = ExtResource("11_v7p4l")
 
 [node name="MiningLaser" type="Node3D" unique_id=1540017152]
 script = ExtResource("1_3yb6q")

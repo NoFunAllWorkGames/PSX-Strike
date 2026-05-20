@@ -34,7 +34,7 @@ The Ship
 **Weaponry:**
 
 - Mining Laser:
-    - Fire - Igniting the Laser
+    - Fire - Igniting the Laser 
     - Constant fire into the void - Laser sound looped
     - Laser touching the rock/asteroid/enemy ship - Burn sound
     - Mode Switch sound
