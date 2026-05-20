@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://bk17n28e3ovi6" path="res://assets/Textures/WallTextureSpaceStation_Tripwire_Pinterest.jpg" id="6_k628k"]
 [ext_resource type="Script" uid="uid://df6832ebx1vmt" path="res://src/ui/cargo_capacity_view.gd" id="7_4pnen"]
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/spawner/gaussian_asteroid.gd" id="10_4pnen"]
+[ext_resource type="PackedScene" uid="uid://e830b2yg26ei" path="res://scenes/Objects/asteroid.tscn" id="11_p5kko"]
+[ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/scenes/asteroid.gd" id="12_x563e"]
 [ext_resource type="Script" uid="uid://fm6pi8klcq1f" path="res://src/ui/damagebar_view.gd" id="14_hfb1i"]
 
 [sub_resource type="Resource" id="Resource_4pnen"]
