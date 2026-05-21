@@ -3,6 +3,13 @@ extends Resource
 
 @export var player_ship_scene: PackedScene
 
-@export var cargo_data: CargoData
-@export var station_resources_data: StationResourcesData
-@export var manual_data: Dictionary
+# Resources
+@export var cargo: CargoData
+@export var station_resources: StationResourcesData
+@export var weapon_system: WeaponData
+
+# State and Transforms
+@export var game_state: Enums.GameState
+@export var previous_scene_path: String
+@export var current_scene_path: String
+@export var saved_player_transform: Transform3D

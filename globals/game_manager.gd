@@ -137,7 +137,6 @@ const SAVE_FILE_PATH = "user://saves/savegame.tres"
 func save_game() -> void:
 	# declare the master holding savegame data
 	var master_save = SaveGameData.new()
-	# Prepare manual save data
 	
 	# Prepare PlayerShip
 	var ship_packed_scene = PackedScene.new()
@@ -147,19 +146,26 @@ func save_game() -> void:
 		print("Failed to pack PlayerShip structure. Error: ", pack_error)
 		return
 	
-	var manual_data: Dictionary = {
-		scene = game_state,
-		previous_scene = previous_scene_path,
-		current_scene = current_scene_path,
-		player_transform = PlayerShip.global_transform
-	}
+	# Only save player position if there is a player (not in Station)
+	if is_instance_valid(PlayerShip):
+		saved_player_transform = PlayerShip.global_transform
 
 	# assigns what actually is saved
 	# see SaveGameData_res.gd for more information
 	master_save.player_ship_scene = ship_packed_scene
-	master_save.manual_data = manual_data
-	master_save.cargo_data = cargo
-	master_save.station_resources_data = station_resources
+	
+	# Dynamically assign all other properties from GameManager to SaveGameData
+	# I don't want to type every variable manually
+	# So instead look at SaveGameData_res.gd for what is available
+	# This and the restore function dynamically assign all properties
+	var script_properties = master_save.get_script().get_script_property_list()
+	for prop in script_properties:
+		var prop_name = prop.name
+		if prop_name == "player_ship_scene":
+			continue
+		
+		if prop_name in self:
+			master_save.set(prop_name, self.get(prop_name))
 	
 	# do the actual saving
 	var error = ResourceSaver.save(master_save, SAVE_FILE_PATH)
@@ -176,24 +182,34 @@ func has_savegame() -> bool:
 	return true
 
 func load_game() -> void:
+	# read save_game() first for more explanation
 	game_state = Enums.GameState.LOADED
 
 	# declare the master holding savegame data
 	var loaded_data: SaveGameData = ResourceLoader.load(SAVE_FILE_PATH, "", ResourceLoader.CACHE_MODE_REPLACE)
-
+	# in case there loading had an issue, just start anew
+	if !loaded_data:
+		start_new_game()
+		return
+	
 	# actual data retrieval, loads what is saved
 	# see SaveGameData_res.gd for more information
-	GameManager.PlayerShip = loaded_data.player_ship_scene.instantiate() as CharacterBody3D
-	PlayerShip.name = PLAYER_SHIP_NODE_NAME
-	cargo = loaded_data.cargo_data
-	station_resources = loaded_data.station_resources_data
-	# temp manual data retrieval
-	if loaded_data.manual_data:
-		var manual_data: Dictionary = loaded_data.manual_data
-		previous_scene_path = manual_data.previous_scene
-		current_scene_path = manual_data.current_scene
-		saved_player_transform = manual_data.player_transform
+	# if a ship exists, apply the saved location. Else assume it was already set or whatever
+	if loaded_data.get("player_ship_scene") != null:
+		GameManager.PlayerShip = loaded_data.player_ship_scene.instantiate() as CharacterBody3D
+		PlayerShip.name = PLAYER_SHIP_NODE_NAME
 
+	# Dynamically load all other properties from SaveGameData to GameManager
+	var script_properties = loaded_data.get_script().get_script_property_list()
+	for property in script_properties:
+		var property_name = property.name
+		if property_name == "player_ship_scene":
+			continue
+		
+		if property_name in self:
+			# set variables with the name property_name with their values
+			self.set(property_name, loaded_data.get(property_name))
+	
 	_close_pause_overlay()
 	
 	# Because I had issues with this, in case it's missing from saved
