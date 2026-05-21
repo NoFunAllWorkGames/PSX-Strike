@@ -10,9 +10,9 @@ Legend:
 UI/Main menu
 ------------
 
-- Hover on item 
-- Click on item
-- Esc into the pause menu
+- Hover on item 🟡
+- Click on item 🟡
+- Esc into the pause menu 🟡
       
 The Ship
 --------
@@ -43,8 +43,8 @@ The Ship
     - Fire - Igniting the Laser 🟡
     - Constant fire into the void - Laser sound looped 🟡
     - Laser touching the rock/asteroid/enemy ship - Burn sound 🟡
-    - Mode Switch sound
-    - Overheat Error sound
+    - Mode Switch sound 🟡
+    - Overheat Error sound 🟡
 - Mining Laser to Armament Switch Sound
 - Armaments:
     - Laser Repeaters - bursts of Laser sound

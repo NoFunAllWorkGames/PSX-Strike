@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://j0pfbswb3l5y"]
+
+[ext_resource type="AudioStream" uid="uid://sweloljhvyyu" path="res://assets/Sounds/UI/Buttons/ButtonOnClick.ogg" id="1_jelje"]
+
+[node name="ButtonClickPlayer" type="AudioStreamPlayer" unique_id=1164767929]
+process_mode = 3
+stream = ExtResource("1_jelje")
+bus = &"UI"

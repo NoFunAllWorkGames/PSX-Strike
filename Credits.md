@@ -40,28 +40,30 @@ Self-Created Assets
 Audio Self-Created Assets
 -------------------------
 
-| Asset name | Used for | Creator |
-| ---        | ---      | ---    |
-| LaserBeamVoid3.wav | Mining Laser | francobhalla | 
-| LaserBeamVoid1.wav | Mining Laser | francobhalla | 
-| LaserBeamVoid1.wav | Mining Laser | francobhalla | 
-| LaserBeamVoid2.wav | Mining Laser | francobhalla | 
-| LaserBeamVoid2.wav | Mining Laser | francobhalla | 
-| LaserBeamVoid3.wav | Mining Laser | francobhalla | 
-| LaserBeamDamage1.wav | Mining Laser | francobhalla | 
-| LaserBeamDamage2.wav | Mining Laser | francobhalla | 
-| LaserBeamDamage3.wav | Mining Laser | francobhalla | 
-| LaserBeamDamage2.wav | Mining Laser | francobhalla | 
-| LaserBeamDamage3.wav | Mining Laser | francobhalla | 
-| LaserBeamDamage1.wav | Mining Laser | francobhalla | 
-| LaserFire1.wav | Mining Laser | francobhalla | 
-| LaserFire4.wav | Mining Laser | francobhalla | 
-| LaserFire2.wav | Mining Laser | francobhalla | 
-| LaserFire3.wav | Mining Laser | francobhalla | 
-| LaserFire4.wav | Mining Laser | francobhalla | 
-| LaserFire2.wav | Mining Laser | francobhalla | 
-| LaserFire1.wav | Mining Laser | francobhalla | 
-| LaserFire3.wav | Mining Laser | francobhalla | 
+| Asset name                | Used for          | Creator      |
+| ---                       | ---               | ---          |
+| LaserBeamVoid1.ogg        | Mining Laser      | francobhalla |
+| LaserBeamVoid2.ogg        | Mining Laser      | francobhalla |
+| LaserBeamVoid3.ogg        | Mining Laser      | francobhalla |
+| LaserBeamDamage1.ogg      | Mining Laser      | francobhalla |
+| LaserBeamDamage2.ogg      | Mining Laser      | francobhalla |
+| LaserBeamDamage3.ogg      | Mining Laser      | francobhalla |
+| LaserFire1.ogg            | Mining Laser      | francobhalla |
+| LaserFire2.ogg            | Mining Laser      | francobhalla |
+| LaserFire3.ogg            | Mining Laser      | francobhalla |
+| LaserFire4.ogg            | Mining Laser      | francobhalla |
+| LaserArmFire1.ogg         | Mining Laser      | francobhalla |
+| LaserArmFire2.ogg         | Mining Laser      | francobhalla |
+| LaserArmFire3.ogg         | Mining Laser      | francobhalla |
+| LaserArmFire4.ogg         | Mining Laser      | francobhalla |
+| LaserModeSwitch.ogg       | Weapon            | francobhalla |
+| LaserHeatError.ogg        | Weapon            | francobhalla |
+| ButtonOnHover.ogg         | UI effects        | francobhalla |
+| ButtonOnClick.ogg         | UI effects        | francobhalla |
+| MenuError.ogg             | UI effects        | francobhalla |
+| MenuResume.ogg            | UI effects        | francobhalla |
+| MenuPause.ogg             | UI effects        | francobhalla |
+
 
 
 Unused Resources

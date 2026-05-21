@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c5jg44i6bab6b"]
+
+[ext_resource type="AudioStream" uid="uid://dh6vcirmoq84y" path="res://assets/Sounds/UI/Buttons/ButtonOnHover.ogg" id="1_b15lt"]
+
+[node name="ButtonHoverPlayer" type="AudioStreamPlayer" unique_id=1285507803]
+process_mode = 3
+stream = ExtResource("1_b15lt")
+bus = &"UI"

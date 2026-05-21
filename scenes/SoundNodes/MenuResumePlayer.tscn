@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://6ieoy7mxmmrw"]
+
+[ext_resource type="AudioStream" uid="uid://dsur73i0if1wl" path="res://assets/Sounds/UI/PauseMenu/MenuResume.ogg" id="1_wj0jf"]
+
+[node name="MenuResumePlayer" type="AudioStreamPlayer" unique_id=1567444491]
+process_mode = 3
+stream = ExtResource("1_wj0jf")
+bus = &"UI"
