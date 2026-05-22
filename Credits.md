@@ -36,6 +36,7 @@ Self-Created Assets
 | Asset name | Used for | Creator |
 | ---        | ---      | ---    |
 | Icon_v1 | Splash and Icon | B1773rm4n |
+| Bullet | Enemy Projectile | B1773rm4n |
 
 Audio Self-Created Assets
 -------------------------

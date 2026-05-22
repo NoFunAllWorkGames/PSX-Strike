@@ -6,20 +6,16 @@ extends Node
 
 @onready var enemySpawnTreePoint := $"../../HBoxContainer/SubViewportContainer/SubViewport/World/Enemies"
 
-@export_storage var _enemy_spawn_slots: Array[EnemySpawnSlot] = []
-
-@export var enemy_spawn_slots: Array[EnemySpawnSlot]:
-	get:
-		return _enemy_spawn_slots
+@export var enemy_spawn_slots: Array[EnemySpawnSlot] = []:
 	set(value):
-		for slot in value:
+		enemy_spawn_slots = value
+		for slot in enemy_spawn_slots:
 			if slot != null and slot.enemy_ship_data == null:
 				slot.enemy_ship_data = EnemySpawnSlot.DEFAULT_ENEMY_SHIP_DATA
-		_enemy_spawn_slots = value
 
 
 func _ready() -> void:
-	for slot in _enemy_spawn_slots:
+	for slot in enemy_spawn_slots:
 		if slot != null:
 			spawn_enemy_from_slot(slot)
 
@@ -48,6 +44,11 @@ func _apply_random_starting_point(data: EnemyShipData) -> void:
 func _spawn_with_data(data: EnemyShipData) -> RigidBody3D:
 	var new_ship_instance := enemy_scene.instantiate() as RigidBody3D
 	new_ship_instance.enemy_ship_data = data
+	new_ship_instance.name = "SpawnedEnemyShip"
 	enemySpawnTreePoint.add_child(new_ship_instance)
 	new_ship_instance.global_position = data.starting_point
+	
+	if data.direction != Vector3.ZERO:
+		new_ship_instance.look_at(data.starting_point + data.direction)
+		
 	return new_ship_instance
