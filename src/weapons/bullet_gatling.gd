@@ -12,6 +12,7 @@ var velocities: PackedVector3Array = PackedVector3Array()
 var times_alive: PackedFloat32Array = PackedFloat32Array()
 
 func _ready() -> void:
+	multimesh = multimesh.duplicate()
 	multimesh.instance_count = max_bullets
 	multimesh.visible_instance_count = 0
 
