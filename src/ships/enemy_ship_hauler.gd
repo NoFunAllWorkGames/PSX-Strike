@@ -25,7 +25,7 @@ func start_enemy_scanning() -> void:
 				gatling_component.is_firing = false
 		else:
 			gatling_component.is_firing = false
-	
+
 func _is_body_in_front_half(target_body: Node3D) -> bool:
 	var local_pos: Vector3 = detection_range.to_local(target_body.global_position)
 	# Negative Z is forward in Godot, so z < 0.0 is in front

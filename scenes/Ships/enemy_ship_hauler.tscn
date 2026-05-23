@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://ccjx4jgvuw1lh"]
 
-[ext_resource type="Texture2D" uid="uid://b7bodi22eo6l7" path="res://assets/Textures/flare_0.png" id="1_5fbqj"]
-[ext_resource type="Script" uid="uid://docj8om136amr" path="res://src/ships/enemy_ship_rando.gd" id="1_trtub"]
-[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_rando_res.gd" id="2_h0scj"]
-[ext_resource type="PackedScene" uid="uid://0gehker18uf3" path="res://scenes/Weapons/gatling_component.tscn" id="4_h5a4a"]
+[ext_resource type="Script" uid="uid://docj8om136amr" path="res://src/ships/enemy_ship_hauler.gd" id="1_2lvl2"]
+[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_hauler_res.gd" id="2_0dnsn"]
+[ext_resource type="Texture2D" uid="uid://b7bodi22eo6l7" path="res://assets/Textures/flare_0.png" id="3_c1sg8"]
+[ext_resource type="PackedScene" uid="uid://0gehker18uf3" path="res://scenes/Weapons/gatling_component.tscn" id="4_55la7"]
 
 [sub_resource type="Resource" id="Resource_h5a4a"]
-script = ExtResource("2_h0scj")
+script = ExtResource("2_0dnsn")
 metadata/_custom_type_script = "uid://bc7d2og3hegar"
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_h5a4a"]
@@ -35,7 +35,7 @@ rings = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0scj"]
 transparency = 1
 albedo_color = Color(1, 1, 1, 0.90000004)
-albedo_texture = ExtResource("1_5fbqj")
+albedo_texture = ExtResource("3_c1sg8")
 emission_enabled = true
 emission = Color(0, 0, 1, 1)
 emission_energy_multiplier = 0.0
@@ -101,7 +101,7 @@ radius = 50.0
 [node name="EnemyShipRando" type="RigidBody3D" unique_id=128073042]
 collision_layer = 4
 collision_mask = 15
-script = ExtResource("1_trtub")
+script = ExtResource("1_2lvl2")
 enemy_ship_data = SubResource("Resource_h5a4a")
 
 [node name="Body" type="MeshInstance3D" parent="." unique_id=1740205885]
@@ -155,4 +155,4 @@ autostart = true
 
 [node name="Components" type="Node3D" parent="." unique_id=712918394]
 
-[node name="GatlingComponent" parent="Components" unique_id=1411392360 instance=ExtResource("4_h5a4a")]
+[node name="GatlingComponent" parent="Components" unique_id=1411392360 instance=ExtResource("4_55la7")]

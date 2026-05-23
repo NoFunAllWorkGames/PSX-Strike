@@ -6,14 +6,14 @@
 [ext_resource type="Script" uid="uid://dsei3auxk88gc" path="res://src/scenes/space_manager.gd" id="2_p5kko"]
 [ext_resource type="Script" uid="uid://d5625svdj516" path="res://src/data/enemy_spawn_slot.gd" id="3_oo3mg"]
 [ext_resource type="Script" uid="uid://bdgcsfkbcq73p" path="res://src/scenes/space_station_outside.gd" id="3_yl7bd"]
-[ext_resource type="PackedScene" uid="uid://ccjx4jgvuw1lh" path="res://scenes/Ships/enemy_ship_rando.tscn" id="4_4pnen"]
-[ext_resource type="Resource" uid="uid://cgcqq1finjs42" path="res://src/data/enemy_ship_rando.tres" id="4_324nc"]
+[ext_resource type="PackedScene" uid="uid://ccjx4jgvuw1lh" path="res://scenes/Ships/enemy_ship_hauler.tscn" id="4_4pnen"]
+[ext_resource type="Resource" uid="uid://cgcqq1finjs42" path="res://src/data/enemy_ship_hauler.tres" id="4_324nc"]
 [ext_resource type="Script" uid="uid://b2s52ydusuhmc" path="res://src/scenes/border_area.gd" id="5_suwts"]
 [ext_resource type="Script" uid="uid://q4v0ljs4it4q" path="res://src/spawner/enemy_spawner.gd" id="6_4nemy"]
 [ext_resource type="Texture2D" uid="uid://bk17n28e3ovi6" path="res://assets/Textures/WallTextureSpaceStation_Tripwire_Pinterest.jpg" id="6_k628k"]
 [ext_resource type="Script" uid="uid://df6832ebx1vmt" path="res://src/ui/cargo_capacity_view.gd" id="7_4pnen"]
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/spawner/gaussian_asteroid.gd" id="10_4pnen"]
-[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_rando_res.gd" id="13_x563e"]
+[ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_hauler_res.gd" id="13_x563e"]
 [ext_resource type="Script" uid="uid://fm6pi8klcq1f" path="res://src/ui/damagebar_view.gd" id="14_hfb1i"]
 
 [sub_resource type="Resource" id="Resource_p5kko"]
@@ -152,6 +152,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.946777)
 script = ExtResource("10_4pnen")
 spread = 200.0
 health = 50.0
+
 [node name="DespawnEnemyShipArea" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=1516606863 node_paths=PackedStringArray("collision_shape_3d")]
 collision_mask = 2
 script = ExtResource("5_suwts")

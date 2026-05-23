@@ -71,6 +71,7 @@ The more full the player’s cargo gets, the higher the likelihood of an enemy s
 The longer the player stays out mining the higher the likelihood of the Entity spawning.  
 Types of enemy ships:
 
+* **Hauler** \- Slow ship, flying linear through the space, just shooting at the player when the player comes too near
 * **Nimble** \- Fast and doesn’t stop moving, but low health and damage.  
 * **Hardy** \- Slow with lots of health.  
 * **Cautious** \- Keeps its distance and reheals over time.  

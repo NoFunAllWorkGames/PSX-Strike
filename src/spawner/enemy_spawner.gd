@@ -1,7 +1,7 @@
 extends Node
 
-@export var enemy_scene: PackedScene = preload("res://scenes/Ships/enemy_ship_rando.tscn")
-@export var enemy_ship_data: EnemyShipData = preload("res://src/data/enemy_ship_rando.tres")
+@export var enemy_scene: PackedScene = preload("res://scenes/Ships/enemy_ship_hauler.tscn")
+@export var enemy_ship_data: EnemyShipData = preload("res://src/data/enemy_ship_hauler.tres")
 @export var border_area: Area3D
 
 @onready var enemySpawnTreePoint := $"../../HBoxContainer/SubViewportContainer/SubViewport/World/Enemies"
@@ -31,7 +31,7 @@ func spawn_enemy_from_slot(slot: EnemySpawnSlot) -> RigidBody3D:
 	if slot.random_start:
 		_apply_random_starting_point(data)
 		enemy = _spawn_with_data(data)
-	return enemy 
+	return enemy
 
 
 func _apply_random_starting_point(data: EnemyShipData) -> void:
@@ -47,8 +47,8 @@ func _spawn_with_data(data: EnemyShipData) -> RigidBody3D:
 	new_ship_instance.name = "SpawnedEnemyShip"
 	enemySpawnTreePoint.add_child(new_ship_instance)
 	new_ship_instance.global_position = data.starting_point
-	
+
 	if data.direction != Vector3.ZERO:
 		new_ship_instance.look_at(data.starting_point + data.direction)
-		
+
 	return new_ship_instance
