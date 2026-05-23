@@ -19,7 +19,7 @@ func _on_interact_pressed() -> void:
 func _on_area_3d_body_entered(_body: Node3D) -> void:
 	_player_in_dock_zone = true
 	SignalBus.display_action_label.emit("Press G to enter")
-	
+
 func _on_area_3d_body_exited(_body: Node3D) -> void:
 	_player_in_dock_zone = false
 	SignalBus.display_action_label.emit("")

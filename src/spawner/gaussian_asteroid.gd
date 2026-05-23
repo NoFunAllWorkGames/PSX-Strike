@@ -37,10 +37,10 @@ func spawn_gaussian_cloud() -> void:
 			randfn(0, 1),
 			randfn(0, 1)
 		).normalized()
-		
+
 		var distance = randfn(0, spread)
 		var final_pos = direction * distance
-				
+
 		# Add Data
 		health = 50.0
 		# First number is random cap, second number is always added
@@ -56,6 +56,6 @@ func spawn_gaussian_cloud() -> void:
 		if Engine.is_editor_hint():
 			var root = get_tree().edited_scene_root
 			asteroid_instance.owner = root
-			
+
 		# Group assignment must occur after owner assignment and use the persistent flag
 		asteroid_instance.add_to_group("Asteroid", true)

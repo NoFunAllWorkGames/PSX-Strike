@@ -34,13 +34,13 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	if not is_firing:
 		return
-		
+
 	if not is_instance_valid(bullet_gatling):
 		return
 
 	if not is_instance_valid(GameManager.PlayerShip):
 		return
-	
+
 	var spawn_pos = calculate_bullet_origin()
 	var bullet_velocity = calculate_bullet_velocity(spawn_pos)
 
@@ -52,17 +52,17 @@ func calculate_bullet_origin() -> Vector3:
 func calculate_bullet_velocity(spawn_pos: Vector3) -> Vector3:
 	# start with the origin of the bullet in the world-space
 	var spawn_pos_global = to_global(spawn_pos)
-	
+
 	# aim at the player in the world-space
 	var heading_global: Vector3 = GameManager.PlayerShip.global_position - spawn_pos_global
-	
+
 	var aim_direction: Vector3 = heading_global.normalized()
 	if spread_degrees > 0.0:
 		aim_direction = _apply_cone_spread(aim_direction, deg_to_rad(spread_degrees))
-	
+
 	# compensate enemy ship movement
 	var bullet_velocity_global: Vector3 = aim_direction * bullet_speed - carrier_velocity
-	# convert world-space aim into the local-space 
+	# convert world-space aim into the local-space
 	var bullet_velocity: Vector3 = bullet_gatling.global_transform.basis.inverse() * bullet_velocity_global
 
 	return bullet_velocity
@@ -75,6 +75,6 @@ func _apply_cone_spread(base_direction: Vector3, half_angle_rad: float) -> Vecto
 	var bitangent := forward.cross(tangent)
 	var axis := (tangent * cos(randf() * TAU) + bitangent * sin(randf() * TAU)).normalized()
 	return forward.rotated(axis, randf() * half_angle_rad).normalized()
-	
+
 func _on_bullet_player_hit() -> void:
 	hit_sound.play()

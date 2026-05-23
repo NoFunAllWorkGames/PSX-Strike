@@ -12,7 +12,7 @@ func play_audio_stream(scene_path: String) -> void:
 func play_pausemenu_open() -> void:
 	const scene_path = "res://scenes/SoundNodes/MenuPausePlayer.tscn"
 	play_audio_stream(scene_path)
-	
+
 func play_pausemenu_close() -> void:
 	const scene_path = "res://scenes/SoundNodes/MenuResumePlayer.tscn"
 	play_audio_stream(scene_path)
@@ -20,11 +20,11 @@ func play_pausemenu_close() -> void:
 func play_ui_error() -> void:
 	const scene_path = "res://scenes/SoundNodes/MenuErrorPlayer.tscn"
 	play_audio_stream(scene_path)
-	
+
 func play_ui_button_click() -> void:
 	const scene_path = "res://scenes/SoundNodes/ButtonClickPlayer.tscn"
 	play_audio_stream(scene_path)
-	
+
 func play_ui_button_hover() -> void:
 	const scene_path = "res://scenes/SoundNodes/ButtonHoverPlayer.tscn"
 	play_audio_stream(scene_path)

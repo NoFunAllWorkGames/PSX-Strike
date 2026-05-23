@@ -19,7 +19,7 @@ func spawn_bullet(start_position: Vector3, start_velocity: Vector3) -> void:
 	# Enforce hard cap based on maximum multimesh instances allocated
 	if positions.size() >= max_bullets:
 		return
-		
+
 	positions.append(start_position)
 	velocities.append(start_velocity)
 	times_alive.append(0.0)
@@ -32,26 +32,26 @@ func _physics_process(delta: float) -> void:
 	# Loop backwards to safely remove elements without disrupting index tracking
 	for i in range(bullet_count - 1, -1, -1):
 		var time := times_alive[i] + delta
-		
+
 		# Time-based culling
 		if time > bullet_lifetime:
 			destroy_bullet(i)
 			continue
-			
+
 		# Update life timer tracking array
 		times_alive[i] = time
-		
+
 		# 2. Update position vector calculations
 		var old_pos := positions[i]
 		var new_pos := old_pos + (velocities[i] * delta)
-		
+
 		if _hits_player(old_pos, new_pos):
 			player_hit.emit()
 			destroy_bullet(i)
 			continue
-		
+
 		positions[i] = new_pos
-		
+
 		# 3. Update Visual instance transform via RenderingServer pipeline
 		var transform_3d := Transform3D(Basis(), new_pos)
 		multimesh.set_instance_transform(i, transform_3d)
@@ -68,16 +68,16 @@ func destroy_bullet(index: int) -> void:
 func _hits_player(from_local: Vector3, end_local: Vector3) -> bool:
 	if not is_instance_valid(GameManager.PlayerShip):
 		return false
-	
+
 	var space_state := get_world_3d().direct_space_state
 	if space_state == null:
 		return false
-	
+
 	var query := PhysicsRayQueryParameters3D.create(to_global(from_local), to_global(end_local))
 	query.collision_mask = player_collision_mask
 	query.collide_with_areas = false
 	query.collide_with_bodies = true
 	query.hit_from_inside = true
-	
+
 	var result := space_state.intersect_ray(query)
 	return not result.is_empty() and result.collider == GameManager.PlayerShip

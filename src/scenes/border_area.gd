@@ -15,10 +15,10 @@ func create_area_edge_segments() -> PackedVector3Array:
 	var shape = collision_shape_3d.shape
 	var mesh = shape.get_debug_mesh()
 	var aabb = mesh.get_aabb()
-	
+
 	# Derive extents from the AABB size property
 	var extents: Vector3 = aabb.size / 2.0
-	
+
 	# Define the 8 specific corner vertices in local space
 	var c0 := Vector3(-extents.x, -extents.y, -extents.z) # Bottom-Left-Back
 	var c1 := Vector3( extents.x, -extents.y, -extents.z) # Bottom-Right-Back
@@ -36,29 +36,29 @@ func create_area_edge_segments() -> PackedVector3Array:
 		c1, c2, # Right edge
 		c2, c3, # Top edge
 		c3, c0, # Left edge
-		
+
 		# --- FRONT FACE EDGES ---
 		c4, c5, # Bottom edge
 		c5, c6, # Right edge
 		c6, c7, # Top edge
 		c7, c4, # Left edge
-		
+
 		# --- CONNECTING SIDE EDGES (Back to Front) ---
 		c0, c4, # Bottom-Left edge
 		c1, c5, # Bottom-Right edge
 		c2, c6, # Top-Right edge
 		c3, c7  # Top-Left edge
 	]
-	
+
 	# Transform all points to global world space and populate the PackedVector3Array
 	var global_segments := PackedVector3Array()
 	global_segments.resize(local_segments.size())
-	
+
 	# Fixed reference from shape_node to collision_shape_3d
 	var mat: Transform3D = collision_shape_3d.global_transform
 	for i in range(local_segments.size()):
 		global_segments[i] = mat * local_segments[i]
-		
+
 	return global_segments
 
 ## Uniform on box hull: face weighted by area, then two uniforms on that face (shape-local AABB).
@@ -95,7 +95,7 @@ func get_random_point_on_box_surface() -> Vector3:
 		local = Vector3(mn.x + randf() * szv.x, mn.y + randf() * szv.y, mx.z)
 
 	return tf * local
-	
+
 
 func get_random_direction_vector(start_point: Vector3) -> Vector3:
 	if collision_shape_3d == null:
