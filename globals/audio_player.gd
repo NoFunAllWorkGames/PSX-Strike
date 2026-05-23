@@ -2,7 +2,9 @@ extends Node
 
 func play_audio_stream(scene_path: String) -> void:
 	var audio_device := load(scene_path).instantiate() as AudioStreamPlayer
-	get_tree().root.add_child(audio_device)
+	get_tree().root.add_child.call_deferred(audio_device)
+	if not audio_device.is_node_ready():
+		await audio_device.ready
 	audio_device.play()
 	await audio_device.finished
 	audio_device.queue_free()
