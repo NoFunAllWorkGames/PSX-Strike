@@ -12,6 +12,10 @@ Vertical Slice
 
 - The visuals for the laser beam are all wrong, it doesn't hit where it seems to hit
 - Add at least control overview in the settings menu
+- Create settings
+- Player ship explodes when going too fast
+- Main base should remain a light to be able to find the way back
+- Implementing the Entity in a horror way
 
 Should
 -----------

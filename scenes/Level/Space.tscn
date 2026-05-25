@@ -162,7 +162,7 @@ collision_shape_3d = NodePath("CollisionShape3D")
 shape = SubResource("BoxShape3D_yf1gl")
 
 [node name="EnemyShipRando" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Enemies" parent_id_path=PackedInt32Array(1450650547) index="0" unique_id=128073042 instance=ExtResource("4_4pnen")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.085533, 0, -12.541386)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40.286728, 0, -36.229897)
 enemy_ship_data = SubResource("Resource_o803n")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SubViewportContainer/SubViewport/World" parent_id_path=PackedInt32Array(1213749867) index="4" unique_id=1617069734]

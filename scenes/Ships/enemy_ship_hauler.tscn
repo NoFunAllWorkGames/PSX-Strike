@@ -96,7 +96,7 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h0scj"]
-radius = 50.0
+radius = 75.0
 
 [node name="ManualHauler" type="RigidBody3D" unique_id=128073042]
 collision_layer = 4

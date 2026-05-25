@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://0gehker18uf3"]
 
-[ext_resource type="Script" path="res://src/components/enemy_gatling_component.gd" id="1_hy7yb"]
+[ext_resource type="Script" uid="uid://clruwf3d7oggt" path="res://src/components/enemy_gatling_component.gd" id="1_hy7yb"]
 [ext_resource type="PackedScene" uid="uid://bgtgglf50ihxh" path="res://scenes/Weapons/bullet_gatling.tscn" id="2_hy7yb"]
 [ext_resource type="AudioStream" uid="uid://djyaum74xgigw" path="res://assets/Sounds/Laser/LaserNotifications/LaserModeSwitch.ogg" id="3_ylfx0"]
 
 [node name="GatlingComponent" type="Node3D" unique_id=1411392360 node_paths=PackedStringArray("bullet_gatling")]
 script = ExtResource("1_hy7yb")
-rpm = 100.0
+rpm = 500.0
 bullet_speed = 60.0
-spread_degrees = 5.0
+spread_degrees = 7.0
 bullet_gatling = NodePath("BulletGatling")
 
 [node name="BulletGatling" parent="." unique_id=38871120 instance=ExtResource("2_hy7yb")]

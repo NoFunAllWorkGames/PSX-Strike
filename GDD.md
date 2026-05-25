@@ -46,6 +46,8 @@ The first time a player starts a new save, they will start with the tutorial seq
 * **Switch Laser/Armaments** \- E  
 * **Deploy Turret** \- Q 
 
+Controller support should be added
+
 
 **Gameplay Loop**
 -----------------
@@ -105,7 +107,7 @@ Resolution and sizing
 ---------------------
 
 The game will be run in **426x240** which is a widescreen version of the original **320 × 240** NTSC Standard original PSX size.  
-The main window will remain at the original **320 × 240** resolution but it will have two added sidebars with a resolution of **53x240** each. To make the game easier to see on modern displays it will by default scale the window by a factor 2, while remaining the original internal resolution.
+The main window will remain at the original **320 × 240** resolution but it will have two added sidebars with a resolution of **53x240** each. To make the game easier to see on modern displays it will by default scale the window by a factor 2 or 4, while remaining the original internal resolution.
 
 **Visual Aesthetic**
 --------------------
