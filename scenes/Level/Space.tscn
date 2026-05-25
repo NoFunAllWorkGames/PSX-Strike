@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/spawner/gaussian_asteroid.gd" id="10_4pnen"]
 [ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_hauler_res.gd" id="13_x563e"]
 [ext_resource type="Script" uid="uid://fm6pi8klcq1f" path="res://src/ui/damagebar_view.gd" id="14_hfb1i"]
+[ext_resource type="PackedScene" uid="uid://ds1n2gxt3k8a1" path="res://scenes/Ships/TheEntity.tscn" id="18_o803n"]
 
 [sub_resource type="Resource" id="Resource_p5kko"]
 script = ExtResource("3_oo3mg")
@@ -148,20 +149,23 @@ collision_shape_3d = NodePath("CollisionShape3D")
 shape = SubResource("BoxShape3D_irlk4")
 
 [node name="NoiseAsteroid" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1610750277]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24.946777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42.23153)
 script = ExtResource("10_4pnen")
+count = 200
 spread = 200.0
 health = 50.0
 
-[node name="DespawnEnemyShipArea" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=1516606863 node_paths=PackedStringArray("collision_shape_3d")]
-collision_mask = 2
+[node name="OuterArea" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=2048173654 node_paths=PackedStringArray("collision_shape_3d")]
 script = ExtResource("5_suwts")
 collision_shape_3d = NodePath("CollisionShape3D")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/DespawnEnemyShipArea" index="0" unique_id=1812893016]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/OuterArea" index="0" unique_id=2048173655]
 shape = SubResource("BoxShape3D_yf1gl")
 
-[node name="EnemyShipRando" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Enemies" parent_id_path=PackedInt32Array(1450650547) index="0" unique_id=128073042 instance=ExtResource("4_4pnen")]
+[node name="TheEntity" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Enemies" parent_id_path=PackedInt32Array(1450650547) index="0" unique_id=586411818 node_paths=PackedStringArray("spawn_area") instance=ExtResource("18_o803n")]
+spawn_area = NodePath("../../Environment/OuterArea")
+
+[node name="EnemyShipRando" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Enemies" parent_id_path=PackedInt32Array(1450650547) index="1" unique_id=128073042 instance=ExtResource("4_4pnen")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40.286728, 0, -36.229897)
 enemy_ship_data = SubResource("Resource_o803n")
 

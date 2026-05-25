@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://ds1n2gxt3k8a1"]
+
+[ext_resource type="Shader" uid="uid://cko023nb6gfc" path="res://src/TheEntityShader.gdshader" id="1_hfjux"]
+[ext_resource type="Script" uid="uid://by6qv7217q7aw" path="res://src/the_entity.gd" id="1_rghxa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rghxa"]
+render_priority = 0
+shader = ExtResource("1_hfjux")
+shader_parameter/distortion_intensity = 0.0210000009975
+
+[sub_resource type="SphereMesh" id="SphereMesh_6ugoe"]
+material = SubResource("ShaderMaterial_rghxa")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rghxa"]
+
+[node name="TheEntity" type="Area3D" unique_id=43789425]
+collision_layer = 4
+collision_mask = 2
+monitoring = true
+script = ExtResource("1_rghxa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1384537087]
+mesh = SubResource("SphereMesh_6ugoe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1291430148]
+shape = SubResource("SphereShape3D_rghxa")
+
+[node name="GrowthTimer" type="Timer" parent="." unique_id=1983746521]
+autostart = true

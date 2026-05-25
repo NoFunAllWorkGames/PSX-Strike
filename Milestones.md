@@ -24,13 +24,13 @@ Vertical Slice 🚧
 - Turrets can be deployed
 - Returning to the station will deposit resources and generate currency ✅
 - Enemy ships can spawn and will shoot at the player ( Just need 1 behavior; sturdy for now) ✅
-- The Entity can spawn and will chase the player 🚧
+- The Entity can spawn and will chase the player ✅
 - Basic ship model, including mining laser & armaments
 - Basic Turret models
 - Basic station model
 - asteroid models
-- One enemy ship model (Sturdy)
-- Basic Entity design
+- One enemy ship model (Hauler) ✅
+- Basic Entity design ✅
 - Sound effects for mining laser, armaments, turret deployment, and collisions
 - One Ambient gameplay sound track
 

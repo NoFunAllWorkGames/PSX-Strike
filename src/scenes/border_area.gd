@@ -66,35 +66,51 @@ func get_random_point_on_box_surface() -> Vector3:
 	var shape := collision_shape_3d.shape
 	var mesh := shape.get_debug_mesh()
 	var aabb := mesh.get_aabb()
-	var szv := aabb.size
-	if szv.x <= 0.0 or szv.y <= 0.0 or szv.z <= 0.0:
+	var size_dimensions_aabb := aabb.size
+	if size_dimensions_aabb.x <= 0.0 or size_dimensions_aabb.y <= 0.0 or size_dimensions_aabb.z <= 0.0:
 		return collision_shape_3d.global_position
 
-	var mn := aabb.position
-	var mx := mn + szv
-	var tf := collision_shape_3d.global_transform
+	var start_corner_aabb := aabb.position
+	var end_corner_aabb := start_corner_aabb + size_dimensions_aabb
+	var transformation := collision_shape_3d.global_transform
 
-	var wx: float = szv.y * szv.z
-	var wy: float = szv.x * szv.z
-	var wz: float = szv.x * szv.y
+	var wx: float = size_dimensions_aabb.y * size_dimensions_aabb.z
+	var wy: float = size_dimensions_aabb.x * size_dimensions_aabb.z
+	var wz: float = size_dimensions_aabb.x * size_dimensions_aabb.y
 	var total: float = 2.0 * (wx + wy + wz)
 	var r: float = randf() * total
 
 	var local: Vector3
 	if r < wx:
-		local = Vector3(mn.x, mn.y + randf() * szv.y, mn.z + randf() * szv.z)
+		local = Vector3(start_corner_aabb.x, start_corner_aabb.y + randf() * size_dimensions_aabb.y, start_corner_aabb.z + randf() * size_dimensions_aabb.z)
 	elif r < 2.0 * wx:
-		local = Vector3(mx.x, mn.y + randf() * szv.y, mn.z + randf() * szv.z)
+		local = Vector3(end_corner_aabb.x, start_corner_aabb.y + randf() * size_dimensions_aabb.y, start_corner_aabb.z + randf() * size_dimensions_aabb.z)
 	elif r < 2.0 * wx + wy:
-		local = Vector3(mn.x + randf() * szv.x, mn.y, mn.z + randf() * szv.z)
+		local = Vector3(start_corner_aabb.x + randf() * size_dimensions_aabb.x, start_corner_aabb.y, start_corner_aabb.z + randf() * size_dimensions_aabb.z)
 	elif r < 2.0 * wx + 2.0 * wy:
-		local = Vector3(mn.x + randf() * szv.x, mx.y, mn.z + randf() * szv.z)
+		local = Vector3(start_corner_aabb.x + randf() * size_dimensions_aabb.x, end_corner_aabb.y, start_corner_aabb.z + randf() * size_dimensions_aabb.z)
 	elif r < 2.0 * wx + 2.0 * wy + wz:
-		local = Vector3(mn.x + randf() * szv.x, mn.y + randf() * szv.y, mn.z)
+		local = Vector3(start_corner_aabb.x + randf() * size_dimensions_aabb.x, start_corner_aabb.y + randf() * size_dimensions_aabb.y, start_corner_aabb.z)
 	else:
-		local = Vector3(mn.x + randf() * szv.x, mn.y + randf() * szv.y, mx.z)
+		local = Vector3(start_corner_aabb.x + randf() * size_dimensions_aabb.x, start_corner_aabb.y + randf() * size_dimensions_aabb.y, end_corner_aabb.z)
 
-	return tf * local
+	return transformation * local
+
+
+func get_random_point() -> Vector3:
+	if collision_shape_3d == null:
+		return global_position
+
+	var mesh := collision_shape_3d.shape.get_debug_mesh()
+	var aabb := mesh.get_aabb()
+	var start_corner_aabb := aabb.position
+	var size_dimensions_aabb := aabb.size
+	var local := Vector3(
+		start_corner_aabb.x + randf() * size_dimensions_aabb.x,
+		start_corner_aabb.y + randf() * size_dimensions_aabb.y,
+		start_corner_aabb.z + randf() * size_dimensions_aabb.z
+	)
+	return collision_shape_3d.global_transform * local
 
 
 func get_random_direction_vector(start_point: Vector3) -> Vector3:

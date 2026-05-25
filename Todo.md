@@ -16,6 +16,9 @@ Vertical Slice
 - Player ship explodes when going too fast
 - Main base should remain a light to be able to find the way back
 - Implementing the Entity in a horror way
+- Restart the entity after docking at the station
+- Entity sfx
+- Killing the player
 
 Should
 -----------
