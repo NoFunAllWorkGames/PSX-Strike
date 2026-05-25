@@ -10,7 +10,7 @@
 [ext_resource type="Resource" uid="uid://cgcqq1finjs42" path="res://src/data/enemy_ship_hauler.tres" id="4_324nc"]
 [ext_resource type="Script" uid="uid://b2s52ydusuhmc" path="res://src/scenes/border_area.gd" id="5_suwts"]
 [ext_resource type="Script" uid="uid://q4v0ljs4it4q" path="res://src/spawner/enemy_spawner.gd" id="6_4nemy"]
-[ext_resource type="Texture2D" uid="uid://1ug7glvfgbr8" path="res://assets/Textures/WallTextureSpaceStation_Tripwire_Pinterest.jpg" id="6_k628k"]
+[ext_resource type="Texture2D" uid="uid://bk17n28e3ovi6" path="res://assets/Textures/WallTextureSpaceStation_Tripwire_Pinterest.jpg" id="6_k628k"]
 [ext_resource type="Script" uid="uid://df6832ebx1vmt" path="res://src/ui/cargo_capacity_view.gd" id="7_4pnen"]
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/spawner/gaussian_asteroid.gd" id="10_4pnen"]
 [ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_hauler_res.gd" id="13_x563e"]
@@ -151,9 +151,6 @@ shape = SubResource("BoxShape3D_irlk4")
 [node name="NoiseAsteroid" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1610750277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -42.23153)
 script = ExtResource("10_4pnen")
-count = 200
-spread = 200.0
-health = 50.0
 
 [node name="OuterArea" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=2048173654 node_paths=PackedStringArray("collision_shape_3d")]
 script = ExtResource("5_suwts")
