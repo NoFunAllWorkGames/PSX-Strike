@@ -26,6 +26,7 @@ SignalBus="*uid://6173t3eux0kq"
 GameManager="*uid://cm57p1yp0ocoo"
 InputManager="*uid://dj6onx707gyts"
 AudioPlayer="*uid://dwxxdrq2gs55v"
+UserSettings="*res://globals/user_settings.gd"
 
 [display]
 

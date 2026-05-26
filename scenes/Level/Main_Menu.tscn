@@ -63,7 +63,6 @@ text = "New Game"
 [node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1408124819]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-disabled = true
 text = "Settings"
 
 [node name="Credits" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1135007803]
@@ -234,5 +233,90 @@ theme_override_font_sizes/font_size = 8
 text = "Audio files"
 
 [node name="CreditsBackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=714562052]
+layout_mode = 2
+text = "Back"
+
+[node name="SettingsPanel" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=2113878392]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel" unique_id=1982746153]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer" unique_id=977028412]
+layout_mode = 2
+columns = 2
+
+[node name="FullScreen" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1534285583]
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="FullScreenOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1461566265]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Fullscreen"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed"
+popup/item_1/id = 1
+popup/item_2/text = "Borderless"
+popup/item_2/id = 2
+
+[node name="ZoomLevel" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=711576819]
+layout_mode = 2
+text = "Zoom level"
+
+[node name="ZoomLevelOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1754238501]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "1x (426x240)"
+popup/item_0/id = 0
+popup/item_1/text = "2x (852x480)"
+popup/item_1/id = 1
+popup/item_2/text = "4x (1704x960)"
+popup/item_2/id = 2
+
+[node name="VSync" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1209483721]
+layout_mode = 2
+text = "VSync"
+
+[node name="VSyncOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1847295036]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "Off"
+popup/item_0/id = 0
+popup/item_1/text = "On"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptive"
+popup/item_2/id = 2
+
+[node name="Volume" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1673829405]
+layout_mode = 2
+text = "Volume"
+
+[node name="VolumeControls" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1549283741]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="VolumeSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer/VolumeControls" unique_id=1438291057]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+
+[node name="VolumeValue" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer/VolumeControls" unique_id=1928473610]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "100%"
+
+[node name="SettingsBackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer" unique_id=2083746192]
 layout_mode = 2
 text = "Back"
