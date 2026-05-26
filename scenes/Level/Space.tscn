@@ -166,6 +166,7 @@ gizmo_extents = 3.0
 
 [node name="TheEntity" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Enemies" parent_id_path=PackedInt32Array(1450650547) index="0" unique_id=586411818 node_paths=PackedStringArray("spawn_area") instance=ExtResource("18_o803n")]
 spawn_area = NodePath("../../Environment/OuterArea")
+distortion_intensity = 0.1
 
 [node name="EnemyShipRando" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Enemies" parent_id_path=PackedInt32Array(1450650547) index="1" unique_id=128073042 instance=ExtResource("4_4pnen")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.7840576, 0.56413364, -17.554638)
