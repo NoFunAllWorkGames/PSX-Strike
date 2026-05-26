@@ -5,8 +5,11 @@ extends CanvasLayer
 @onready var start_button: Button = $Control/MarginContainer/VBoxContainer/VBoxContainer/Start
 @onready var new_game: Button = $Control/MarginContainer/VBoxContainer/VBoxContainer/NewGame
 @onready var quit_button: Button = $Control/MarginContainer/VBoxContainer/VBoxContainer/Quit
+@onready var credits_button: Button = $Control/MarginContainer/VBoxContainer/VBoxContainer/Credits
 @onready var confirmation_dialog: ConfirmationDialog = $Control/MarginContainer/VBoxContainer/VBoxContainer/ConfirmationDialog
-@onready var v_box_container: VBoxContainer = $Control/MarginContainer/VBoxContainer/VBoxContainer
+@onready var main_body_vbox: VBoxContainer = $Control/MarginContainer/VBoxContainer/VBoxContainer
+@onready var credits_panel: MarginContainer = $Control/MarginContainer/VBoxContainer/CreditsPanel
+@onready var credits_back_button: Button = $Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/CreditsBackButton
 
 func _ready() -> void:
 	GameManager.game_state = Enums.GameState.MAIN_MENU
@@ -15,12 +18,15 @@ func _ready() -> void:
 	quit_button.pressed.connect(_on_quit_pressed)
 	confirmation_dialog.visibility_changed.connect(_style_confimation_dialogue)
 	confirmation_dialog.confirmed.connect(_on_deletion_confirmed)
-	
-	for button in v_box_container.get_children():
-		if button is Button and !button.disabled:
-			button.mouse_entered.connect(_on_button_hovered)
-			button.pressed.connect(_on_button_clicked)
-		
+	credits_button.pressed.connect(_on_credits_button_pressed)
+	credits_back_button.pressed.connect(_on_close_credits_button_pressed)
+
+	# Give defauls to every button in this main menu
+	for child in get_tree().get_root().find_children("", "Button", true, false):
+		if child is Button and !child.disabled:
+			child.mouse_entered.connect(_on_button_hovered)
+			child.pressed.connect(_on_button_clicked)
+
 	if GameManager.has_savegame():
 		start_button.text = "Continue"
 	else:
@@ -32,7 +38,7 @@ func _on_start_pressed() -> void:
 		GameManager.load_game()
 	else:
 		GameManager.start_new_game()
-		
+
 func _on_new_game_pressed() -> void:
 		# Ask for confirmation
 		AudioPlayer.play_ui_error()
@@ -57,9 +63,18 @@ func _style_confimation_dialogue() -> void:
 	ok_button.add_theme_stylebox_override("normal", style_normal)
 	ok_button.add_theme_stylebox_override("hover", style_normal)
 	ok_button.add_theme_stylebox_override("pressed", style_normal)
-	
+
 func _on_button_hovered() -> void:
 	AudioPlayer.play_ui_button_hover()
-	
+
 func _on_button_clicked() -> void:
 	AudioPlayer.play_ui_button_click()
+
+
+func _on_credits_button_pressed() -> void:
+	main_body_vbox.hide()
+	credits_panel.show()
+
+func _on_close_credits_button_pressed() -> void:
+	credits_panel.hide()
+	main_body_vbox.show()

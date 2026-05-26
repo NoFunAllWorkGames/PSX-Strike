@@ -13,8 +13,6 @@ Right now
 - Implementing the Entity in a horror way
 - Restart the entity after docking at the station
 - Entity sfx
-- TheEntity can kill the player
-- Player ship explodes when going too fast
 
 
 Should
