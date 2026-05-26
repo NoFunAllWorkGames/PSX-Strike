@@ -21,6 +21,12 @@ extends CharacterBody3D
 @onready var dying_explosion: AudioStreamPlayer = $DyingExplosion
 @onready var explosion_animation: AnimationPlayer = $ExplosionAnimation
 
+# For self-destruction by max speed
+const SUSTAINED_SPEED_DAMAGE_RATIO := 0.95
+const SUSTAINED_SPEED_DAMAGE_RESET_RATIO := 0.85
+var speed: float = 0.0
+var speed_timer: float = 0.0
+
 var _ship_yaw: float = 0.0
 var _look_pitch: float = 0.0
 
@@ -43,6 +49,8 @@ func _physics_process(delta: float) -> void:
 	_apply_pitching(delta)
 	_apply_movement(delta)
 	move_and_slide()
+	speed = velocity.length()
+	_max_speed_selfdestruction(delta)
 	_update_engine_hovering_pitch()
 
 func _on_mouse_look_relative(relative: Vector2) -> void:
@@ -97,10 +105,22 @@ func _apply_movement(delta: float) -> void:
 	var blend_weight := acceleration if target_velocity != Vector3.ZERO else deceleration
 	velocity = velocity.move_toward(target_velocity, blend_weight * delta)
 
+func _max_speed_selfdestruction(delta: float) -> void:
+	var damage_threshold := max_speed * SUSTAINED_SPEED_DAMAGE_RATIO
+	var reset_threshold := max_speed * SUSTAINED_SPEED_DAMAGE_RESET_RATIO
+
+	if speed >= damage_threshold:
+		speed_timer += delta
+		if speed_timer >= 1.0:
+			SignalBus.player_receive_damage.emit(1000)
+			speed_timer = 0.0
+	elif speed < reset_threshold:
+		speed_timer = 0.0
+
 func _update_engine_hovering_pitch() -> void:
 	var speed_ratio := 0.0
 	if max_speed > 0.0:
-		speed_ratio = clampf(velocity.length() / max_speed, 0.0, 1.0)
+		speed_ratio = clampf(speed / max_speed, 0.0, 1.0)
 	engine_hovering.pitch_scale = lerpf(
 		engine_hover_pitch_at_rest,
 		engine_hover_pitch_at_max_speed,
@@ -110,11 +130,10 @@ func _update_engine_hovering_pitch() -> void:
 func _on_player_receive_damage(damage: int) -> void:
 	lifepoints -= damage
 	if lifepoints <= 0:
-
 		go_die()
 
 func go_die() -> void:
-
+	engine_hovering.stop()
 	explosion_animation.play("explosion")
 
 	# stop player control
