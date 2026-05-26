@@ -37,6 +37,7 @@ Self-Created Assets
 | ---        | ---      | ---    |
 | Icon_v1 | Splash and Icon | B1773rm4n |
 | Bullet | Enemy Projectile | B1773rm4n |
+| Explosion | Player Death | B1773rm4n |
 
 Audio Self-Created Assets
 -------------------------

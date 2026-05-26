@@ -78,3 +78,4 @@ func _apply_cone_spread(base_direction: Vector3, half_angle_rad: float) -> Vecto
 
 func _on_bullet_player_hit() -> void:
 	hit_sound.play()
+	SignalBus.player_receive_damage.emit(5)

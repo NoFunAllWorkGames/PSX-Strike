@@ -6,30 +6,25 @@ Right now
 
 - Add Hauler SFX
 - Add Station Collision SFX
-
-Vertical Slice 
---------------
-
 - The visuals for the laser beam are all wrong, it doesn't hit where it seems to hit
 - Add at least control overview in the settings menu
 - Create settings
-- Player ship explodes when going too fast
 - Main base should remain a light to be able to find the way back
 - Implementing the Entity in a horror way
 - Restart the entity after docking at the station
 - Entity sfx
-- Killing the player
+- TheEntity can kill the player
+- Player ship explodes when going too fast
+
 
 Should
------------
+------
 
 - having the healthbars on top of the asteroid instead of static on the UI
 - Gamepad controls
 
 Want
------------
-
-- GUT - Godot Unit Testing
+----
 
 
 Technical Debt

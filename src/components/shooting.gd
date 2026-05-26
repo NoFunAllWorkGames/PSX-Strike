@@ -3,7 +3,7 @@ extends Node
 func _ready() -> void:
 	SignalBus.shoot_action_pressed.connect(_on_shoot_action_pressed)
 	SignalBus.shoot_action_released.connect(_on_shoot_action_released)
-	
+
 func _on_shoot_action_pressed():
 	if GameManager.weapon_system.weapon_id == "mining_laser":
 		var mining_laser_res: PackedScene = GameManager.weapon_system.scene_path as PackedScene

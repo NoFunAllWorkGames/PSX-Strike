@@ -5,6 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="2_fy63f"]
 [ext_resource type="Script" uid="uid://co7qjmw5034m6" path="res://src/components/shooting.gd" id="3_qjll1"]
 [ext_resource type="Script" uid="uid://jd23mfxamfk3" path="res://src/components/cargo_component.gd" id="4_5iwu1"]
+[ext_resource type="AnimationLibrary" uid="uid://bbiofxxpbtyk5" path="res://scenes/Ships/animation_library.tres" id="7_b5nh1"]
+[ext_resource type="Texture2D" uid="uid://cwxpfc484iin0" path="res://assets/Textures/explosion.png" id="7_ipt2d"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_veut8"]
 size = Vector3(1.235, 2.82, 0.52)
@@ -17,6 +19,17 @@ size = Vector3(1.2, 1.5, 0.45)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjll1"]
 points = PackedVector3Array(0.028088098, 0.67977977, 0.22053385, -0.58154756, -0.7236678, -0.225, -0.5754761, -0.7160502, 0.225, 0.5720238, -0.7236678, -0.225, 0.0065299356, 0.7236678, -0.225, 0.56595236, -0.7160502, 0.225, -0.015739687, 0.7106508, 0.22331233, 0.5542297, -0.6355743, -0.2180219, 0.5542297, -0.6355743, 0.22040287, -0.015739687, 0.7106508, -0.22093137, -0.56225926, -0.6556482, 0.21981691, -0.56225926, -0.6556482, -0.21743594, 0.0064110737, 0.7160502, 0.225, 0.028088098, 0.67977977, -0.21815288)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jm38r"]
+transparency = 1
+no_depth_test = true
+albedo_texture = ExtResource("7_ipt2d")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_op28h"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_jm38r")
+size = Vector2(0, 0)
 
 [node name="PlayerShipArchon" type="CharacterBody3D" unique_id=34192894]
 collision_layer = 2
@@ -62,3 +75,14 @@ script = ExtResource("3_qjll1")
 [node name="Cargo" type="Node3D" parent="Components" unique_id=725962350]
 script = ExtResource("4_5iwu1")
 data = ExtResource("2_b1s2j")
+
+[node name="DyingExplosion" type="AudioStreamPlayer" parent="." unique_id=1072982829]
+volume_db = 3.467
+pitch_scale = 0.44
+bus = &"SFX"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=458250568]
+mesh = SubResource("QuadMesh_op28h")
+
+[node name="ExplosionAnimation" type="AnimationPlayer" parent="." unique_id=1313225870]
+libraries/ = ExtResource("7_b5nh1")

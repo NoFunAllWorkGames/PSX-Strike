@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+## Controls
 @export var acceleration: float = 5.0
 @export var deceleration: float = 12.0
 @export var max_speed: float = 40.0
@@ -10,10 +11,15 @@ extends CharacterBody3D
 @export var min_pitch_degrees: float = -45.0
 @export var max_pitch_degrees: float = 45.0
 
+## Health
+@export var lifepoints: int = 100
+
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var camera_3d: Camera3D = $CameraPivot/SpringArm3D/Camera3D
 @onready var engine_hovering: AudioStreamPlayer = $Engine_Hovering
 @onready var current_weapon = preload("res://scenes/Objects/mining_laser.tscn")
+@onready var dying_explosion: AudioStreamPlayer = $DyingExplosion
+@onready var explosion_animation: AnimationPlayer = $ExplosionAnimation
 
 var _ship_yaw: float = 0.0
 var _look_pitch: float = 0.0
@@ -27,6 +33,7 @@ func _ready() -> void:
 	_ship_yaw = rotation.y
 	_look_pitch = rotation.x
 	camera_pivot.rotation = Vector3.ZERO
+	SignalBus.player_receive_damage.connect(_on_player_receive_damage)
 
 func _exit_tree() -> void:
 	InputManager.enable_freelook_click_capture = false
@@ -99,3 +106,26 @@ func _update_engine_hovering_pitch() -> void:
 		engine_hover_pitch_at_max_speed,
 		speed_ratio
 	)
+
+func _on_player_receive_damage(damage: int) -> void:
+	lifepoints -= damage
+	if lifepoints <= 0:
+
+		go_die()
+
+func go_die() -> void:
+
+	explosion_animation.play("explosion")
+
+	# stop player control
+	set_physics_process(false)
+	InputManager.enable_freelook_click_capture = false
+	InputManager.release_mouse()
+
+	await explosion_animation.animation_finished
+
+	# show deathscreen
+	explosion_animation.play("RESET")
+	# release controls again
+	# restart the game
+	GameManager.restart_game()

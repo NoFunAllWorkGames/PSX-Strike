@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/spawner/gaussian_asteroid.gd" id="10_4pnen"]
 [ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_hauler_res.gd" id="13_x563e"]
 [ext_resource type="Script" uid="uid://fm6pi8klcq1f" path="res://src/ui/damagebar_view.gd" id="14_hfb1i"]
+[ext_resource type="Script" uid="uid://c6m4i4xjtkof2" path="res://src/ui/healthbar_ui.gd" id="16_x563e"]
 [ext_resource type="PackedScene" uid="uid://ds1n2gxt3k8a1" path="res://scenes/Ships/TheEntity.tscn" id="18_o803n"]
 
 [sub_resource type="Resource" id="Resource_p5kko"]
@@ -230,7 +231,7 @@ text = "Cargo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Health" type="MarginContainer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="2" unique_id=814881232]
+[node name="Health" type="MarginContainer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="2" unique_id=814881232 node_paths=PackedStringArray("progress_bar")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -243,6 +244,8 @@ offset_right = 256.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 0
+script = ExtResource("16_x563e")
+progress_bar = NodePath("ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Health" index="0" unique_id=945942421]
 custom_minimum_size = Vector2(256, 8)
@@ -253,7 +256,6 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/fill = SubResource("StyleBoxFlat_k628k")
 step = 1.0
 value = 100.0
-fill_mode = 1
 
 [node name="Damagebar" type="ProgressBar" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="3" unique_id=1475009817]
 custom_minimum_size = Vector2(64, 16)

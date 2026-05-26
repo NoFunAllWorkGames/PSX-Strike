@@ -50,22 +50,30 @@ func start_new_game() -> void:
 	# Initialize Weapon System
 	const WEAPON_SYSTEM_RESOURCE_FILE = preload("res://src/data/weapon_res.tres")
 	weapon_system = WEAPON_SYSTEM_RESOURCE_FILE.duplicate(true)
-	
+
 	const PLAYER_SHIP_ARCHON = preload("res://scenes/Ships/PlayerShip_Archon.tscn")
 	GameManager.PlayerShip = PLAYER_SHIP_ARCHON.instantiate() as CharacterBody3D
 	PlayerShip.name = PLAYER_SHIP_NODE_NAME
-	
+
 	# Standard default spawn placement logic
 	PlayerShip.position = Vector3(0.0, 0.0, 8.0)
 	PlayerShip.rotation_degrees = Vector3(0.0, -180.0, 0.0)
-	
+	saved_player_transform = PlayerShip.transform
+
 	transition_to("res://scenes/Level/Space.tscn")
+
+func restart_game() -> void:
+	print("Restarting Game")
+	_close_pause_overlay()
+	get_tree().paused = false
+	call_deferred("start_new_game")
+
 
 func transition_to(target_path: String) -> void:
 	# set global scene variables
 	previous_scene_path = get_tree().current_scene.scene_file_path
 	current_scene_path = target_path
-	
+
 	print("Changing scene from: " + previous_scene_path)
 	print("Changing scene to: " + target_path)
 
@@ -73,7 +81,7 @@ func transition_to(target_path: String) -> void:
 		_detach_player_ship.call_deferred()
 	# Do the scene change when the game feels like being ready
 	get_tree().change_scene_to_file.call_deferred(target_path)
-	
+
 func _set_gamestate_enum(path: String) -> void:
 	match path:
 			"res://scenes/Level/Main_Menu.tscn":
@@ -137,15 +145,15 @@ const SAVE_FILE_PATH = "user://saves/savegame.tres"
 func save_game() -> void:
 	# declare the master holding savegame data
 	var master_save = SaveGameData.new()
-	
+
 	# Prepare PlayerShip
 	var ship_packed_scene = PackedScene.new()
 	var pack_error = ship_packed_scene.pack(PlayerShip)
-	
+
 	if pack_error != OK:
 		print("Failed to pack PlayerShip structure. Error: ", pack_error)
 		return
-	
+
 	# Only save player position if there is a player (not in Station)
 	if is_instance_valid(PlayerShip):
 		saved_player_transform = PlayerShip.global_transform
@@ -153,7 +161,7 @@ func save_game() -> void:
 	# assigns what actually is saved
 	# see SaveGameData_res.gd for more information
 	master_save.player_ship_scene = ship_packed_scene
-	
+
 	# Dynamically assign all other properties from GameManager to SaveGameData
 	# I don't want to type every variable manually
 	# So instead look at SaveGameData_res.gd for what is available
@@ -163,17 +171,17 @@ func save_game() -> void:
 		var prop_name = prop.name
 		if prop_name == "player_ship_scene":
 			continue
-		
+
 		if prop_name in self:
 			master_save.set(prop_name, self.get(prop_name))
-	
+
 	# do the actual saving
 	var error = ResourceSaver.save(master_save, SAVE_FILE_PATH)
 	if error == OK:
 			print("Game saved successfully to: ", SAVE_FILE_PATH)
 	else:
 			print("Failed to save game. Error code: ", error)
-			
+
 func has_savegame() -> bool:
 	# Check if savegame exists
 	if not FileAccess.file_exists(SAVE_FILE_PATH):
@@ -191,7 +199,7 @@ func load_game() -> void:
 	if !loaded_data:
 		start_new_game()
 		return
-	
+
 	# actual data retrieval, loads what is saved
 	# see SaveGameData_res.gd for more information
 	# if a ship exists, apply the saved location. Else assume it was already set or whatever
@@ -205,31 +213,31 @@ func load_game() -> void:
 		var property_name = property.name
 		if property_name == "player_ship_scene":
 			continue
-		
+
 		if property_name in self:
 			# set variables with the name property_name with their values
 			self.set(property_name, loaded_data.get(property_name))
-	
+
 	_close_pause_overlay()
-	
+
 	# Because I had issues with this, in case it's missing from saved
 	if not current_scene_path:
 		transition_to("res://scenes/Level/Space.tscn")
 	# default case
 	else:
 		transition_to(current_scene_path)
-	
+
 	# debugging
 	print("Game loaded successfully. Cargo amount: ", cargo.cargo_amount)
 	print("Game loaded successfully. Station resources: ", station_resources.resources_amount)
-	
+
 func delete_savegame() -> bool:
 	if FileAccess.file_exists(SAVE_FILE_PATH):
 		var error = DirAccess.remove_absolute(SAVE_FILE_PATH)
 		if error == OK:
 			return true
 	return false
-	
+
 #endregion
 
 func quit_game() -> void:
