@@ -23,6 +23,7 @@ points = PackedVector3Array(0.028088098, 0.67977977, 0.22053385, -0.58154756, -0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jm38r"]
 transparency = 1
 no_depth_test = true
+shading_mode = 0
 albedo_texture = ExtResource("7_ipt2d")
 billboard_mode = 1
 

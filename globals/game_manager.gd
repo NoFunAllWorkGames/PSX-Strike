@@ -55,11 +55,6 @@ func start_new_game() -> void:
 	GameManager.PlayerShip = PLAYER_SHIP_ARCHON.instantiate() as CharacterBody3D
 	PlayerShip.name = PLAYER_SHIP_NODE_NAME
 
-	# Standard default spawn placement logic
-	PlayerShip.position = Vector3(0.0, 0.0, 8.0)
-	PlayerShip.rotation_degrees = Vector3(0.0, -180.0, 0.0)
-	saved_player_transform = PlayerShip.transform
-
 	transition_to("res://scenes/Level/Space.tscn")
 
 func restart_game() -> void:
