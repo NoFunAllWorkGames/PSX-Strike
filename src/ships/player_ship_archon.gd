@@ -46,7 +46,6 @@ func _exit_tree() -> void:
 	InputManager.mouse_look_relative.disconnect(_on_mouse_look_relative)
 
 func _physics_process(delta: float) -> void:
-	_apply_pitching(delta)
 	_apply_movement(delta)
 	move_and_slide()
 	speed = velocity.length()
@@ -73,20 +72,6 @@ func _on_mouse_look_relative(relative: Vector2) -> void:
 	rotation = Vector3(_look_pitch, _ship_yaw, 0.0)
 
 ## Space movement magic
-## Throwaway code for grayboxing
-func _apply_pitching(delta: float) -> void:
-	var pitch_input := InputManager.get_ship_pitch_axis()
-	if is_zero_approx(pitch_input):
-		return
-
-	var delta_rad := pitch_input * deg_to_rad(pitch_speed_degrees) * delta
-	_look_pitch = clampf(
-		_look_pitch + delta_rad,
-		deg_to_rad(min_pitch_degrees),
-		deg_to_rad(max_pitch_degrees)
-	)
-	rotation = Vector3(_look_pitch, _ship_yaw, 0.0)
-
 func _apply_movement(delta: float) -> void:
 	var forward_input := InputManager.get_ship_forward_axis()
 	var strafe_input := InputManager.get_ship_strafe_axis()
