@@ -18,7 +18,6 @@ extends CharacterBody3D
 @onready var camera_3d: Camera3D = $CameraPivot/SpringArm3D/Camera3D
 @onready var engine_hovering: AudioStreamPlayer = $Engine_Hovering
 @onready var current_weapon = preload("res://scenes/Objects/mining_laser.tscn")
-@onready var dying_explosion: AudioStreamPlayer = $DyingExplosion
 @onready var explosion_animation: AnimationPlayer = $ExplosionAnimation
 
 # For self-destruction by max speed
