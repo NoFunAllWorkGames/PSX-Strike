@@ -17,6 +17,7 @@ extends CanvasLayer
 
 # settings
 @onready var settings_panel: MarginContainer = $Control/MarginContainer/VBoxContainer/SettingsPanel
+@onready var settings_tabs: TabContainer = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer
 @onready var settings_back_button: Button = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/SettingsBackButton
 @onready var fullscreen_option: OptionButton = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/FullScreenOption
 @onready var zoom_level_label: Label = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/ZoomLevel
@@ -24,6 +25,9 @@ extends CanvasLayer
 @onready var vsync_option: OptionButton = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VSyncOption
 @onready var volume_slider: HSlider = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VolumeControls/VolumeSlider
 @onready var volume_value: Label = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VolumeControls/VolumeValue
+@onready var keyboard_settings: ControlsSettings = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard
+@onready var keyboard_back_button: Button = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ControlsBackButton
+
 
 func _ready() -> void:
 	GameManager.game_state = Enums.GameState.MAIN_MENU
@@ -40,16 +44,20 @@ func _ready() -> void:
 	# settings
 	settings_button.pressed.connect(_on_settings_button_pressed)
 	settings_back_button.pressed.connect(_on_close_settings_button_pressed)
+	keyboard_back_button.pressed.connect(_on_close_settings_button_pressed)
 	fullscreen_option.item_selected.connect(_on_fullscreen_selected)
 	zoom_level_option.item_selected.connect(_on_zoom_selected)
 	vsync_option.item_selected.connect(_on_vsync_selected)
 	volume_slider.value_changed.connect(_on_volume_changed)
+	_configure_option_button_font(fullscreen_option)
+	_configure_option_button_font(zoom_level_option)
+	_configure_option_button_font(vsync_option)
 
 	_sync_settings_ui()
 
-	# Give defauls to every button in this main menu
+	# Give defaults to every button in this main menu, except remapping buttons.
 	for child in get_tree().get_root().find_children("", "Button", true, false):
-		if child is Button and !child.disabled:
+		if child is Button and !child.disabled and not keyboard_settings.is_bind_button(child):
 			child.mouse_entered.connect(_on_button_hovered)
 			child.pressed.connect(_on_button_clicked)
 
@@ -146,3 +154,8 @@ func _on_volume_changed(value: float) -> void:
 
 func _update_volume_label(value: float) -> void:
 	volume_value.text = "%d%%" % roundi(value)
+
+
+func _configure_option_button_font(option: OptionButton) -> void:
+	option.add_theme_font_size_override("font_size", 8)
+	option.get_popup().add_theme_font_size_override("font_size", 8)

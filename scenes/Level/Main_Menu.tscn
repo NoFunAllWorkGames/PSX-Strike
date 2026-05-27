@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rikakd0opnu8" path="res://assets/Textures/suntyger_avatar.png" id="3_unyvy"]
 [ext_resource type="Texture2D" uid="uid://btlic2ws8no14" path="res://assets/Textures/B1773rm4n_avatar.png" id="4_4vbsx"]
 [ext_resource type="Texture2D" uid="uid://poj1pl23xu34" path="res://assets/Textures/francobhalla_avatar.png" id="5_xurhj"]
+[ext_resource type="Script" uid="uid://ciuywupygoej4" path="res://src/ui/controls_settings.gd" id="6_controls"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=2128258435]
 script = ExtResource("1_menum")
@@ -245,20 +246,30 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel" unique_id=1982746153]
+[node name="TabContainer" type="TabContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel" unique_id=502716522]
 layout_mode = 2
-theme_override_constants/separation = 13
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 8
+current_tab = 0
 
-[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer" unique_id=977028412]
+[node name="General" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer" unique_id=1982746153]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 13
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General" unique_id=977028412]
 layout_mode = 2
 columns = 2
 
-[node name="FullScreen" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1534285583]
+[node name="FullScreen" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=1534285583]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "Fullscreen"
 
-[node name="FullScreenOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1461566265]
+[node name="FullScreenOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=1461566265]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 item_count = 3
 popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
@@ -267,12 +278,14 @@ popup/item_1/id = 1
 popup/item_2/text = "Borderless"
 popup/item_2/id = 2
 
-[node name="ZoomLevel" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=711576819]
+[node name="ZoomLevel" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=711576819]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "Zoom level"
 
-[node name="ZoomLevelOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1754238501]
+[node name="ZoomLevelOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=1754238501]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 item_count = 3
 popup/item_0/text = "1x (426x240)"
 popup/item_0/id = 0
@@ -281,12 +294,14 @@ popup/item_1/id = 1
 popup/item_2/text = "4x (1704x960)"
 popup/item_2/id = 2
 
-[node name="VSync" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1209483721]
+[node name="VSync" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=1209483721]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "VSync"
 
-[node name="VSyncOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1847295036]
+[node name="VSyncOption" type="OptionButton" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=1847295036]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 item_count = 3
 popup/item_0/text = "Off"
 popup/item_0/id = 0
@@ -295,28 +310,131 @@ popup/item_1/id = 1
 popup/item_2/text = "Adaptive"
 popup/item_2/id = 2
 
-[node name="Volume" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1673829405]
+[node name="Volume" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=1673829405]
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "Volume"
 
-[node name="VolumeControls" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer" unique_id=1549283741]
+[node name="VolumeControls" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer" unique_id=1549283741]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="VolumeSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer/VolumeControls" unique_id=1438291057]
+[node name="VolumeSlider" type="HSlider" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VolumeControls" unique_id=1438291057]
 layout_mode = 2
 size_flags_horizontal = 3
-min_value = 0.0
-max_value = 100.0
-step = 1.0
 value = 100.0
 
-[node name="VolumeValue" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer/GridContainer/VolumeControls" unique_id=1928473610]
+[node name="VolumeValue" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VolumeControls" unique_id=1928473610]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 8
 text = "100%"
 
-[node name="SettingsBackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/VBoxContainer" unique_id=2083746192]
+[node name="SettingsBackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General" unique_id=2083746192]
+layout_mode = 2
+text = "Back"
+
+[node name="Keyboard" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer" unique_id=1689659838]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 13
+script = ExtResource("6_controls")
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard" unique_id=1847296103]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="ScrollContent" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer" unique_id=1847296104]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent" unique_id=102059167]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer" unique_id=1847296102]
+layout_mode = 2
+columns = 2
+
+[node name="Forward" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296105]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Forward"
+
+[node name="ForwardBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296106]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Backward" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296107]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Backward"
+
+[node name="BackwardBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296108]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="StrafeLeft" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296113]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Strafe left"
+
+[node name="StrafeLeftBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296114]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="StrafeRight" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296115]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Strafe right"
+
+[node name="StrafeRightBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296116]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Ascend" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296117]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Ascend"
+
+[node name="AscendBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296118]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Descend" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296119]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Descend"
+
+[node name="DescendBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296120]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Shoot" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296123]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Shoot"
+
+[node name="ShootBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296124]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="Interact" type="Label" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296121]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Interact"
+
+[node name="InteractBind" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1847296122]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+
+[node name="ControlsBackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard" unique_id=2083746193]
 layout_mode = 2
 text = "Back"
