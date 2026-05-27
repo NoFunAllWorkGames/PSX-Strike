@@ -87,3 +87,6 @@ mesh = SubResource("QuadMesh_op28h")
 
 [node name="ExplosionAnimation" type="AnimationPlayer" parent="." unique_id=1313225870]
 libraries/ = ExtResource("7_b5nh1")
+
+[node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=708486521]
+current = true
