@@ -32,6 +32,8 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if GameManager.player_is_dead:
+		return
 	global_position = _origin + _random_jitter_offset()
 	mesh_instance.rotation = Vector3(
 		randf_range(-ROTATION_JITTER, ROTATION_JITTER),
@@ -63,6 +65,8 @@ func _sync_collision_to_mesh() -> void:
 
 
 func _check_player_collision() -> void:
+	if GameManager.player_is_dead:
+		return
 	if not is_instance_valid(GameManager.PlayerShip):
 		return
 

@@ -21,6 +21,10 @@ func _input(event: InputEvent) -> void:
 	if event.keycode != KEY_ESCAPE:
 		return
 
+	if GameManager.player_is_dead:
+		get_viewport().set_input_as_handled()
+		return
+
 	var now := Time.get_ticks_msec()
 	if now - _last_escape_ms <= _DOUBLE_ESC_MS:
 		GameManager.quit_game()
@@ -38,6 +42,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if GameManager.player_is_dead:
+		return
 	if GameManager.game_state == Enums.GameState.PAUSED:
 		return
 

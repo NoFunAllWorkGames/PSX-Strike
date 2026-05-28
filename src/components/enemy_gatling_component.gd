@@ -32,6 +32,8 @@ func _physics_process(delta: float) -> void:
 	_previous_global_position = global_position
 
 func _on_timer_timeout() -> void:
+	if GameManager.player_is_dead:
+		return
 	if not is_firing:
 		return
 
@@ -77,5 +79,7 @@ func _apply_cone_spread(base_direction: Vector3, half_angle_rad: float) -> Vecto
 	return forward.rotated(axis, randf() * half_angle_rad).normalized()
 
 func _on_bullet_player_hit() -> void:
+	if GameManager.player_is_dead:
+		return
 	hit_sound.play()
 	SignalBus.player_receive_damage.emit(5)

@@ -8,6 +8,7 @@ var game_state: Enums.GameState = Enums.GameState.MAIN_MENU
 
 # Player Ship
 var PlayerShip: CharacterBody3D
+var player_is_dead: bool = false
 var saved_player_transform: Transform3D = Transform3D.IDENTITY
 const PLAYER_SHIP_NODE_NAME := "PlayerShipArchon"
 const PLAYER_SHIP_SCENE := preload("res://scenes/Ships/PlayerShip_Archon.tscn")
@@ -59,9 +60,14 @@ func start_new_game() -> void:
 
 func restart_game() -> void:
 	print("Restarting Game")
+	player_is_dead = false
 	_close_pause_overlay()
 	get_tree().paused = false
 	call_deferred("start_new_game")
+
+
+func halt_simulation_for_player_death() -> void:
+	player_is_dead = true
 
 
 func transition_to(target_path: String) -> void:

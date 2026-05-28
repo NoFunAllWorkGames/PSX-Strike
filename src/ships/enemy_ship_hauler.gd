@@ -6,6 +6,10 @@ extends RigidBody3D
 @onready var gatling_component: EnemyGatlingComponent = $Components/GatlingComponent
 
 func _physics_process(_delta: float) -> void:
+	if GameManager.player_is_dead:
+		linear_velocity = Vector3.ZERO
+		gatling_component.is_firing = false
+		return
 	# Move in the local forward direction (negative Z)
 	linear_velocity = -global_transform.basis.z * enemy_ship_data.speed
 
@@ -16,6 +20,9 @@ func start_enemy_scanning() -> void:
 	while(true):
 		# just do it as often as the timer says, else we would be checking too fast
 		await shoot_timer.timeout
+		if GameManager.player_is_dead:
+			gatling_component.is_firing = false
+			continue
 		var is_player_in_range: bool = not detection_range.get_overlapping_bodies().is_empty()
 		if is_player_in_range:
 			var player_ship = detection_range.get_overlapping_bodies()[0]

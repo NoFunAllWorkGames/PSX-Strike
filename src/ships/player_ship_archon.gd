@@ -28,6 +28,7 @@ var speed_timer: float = 0.0
 
 var _ship_yaw: float = 0.0
 var _look_pitch: float = 0.0
+var _is_dead: bool = false
 
 func _enter_tree() -> void:
 	InputManager.capture_mouse()
@@ -112,11 +113,20 @@ func _update_engine_hovering_pitch() -> void:
 	)
 
 func _on_player_receive_damage(damage: int) -> void:
+	if _is_dead:
+		return
 	lifepoints -= damage
 	if lifepoints <= 0:
 		go_die()
 
 func go_die() -> void:
+	if _is_dead:
+		return
+	_is_dead = true
+
+	GameManager.halt_simulation_for_player_death()
+	SignalBus.shoot_action_released.emit()
+
 	engine_hovering.stop()
 	explosion_animation.play("explosion")
 

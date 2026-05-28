@@ -26,6 +26,8 @@ func spawn_bullet(start_position: Vector3, start_velocity: Vector3) -> void:
 	times_alive.append(0.0)
 
 func _physics_process(delta: float) -> void:
+	if GameManager.player_is_dead:
+		return
 	var bullet_count := positions.size()
 	if bullet_count == 0:
 		return
