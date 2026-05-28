@@ -2,7 +2,17 @@
 
 [ext_resource type="Script" uid="uid://clruwf3d7oggt" path="res://src/components/enemy_gatling_component.gd" id="1_hy7yb"]
 [ext_resource type="PackedScene" uid="uid://bgtgglf50ihxh" path="res://scenes/Weapons/bullet_gatling.tscn" id="2_hy7yb"]
-[ext_resource type="AudioStream" uid="uid://djyaum74xgigw" path="res://assets/Sounds/Laser/LaserNotifications/LaserModeSwitch.ogg" id="3_ylfx0"]
+[ext_resource type="AudioStream" uid="uid://ddni1pqp4tj1a" path="res://assets/Sounds/Combat/Hit/HaulerBulletHit1.ogg" id="3_k1u86"]
+[ext_resource type="AudioStream" uid="uid://byn5y0ttvgia4" path="res://assets/Sounds/Combat/Hit/HaulerBulletHit2.ogg" id="4_s605t"]
+[ext_resource type="AudioStream" uid="uid://cmdu1l6qkqer2" path="res://assets/Sounds/Combat/Hit/HaulerBulletHit3.ogg" id="5_lrv82"]
+[ext_resource type="AudioStream" uid="uid://b2e6h3sqm74hu" path="res://assets/Sounds/Combat/Hit/HaulerBulletHit4.ogg" id="6_hc46n"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xjndh"]
+streams_count = 4
+stream_0/stream = ExtResource("3_k1u86")
+stream_1/stream = ExtResource("4_s605t")
+stream_2/stream = ExtResource("5_lrv82")
+stream_3/stream = ExtResource("6_hc46n")
 
 [node name="GatlingComponent" type="Node3D" unique_id=1411392360 node_paths=PackedStringArray("bullet_gatling")]
 script = ExtResource("1_hy7yb")
@@ -16,5 +26,6 @@ bullet_gatling = NodePath("BulletGatling")
 [node name="Timer" type="Timer" parent="." unique_id=111056835]
 
 [node name="HitSound" type="AudioStreamPlayer" parent="." unique_id=278554168]
-stream = ExtResource("3_ylfx0")
+stream = SubResource("AudioStreamRandomizer_xjndh")
+volume_db = -3.402
 bus = &"SFX"
