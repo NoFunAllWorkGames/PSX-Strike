@@ -12,6 +12,7 @@ var player_is_dead: bool = false
 var saved_player_transform: Transform3D = Transform3D.IDENTITY
 const PLAYER_SHIP_NODE_NAME := "PlayerShipArchon"
 const PLAYER_SHIP_SCENE := preload("res://scenes/Ships/PlayerShip_Archon.tscn")
+const MAIN_MENU_SCENE := "res://scenes/Level/Main_Menu.tscn"
 
 # Components
 var cargo: CargoData = preload("res://src/data/cargo_res.tres") as CargoData
@@ -58,12 +59,16 @@ func start_new_game() -> void:
 
 	transition_to("res://scenes/Level/Space.tscn")
 
-func restart_game() -> void:
-	print("Restarting Game")
+func return_to_main_menu() -> void:
+	print("Returning to Main Menu")
 	player_is_dead = false
 	_close_pause_overlay()
 	get_tree().paused = false
-	call_deferred("start_new_game")
+	InputManager.release_mouse()
+	_destroy_player_ship()
+	saved_player_transform = Transform3D.IDENTITY
+	game_state = Enums.GameState.MAIN_MENU
+	transition_to(MAIN_MENU_SCENE)
 
 
 func halt_simulation_for_player_death() -> void:
@@ -103,6 +108,12 @@ func _detach_player_ship() -> void:
 	var parent := PlayerShip.get_parent()
 	if parent:
 		parent.remove_child(PlayerShip)
+
+
+func _destroy_player_ship() -> void:
+	if is_instance_valid(PlayerShip):
+		PlayerShip.queue_free()
+	PlayerShip = null
 #endregion
 
 #region Pause Menu

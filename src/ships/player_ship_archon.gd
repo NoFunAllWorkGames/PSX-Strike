@@ -137,8 +137,5 @@ func go_die() -> void:
 
 	await explosion_animation.animation_finished
 
-	# show deathscreen
 	explosion_animation.play("RESET")
-	# release controls again
-	# restart the game
-	GameManager.restart_game()
+	GameManager.return_to_main_menu()
