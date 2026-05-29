@@ -23,13 +23,13 @@ func _connect_networking() -> void:
 	Networking.newest_scores_loaded.connect(_on_newest_scores_loaded)
 	Networking.highest_scores_loaded.connect(_on_highest_scores_loaded)
 	Networking.nearby_scores_loaded.connect(_on_nearby_scores_loaded)
-	Networking.highscores_request_failed.connect(_on_highscores_request_failed)
+	Networking.score_request_failed.connect(_on_score_request_failed)
 
 func _disconnect_networking() -> void:
 	Networking.newest_scores_loaded.disconnect(_on_newest_scores_loaded)
 	Networking.highest_scores_loaded.disconnect(_on_highest_scores_loaded)
 	Networking.nearby_scores_loaded.disconnect(_on_nearby_scores_loaded)
-	Networking.highscores_request_failed.disconnect(_on_highscores_request_failed)
+	Networking.score_request_failed.disconnect(_on_score_request_failed)
 
 func _setup_button_sounds() -> void:
 	for child in find_children("", "Button", true, false):
@@ -50,15 +50,11 @@ func _on_highest_scores_loaded(scores: Array) -> void:
 func _on_nearby_scores_loaded(payload: Dictionary) -> void:
 	myscore_label.text = _format_nearby(payload)
 
-func _on_highscores_request_failed(endpoint: String, _response_code: int) -> void:
+func _on_score_request_failed() -> void:
 	var message := "Could not load scores."
-	match endpoint:
-		"newest":
-			newscore_label.text = message
-		"highest":
-			highscore_label.text = message
-		"nearby":
-			myscore_label.text = message
+	newscore_label.text = message
+	highscore_label.text = message
+	myscore_label.text = message
 
 func _format_score_list(scores: Array, empty_message: String) -> String:
 	if scores.is_empty():

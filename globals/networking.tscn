@@ -4,3 +4,9 @@
 
 [node name="Networking" type="HTTPRequest" unique_id=1744828096]
 script = ExtResource("1_opal5")
+
+[node name="NewestHighscoresRequest" type="HTTPRequest" parent="."]
+
+[node name="HighestHighscoresRequest" type="HTTPRequest" parent="."]
+
+[node name="NearbyHighscoresRequest" type="HTTPRequest" parent="."]
