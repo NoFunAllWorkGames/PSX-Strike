@@ -62,6 +62,7 @@ func post_data_json(data: Dictionary):
 func post_scores() -> void:
 	var data = {
 		"client_id": OS.get_unique_id(),
+		"player_name": UserSettings.player_name,
 		"timestamp": Time.get_unix_time_from_system(),
 		"cargo": GameManager.cargo.cargo_amount,
 		"money": GameManager.station_resources.money_amount,
