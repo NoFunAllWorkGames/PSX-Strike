@@ -4,10 +4,12 @@ extends RigidBody3D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var detection_range: Area3D = $DetectionRange
 @onready var gatling_component: EnemyGatlingComponent = $Components/GatlingComponent
+@onready var hauler_engine: AudioStreamPlayer3D = $HaulerEngine
 
 func _physics_process(_delta: float) -> void:
 	if GameManager.player_is_dead:
 		linear_velocity = Vector3.ZERO
+		hauler_engine.stop()
 		gatling_component.is_firing = false
 		return
 	# Move in the local forward direction (negative Z)

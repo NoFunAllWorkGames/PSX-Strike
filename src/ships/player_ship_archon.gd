@@ -139,6 +139,5 @@ func go_die() -> void:
 	InputManager.release_mouse()
 
 	await explosion_animation.animation_finished
-
 	explosion_animation.play("RESET")
-	GameManager.return_to_main_menu()
+	GameManager.open_score_board_overlay()

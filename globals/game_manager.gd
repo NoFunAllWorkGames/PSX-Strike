@@ -23,6 +23,10 @@ var weapon_system: WeaponData = preload("res://src/data/weapon_res.tres") as Wea
 var _state_before_pause: Enums.GameState = Enums.GameState.MAIN_MENU
 var _pause_menu_instance: Node
 
+# Score Board (death overlay)
+const SCORE_BOARD_SCENE := preload("res://scenes/Level/Score_Board.tscn")
+var _score_board_instance: Node
+
 func _ready() -> void:
 	# Unpauses the game
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -62,6 +66,7 @@ func start_new_game() -> void:
 func return_to_main_menu() -> void:
 	print("Returning to Main Menu")
 	player_is_dead = false
+	_close_score_board_overlay()
 	_close_pause_overlay()
 	get_tree().paused = false
 	InputManager.release_mouse()
@@ -73,6 +78,20 @@ func return_to_main_menu() -> void:
 
 func halt_simulation_for_player_death() -> void:
 	player_is_dead = true
+
+
+func open_score_board_overlay() -> void:
+	if is_instance_valid(_score_board_instance):
+		return
+	_score_board_instance = SCORE_BOARD_SCENE.instantiate()
+	get_tree().root.add_child(_score_board_instance)
+	InputManager.release_mouse()
+
+
+func _close_score_board_overlay() -> void:
+	if is_instance_valid(_score_board_instance):
+		_score_board_instance.queue_free()
+		_score_board_instance = null
 
 
 func transition_to(target_path: String) -> void:

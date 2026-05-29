@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://bbpeceq1fwkga"]
+
+[ext_resource type="Script" uid="uid://c3v6eoo46tm1p" path="res://src/ui/score_board.gd" id="1_score"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dim"]
+bg_color = Color(0, 0, 0, 0.45)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.08, 0.1, 0.14, 0.82)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.45, 0.55, 0.9)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="ScoreBoard" type="CanvasLayer" unique_id=528254755]
+layer = 129
+script = ExtResource("1_score")
+
+[node name="Overlay" type="Control" parent="." unique_id=1492554369]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DimBackground" type="Panel" parent="Overlay" unique_id=1115767229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dim")
+
+[node name="CenterContainer" type="CenterContainer" parent="Overlay" unique_id=2005282943]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScorePanel" type="PanelContainer" parent="Overlay/CenterContainer" unique_id=1771692256]
+custom_minimum_size = Vector2(320, 220)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Overlay/CenterContainer/ScorePanel" unique_id=243653317]
+clip_contents = true
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Title" type="Label" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer" unique_id=1523402753]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Score Board"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer" unique_id=1381402270]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 8
+current_tab = 1
+
+[node name="Highscore" type="CenterContainer" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=2125864655]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_tab_index = 0
+
+[node name="HighscoreLabel" type="Label" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Highscore" unique_id=1759905308]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "Loading..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Newscore" type="CenterContainer" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=416463547]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_tab_index = 1
+
+[node name="NewscoreLabel" type="Label" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Newscore" unique_id=770322518]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "Loading..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Myscore" type="CenterContainer" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=1241382589]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_tab_index = 2
+
+[node name="MyscoreLabel" type="Label" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Myscore" unique_id=60350243]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(288, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 12
+text = "Loading..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MainMenuButton" type="Button" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer" unique_id=1770772188]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Main Menu"
