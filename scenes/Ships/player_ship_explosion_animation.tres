@@ -1,6 +1,6 @@
 [gd_resource type="Animation" format=3 uid="uid://cr4eyh4rk0a1h"]
 
-[ext_resource type="AudioStream" uid="uid://drhjihd37ywpb" path="res://assets/Sounds/Combat/Hit/HaulerBulletHit.ogg" id="1_x08tf"]
+[ext_resource type="AudioStream" uid="uid://de712h2iscwmy" path="res://assets/Sounds/Combat/PlayerHullLoss.ogg" id="1_x08tf"]
 
 [resource]
 resource_name = "explosion"
