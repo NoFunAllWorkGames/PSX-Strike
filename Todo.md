@@ -17,7 +17,6 @@ Should
 
 - having the healthbars on top of the asteroid instead of static on the UI
 - Gamepad controls
-- Add highscore tracking
 
 Want
 ----
@@ -33,4 +32,4 @@ Technical Debt
 - Polish: When player ship is idle there's an audio loop playing and there's 5-6 ms gap when it ends and when it starts again which introduces a pop/glitch
 - After dying the lifebar is not shown correctly
 - momentum after undocking is preserved
-- transition to the main menu after dying for now
+- Scoreboard myscore doesn't show correctly if you are the best or worst

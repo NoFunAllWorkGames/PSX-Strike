@@ -1,13 +1,9 @@
 extends CanvasLayer
 
-const SCORE_PANEL_SIZE := Vector2(320, 220)
-const LINE_BREAK := "\n"
-
-@onready var score_panel: PanelContainer = $Overlay/CenterContainer/ScorePanel
-@onready var highscore_label: Label = %HighscoreLabel
-@onready var newscore_label: Label = %NewscoreLabel
-@onready var myscore_label: Label = %MyscoreLabel
-@onready var main_menu_button: Button = %MainMenuButton
+@onready var highscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Highscore
+@onready var newscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Newscore
+@onready var myscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Myscore
+@onready var main_menu_button: Button = $Overlay/CenterContainer/ScorePanel/VBoxContainer/MainMenuButton
 @onready var tab_container: TabContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer
 
 func _ready() -> void:
@@ -42,35 +38,41 @@ func _setup_button_sounds() -> void:
 	tab_bar.tab_clicked.connect(_on_tab_clicked)
 
 func _on_newest_scores_loaded(scores: Array) -> void:
-	newscore_label.text = _format_score_list(scores, "No recent scores yet.")
+	_populate_score_grid(newscore_grid, scores, "No recent scores yet.")
 
 func _on_highest_scores_loaded(scores: Array) -> void:
-	highscore_label.text = _format_score_list(scores, "No high scores yet.")
+	_populate_score_grid(highscore_grid, scores, "No high scores yet.")
 
 func _on_nearby_scores_loaded(payload: Dictionary) -> void:
-	myscore_label.text = _format_nearby(payload)
+	_populate_nearby_grid(myscore_grid, payload)
 
 func _on_score_request_failed() -> void:
-	var message := "Could not load scores."
-	newscore_label.text = message
-	highscore_label.text = message
-	myscore_label.text = message
+	_show_error(highscore_grid)
+	_show_error(newscore_grid)
+	_show_error(myscore_grid)
 
-func _format_score_list(scores: Array, empty_message: String) -> String:
+func _populate_score_grid(grid: GridContainer, scores: Array, empty_message: String) -> void:
+	_clear_data_rows(grid)
+
 	if scores.is_empty():
-		return empty_message
+		_add_grid_row(grid, "—", empty_message, "—", "—", "—", "—")
+		return
 
-	var lines: PackedStringArray = []
 	for index in scores.size():
-		var entry: Dictionary = scores[index]
+		var entry: Variant = scores[index]
 		if typeof(entry) != TYPE_DICTIONARY:
 			continue
-		lines.append("%d. %s" % [index + 1, _format_score_entry(entry)])
+		_add_grid_row(
+			grid,
+			str(index + 1),
+			str(entry.get("player_name", "(unnamed)")),
+			str(int(entry.get("cargo", 0))),
+			str(int(entry.get("money", 0))),
+			str(int(entry.get("resources", 0))),
+			str(int(entry.get("total", 0))),
+		)
 
-	return LINE_BREAK.join(lines)
-
-
-func _format_nearby(payload: Dictionary) -> String:
+func _populate_nearby_grid(grid: GridContainer, payload: Dictionary) -> void:
 	var better: Array = payload.get("better", [])
 	var worse: Array = payload.get("worse", [])
 
@@ -89,15 +91,23 @@ func _format_nearby(payload: Dictionary) -> String:
 		_nearby_entry_at(worse, 0),
 	]
 
-	var lines: PackedStringArray = []
+	_clear_data_rows(grid)
+
 	for index in ordered_entries.size():
 		var entry: Dictionary = ordered_entries[index]
+		var rank := str(index + 1)
 		if entry.is_empty():
-			lines.append("%d. —" % [index + 1])
+			_add_grid_row(grid, rank, "—", "—", "—", "—", "—")
 		else:
-			lines.append("%d. %s" % [index + 1, _format_score_entry(entry)])
-
-	return LINE_BREAK.join(lines)
+			_add_grid_row(
+				grid,
+				rank,
+				str(entry.get("player_name", "(unnamed)")),
+				str(int(entry.get("cargo", 0))),
+				str(int(entry.get("money", 0))),
+				str(int(entry.get("resources", 0))),
+				str(int(entry.get("total", 0))),
+			)
 
 func _nearby_entry_at(scores: Array, index: int) -> Dictionary:
 	if index < 0 or index >= scores.size():
@@ -107,13 +117,35 @@ func _nearby_entry_at(scores: Array, index: int) -> Dictionary:
 		return {}
 	return entry
 
-func _format_score_entry(entry: Dictionary) -> String:
-	var player_name: String = str(entry.get("player_name", "(unnamed)"))
-	var total: int = int(entry.get("total", 0))
-	var cargo: int = int(entry.get("cargo", 0))
-	var money: int = int(entry.get("money", 0))
-	var resources: int = int(entry.get("resources", 0))
-	return "%s — Total %d (C:%d M:%d R:%d)" % [player_name, total, cargo, money, resources]
+func _show_error(grid: GridContainer) -> void:
+	_clear_data_rows(grid)
+	_add_grid_row(grid, "—", "Could not load scores.", "—", "—", "—", "—")
+
+func _clear_data_rows(grid: GridContainer) -> void:
+	# clear all children except the headers
+	for index in range(grid.get_child_count() - 1, grid.columns - 1, -1):
+		grid.get_child(index).queue_free()
+
+func _add_grid_row(
+	grid: GridContainer,
+	rank: String,
+	player_name: String,
+	cargo: String,
+	money: String,
+	resources: String,
+	total: String,
+) -> void:
+	grid.add_child(_cell_from_header(grid, "RankHeader", rank))
+	grid.add_child(_cell_from_header(grid, "NameHeader", player_name))
+	grid.add_child(_cell_from_header(grid, "CargoHeader", cargo))
+	grid.add_child(_cell_from_header(grid, "MoneyHeader", money))
+	grid.add_child(_cell_from_header(grid, "ResourcesHeader", resources))
+	grid.add_child(_cell_from_header(grid, "TotalHeader", total))
+
+func _cell_from_header(grid: GridContainer, header_name: String, text: String) -> Label:
+	var label: Label = grid.get_node(header_name).duplicate()
+	label.text = text
+	return label
 
 func _on_main_menu_pressed() -> void:
 	GameManager.return_to_main_menu()

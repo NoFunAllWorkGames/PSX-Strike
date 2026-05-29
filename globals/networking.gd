@@ -101,7 +101,7 @@ func _on_newest_highscores_request_completed(
 		score_request_failed.emit()
 		return
 	# { "scores": [ { "player_name": "...", "total": 123, ... }, ... ] }
-	newest_scores_loaded.emit(data.get("scores"))
+	newest_scores_loaded.emit(data.get("scores", []))
 
 func _on_highest_highscores_request_completed(
 	_result: int,
@@ -114,7 +114,7 @@ func _on_highest_highscores_request_completed(
 		score_request_failed.emit()
 		return
 	# { "scores": [ { "player_name": "...", "total": 123, ... }, ... ] }
-	highest_scores_loaded.emit(data.get("scores"))
+	highest_scores_loaded.emit(data.get("scores", []))
 
 func _on_nearby_highscores_request_completed(
 	_result: int,
