@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var settings_button: Button = $Control/MarginContainer/VBoxContainer/VBoxContainer/Settings
 @onready var confirmation_dialog: ConfirmationDialog = $Control/MarginContainer/VBoxContainer/VBoxContainer/ConfirmationDialog
 @onready var main_body_vbox: VBoxContainer = $Control/MarginContainer/VBoxContainer/VBoxContainer
+@onready var player_name_input: LineEdit = $Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PlayerName
 
 # credits
 @onready var credits_panel: MarginContainer = $Control/MarginContainer/VBoxContainer/CreditsPanel
@@ -54,6 +55,8 @@ func _ready() -> void:
 	_configure_option_button_font(vsync_option)
 
 	_sync_settings_ui()
+	_sync_player_name_ui()
+	player_name_input.text_changed.connect(_on_player_name_changed)
 
 	# Give defaults to every button in this main menu, except remapping buttons.
 	for child in get_tree().get_root().find_children("", "Button", true, false):
@@ -74,6 +77,18 @@ func _sync_settings_ui() -> void:
 	volume_slider.value = UserSettings.volume * 100.0
 	_update_volume_label(volume_slider.value)
 	_update_zoom_visibility()
+
+
+func _sync_player_name_ui() -> void:
+	var display_name := UserSettings.player_name
+	if display_name.is_empty():
+		display_name = GameManager.name_manager()
+		UserSettings.set_player_name(display_name)
+	player_name_input.text = display_name
+
+
+func _on_player_name_changed(new_text: String) -> void:
+	UserSettings.set_player_name(new_text)
 
 
 func _update_zoom_visibility() -> void:

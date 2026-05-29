@@ -56,6 +56,17 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Start"
 
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=262899831]
+layout_mode = 2
+
+[node name="PlayerNameLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1540353679]
+layout_mode = 2
+text = "Name: "
+
+[node name="PlayerName" type="LineEdit" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1440565311]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="NewGame" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=488434203]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16

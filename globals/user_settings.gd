@@ -40,6 +40,7 @@ var fullscreen_mode: FullscreenOption = FullscreenOption.BORDERLESS
 var zoom_index: int = 2
 var vsync_mode: VSyncOption = VSyncOption.ENABLED
 var volume: float = 1.0
+var player_name: String = ""
 
 
 func _ready() -> void:
@@ -56,6 +57,7 @@ func load_settings() -> void:
 	zoom_index = clampi(config.get_value("display", "zoom_index", zoom_index), 0, ZOOM_MULTIPLIERS.size() - 1)
 	vsync_mode = config.get_value("display", "vsync_mode", vsync_mode) as VSyncOption
 	volume = config.get_value("audio", "volume", config.get_value("audio", "master_volume", volume))
+	player_name = config.get_value("player", "name", player_name)
 	_load_input_bindings(config)
 
 
@@ -66,6 +68,7 @@ func save_settings() -> void:
 	config.set_value("display", "zoom_index", zoom_index)
 	config.set_value("display", "vsync_mode", vsync_mode)
 	config.set_value("audio", "volume", volume)
+	config.set_value("player", "name", player_name)
 	config.save(SETTINGS_PATH)
 
 
@@ -128,6 +131,11 @@ func set_vsync_mode(mode: int) -> void:
 func set_volume(value: float) -> void:
 	volume = clampf(value, 0.0, 1.0)
 	apply_volume()
+	save_settings()
+
+
+func set_player_name(player_name_value: String) -> void:
+	player_name = player_name_value.strip_edges()
 	save_settings()
 
 
