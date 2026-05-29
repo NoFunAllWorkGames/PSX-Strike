@@ -29,3 +29,5 @@ obj/
 # OS-generated files
 .DS_Store
 Thumbs.db
+
+projectstrike_keys*

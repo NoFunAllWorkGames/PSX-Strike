@@ -130,6 +130,9 @@ func go_die() -> void:
 	engine_hovering.stop()
 	explosion_animation.play("explosion")
 
+	# post scores via network
+	Networking.post_scores()
+
 	# stop player control
 	set_physics_process(false)
 	InputManager.enable_freelook_click_capture = false

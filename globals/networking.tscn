@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dgwa42db8gjh7"]
+
+[ext_resource type="Script" uid="uid://bgiq3wexjgmwe" path="res://globals/networking.gd" id="1_opal5"]
+
+[node name="Networking" type="HTTPRequest" unique_id=1744828096]
+script = ExtResource("1_opal5")

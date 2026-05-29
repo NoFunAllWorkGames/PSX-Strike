@@ -10,7 +10,7 @@ Right now
 - Implementing the Entity in a horror way
 - Restart the entity after docking at the station
 - Entity sfx
-
+- let player enter the name in the main menu
 
 Should
 ------
