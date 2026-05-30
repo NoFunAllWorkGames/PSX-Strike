@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var highscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Highscore
-@onready var newscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Newscore
+@onready var recentscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Recentscore
 @onready var myscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Myscore
 @onready var main_menu_button: Button = $Overlay/CenterContainer/ScorePanel/VBoxContainer/MainMenuButton
 @onready var tab_container: TabContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer
@@ -38,7 +38,7 @@ func _setup_button_sounds() -> void:
 	tab_bar.tab_clicked.connect(_on_tab_clicked)
 
 func _on_newest_scores_loaded(scores: Array) -> void:
-	_populate_score_grid(newscore_grid, scores, "No recent scores yet.")
+	_populate_score_grid(recentscore_grid, scores, "No recent scores yet.")
 
 func _on_highest_scores_loaded(scores: Array) -> void:
 	_populate_score_grid(highscore_grid, scores, "No high scores yet.")
@@ -48,7 +48,7 @@ func _on_nearby_scores_loaded(payload: Dictionary) -> void:
 
 func _on_score_request_failed() -> void:
 	_show_error(highscore_grid)
-	_show_error(newscore_grid)
+	_show_error(recentscore_grid)
 	_show_error(myscore_grid)
 
 func _populate_score_grid(grid: GridContainer, scores: Array, empty_message: String) -> void:

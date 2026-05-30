@@ -25,7 +25,6 @@ Want
 Technical Debt
 --------------
 
-- Bug: After Load sometimes the esc menu stays open and cannot be closed or a second menu overlays
 - Sometimes Asteroids lose their value
 - Polish: OnStartShootingAudio play fully on pressing the mouse click each time? Right now it is only playing as long as we pressed it
 - Polish: Loop OnHitAudio and OnMissAudio. Right now there’s a second gap when the audio file ends and then it starts again. Is it possible to loop from middle so that it sounds seamless till the mining laser heats up?
