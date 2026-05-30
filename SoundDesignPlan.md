@@ -5,6 +5,7 @@ Legend:
 🔴 Not started: Stopped / No progress / Some issue   
 🟡 Prototype: First iteration, can be shipped if necessary   
 🟢 Final version: Complete, no revisions needed anymore
+🟣 Added to assets, Not yet implemented 
 
 
 UI/Main menu
@@ -26,15 +27,15 @@ The Ship
 
 **Collision**:
 
-- With Asterioids/Rocks
-- With enemy ships
-- Wall/surfaces of the space station
+- With Asterioids/Rocks 🟣
+- With enemy ships 🟣
+- Wall/surfaces of the space station 🟣
 
 **Damage:**
 
-- Small hits from enemy ships
-- Large hits from enemy ships
-- Total loss/Complete destruction
+- Small hits from enemy ships 🟡
+- Large hits from enemy ships 🟡
+- Total loss/Complete destruction 🟡
 
 
 **Weaponry:**
@@ -42,12 +43,12 @@ The Ship
 - Mining Laser:
     - Fire - Igniting the Laser 🟡
     - Constant fire into the void - Laser sound looped 🟡
-    - Laser touching the rock/asteroid/enemy ship - Burn sound 🟡
-    - Mode Switch sound 🟡
-    - Overheat Error sound 🟡
+    - Laser touching the rock/asteroid/enemy ship - Burn sound 🟣
+    - Mode Switch sound 🟣
+    - Overheat Error sound 🟣
 - Mining Laser to Armament Switch Sound
 - Armaments:
-    - Laser Repeaters - bursts of Laser sound
+    - Laser Repeaters - bursts of Laser sound 🟣
     - Ballistic cannons
         - Shoot
         - Out of ammo
@@ -61,7 +62,7 @@ The Ship
 
 **The Entity:**
 
-- Instrument Glitch sounds
+- Instrument Glitch sounds 
 - Error sounds which suggests complete loss of control
 
 **Cargo:**
@@ -79,8 +80,8 @@ Enemies
 
 **The Entity**
 
-- Heavy Engine sounds
-- Rumble
+- Heavy Engine sounds 🟣
+- Rumble 🟣
 
 Control Room Voice Over
 -----------------------
