@@ -14,6 +14,8 @@ func _process(_delta: float) -> void:
 func _sync_speed_bar_max() -> void:
 	var player := GameManager.PlayerShip
 	speed_progress_bar.max_value = player.max_speed
+	health_progress_bar.max_value = player.max_lifepoints
+	health_progress_bar.value = player.lifepoints
 
 func _update_speed_bar() -> void:
 	var player := GameManager.PlayerShip

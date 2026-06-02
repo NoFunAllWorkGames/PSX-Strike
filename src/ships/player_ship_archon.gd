@@ -12,6 +12,7 @@ extends CharacterBody3D
 @export var max_pitch_degrees: float = 45.0
 
 ## Health
+@export var max_lifepoints: int = 100
 @export var lifepoints: int = 100
 
 @onready var camera_pivot: Node3D = $CameraPivot
@@ -111,6 +112,17 @@ func _update_engine_hovering_pitch() -> void:
 		engine_hover_pitch_at_max_speed,
 		speed_ratio
 	)
+
+func heal(amount: int) -> int:
+	if _is_dead or amount <= 0:
+		return 0
+	var missing_hp := max_lifepoints - lifepoints
+	if missing_hp <= 0:
+		return 0
+	var healed := mini(amount, missing_hp)
+	lifepoints += healed
+	return healed
+
 
 func _on_player_receive_damage(damage: int) -> void:
 	if _is_dead:

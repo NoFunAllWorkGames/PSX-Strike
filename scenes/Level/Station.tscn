@@ -120,11 +120,11 @@ theme_override_font_sizes/font_size = 8
 disabled = true
 text = "Reset Entity"
 
-[node name="upgrade" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="1" unique_id=2130985888]
+[node name="Heal" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="1" unique_id=2130985888]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
-text = "Upgrade"
+text = "Heal"
 
 [node name="Sell" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="2" unique_id=316648595]
 layout_mode = 2
