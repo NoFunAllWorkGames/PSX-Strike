@@ -12,6 +12,8 @@ const asteroid_scene := preload("res://scenes/Objects/asteroid.tscn")
 
 func _ready() -> void:
 	SignalBus.damage_asteroid.connect(_on_damage_asteroid)
+	if GameManager.should_restore_space_world():
+		return
 	spawn_gaussian_cloud()
 
 func _on_damage_asteroid(target, damage) -> void:

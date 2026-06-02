@@ -1,5 +1,7 @@
 extends Area3D
 
+const SavedTheEntityStateResource := preload("res://src/data/saved_the_entity_state.gd")
+
 const GROWTH_FACTOR := 1.1
 const JITTER_RADIUS := 1.2
 const ROTATION_JITTER := 0.25
@@ -17,18 +19,38 @@ var _origin: Vector3
 
 
 func _ready() -> void:
-	global_position = spawn_area.get_random_point()
+	_setup_mesh_and_collision()
+	growth_timer.timeout.connect(_on_growth_timer_timeout)
 
+	if GameManager.should_restore_space_world():
+		if GameManager.space_world_state != null and GameManager.space_world_state.the_entity != null:
+			apply_saved_state(GameManager.space_world_state.the_entity)
+		return
+
+	global_position = spawn_area.get_random_point()
 	_origin = global_position
 
+
+func _setup_mesh_and_collision() -> void:
 	var sphere_mesh := mesh_instance.mesh as SphereMesh
 	(sphere_mesh.material as ShaderMaterial).set_shader_parameter("distortion_intensity", distortion_intensity)
 	_base_radius = sphere_mesh.radius
-
 	_sphere_shape = collision_shape.shape as SphereShape3D
 	_sync_collision_to_mesh()
 
-	growth_timer.timeout.connect(_on_growth_timer_timeout)
+
+func capture_state() -> SavedTheEntityStateResource:
+	var state := SavedTheEntityStateResource.new()
+	state.origin = _origin
+	state.scale = mesh_instance.scale
+	return state
+
+
+func apply_saved_state(state: SavedTheEntityStateResource) -> void:
+	_origin = state.origin
+	global_position = state.origin
+	mesh_instance.scale = state.scale
+	_sync_collision_to_mesh()
 
 
 func _physics_process(_delta: float) -> void:

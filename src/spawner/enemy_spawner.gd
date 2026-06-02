@@ -16,6 +16,8 @@ extends Node
 var spawn_counter: int = 1
 
 func _ready() -> void:
+	if GameManager.should_restore_space_world():
+		return
 	for slot in enemy_spawn_slots:
 		if slot != null:
 			spawn_enemy_from_slot(slot)

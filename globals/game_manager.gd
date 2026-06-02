@@ -10,9 +10,11 @@ var game_state: Enums.GameState = Enums.GameState.MAIN_MENU
 var PlayerShip: CharacterBody3D
 var player_is_dead: bool = false
 var saved_player_transform: Transform3D = Transform3D.IDENTITY
+var space_world_state: Resource
 const PLAYER_SHIP_NODE_NAME := "PlayerShipArchon"
 const PLAYER_SHIP_SCENE := preload("res://scenes/Ships/PlayerShip_Archon.tscn")
 const MAIN_MENU_SCENE := "res://scenes/Level/Main_Menu.tscn"
+const SpaceWorldPersistenceScript := preload("res://src/scenes/space_world_persistence.gd")
 
 # Components
 var cargo: CargoData = preload("res://src/data/cargo_res.tres") as CargoData
@@ -46,6 +48,7 @@ func _ready() -> void:
 func start_new_game() -> void:
 	print("Starting New Game")
 	game_state = Enums.GameState.NEW_GAME
+	space_world_state = null
 
 	# Initialize Cargo
 	const CARGO_RESOURCE_FILE = preload("res://src/data/cargo_res.tres")
@@ -72,6 +75,7 @@ func return_to_main_menu() -> void:
 	InputManager.release_mouse()
 	_destroy_player_ship()
 	saved_player_transform = Transform3D.IDENTITY
+	space_world_state = null
 	game_state = Enums.GameState.MAIN_MENU
 	transition_to(MAIN_MENU_SCENE)
 
@@ -101,6 +105,16 @@ func transition_to(target_path: String) -> void:
 
 	print("Changing scene from: " + previous_scene_path)
 	print("Changing scene to: " + target_path)
+
+	if (
+		previous_scene_path == SpaceWorldPersistenceScript.SPACE_SCENE_PATH
+		and target_path == SpaceWorldPersistenceScript.STATION_SCENE_PATH
+		and game_state != Enums.GameState.LOADED
+	):
+		var station_path := target_path
+		current_scene_path = previous_scene_path
+		save_game()
+		current_scene_path = station_path
 
 	if game_state != Enums.GameState.NEW_GAME and game_state != Enums.GameState.LOADED:
 		_detach_player_ship.call_deferred()
@@ -174,6 +188,8 @@ func _close_pause_overlay() -> void:
 const SAVE_FILE_PATH = "user://saves/savegame.tres"
 
 func save_game() -> void:
+	_capture_space_world_state_if_in_space()
+
 	# declare the master holding savegame data
 	var master_save = SaveGameData.new()
 
@@ -185,8 +201,12 @@ func save_game() -> void:
 		print("Failed to pack PlayerShip structure. Error: ", pack_error)
 		return
 
-	# Only save player position if there is a player (not in Station)
-	if is_instance_valid(PlayerShip):
+	# Only update position while the ship is in the space scene tree (detached in station).
+	if (
+		is_instance_valid(PlayerShip)
+		and PlayerShip.is_inside_tree()
+		and _is_space_scene(get_tree().current_scene)
+	):
 		saved_player_transform = PlayerShip.global_transform
 
 	# assigns what actually is saved
@@ -221,15 +241,15 @@ func has_savegame() -> bool:
 	return true
 
 func load_game() -> void:
-	# read save_game() first for more explanation
-	game_state = Enums.GameState.LOADED
-
 	# declare the master holding savegame data
 	var loaded_data: SaveGameData = ResourceLoader.load(SAVE_FILE_PATH, "", ResourceLoader.CACHE_MODE_REPLACE)
 	# in case there loading had an issue, just start anew
 	if !loaded_data:
 		start_new_game()
 		return
+
+	if is_instance_valid(PlayerShip):
+		_destroy_player_ship()
 
 	# actual data retrieval, loads what is saved
 	# see SaveGameData_res.gd for more information
@@ -249,12 +269,13 @@ func load_game() -> void:
 			# set variables with the name property_name with their values
 			self.set(property_name, loaded_data.get(property_name))
 
+	game_state = Enums.GameState.LOADED
+
 	_close_pause_overlay()
 
 	# Because I had issues with this, in case it's missing from saved
 	if not current_scene_path:
-		transition_to("res://scenes/Level/Space.tscn")
-	# default case
+		transition_to(SpaceWorldPersistenceScript.SPACE_SCENE_PATH)
 	else:
 		transition_to(current_scene_path)
 
@@ -268,6 +289,21 @@ func delete_savegame() -> bool:
 		if error == OK:
 			return true
 	return false
+
+
+func should_restore_space_world() -> bool:
+	return space_world_state != null and game_state != Enums.GameState.NEW_GAME
+
+
+func _capture_space_world_state_if_in_space() -> void:
+	var current_scene := get_tree().current_scene
+	if not _is_space_scene(current_scene):
+		return
+	space_world_state = SpaceWorldPersistenceScript.capture_from_scene(current_scene)
+
+
+func _is_space_scene(scene: Node) -> bool:
+	return scene != null and scene.scene_file_path == SpaceWorldPersistenceScript.SPACE_SCENE_PATH
 
 #endregion
 

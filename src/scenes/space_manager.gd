@@ -1,5 +1,7 @@
 extends Node
 
+const SpaceWorldPersistenceScript := preload("res://src/scenes/space_world_persistence.gd")
+
 func _ready() -> void:
 
 	# Just for Space Scene debugging
@@ -23,13 +25,16 @@ func _ready() -> void:
 	# Attach the configured node instance to the active tree hierarchy
 	player_parent_node.add_child(GameManager.PlayerShip)
 
-	var regular_undock: bool = GameManager.previous_scene_path == "res://scenes/Level/Station.tscn" and entry_state != Enums.GameState.LOADED
+	var came_from_station: bool = GameManager.previous_scene_path == "res://scenes/Level/Station.tscn"
 	if entry_state == Enums.GameState.NEW_GAME:
 		spawn_new_game()
-	elif regular_undock:
+	elif came_from_station and entry_state != Enums.GameState.LOADED:
 		undock_ship()
 	else:
 		GameManager.PlayerShip.global_transform = GameManager.saved_player_transform
+
+	if GameManager.should_restore_space_world() and GameManager.space_world_state != null:
+		SpaceWorldPersistenceScript.restore_to_scene(self, GameManager.space_world_state)
 
 	SignalBus.update_ui.emit()
 
