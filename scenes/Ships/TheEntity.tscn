@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://cko023nb6gfc" path="res://src/TheEntityShader.gdshader" id="1_hfjux"]
 [ext_resource type="Script" uid="uid://by6qv7217q7aw" path="res://src/the_entity.gd" id="1_rghxa"]
+[ext_resource type="AudioStream" uid="uid://b6pkdbdl82lqv" path="res://assets/Sounds/Enemies/Entity/EntityDrone.ogg" id="3_6ugoe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rghxa"]
 render_priority = 0
@@ -16,7 +17,6 @@ material = SubResource("ShaderMaterial_rghxa")
 [node name="TheEntity" type="Area3D" unique_id=43789425]
 collision_layer = 4
 collision_mask = 2
-monitoring = true
 script = ExtResource("1_rghxa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1384537087]
@@ -27,3 +27,11 @@ shape = SubResource("SphereShape3D_rghxa")
 
 [node name="GrowthTimer" type="Timer" parent="." unique_id=1983746521]
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1966615172]
+stream = ExtResource("3_6ugoe")
+attenuation_model = 2
+volume_db = 20.0
+unit_size = 49.96
+autoplay = true
+bus = &"SFX"

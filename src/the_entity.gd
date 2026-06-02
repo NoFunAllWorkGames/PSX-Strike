@@ -12,11 +12,14 @@ const ROTATION_JITTER := 0.25
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var growth_timer: Timer = $GrowthTimer
+@onready var entity_audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var _sphere_shape: SphereShape3D
 var _base_radius: float
 var _origin: Vector3
 var _scale_tween: Tween
+var _base_audio_unit_size: float
+var _base_audio_max_distance: float
 
 
 func _ready() -> void:
@@ -44,6 +47,11 @@ func _setup_mesh_and_collision() -> void:
 	(sphere_mesh.material as ShaderMaterial).set_shader_parameter("distortion_intensity", distortion_intensity)
 	_base_radius = sphere_mesh.radius
 	_sphere_shape = collision_shape.shape as SphereShape3D
+	_base_audio_unit_size = entity_audio.unit_size
+	_base_audio_max_distance = (
+		entity_audio.max_distance if entity_audio.max_distance > 0.0
+		else _base_audio_unit_size * 4.0
+	)
 	_sync_collision_to_mesh()
 
 
@@ -111,7 +119,14 @@ func _set_entity_scale(new_scale: Vector3) -> void:
 
 
 func _sync_collision_to_mesh() -> void:
-	_sphere_shape.radius = _base_radius * mesh_instance.scale.x
+	var scale_factor := mesh_instance.scale.x
+	_sphere_shape.radius = _base_radius * scale_factor
+	_sync_audio_to_mesh(scale_factor)
+
+
+func _sync_audio_to_mesh(scale_factor: float) -> void:
+	entity_audio.unit_size = _base_audio_unit_size * scale_factor
+	entity_audio.max_distance = _base_audio_max_distance * scale_factor
 
 
 func _check_player_collision() -> void:

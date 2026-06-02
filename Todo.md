@@ -8,7 +8,7 @@ Right now
 - The visuals for the laser beam are all wrong, it doesn't hit where it seems to hit
 - Main base should remain a light to be able to find the way back
 - Implementing the Entity in a horror way
-- Entity sfx
+- Add healing in the station 1 health for 1 money
 
 Should
 ------
