@@ -11,6 +11,7 @@ var PlayerShip: CharacterBody3D
 var player_is_dead: bool = false
 var saved_player_transform: Transform3D = Transform3D.IDENTITY
 var space_world_state: Resource
+var the_entity_pending_reset: bool = false
 const PLAYER_SHIP_NODE_NAME := "PlayerShipArchon"
 const PLAYER_SHIP_SCENE := preload("res://scenes/Ships/PlayerShip_Archon.tscn")
 const MAIN_MENU_SCENE := "res://scenes/Level/Main_Menu.tscn"
@@ -49,6 +50,7 @@ func start_new_game() -> void:
 	print("Starting New Game")
 	game_state = Enums.GameState.NEW_GAME
 	space_world_state = null
+	the_entity_pending_reset = false
 
 	# Initialize Cargo
 	const CARGO_RESOURCE_FILE = preload("res://src/data/cargo_res.tres")
@@ -76,6 +78,7 @@ func return_to_main_menu() -> void:
 	_destroy_player_ship()
 	saved_player_transform = Transform3D.IDENTITY
 	space_world_state = null
+	the_entity_pending_reset = false
 	game_state = Enums.GameState.MAIN_MENU
 	transition_to(MAIN_MENU_SCENE)
 

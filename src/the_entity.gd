@@ -23,6 +23,13 @@ func _ready() -> void:
 	_setup_mesh_and_collision()
 	growth_timer.timeout.connect(_on_growth_timer_timeout)
 
+	if GameManager.the_entity_pending_reset:
+		reset_to_initial()
+		GameManager.the_entity_pending_reset = false
+		if GameManager.space_world_state != null:
+			GameManager.space_world_state.the_entity = capture_state()
+		return
+
 	if GameManager.should_restore_space_world():
 		if GameManager.space_world_state != null and GameManager.space_world_state.the_entity != null:
 			apply_saved_state(GameManager.space_world_state.the_entity)
@@ -52,6 +59,17 @@ func apply_saved_state(state: SavedTheEntityStateResource) -> void:
 	global_position = state.origin
 	mesh_instance.scale = state.scale
 	_sync_collision_to_mesh()
+
+
+func reset_to_initial() -> void:
+	if _scale_tween != null and _scale_tween.is_valid():
+		_scale_tween.kill()
+		_scale_tween = null
+
+	mesh_instance.scale = Vector3.ONE
+	_sync_collision_to_mesh()
+	global_position = spawn_area.get_random_point()
+	_origin = global_position
 
 
 func _physics_process(_delta: float) -> void:

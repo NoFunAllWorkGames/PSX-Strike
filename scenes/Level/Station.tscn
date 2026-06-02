@@ -114,11 +114,11 @@ custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 theme_override_constants/separation = 21
 
-[node name="Button" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="0" unique_id=456226324]
+[node name="Reset" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="0" unique_id=456226324]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
-text = "test"
+text = "Reset Entity"
 
 [node name="upgrade" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="1" unique_id=2130985888]
 layout_mode = 2

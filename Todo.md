@@ -8,15 +8,14 @@ Right now
 - The visuals for the laser beam are all wrong, it doesn't hit where it seems to hit
 - Main base should remain a light to be able to find the way back
 - Implementing the Entity in a horror way
-- Restart the entity after docking at the station
 - Entity sfx
-- let player enter the name in the main menu
 
 Should
 ------
 
 - having the healthbars on top of the asteroid instead of static on the UI
 - Gamepad controls
+- Remove the speed bar and instead add a blinking "overspeed" overlay to explain the player why they died. Or explain after death that they died of overspeed
 
 Want
 ----

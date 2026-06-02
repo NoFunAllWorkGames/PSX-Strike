@@ -10,6 +10,7 @@ const SpaceWorldStateResource := preload("res://src/data/space_world_state.gd")
 @export var station_resources: StationResourcesData
 @export var weapon_system: WeaponData
 @export var space_world_state: SpaceWorldStateResource
+@export var the_entity_pending_reset: bool = false
 
 # State and Transforms
 @export var game_state: Enums.GameState
