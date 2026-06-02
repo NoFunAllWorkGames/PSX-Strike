@@ -14,21 +14,31 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not (event is InputEventKey):
-		return
-	if not event.pressed or event.echo:
-		return
-	if event.keycode != KEY_ESCAPE:
-		return
+	_handle_escape(event)
 
-	if GameManager.player_is_dead:
-		get_viewport().set_input_as_handled()
-		return
+
+func _unhandled_input(event: InputEvent) -> void:
+	_handle_scene_input(event)
+
+
+func _handle_escape(event: InputEvent) -> bool:
+	if not (event is InputEventKey):
+		return false
+	if not event.pressed or event.echo:
+		return false
+	if event.keycode != KEY_ESCAPE:
+		return false
 
 	var now := Time.get_ticks_msec()
 	if now - _last_escape_ms <= _DOUBLE_ESC_MS:
 		GameManager.quit_game()
+		get_viewport().set_input_as_handled()
+		return true
 	_last_escape_ms = now
+
+	if GameManager.player_is_dead:
+		get_viewport().set_input_as_handled()
+		return true
 
 	match GameManager.game_state:
 		Enums.GameState.SPACE, Enums.GameState.STATION, Enums.GameState.LOADED, Enums.GameState.NEW_GAME:
@@ -39,9 +49,10 @@ func _input(event: InputEvent) -> void:
 			pass
 
 	get_viewport().set_input_as_handled()
+	return true
 
 
-func _unhandled_input(event: InputEvent) -> void:
+func _handle_scene_input(event: InputEvent) -> void:
 	if GameManager.player_is_dead:
 		return
 	if GameManager.game_state == Enums.GameState.PAUSED:
@@ -49,12 +60,12 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	match GameManager.game_state:
 		Enums.GameState.SPACE, Enums.GameState.LOADED, Enums.GameState.NEW_GAME:
-			_handle_space_unhandled(event)
+			_handle_space_input(event)
 		Enums.GameState.STATION, Enums.GameState.MAIN_MENU:
 			pass
 
 
-func _handle_space_unhandled(event: InputEvent) -> void:
+func _handle_space_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_action_pressed("interact"):
 		interact_pressed.emit()
 	elif event.is_action_pressed("Shoot"):
@@ -73,6 +84,7 @@ func capture_mouse() -> void:
 
 func release_mouse() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 
 func get_ship_forward_axis() -> float:
 	return Input.get_action_strength("ship_forward") - Input.get_action_strength("ship_back")
