@@ -16,6 +16,7 @@ const ROTATION_JITTER := 0.25
 var _sphere_shape: SphereShape3D
 var _base_radius: float
 var _origin: Vector3
+var _scale_tween: Tween
 
 
 func _ready() -> void:
@@ -62,6 +63,7 @@ func _physics_process(_delta: float) -> void:
 		randf_range(-ROTATION_JITTER, ROTATION_JITTER),
 		randf_range(-ROTATION_JITTER, ROTATION_JITTER)
 	)
+	_check_player_collision()
 
 
 func _random_jitter_offset() -> Vector3:
@@ -77,9 +79,17 @@ func _random_jitter_offset() -> Vector3:
 
 
 func _on_growth_timer_timeout() -> void:
-	mesh_instance.scale *= GROWTH_FACTOR
+	if _scale_tween != null and _scale_tween.is_valid():
+		_scale_tween.kill()
+
+	var target_scale := mesh_instance.scale * GROWTH_FACTOR
+	_scale_tween = create_tween()
+	_scale_tween.tween_method(_set_entity_scale, mesh_instance.scale, target_scale, growth_timer.wait_time)
+
+
+func _set_entity_scale(new_scale: Vector3) -> void:
+	mesh_instance.scale = new_scale
 	_sync_collision_to_mesh()
-	_check_player_collision()
 
 
 func _sync_collision_to_mesh() -> void:
