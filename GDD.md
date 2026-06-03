@@ -1,11 +1,11 @@
-**Project “Strike” GDD**
+**PSX Strike GDD**
 ========================
 
 
 **Core Concept**
 ----------------
 
-Project “Strike” is a 3rd Person 3D Sci-fi space mining game with cosmic horror undertones, where the player works for an agency called the “Experitus Exploration Agency,” navigating an expansive asteroid field to locate and extract valuable materials using their powerful mining laser.” Threats infest in the field, however, as bandit ships threaten to attack the ship and steal the valuable resources the player collects. Meanwhile, an unknown entity’s presence looms over the player, threatening to destroy their helpless vessel if they don’t return to their station in time. The ship is equipped with guns to defend itself against the bandit ships, and the player can also buy deployable turrets to assist in the defense. When the player returns to the space station, they may deposit their haul in exchange for credits, which can be spent on upgrades to increase their efficiency and chances of survival
+PSX Strike is a 3rd Person 3D Sci-fi space mining game with cosmic horror undertones, where the player works for an agency called the “Experitus Exploration Agency,” navigating an expansive asteroid field to locate and extract valuable materials using their powerful mining laser.” Threats infest in the field, however, as bandit ships threaten to attack the ship and steal the valuable resources the player collects. Meanwhile, an unknown entity’s presence looms over the player, threatening to destroy their helpless vessel if they don’t return to their station in time. The ship is equipped with guns to defend itself against the bandit ships, and the player can also buy deployable turrets to assist in the defense. When the player returns to the space station, they may deposit their haul in exchange for credits, which can be spent on upgrades to increase their efficiency and chances of survival
 
 **Vision**  
 ----------
@@ -90,7 +90,7 @@ There is no definitive ending to this game. However, setting a concrete goal or 
 **Narrative**
 =============
 
-Project “Strike” is not a story-driven game, but it is grounded in the wider fiction of the verse.
+PSX “Strike” is not a story-driven game, but it is grounded in the wider fiction of the verse.
 
 This game takes place in the 27th century, in the midst of a resource gathering race, as Humanity’s top industrial organizations rush to gather as many valuable materials as they can from around the Solar system and neighboring bodies with the hopes of gaining enough materials to build colony ships capable of allowing Humanity to escape the system-wide calamity that’s befallen them.
 

@@ -3,10 +3,10 @@ extends HTTPRequest
 # Player ID
 var client_id: String = OS.get_unique_id()
 
-const PUBLIC_KEY_PATH := "res://projectstrike_keys.pem"
-const HIGHSCORES_BASE_URL := "https://nofunallworkgames.fyi/api/projectstrike/highscores"
-const SCORE_POST_URL := "https://nofunallworkgames.fyi/api/projectstrike/score"
-const SCORE_ENCRYPTED_POST_URL := "https://nofunallworkgames.fyi/api/projectstrike/score_encrypted"
+const PUBLIC_KEY_PATH := "res://PSXstrike_keys.pem"
+const HIGHSCORES_BASE_URL := "https://nofunallworkgames.fyi/api/PSXstrike/highscores"
+const SCORE_POST_URL := "https://nofunallworkgames.fyi/api/PSXstrike/score"
+const SCORE_ENCRYPTED_POST_URL := "https://nofunallworkgames.fyi/api/PSXstrike/score_encrypted"
 
 signal newest_scores_loaded(scores: Array)
 signal highest_scores_loaded(scores: Array)
