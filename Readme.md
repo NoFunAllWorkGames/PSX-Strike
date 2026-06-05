@@ -5,7 +5,13 @@ PSX Strike
 - See the [Milestones](Milestones.md)
 - See [Credits and Attributions](Credits.md)  
 - See the [Todo list](Todo.md)  
-- See the [Sound Design Plan](SoundDesignPlan.md)  
+- See the [Sound Design Plan](SoundDesignPlan.md)
+
+Video
+-----
+
+[![Watch the video](https://img.youtube.com/vi/aYl57MN-M00/maxresdefault.jpg)](https://www.youtube.com/watch?v=aYl57MN-M00)
+https://www.youtube.com/watch?v=aYl57MN-M00
 
 Project Idea and progress
 -------------------------
