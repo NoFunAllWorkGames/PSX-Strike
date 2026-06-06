@@ -229,6 +229,14 @@ func save_game() -> void:
 		if prop_name in self:
 			master_save.set(prop_name, self.get(prop_name))
 
+	# Ensure save directory exists
+	var save_dir := SAVE_FILE_PATH.get_base_dir()
+	if not DirAccess.dir_exists_absolute(save_dir):
+		var dir_err := DirAccess.make_dir_recursive_absolute(save_dir)
+		if dir_err != OK:
+			print("Failed to create save directory. Error code: ", dir_err)
+			return
+
 	# do the actual saving
 	var error = ResourceSaver.save(master_save, SAVE_FILE_PATH)
 	if error == OK:
