@@ -18,16 +18,6 @@ extends CanvasLayer
 
 # settings
 @onready var settings_panel: MarginContainer = $Control/MarginContainer/VBoxContainer/SettingsPanel
-@onready var settings_tabs: TabContainer = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer
-@onready var settings_back_button: Button = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/SettingsBackButton
-@onready var fullscreen_option: OptionButton = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/FullScreenOption
-@onready var zoom_level_label: Label = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/ZoomLevel
-@onready var zoom_level_option: OptionButton = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/ZoomLevelOption
-@onready var vsync_option: OptionButton = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VSyncOption
-@onready var volume_slider: HSlider = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VolumeControls/VolumeSlider
-@onready var volume_value: Label = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/General/GridContainer/VolumeControls/VolumeValue
-@onready var keyboard_settings: ControlsSettings = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard
-@onready var keyboard_back_button: Button = $Control/MarginContainer/VBoxContainer/SettingsPanel/TabContainer/Keyboard/ControlsBackButton
 
 
 func _ready() -> void:
@@ -44,23 +34,14 @@ func _ready() -> void:
 
 	# settings
 	settings_button.pressed.connect(_on_settings_button_pressed)
-	settings_back_button.pressed.connect(_on_close_settings_button_pressed)
-	keyboard_back_button.pressed.connect(_on_close_settings_button_pressed)
-	fullscreen_option.item_selected.connect(_on_fullscreen_selected)
-	zoom_level_option.item_selected.connect(_on_zoom_selected)
-	vsync_option.item_selected.connect(_on_vsync_selected)
-	volume_slider.value_changed.connect(_on_volume_changed)
-	_configure_option_button_font(fullscreen_option)
-	_configure_option_button_font(zoom_level_option)
-	_configure_option_button_font(vsync_option)
+	settings_panel.closed.connect(_on_close_settings_button_pressed)
 
-	_sync_settings_ui()
 	_sync_player_name_ui()
 	player_name_input.text_changed.connect(_on_player_name_changed)
 
 	# Give defaults to every button in this main menu, except remapping buttons.
 	for child in get_tree().get_root().find_children("", "Button", true, false):
-		if child is Button and !child.disabled and not keyboard_settings.is_bind_button(child):
+		if child is Button and !child.disabled and not settings_panel.keyboard_settings.is_bind_button(child):
 			child.mouse_entered.connect(_on_button_hovered)
 			child.pressed.connect(_on_button_clicked)
 
@@ -69,15 +50,6 @@ func _ready() -> void:
 	else:
 		start_button.text = "Start"
 		new_game.visible = false
-
-func _sync_settings_ui() -> void:
-	fullscreen_option.select(UserSettings.fullscreen_mode)
-	zoom_level_option.select(UserSettings.zoom_index)
-	vsync_option.select(UserSettings.vsync_mode)
-	volume_slider.value = UserSettings.volume * 100.0
-	_update_volume_label(volume_slider.value)
-	_update_zoom_visibility()
-
 
 func _sync_player_name_ui() -> void:
 	var display_name := UserSettings.player_name
@@ -90,11 +62,6 @@ func _sync_player_name_ui() -> void:
 func _on_player_name_changed(new_text: String) -> void:
 	UserSettings.set_player_name(new_text)
 
-
-func _update_zoom_visibility() -> void:
-	var show_zoom := UserSettings.fullscreen_mode == UserSettings.FullscreenOption.WINDOWED
-	zoom_level_label.visible = show_zoom
-	zoom_level_option.visible = show_zoom
 
 func _on_start_pressed() -> void:
 	if GameManager.has_savegame():
@@ -145,32 +112,8 @@ func _on_close_credits_button_pressed() -> void:
 # settings
 func _on_settings_button_pressed() -> void:
 	main_body_vbox.hide()
-	settings_panel.show()
-	_sync_settings_ui()
+	settings_panel.open()
 
 func _on_close_settings_button_pressed() -> void:
-	settings_panel.hide()
+	settings_panel.close()
 	main_body_vbox.show()
-
-
-func _on_fullscreen_selected(index: int) -> void:
-	UserSettings.set_fullscreen_mode(index)
-	_update_zoom_visibility()
-
-func _on_zoom_selected(index: int) -> void:
-	UserSettings.set_zoom_index(index)
-
-func _on_vsync_selected(index: int) -> void:
-	UserSettings.set_vsync_mode(index)
-
-func _on_volume_changed(value: float) -> void:
-	_update_volume_label(value)
-	UserSettings.set_volume(value / 100.0)
-
-func _update_volume_label(value: float) -> void:
-	volume_value.text = "%d%%" % roundi(value)
-
-
-func _configure_option_button_font(option: OptionButton) -> void:
-	option.add_theme_font_size_override("font_size", 8)
-	option.get_popup().add_theme_font_size_override("font_size", 8)
