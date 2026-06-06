@@ -16,7 +16,7 @@ https://www.youtube.com/watch?v=aYl57MN-M00
 Project Idea and progress
 -------------------------
 
-The project was created by Suntyger for New Horizon Studios originally under the name Project Strike. After around 1 week of creation of the team, only B1773rm4n has created anything to the repository. Suntyger become unresponsive and the other team members also just abandoned the Project. The original repository [can be found here](https://github.com/New-Horizon-Studios/PSX-Strike). There was a revival attempt of Suntyger but without success.  
+The project was created by Suntyger for New Horizon Studios originally under the name Project Strike. After around 1 week of creation of the team, only B1773rm4n has created anything to the repository. Suntyger become unresponsive and the other team members also just abandoned the Project. The original repository [can be found here](https://github.com/New-Horizon-Studios/Project-Strike). There was a revival attempt of Suntyger but without success.  
 So B1773rm4n continued this idea as a fork of the original repository. The goal shifted from a release on Itch.io towards the PSX Game Jam, which was orginally just a milestone, is now the primary purpose of this PSX.
 
 Goal
@@ -37,10 +37,19 @@ AI Usage
 
 I take full ownership and responsibility for the code. Feel free to read it.
 
-Git
----
+How to start this project
+-------------------------
 
-To set up Git LFS you have to do these steps after cloning:  
-`git lfs install`  
-`git config lfs.locksverify false`  
-`git lfs pull`
+1. Clone this repository   
+    `git clone git@github.com:NoFunAllWorkGames/PSX-Strike.git`  
+    or  
+    `git clone https://github.com/NoFunAllWorkGames/PSX-Strike.git`  
+2. Open the terminal inside your cloned respository folder  
+3. Set up GIT LFS (required):    
+    Type into the terminal  
+    `git lfs install`    
+    `git config lfs.locksverify false`    
+    `git lfs pull`  
+4. Install and start Godot  
+5. Open the `project.godot` file inside the repository   
+6. Press `F5` to start the game  

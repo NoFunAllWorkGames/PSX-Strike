@@ -3,6 +3,11 @@
 *.import
 export_presets.cfg
 
+# exported projects
+*.exe
+*.linux
+*.pck
+
 # Mono-specific ignores
 .mono/
 bin/
