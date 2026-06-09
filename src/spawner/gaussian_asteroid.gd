@@ -6,7 +6,7 @@ extends Area3D
 
 @export_group("Asteroid Settings")
 @export var max_health: float = 100.0
-@export var health: float = 50.0
+@export var health: float = 100.0
 
 const asteroid_scene := preload("res://scenes/Objects/asteroid.tscn")
 

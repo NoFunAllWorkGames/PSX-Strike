@@ -36,7 +36,7 @@ enum VSyncOption {
 	ADAPTIVE,
 }
 
-var fullscreen_mode: FullscreenOption = FullscreenOption.BORDERLESS
+var fullscreen_mode: FullscreenOption = FullscreenOption.WINDOWED
 var zoom_index: int = 2
 var vsync_mode: VSyncOption = VSyncOption.ENABLED
 var volume: float = 1.0
