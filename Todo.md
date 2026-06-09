@@ -15,8 +15,6 @@ Should
 - Add a splash screen in the beginning to explain what the game is about
 - having the healthbars on top of the asteroid instead of static on the UI
 - Gamepad controls
-- Remove the speed bar and instead add a blinking "overspeed" overlay to explain the player why they died. Or explain after death that they died of overspeed
-
 Want
 ----
 

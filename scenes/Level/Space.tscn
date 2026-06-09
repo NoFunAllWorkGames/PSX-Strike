@@ -242,7 +242,7 @@ text = "Cargo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Health" type="MarginContainer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="2" unique_id=814881232 node_paths=PackedStringArray("health_progress_bar", "speed_progress_bar")]
+[node name="Health" type="MarginContainer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="2" unique_id=814881232 node_paths=PackedStringArray("health_progress_bar")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -257,7 +257,6 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("16_x563e")
 health_progress_bar = NodePath("ProgressBar")
-speed_progress_bar = NodePath("../Speed/ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Health" index="0" unique_id=945942421]
 custom_minimum_size = Vector2(256, 16)
@@ -293,43 +292,6 @@ script = ExtResource("14_hfb1i")
 [node name="Timer" type="Timer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Damagebar" index="0" unique_id=56455347]
 wait_time = 2.0
 one_shot = true
-
-[node name="Speed" type="MarginContainer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="4" unique_id=1249042811]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -64.0
-offset_right = 24.000002
-offset_bottom = 64.0
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Speed" index="0" unique_id=325072429]
-custom_minimum_size = Vector2(16, 128)
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-theme_override_styles/fill = SubResource("StyleBoxFlat_4pnen")
-step = 1.0
-fill_mode = 3
-show_percentage = false
-
-[node name="Label" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Speed/ProgressBar" index="0" unique_id=639149285]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -6.5
-offset_top = 4.1799927
-offset_right = 6.5
-offset_bottom = 27.180115
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 8
-text = "Speed"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Right" parent_id_path=PackedInt32Array(1952944656) index="0" unique_id=1566733448]
 z_index = -1
