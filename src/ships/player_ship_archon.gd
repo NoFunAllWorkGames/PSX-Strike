@@ -23,6 +23,7 @@ extends CharacterBody3D
 
 # For self-destruction by max speed
 const SUSTAINED_SPEED_DAMAGE_RATIO := 0.95
+const SUSTAINED_SPEED_WARNING_RATIO := 0.85
 const SUSTAINED_SPEED_DAMAGE_RESET_RATIO := 0.85
 var speed: float = 0.0
 var speed_timer: float = 0.0
@@ -90,6 +91,9 @@ func _apply_movement(delta: float) -> void:
 
 	var blend_weight := acceleration if target_velocity != Vector3.ZERO else deceleration
 	velocity = velocity.move_toward(target_velocity, blend_weight * delta)
+
+func is_overspeed_warning() -> bool:
+	return speed >= max_speed * SUSTAINED_SPEED_WARNING_RATIO
 
 func _max_speed_selfdestruction(delta: float) -> void:
 	var damage_threshold := max_speed * SUSTAINED_SPEED_DAMAGE_RATIO

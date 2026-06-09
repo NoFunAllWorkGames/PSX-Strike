@@ -260,7 +260,7 @@ health_progress_bar = NodePath("ProgressBar")
 speed_progress_bar = NodePath("../Speed/ProgressBar")
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Health" index="0" unique_id=945942421]
-custom_minimum_size = Vector2(256, 8)
+custom_minimum_size = Vector2(256, 16)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
