@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://d4p38ys8sdrw" path="res://src/ui/settings_panel.gd" id="1_settings"]
 [ext_resource type="Script" uid="uid://ciuywupygoej4" path="res://src/ui/controls_settings.gd" id="2_controls"]
 
-[node name="SettingsPanel" type="MarginContainer"]
-visible = false
-layout_mode = 2
+[node name="SettingsPanel" type="MarginContainer" unique_id=21692525]
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
@@ -13,28 +11,36 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_settings")
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=1093461877]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_font_sizes/font_size = 8
+tab_alignment = 1
 current_tab = 0
 
-[node name="General" type="VBoxContainer" parent="TabContainer"]
+[node name="General" type="VBoxContainer" parent="TabContainer" unique_id=81355090]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 13
 metadata/_tab_index = 0
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/General"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/General" unique_id=1499784831]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/General/MarginContainer" unique_id=852386284]
 layout_mode = 2
 columns = 2
 
-[node name="FullScreen" type="Label" parent="TabContainer/General/GridContainer"]
+[node name="FullScreen" type="Label" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=1637289852]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Fullscreen"
 
-[node name="FullScreenOption" type="OptionButton" parent="TabContainer/General/GridContainer"]
+[node name="FullScreenOption" type="OptionButton" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=1178738658]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 item_count = 3
@@ -45,12 +51,12 @@ popup/item_1/id = 1
 popup/item_2/text = "Borderless"
 popup/item_2/id = 2
 
-[node name="ZoomLevel" type="Label" parent="TabContainer/General/GridContainer"]
+[node name="ZoomLevel" type="Label" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=192473305]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Zoom level"
 
-[node name="ZoomLevelOption" type="OptionButton" parent="TabContainer/General/GridContainer"]
+[node name="ZoomLevelOption" type="OptionButton" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=1466754484]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 item_count = 3
@@ -61,12 +67,12 @@ popup/item_1/id = 1
 popup/item_2/text = "4x (1704x960)"
 popup/item_2/id = 2
 
-[node name="VSync" type="Label" parent="TabContainer/General/GridContainer"]
+[node name="VSync" type="Label" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=837221745]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "VSync"
 
-[node name="VSyncOption" type="OptionButton" parent="TabContainer/General/GridContainer"]
+[node name="VSyncOption" type="OptionButton" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=1559068436]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 item_count = 3
@@ -77,32 +83,32 @@ popup/item_1/id = 1
 popup/item_2/text = "Adaptive"
 popup/item_2/id = 2
 
-[node name="Volume" type="Label" parent="TabContainer/General/GridContainer"]
+[node name="Volume" type="Label" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=451521471]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Volume"
 
-[node name="VolumeControls" type="HBoxContainer" parent="TabContainer/General/GridContainer"]
+[node name="VolumeControls" type="HBoxContainer" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=53419622]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="VolumeSlider" type="HSlider" parent="TabContainer/General/GridContainer/VolumeControls"]
+[node name="VolumeSlider" type="HSlider" parent="TabContainer/General/MarginContainer/GridContainer/VolumeControls" unique_id=2052485444]
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
 
-[node name="VolumeValue" type="Label" parent="TabContainer/General/GridContainer/VolumeControls"]
+[node name="VolumeValue" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/VolumeControls" unique_id=1420181964]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "100%"
 
-[node name="SettingsBackButton" type="Button" parent="TabContainer/General"]
+[node name="SettingsBackButton" type="Button" parent="TabContainer/General" unique_id=662084582]
 layout_mode = 2
 text = "Back"
 
-[node name="Keyboard" type="VBoxContainer" parent="TabContainer"]
+[node name="Keyboard" type="VBoxContainer" parent="TabContainer" unique_id=1397689149]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -110,7 +116,7 @@ theme_override_constants/separation = 13
 script = ExtResource("2_controls")
 metadata/_tab_index = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Keyboard"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Keyboard" unique_id=177861615]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -118,90 +124,90 @@ size_flags_vertical = 3
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="ScrollContent" type="VBoxContainer" parent="TabContainer/Keyboard/ScrollContainer"]
+[node name="ScrollContent" type="VBoxContainer" parent="TabContainer/Keyboard/ScrollContainer" unique_id=959011239]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
-[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent"]
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent" unique_id=18810786]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer"]
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer" unique_id=280899822]
 layout_mode = 2
 columns = 2
 
-[node name="Forward" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="Forward" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1722058171]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Forward"
 
-[node name="ForwardBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="ForwardBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1792976769]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="Backward" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="Backward" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=518462826]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Backward"
 
-[node name="BackwardBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="BackwardBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=2090462179]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="StrafeLeft" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="StrafeLeft" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1183707804]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Strafe left"
 
-[node name="StrafeLeftBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="StrafeLeftBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=679321966]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="StrafeRight" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="StrafeRight" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1782614993]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Strafe right"
 
-[node name="StrafeRightBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="StrafeRightBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1060070479]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="Ascend" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="Ascend" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1339124736]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Ascend"
 
-[node name="AscendBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="AscendBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=843582343]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="Descend" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="Descend" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=256758912]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Descend"
 
-[node name="DescendBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="DescendBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1381666437]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="Shoot" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="Shoot" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=164823218]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Shoot"
 
-[node name="ShootBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="ShootBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=508223428]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="Interact" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="Interact" type="Label" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1091149883]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Interact"
 
-[node name="InteractBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer"]
+[node name="InteractBind" type="Button" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer/GridContainer" unique_id=1234653156]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="ControlsBackButton" type="Button" parent="TabContainer/Keyboard"]
+[node name="ControlsBackButton" type="Button" parent="TabContainer/Keyboard" unique_id=292185681]
 layout_mode = 2
 text = "Back"

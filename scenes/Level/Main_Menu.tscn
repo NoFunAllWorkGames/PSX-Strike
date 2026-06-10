@@ -2,10 +2,13 @@
 
 [ext_resource type="Script" uid="uid://wkn6ou0g1ylf" path="res://src/ui/main_menu.gd" id="1_menum"]
 [ext_resource type="PackedScene" uid="uid://x7df5teokeca" path="res://scenes/Level/Space.tscn" id="2_space"]
-[ext_resource type="Texture2D" uid="uid://rikakd0opnu8" path="res://assets/Textures/suntyger_avatar.png" id="3_unyvy"]
-[ext_resource type="Texture2D" uid="uid://btlic2ws8no14" path="res://assets/Textures/B1773rm4n_avatar.png" id="4_4vbsx"]
-[ext_resource type="Texture2D" uid="uid://poj1pl23xu34" path="res://assets/Textures/francobhalla_avatar.png" id="5_xurhj"]
-[ext_resource type="PackedScene" path="res://scenes/UI/Settings_Panel.tscn" id="6_settings"]
+[ext_resource type="Texture2D" uid="uid://psmyi36haesg" path="res://assets/Textures/suntyger_avatar.png" id="3_unyvy"]
+[ext_resource type="Theme" uid="uid://cdyptnkr683qe" path="res://assets/Styles/new_theme.tres" id="3_xurhj"]
+[ext_resource type="Texture2D" uid="uid://gjof71bip5s7" path="res://assets/Textures/B1773rm4n_avatar.png" id="4_4vbsx"]
+[ext_resource type="Texture2D" uid="uid://bdrl4v3i4b8i7" path="res://assets/Textures/francobhalla_avatar.png" id="5_xurhj"]
+[ext_resource type="PackedScene" uid="uid://dh5k2pm8w3fx" path="res://scenes/UI/Settings_Panel.tscn" id="6_settings"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xurhj"]
 
 [node name="MainMenu" type="CanvasLayer" unique_id=2128258435]
 script = ExtResource("1_menum")
@@ -30,6 +33,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -57.5
+offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
@@ -40,10 +45,16 @@ theme_override_constants/margin_bottom = 50
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=832852888]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = -8
+
+[node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/VBoxContainer" unique_id=1185916882]
+layout_mode = 2
+theme_override_constants/separation = 16
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xurhj")
 
 [node name="GameName" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=782610253]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 26
 text = "PSX Strike"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1035408229]
@@ -52,8 +63,10 @@ size_flags_vertical = 6
 theme_override_constants/separation = 8
 
 [node name="Start" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1952212904]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme = ExtResource("3_xurhj")
+theme_override_font_sizes/font_size = 12
 text = "Start"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=262899831]
@@ -61,31 +74,43 @@ layout_mode = 2
 
 [node name="PlayerNameLabel" type="Label" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1540353679]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "Name: "
 
 [node name="PlayerName" type="LineEdit" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1440565311]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_xurhj")
+theme_override_font_sizes/font_size = 12
 max_length = 12
 
 [node name="NewGame" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=488434203]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme = ExtResource("3_xurhj")
+theme_override_font_sizes/font_size = 12
 text = "New Game"
 
 [node name="Settings" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1408124819]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme = ExtResource("3_xurhj")
+theme_override_font_sizes/font_size = 12
 text = "Settings"
 
 [node name="Credits" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1135007803]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme = ExtResource("3_xurhj")
+theme_override_font_sizes/font_size = 12
 text = "Credits"
 
 [node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1105971633]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-theme_override_font_sizes/font_size = 16
+theme = ExtResource("3_xurhj")
+theme_override_font_sizes/font_size = 12
 text = "Quit"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=873486148]

@@ -4,12 +4,12 @@ signal closed
 
 @onready var settings_tabs: TabContainer = $TabContainer
 @onready var settings_back_button: Button = $TabContainer/General/SettingsBackButton
-@onready var fullscreen_option: OptionButton = $TabContainer/General/GridContainer/FullScreenOption
-@onready var zoom_level_label: Label = $TabContainer/General/GridContainer/ZoomLevel
-@onready var zoom_level_option: OptionButton = $TabContainer/General/GridContainer/ZoomLevelOption
-@onready var vsync_option: OptionButton = $TabContainer/General/GridContainer/VSyncOption
-@onready var volume_slider: HSlider = $TabContainer/General/GridContainer/VolumeControls/VolumeSlider
-@onready var volume_value: Label = $TabContainer/General/GridContainer/VolumeControls/VolumeValue
+@onready var fullscreen_option: OptionButton = $TabContainer/General/MarginContainer/GridContainer/FullScreenOption
+@onready var zoom_level_label: Label = $TabContainer/General/MarginContainer/GridContainer/ZoomLevel
+@onready var zoom_level_option: OptionButton = $TabContainer/General/MarginContainer/GridContainer/ZoomLevelOption
+@onready var vsync_option: OptionButton = $TabContainer/General/MarginContainer/GridContainer/VSyncOption
+@onready var volume_slider: HSlider = $TabContainer/General/MarginContainer/GridContainer/VolumeControls/VolumeSlider
+@onready var volume_value: Label = $TabContainer/General/MarginContainer/GridContainer/VolumeControls/VolumeValue
 @onready var keyboard_settings: ControlsSettings = $TabContainer/Keyboard
 @onready var keyboard_back_button: Button = $TabContainer/Keyboard/ControlsBackButton
 
