@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5rgrwpnohesq"
-path.s3tc="res://.godot/imported/player_ship_archon_body_texPlayerShip.png-f6d6be40286215e625012ed68340ce08.s3tc.ctex"
+uid="uid://bc808vebfqk7v"
+path.s3tc="res://.godot/imported/player_ship_archon_body_texPlayerShipv2.png-4e207a42cba2ee8cb11ebd6416277e0d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "ca90c0ee76adc768436f32b87c9ca15c"
+"md5": "8e6ab93c6cbed97e5abd477ccbc9d866"
 }
 
 [deps]
 
-source_file="res://assets/Models/player_ship_archon_body_texPlayerShip.png"
-dest_files=["res://.godot/imported/player_ship_archon_body_texPlayerShip.png-f6d6be40286215e625012ed68340ce08.s3tc.ctex"]
+source_file="res://assets/Models/player_ship_archon_body_texPlayerShipv2.png"
+dest_files=["res://.godot/imported/player_ship_archon_body_texPlayerShipv2.png-4e207a42cba2ee8cb11ebd6416277e0d.s3tc.ctex"]
 
 [params]
 

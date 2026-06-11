@@ -6,7 +6,14 @@ func _ready() -> void:
 	GameManager.game_state = Enums.GameState.STATION
 	var unloaded_amount: int = GameManager.cargo.unload_all_resources()
 	GameManager.station_resources.resources_amount += unloaded_amount
-	# seemingly the node tree isn't built yet. So this doesn't work
+	# Remove player character camera
+	var player_ship := get_node_or_null(
+		"HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon"
+	)
+	if player_ship:
+		var camera := player_ship.get_node_or_null("CameraPivot/SpringArm3D/Camera3D") as Camera3D
+		if camera:
+			camera.current = false
 	SignalBus.right_column_updated.emit()
 
 func _on_sell_pressed() -> void:

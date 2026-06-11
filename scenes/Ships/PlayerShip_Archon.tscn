@@ -43,9 +43,8 @@ lifepoints = null
 [node name="player_ship_archon_body" parent="." unique_id=987433433 instance=ExtResource("2_ipt2d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="player_ship_archon_body" unique_id=1301883732]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="player_ship_archon_body/StaticBody3D" unique_id=775107062]
+[node name="Body_Collision" type="CollisionShape3D" parent="." unique_id=775107062]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_upyqg")
 
 [node name="CameraPivot" type="Marker3D" parent="." unique_id=1704637794]

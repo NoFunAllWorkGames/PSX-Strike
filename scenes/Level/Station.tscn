@@ -4,30 +4,19 @@
 [ext_resource type="Script" uid="uid://2oris1t1saux" path="res://src/scenes/station.gd" id="2_4dbit"]
 [ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station_left_buttons.gd" id="2_station"]
 [ext_resource type="AudioStream" uid="uid://dasn6p12iij6t" path="res://assets/Sounds/353159__kinoton__room-tone-sci-fi-large-hall.ogg" id="3_t16i2"]
+[ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="5_l3t8d"]
 [ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="5_qjulp"]
 [ext_resource type="Script" uid="uid://c4q6dri8n2xsu" path="res://src/ui/station_right_column.gd" id="6_p6bjf"]
 
 [sub_resource type="Environment" id="Environment_66bpb"]
 background_mode = 3
 
-[sub_resource type="PrismMesh" id="PrismMesh_fy63f"]
-size = Vector3(1.2, 1.5, 0.45)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qjll1"]
-points = PackedVector3Array(0.028088098, 0.67977977, 0.22053385, -0.58154756, -0.7236678, -0.225, -0.5754761, -0.7160502, 0.225, 0.5720238, -0.7236678, -0.225, 0.0065299356, 0.7236678, -0.225, 0.56595236, -0.7160502, 0.225, -0.015739687, 0.7106508, 0.22331233, 0.5542297, -0.6355743, -0.2180219, 0.5542297, -0.6355743, 0.22040287, -0.015739687, 0.7106508, -0.22093137, -0.56225926, -0.6556482, 0.21981691, -0.56225926, -0.6556482, -0.21743594, 0.0064110737, 0.7160502, 0.225, 0.028088098, 0.67977977, -0.21815288)
-
-[sub_resource type="BoxMesh" id="BoxMesh_t3yy4"]
-size = Vector3(1.2, 0.45, 2.8)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_veut8"]
-size = Vector3(1.235, 2.82, 0.52)
-
 [sub_resource type="Animation" id="Animation_wy22o"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon/Engine_Hovering:pitch_scale")
+tracks/0/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon/Engine_Hovering2:pitch_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,7 +45,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon/Engine_Hovering:pitch_scale")
+tracks/0/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon/Engine_Hovering2:pitch_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -157,43 +146,33 @@ spot_range = 10.146455
 transform = Transform3D(-0.062474146, 0.56292033, -0.8241466, 0.042549964, 0.82651114, 0.56130993, 0.9971391, -4.9212055e-08, -0.07558782, -3.4846368, 4.2945895, 0)
 spot_range = 9.971667
 
-[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="4" unique_id=1498511072]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.8821)
+[node name="SpotLight3D3" type="SpotLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="4" unique_id=1907330310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8494253, -0.54659843, 6.5910835)
+spot_range = 9.971667
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="5" unique_id=865072657]
+[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="5" unique_id=1498511072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.8821)
+current = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="6" unique_id=865072657]
 stream = ExtResource("3_t16i2")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
 
-[node name="PlayerShipArchon" type="CharacterBody3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894]
-transform = Transform3D(-0.8580649, -0.11552165, 0.50037926, 0, 0.97437, 0.22495106, -0.5135413, 0.1930226, -0.83607274, 0, 0, 0)
+[node name="PlayerShipArchon" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("5_l3t8d")]
+transform = Transform3D(-1.7161298, -0.23104332, 1.0007585, 0, 1.9487401, 0.44990215, -1.0270826, 0.38604525, -1.6721455, 0, 0, 0)
 
-[node name="HeadMesh" type="MeshInstance3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="0" unique_id=1637692257]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.1508863)
-mesh = SubResource("PrismMesh_fy63f")
+[node name="World_Characters_PlayerShipArchon#AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="9" unique_id=1505904149]
+root_node = NodePath("../../../../../../..")
+libraries/ = SubResource("AnimationLibrary_47i8t")
+autoplay = &"hover"
 
-[node name="HeadCollision" type="CollisionShape3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="1" unique_id=894148406]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.151)
-shape = SubResource("ConvexPolygonShape3D_qjll1")
-
-[node name="BodyMesh" type="MeshInstance3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="2" unique_id=1353798468]
-mesh = SubResource("BoxMesh_t3yy4")
-
-[node name="BodyCollision" type="CollisionShape3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="3" unique_id=565055451]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
-shape = SubResource("BoxShape3D_veut8")
-
-[node name="Engine_Hovering" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="4" unique_id=202474421]
+[node name="Engine_Hovering2" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="10" unique_id=202474421]
 stream = ExtResource("5_qjulp")
 autoplay = true
 bus = &"SFX"
 parameters/looping = true
-
-[node name="World_Characters_PlayerShipArchon#AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="5" unique_id=1505904149]
-root_node = NodePath("../../../../../../..")
-libraries/ = SubResource("AnimationLibrary_47i8t")
-autoplay = &"hover"
 
 [node name="Right" parent="HBoxContainer" parent_id_path=PackedInt32Array(1439984215) index="2" unique_id=1952944656]
 script = ExtResource("6_p6bjf")
