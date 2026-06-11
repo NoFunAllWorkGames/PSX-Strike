@@ -47,6 +47,7 @@ Self-Created Assets
 | B1773rm4n_avatar.png | Main menu credits | B1773rm4n |
 | suntyger_avatar.png | Main menu credits | Suntyger |
 | francobhalla_avatar.png | Main menu credits | francobhalla |
+| player_ship_archon_body | 3D model + texture | Vaughnald |
 
 Audio Self-Created Assets
 -------------------------
