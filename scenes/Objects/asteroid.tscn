@@ -1,15 +1,13 @@
 [gd_scene format=3 uid="uid://e830b2yg26ei"]
 
 [ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/scenes/asteroid.gd" id="1_akfqu"]
-[ext_resource type="Shader" uid="uid://cko023nb6gfc" path="res://src/TheEntityShader.gdshader" id="2_qhg7p"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wuinn"]
-render_priority = 0
-shader = ExtResource("2_qhg7p")
-shader_parameter/distortion_intensity = 0.02
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akfqu"]
+albedo_color = Color(0.45, 0.42, 0.4, 1)
+roughness = 0.9
 
 [sub_resource type="SphereMesh" id="SphereMesh_akfqu"]
-material = SubResource("ShaderMaterial_wuinn")
+material = SubResource("StandardMaterial3D_akfqu")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6mo6b"]
 
