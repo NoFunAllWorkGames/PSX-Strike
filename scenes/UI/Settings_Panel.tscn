@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://d4p38ys8sdrw" path="res://src/ui/settings_panel.gd" id="1_settings"]
 [ext_resource type="Script" uid="uid://ciuywupygoej4" path="res://src/ui/controls_settings.gd" id="2_controls"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4in54"]
+
 [node name="SettingsPanel" type="MarginContainer" unique_id=21692525]
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
@@ -94,13 +96,14 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 8
 
 [node name="VolumeSlider" type="HSlider" parent="TabContainer/General/MarginContainer/GridContainer/VolumeControls" unique_id=2052485444]
+custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 value = 100.0
 
 [node name="VolumeValue" type="Label" parent="TabContainer/General/MarginContainer/GridContainer/VolumeControls" unique_id=1420181964]
-custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 8
 text = "100%"
 
@@ -110,11 +113,15 @@ text = "Back"
 
 [node name="Keyboard" type="VBoxContainer" parent="TabContainer" unique_id=1397689149]
 visible = false
+custom_minimum_size = Vector2(148, 0)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 13
 script = ExtResource("2_controls")
 metadata/_tab_index = 1
+
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Keyboard" unique_id=900783460]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_4in54")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Keyboard" unique_id=177861615]
 custom_minimum_size = Vector2(0, 100)

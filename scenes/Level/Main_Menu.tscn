@@ -54,6 +54,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_xurhj")
 
 [node name="GameName" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=782610253]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 26
 text = "PSX Strike"
 
@@ -277,3 +278,4 @@ text = "Back"
 [node name="SettingsPanel" parent="Control/MarginContainer/VBoxContainer" unique_id=2113878392 instance=ExtResource("6_settings")]
 visible = false
 layout_mode = 2
+theme_override_constants/margin_bottom = 16
