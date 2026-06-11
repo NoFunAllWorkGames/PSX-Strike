@@ -12,6 +12,7 @@ Right now
 Should
 ------
 
+- The further you travel, the more valuable the resources
 - Add a splash screen in the beginning to explain what the game is about
 - having the healthbars on top of the asteroid instead of static on the UI
 - Gamepad controls
