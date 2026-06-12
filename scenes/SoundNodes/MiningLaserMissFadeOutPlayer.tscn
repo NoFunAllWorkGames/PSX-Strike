@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c8k2m5n7qaq1r"]
+
+[ext_resource type="AudioStream" uid="uid://bp6ejj46pve62" path="res://assets/Sounds/Laser/LaserBeamFadeOut/LaserVoidFadeOut.ogg" id="1_fadeout"]
+
+[node name="MiningLaserMissFadeOutPlayer" type="AudioStreamPlayer" unique_id=1983746522]
+process_mode = 3
+stream = ExtResource("1_fadeout")
+bus = &"SFX"

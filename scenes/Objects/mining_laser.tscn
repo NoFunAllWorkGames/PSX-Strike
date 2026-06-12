@@ -11,8 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://bkgpx3wm5tl8j" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid1.ogg" id="9_v7p4l"]
 [ext_resource type="AudioStream" uid="uid://b37qcdewcna2" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid2.ogg" id="10_v7p4l"]
 [ext_resource type="AudioStream" uid="uid://bx5y00ilryshe" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid3.ogg" id="11_v7p4l"]
-[ext_resource type="AudioStream" uid="uid://bduwcu8w2g0i0" path="res://assets/Sounds/Laser/LaserBeamFadeOut/LaserDamageFadeOut.ogg" id="12_1jkkl"]
-[ext_resource type="AudioStream" uid="uid://bp6ejj46pve62" path="res://assets/Sounds/Laser/LaserBeamFadeOut/LaserVoidFadeOut.ogg" id="13_jfyxt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yb6q"]
 shading_mode = 0
@@ -63,12 +61,4 @@ bus = &"SFX"
 [node name="OnMissAudio" type="AudioStreamPlayer" parent="." unique_id=883383462]
 stream = SubResource("AudioStreamRandomizer_6n34o")
 volume_db = 1.0
-bus = &"SFX"
-
-[node name="OnHitFadeOut" type="AudioStreamPlayer" parent="." unique_id=1539994282]
-stream = ExtResource("12_1jkkl")
-bus = &"SFX"
-
-[node name="OnMissFadeOut" type="AudioStreamPlayer" parent="." unique_id=730687857]
-stream = ExtResource("13_jfyxt")
 bus = &"SFX"

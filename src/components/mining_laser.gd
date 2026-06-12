@@ -5,8 +5,6 @@ extends Node3D
 @onready var on_hit_audio: AudioStreamPlayer = $OnHitAudio
 @onready var on_miss_audio: AudioStreamPlayer = $OnMissAudio
 @onready var on_start_shooting_audio: AudioStreamPlayer = $OnStartShootingAudio
-#@onready var on_miss_fadeout_audio: AudioStreamPlayer = $OnMissFadeOut
-#@onready var on_hit_fadeout_audio: AudioStreamPlayer = $OnHitFadeOut
 
 var damage_per_second = 100
 var max_length = 100
@@ -19,10 +17,9 @@ var max_length = 100
 func _ready() -> void:
 	on_start_shooting_audio.play()
 	_update_raycast_length()
-	
+
 func _exit_tree() -> void:
-	$OnMissFadeOut.play()
-	print("yes")
+	SignalBus.mining_laser_fade_out_requested.emit()
 
 func _update_raycast_length() -> void:
 	ray_cast_3d.target_position = Vector3(0, 0, -max_length)

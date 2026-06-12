@@ -24,6 +24,7 @@ signal player_receive_damage(amount: int)
 ## Ship control
 signal shoot_action_pressed()
 signal shoot_action_released()
+signal mining_laser_fade_out_requested()
 
 ## Inventory
 signal player_resource_received(amount: int)
