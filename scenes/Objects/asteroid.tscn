@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://e830b2yg26ei"]
 
 [ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/scenes/asteroid.gd" id="1_akfqu"]
+[ext_resource type="Script" uid="uid://fm6pi8klcq1f" path="res://src/ui/damagebar_view.gd" id="2_qhg7p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_akfqu"]
 albedo_color = Color(0.45, 0.42, 0.4, 1)
@@ -10,6 +11,23 @@ roughness = 0.9
 material = SubResource("StandardMaterial3D_akfqu")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6mo6b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wuinn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v0d03"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhg7p"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
 
 [node name="Asteroid" type="RigidBody3D" unique_id=1904658444]
 collision_layer = 65
@@ -22,3 +40,26 @@ mesh = SubResource("SphereMesh_akfqu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2099872403]
 shape = SubResource("SphereShape3D_6mo6b")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1639058404]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6699467, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_wuinn")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=809307987]
+size = Vector2i(140, 27)
+
+[node name="DamageBar" type="ProgressBar" parent="SubViewport" unique_id=94834690]
+custom_minimum_size = Vector2(140, 14)
+offset_right = 100.0
+offset_bottom = 27.0
+theme_override_styles/background = SubResource("StyleBoxFlat_v0d03")
+theme_override_styles/fill = SubResource("StyleBoxFlat_qhg7p")
+step = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("2_qhg7p")
+
+[node name="Timer" type="Timer" parent="SubViewport" unique_id=1085501214]
+wait_time = 2.0
+one_shot = true

@@ -14,7 +14,6 @@
 [ext_resource type="Script" uid="uid://df6832ebx1vmt" path="res://src/ui/cargo_capacity_view.gd" id="7_4pnen"]
 [ext_resource type="AudioStream" uid="uid://dgkvouehabx5a" path="res://assets/Sounds/Ambience/AmbienceEerie.ogg" id="7_o803n"]
 [ext_resource type="Script" uid="uid://dfegnycu8cwaq" path="res://src/spawner/gaussian_asteroid.gd" id="10_4pnen"]
-[ext_resource type="Script" uid="uid://fm6pi8klcq1f" path="res://src/ui/damagebar_view.gd" id="14_hfb1i"]
 [ext_resource type="Script" uid="uid://c6m4i4xjtkof2" path="res://src/ui/player_ship_hud.gd" id="16_x563e"]
 [ext_resource type="PackedScene" uid="uid://ds1n2gxt3k8a1" path="res://scenes/Ships/TheEntity.tscn" id="18_o803n"]
 
@@ -70,9 +69,6 @@ anti_aliasing = false
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k628k"]
 bg_color = Color(0.73333335, 0, 0, 1)
 anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sxw4"]
-bg_color = Color(0.73333335, 0, 0, 1)
 
 [node name="Space" unique_id=1408701904 instance=ExtResource("1_3swrr")]
 script = ExtResource("2_p5kko")
@@ -257,31 +253,6 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/fill = SubResource("StyleBoxFlat_k628k")
 step = 1.0
 value = 100.0
-
-[node name="Damagebar" type="ProgressBar" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI" index="3" unique_id=1475009817]
-custom_minimum_size = Vector2(64, 16)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -32.0
-offset_top = -30.0
-offset_right = 32.0
-offset_bottom = -14.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/fill = SubResource("StyleBoxFlat_0sxw4")
-step = 1.0
-rounded = true
-show_percentage = false
-script = ExtResource("14_hfb1i")
-
-[node name="Timer" type="Timer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/UI/Damagebar" index="0" unique_id=56455347]
-wait_time = 2.0
-one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Right" parent_id_path=PackedInt32Array(1952944656) index="0" unique_id=1566733448]
 z_index = -1
