@@ -9,14 +9,16 @@ class_name Asteroid
 
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
+@onready var _damage_bar = $DamageBar
+
 func take_damage(applied_damage: float) -> void:
 	health -= applied_damage
-	SignalBus.display_asteroid_lifebar.emit(self)
+	_damage_bar.show_health()
 	if health <= 0.0:
 		die()
 
 func die() -> void:
-	SignalBus.clear_asteroid_lifebar.emit()
+	_damage_bar.hide_bar()
 	var pickup_instance := asteroid_pickup.instantiate()
 	var items_scene: Node = $"../../../Items"
 	items_scene.add_child(pickup_instance)

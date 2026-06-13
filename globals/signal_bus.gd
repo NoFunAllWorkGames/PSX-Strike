@@ -10,8 +10,6 @@ signal update_ui()
 
 ## Space
 signal display_action_label(message: String)
-signal display_asteroid_lifebar(asteroid: Asteroid)
-signal clear_asteroid_lifebar()
 signal player_resource_received_view_update(amount: int)
 signal cargo_state_changed(amount: int, capacity: int)
 
