@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ds1n2gxt3k8a1"]
 
-[ext_resource type="Shader" uid="uid://cko023nb6gfc" path="res://src/TheEntityShader.gdshader" id="1_hfjux"]
+[ext_resource type="Shader" uid="uid://cko023nb6gfc" path="res://src/shaders/TheEntityShader.gdshader" id="1_hfjux"]
 [ext_resource type="Script" uid="uid://by6qv7217q7aw" path="res://src/the_entity.gd" id="1_rghxa"]
 [ext_resource type="AudioStream" uid="uid://b6pkdbdl82lqv" path="res://assets/Sounds/Enemies/Entity/EntityDrone.ogg" id="3_6ugoe"]
 
