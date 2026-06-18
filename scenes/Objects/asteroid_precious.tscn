@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bu5wqfo73fw41"]
+
+[ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/scenes/asteroid.gd" id="1_akfqu"]
+[ext_resource type="Script" uid="uid://j5l7j8gcn84i" path="res://src/components/asteroid_damage_bar.gd" id="2_qhg7p"]
+[ext_resource type="Shader" uid="uid://cbb55nyo6jyr7" path="res://src/shaders/asteroid_damage_bar.gdshader" id="3_shader"]
+[ext_resource type="Material" path="res://assets/asteroid_precious_material.tres" id="4_mat"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_6mo6b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_damagebar"]
+render_priority = 0
+shader = ExtResource("3_shader")
+shader_parameter/fill_color = Color(0, 1, 0, 1)
+shader_parameter/bg_color = Color(0, 0, 0, 0)
+shader_parameter/border_color = Color(0, 0, 0, 1)
+shader_parameter/border_size = Vector2(0.02, 0.08)
+
+[sub_resource type="QuadMesh" id="QuadMesh_damagebar"]
+size = Vector2(3, 0.6)
+center_offset = Vector3(0, 2, 0)
+
+[node name="AsteroidPrecious" type="RigidBody3D"]
+collision_layer = 65
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_akfqu")
+mesh_radius = 0.5
+is_precious = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("4_mat")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_6mo6b")
+
+[node name="DamageBar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6699467, 0)
+material_override = SubResource("ShaderMaterial_damagebar")
+mesh = SubResource("QuadMesh_damagebar")
+script = ExtResource("2_qhg7p")
+
+[node name="Timer" type="Timer" parent="DamageBar"]
+one_shot = true

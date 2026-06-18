@@ -33,10 +33,17 @@ func _ready() -> void:
 	else:
 		GameManager.PlayerShip.global_transform = GameManager.saved_player_transform
 
-	if GameManager.should_restore_space_world() and GameManager.space_world_state != null:
+	if GameManager.should_restore_space_world():
 		SpaceWorldPersistenceScript.restore_to_scene(self, GameManager.space_world_state)
+	else:
+		_spawn_asteroid_fields()
 
 	SignalBus.update_ui.emit()
+
+
+func _spawn_asteroid_fields() -> void:
+	$HBoxContainer/SubViewportContainer/SubViewport/World/Environment/NoiseAsteroid.spawn_gaussian_cloud()
+	$HBoxContainer/SubViewportContainer/SubViewport/World/Environment/NoiseAsteroidPrecious.spawn_gaussian_cloud()
 
 func spawn_new_game() -> void:
 	var spawn_marker: Marker3D = $HBoxContainer/SubViewportContainer/SubViewport/World/Environment/PlayerSpawnPoint

@@ -7,3 +7,4 @@ extends Resource
 @export var max_health: float = 0.0
 @export var gained_resource: int = 0
 @export var mesh_seed: int = 0
+@export var is_precious: bool = false

@@ -7,6 +7,8 @@ class_name Asteroid
 @export var health: float
 @export var gained_resource: int
 @export var mesh_seed: int = -1
+@export var mesh_radius: float = 1.0
+@export var is_precious: bool = false
 
 const ProceduralAsteroidMeshBuilder := preload("res://src/utils/procedural_asteroid_mesh.gd")
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
@@ -23,7 +25,7 @@ func _ready() -> void:
 
 
 func _apply_procedural_mesh() -> void:
-	var mesh: ArrayMesh = ProceduralAsteroidMeshBuilder.build(mesh_seed)
+	var mesh: ArrayMesh = ProceduralAsteroidMeshBuilder.build(mesh_seed, mesh_radius)
 	_mesh_instance.mesh = mesh
 	_collision_shape.shape = mesh.create_convex_shape()
 

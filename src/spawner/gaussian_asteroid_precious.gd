@@ -1,16 +1,16 @@
 extends Area3D
 
 @export_group("Field Settings")
-@export var count: int = 200
+@export var count: int = 50
+@export var min_distance: float = 150.0
 @export var spread: float = 600.0
-@export var min_distance: float = 100.0
 
 @export_group("Asteroid Settings")
-@export var max_health: float = 100.0
-@export var health: float = 100.0
+@export var max_health: float = 300.0
+@export var health: float = 300.0
 
-@export var asteroid_scene: PackedScene = preload("res://scenes/Objects/asteroid.tscn")
-@export var resource_range: int = 10
+@export var asteroid_scene: PackedScene = preload("res://scenes/Objects/asteroid_precious.tscn")
+@export var resource_range: int = 25
 
 func _ready() -> void:
 	SignalBus.damage_asteroid.connect(_on_damage_asteroid)
@@ -26,7 +26,7 @@ func spawn_gaussian_cloud() -> void:
 			randfn(0, 1)
 		).normalized()
 
-		var distance: float = maxf(min_distance, abs(randfn(0.0, spread)))
+		var distance: float = lerpf(min_distance, spread, randf())
 		var final_pos: Vector3 = direction * distance
 		var gained_resource: int = randi() % resource_range + 1
 

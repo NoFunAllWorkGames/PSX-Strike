@@ -1,8 +1,8 @@
 class_name ProceduralAsteroidMesh
 
-static func build(seed: int, radius: float = 1.0) -> ArrayMesh:
+static func build(mesh_seed: int, radius: float = 1.0) -> ArrayMesh:
 	var rng := RandomNumberGenerator.new()
-	rng.seed = seed
+	rng.seed = mesh_seed
 
 	var sphere_data := _build_icosphere()
 	var vertices: PackedVector3Array = sphere_data[0]
