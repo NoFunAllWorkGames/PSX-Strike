@@ -34,8 +34,10 @@ func spawn_gaussian_cloud() -> void:
 
 		var asteroid_instance = asteroid_scene.instantiate()
 		asteroid_instance.transform.origin = final_pos
+		asteroid_instance.rotation = Vector3(randf() * TAU, randf() * TAU, randf() * TAU)
 		asteroid_instance.health = health
 		asteroid_instance.max_health = max_health
 		asteroid_instance.gained_resource = gained_resource
+		asteroid_instance.mesh_seed = randi()
 		add_child(asteroid_instance)
 		asteroid_instance.add_to_group("Asteroid")

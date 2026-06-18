@@ -87,9 +87,11 @@ static func _capture_hauler(hauler: RigidBody3D) -> SavedHaulerStateResource:
 static func _capture_asteroid(asteroid: Asteroid) -> SavedAsteroidStateResource:
 	var asteroid_state := SavedAsteroidStateResource.new()
 	asteroid_state.position = asteroid.global_position
+	asteroid_state.rotation = asteroid.rotation
 	asteroid_state.health = asteroid.health
 	asteroid_state.max_health = asteroid.max_health
 	asteroid_state.gained_resource = asteroid.gained_resource
+	asteroid_state.mesh_seed = asteroid.mesh_seed
 	return asteroid_state
 
 
@@ -104,9 +106,11 @@ static func _restore_hauler(enemies_parent: Node, hauler_state: SavedHaulerState
 
 static func _restore_asteroid(noise_asteroid: Node, asteroid_state: SavedAsteroidStateResource) -> void:
 	var asteroid := ASTEROID_SCENE.instantiate() as Asteroid
-	asteroid.transform.origin = asteroid_state.position
 	asteroid.health = asteroid_state.health
 	asteroid.max_health = asteroid_state.max_health
 	asteroid.gained_resource = asteroid_state.gained_resource
+	asteroid.mesh_seed = asteroid_state.mesh_seed
 	noise_asteroid.add_child(asteroid)
+	asteroid.global_position = asteroid_state.position
+	asteroid.rotation = asteroid_state.rotation
 	asteroid.add_to_group("Asteroid")

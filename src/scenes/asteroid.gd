@@ -6,10 +6,26 @@ class_name Asteroid
 @export var max_health: float
 @export var health: float
 @export var gained_resource: int
+@export var mesh_seed: int = -1
 
+const ProceduralAsteroidMeshBuilder := preload("res://src/utils/procedural_asteroid_mesh.gd")
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
+@onready var _mesh_instance: MeshInstance3D = $MeshInstance3D
+@onready var _collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var _damage_bar = $DamageBar
+
+
+func _ready() -> void:
+	if mesh_seed < 0:
+		mesh_seed = randi()
+	_apply_procedural_mesh()
+
+
+func _apply_procedural_mesh() -> void:
+	var mesh: ArrayMesh = ProceduralAsteroidMeshBuilder.build(mesh_seed)
+	_mesh_instance.mesh = mesh
+	_collision_shape.shape = mesh.create_convex_shape()
 
 func take_damage(applied_damage: float) -> void:
 	health -= applied_damage
