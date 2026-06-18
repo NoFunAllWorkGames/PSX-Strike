@@ -2,7 +2,7 @@ extends Area3D
 
 const SavedTheEntityStateResource := preload("res://src/data/saved_the_entity_state.gd")
 
-const GROWTH_FACTOR := 1.1
+const GROWTH_FACTOR := 1.06
 const JITTER_RADIUS := 1.2
 const ROTATION_JITTER := 0.25
 
