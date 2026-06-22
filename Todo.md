@@ -4,7 +4,6 @@ Todo
 Right now
 ---------
 
-- Add Station Collision SFX
 - The visuals for the laser beam are all wrong, it doesn't hit where it seems to hit
 - Main base should remain a light to be able to find the way back
 - Implementing the Entity in a horror way
@@ -15,7 +14,6 @@ Should
 
 - The further you travel, the more valuable the resources
 - Add a splash screen in the beginning to explain what the game is about
-- Having the healthbars on top of the asteroid instead of static on the UI
 - Gamepad controls
 - Model for Hauler
 - Menu visual uplift

@@ -67,6 +67,9 @@ Audio Self-Created Assets
 | HaulerEngine.ogg | Enemy hauler engine | francobhalla |
 | PlayerHullLoss.ogg | Player death | francobhalla |
 | HaulerBulletHit1–4.ogg | Enemy bullet hits player | francobhalla |
+| CollisionRock1–2.ogg | Collision with asteroids | francobhalla |
+| CollisionStnHard/Med/Soft.ogg | Collision with station | francobhalla |
+| WithHauler.ogg | Collision with enemy hauler | francobhalla |
 
 
 Audio Self-Created, Not Yet Implemented
@@ -80,9 +83,7 @@ Audio Self-Created, Not Yet Implemented
 | HaulerFire.ogg | Enemy hauler shooting | francobhalla |
 | HaulerBulletHit.ogg | Enemy bullet hits player | francobhalla |
 | BulletFlyby1–4.ogg | Enemy bullet near-miss | francobhalla |
-| CollisionRock1–2.ogg | Collision with asteroids | francobhalla |
-| CollisionStnHard/Med/Soft.ogg | Collision with station | francobhalla |
-| WithHauler.ogg | Collision with enemy hauler | francobhalla |
+
 
 AI Assets
 ---------

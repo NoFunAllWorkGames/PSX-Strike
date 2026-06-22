@@ -27,9 +27,9 @@ The Ship
 
 **Collision**:
 
-- With Asterioids/Rocks 🟣
-- With enemy ships 🟣
-- Wall/surfaces of the space station 🟣
+- With Asterioids/Rocks 🟡
+- With enemy ships 🟡
+- Wall/surfaces of the space station 🟡
 
 **Damage:**
 
