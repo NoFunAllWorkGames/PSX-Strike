@@ -50,6 +50,9 @@ albedo_color = Color(1, 0, 0, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_3hkh3"]
 size = Vector3(5, 5, 5)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hull10"]
+size = Vector3(10.2, 10.2, 10.2)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_irlk4"]
 size = Vector3(500, 500, 500)
 
@@ -101,12 +104,13 @@ grow_vertical = 2
 texture = ExtResource("6_k628k")
 expand_mode = 3
 
-[node name="SpaceStation" type="CSGCombiner3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1998275679 node_paths=PackedStringArray("space_station_entry_area")]
+[node name="SpaceStation" type="CSGCombiner3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1998275679 node_paths=PackedStringArray("space_station_entry_area", "hull_contact_area")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.893639)
 use_collision = true
 collision_mask = 66
 script = ExtResource("3_yl7bd")
-space_station_entry_area = NodePath("Hull/Area3D")
+space_station_entry_area = NodePath("Hull/EntryHole_Area3D")
+hull_contact_area = NodePath("HullContact")
 
 [node name="InsideLight" type="OmniLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation" index="0" unique_id=1325313887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.47268486)
@@ -125,18 +129,31 @@ operation = 2
 size = Vector3(5, 5, 5)
 material = SubResource("StandardMaterial3D_irlk4")
 
-[node name="Area3D" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation/Hull" index="1" unique_id=348564566]
+[node name="EntryHole_Area3D" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation/Hull" index="1" unique_id=348564566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5865917)
 collision_layer = 64
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation/Hull/Area3D" index="0" unique_id=840013725]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.86234665)
+[node name="EntryHole_CollisionShape3D" type="CollisionShape3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation/Hull/EntryHole_Area3D" index="0" unique_id=840013725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.0437069)
 shape = SubResource("BoxShape3D_3hkh3")
 
 [node name="SpawnUndockStation" type="Marker3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation" index="2" unique_id=922225489]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0, -5.203661)
 gizmo_extents = 1.0
+
+[node name="HullContact" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation" index="3" unique_id=1918120760]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.0482998)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="HullContact_CollisionShape3D" type="CollisionShape3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation/HullContact" index="0" unique_id=572436669]
+shape = SubResource("BoxShape3D_hull10")
+
+[node name="CollisionAudio" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation" index="4" unique_id=432937678]
+volume_db = 5.0
+bus = &"SFX"
 
 [node name="EnemyShipSpawnCube" type="Area3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="1" unique_id=1796679235 node_paths=PackedStringArray("collision_shape_3d")]
 collision_mask = 2
