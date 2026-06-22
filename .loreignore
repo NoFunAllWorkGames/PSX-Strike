@@ -1,8 +1,8 @@
 # Godot-specific ignores
 .godot/
 
-# lore
-.lore/
+#Git
+.git
 
 # exported projects
 *.exe
