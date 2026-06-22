@@ -1,10 +1,12 @@
 extends RigidBody3D
 
 @export var enemy_ship_data: EnemyShipData = EnemyShipData.new()
+@export var hull_contact_area: Area3D
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var detection_range: Area3D = $DetectionRange
 @onready var gatling_component: EnemyGatlingComponent = $Components/GatlingComponent
 @onready var hauler_engine: AudioStreamPlayer3D = $HaulerEngine
+@onready var _collision_audio: AudioStreamPlayer = $CollisionAudio
 
 func _physics_process(_delta: float) -> void:
 	if GameManager.player_is_dead:
@@ -16,7 +18,19 @@ func _physics_process(_delta: float) -> void:
 	linear_velocity = -global_transform.basis.z * enemy_ship_data.speed
 
 func _ready() -> void:
+	hull_contact_area.body_entered.connect(_on_hull_contact_play_sound)
 	start_enemy_scanning()
+
+
+func _exit_tree() -> void:
+	hull_contact_area.body_entered.disconnect(_on_hull_contact_play_sound)
+
+
+func _on_hull_contact_play_sound(body: Node3D) -> void:
+	if body != GameManager.PlayerShip:
+		return
+
+	_collision_audio.play()
 
 func start_enemy_scanning() -> void:
 	while(true):
