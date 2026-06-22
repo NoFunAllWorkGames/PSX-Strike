@@ -63,8 +63,12 @@ size = Vector3(1000, 1000, 1000)
 background_mode = 2
 background_energy_multiplier = 0.25
 sky = ExtResource("2_c73yp")
+ambient_light_source = 3
 ambient_light_sky_contribution = 0.2
+ambient_light_energy = 8.46
 tonemap_mode = 3
+adjustment_brightness = 1.15
+adjustment_contrast = 0.945
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pnen"]
 bg_color = Color(0, 0.73333335, 0, 1)
