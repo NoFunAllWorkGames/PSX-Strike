@@ -48,6 +48,7 @@ Self-Created Assets
 | suntyger_avatar.png | Main menu credits | Suntyger |
 | francobhalla_avatar.png | Main menu credits | francobhalla |
 | player_ship_archon_body | 3D model + texture | Vaughnald |
+| Hauler Model | 3D model + texture | Vaughnald |
 
 Audio Self-Created Assets
 -------------------------

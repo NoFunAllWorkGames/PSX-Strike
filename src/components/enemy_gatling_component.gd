@@ -43,17 +43,12 @@ func _on_timer_timeout() -> void:
 	if not is_instance_valid(GameManager.PlayerShip):
 		return
 
-	var spawn_pos = calculate_bullet_origin()
-	var bullet_velocity = calculate_bullet_velocity(spawn_pos)
+	var bullet_velocity = calculate_bullet_velocity()
 
-	bullet_gatling.spawn_bullet(spawn_pos, bullet_velocity)
+	bullet_gatling.spawn_bullet(bullet_velocity)
 
-func calculate_bullet_origin() -> Vector3:
-	return Vector3.FORWARD * 3.0
-
-func calculate_bullet_velocity(spawn_pos: Vector3) -> Vector3:
-	# start with the origin of the bullet in the world-space
-	var spawn_pos_global = to_global(spawn_pos)
+func calculate_bullet_velocity() -> Vector3:
+	var spawn_pos_global: Vector3 = bullet_gatling.to_global(bullet_gatling.position)
 
 	# aim at the player in the world-space
 	var heading_global: Vector3 = GameManager.PlayerShip.global_position - spawn_pos_global

@@ -16,12 +16,12 @@ func _ready() -> void:
 	multimesh.instance_count = max_bullets
 	multimesh.visible_instance_count = 0
 
-func spawn_bullet(start_position: Vector3, start_velocity: Vector3) -> void:
+func spawn_bullet(start_velocity: Vector3) -> void:
 	# Enforce hard cap based on maximum multimesh instances allocated
 	if positions.size() >= max_bullets:
 		return
 
-	positions.append(start_position)
+	positions.append(position)
 	velocities.append(start_velocity)
 	times_alive.append(0.0)
 

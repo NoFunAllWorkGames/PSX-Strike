@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_hauler_res.gd" id="2_0dnsn"]
 [ext_resource type="AudioStream" uid="uid://eywjbbg0htud" path="res://assets/Sounds/Collisions/WithHauler/WithHauler.ogg" id="3_55la7"]
 [ext_resource type="Texture2D" uid="uid://b7bodi22eo6l7" path="res://assets/Textures/flare_0.png" id="3_c1sg8"]
+[ext_resource type="PackedScene" uid="uid://catxh8e56o1b6" path="res://assets/Models/modelHauler0.glb" id="3_ydyh5"]
 [ext_resource type="PackedScene" uid="uid://0gehker18uf3" path="res://scenes/Weapons/gatling_component.tscn" id="4_55la7"]
 [ext_resource type="AudioStream" uid="uid://blnsytvwretvr" path="res://assets/Sounds/Engine/HaulerEngine.ogg" id="5_0dnsn"]
 
@@ -11,28 +12,8 @@
 script = ExtResource("2_0dnsn")
 metadata/_custom_type_script = "uid://bc7d2og3hegar"
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_h5a4a"]
-top_radius = 1.0
-bottom_radius = 1.0
-height = 3.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5a4a"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_8ocvd"]
-material = SubResource("StandardMaterial3D_h5a4a")
-top_radius = 0.0
-bottom_radius = 1.0
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5fbqj"]
-radius = 1.5
-height = 6.0
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_trtub"]
-radius = 0.01
-height = 0.5
-radial_segments = 4
-rings = 0
+[sub_resource type="BoxShape3D" id="BoxShape3D_55la7"]
+size = Vector3(2.3360424, 7.129548, 3.3100781)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0scj"]
 transparency = 1
@@ -107,13 +88,8 @@ script = ExtResource("1_2lvl2")
 enemy_ship_data = SubResource("Resource_h5a4a")
 hull_contact_area = NodePath("HullContact")
 
-[node name="Body" type="MeshInstance3D" parent="." unique_id=1740205885]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("CylinderMesh_h5a4a")
-
-[node name="Nose" type="MeshInstance3D" parent="." unique_id=1773800590]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -2.4992213)
-mesh = SubResource("CylinderMesh_8ocvd")
+[node name="Body" parent="." unique_id=390230054 instance=ExtResource("3_ydyh5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="HullContact" type="Area3D" parent="." unique_id=1918120761]
 collision_layer = 0
@@ -121,8 +97,8 @@ collision_mask = 2
 monitorable = false
 
 [node name="HullContact_CollisionShape3D" type="CollisionShape3D" parent="HullContact" unique_id=572436670]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.7704029)
-shape = SubResource("CapsuleShape3D_5fbqj")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.025860429, 0.14378908, -0.005251158)
+shape = SubResource("BoxShape3D_55la7")
 
 [node name="CollisionAudio" type="AudioStreamPlayer" parent="." unique_id=500965541]
 stream = ExtResource("3_55la7")
@@ -132,27 +108,19 @@ bus = &"SFX"
 [node name="LightSignals" type="Node3D" parent="." unique_id=1518075189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5034482, 1.5947182)
 
-[node name="stick" type="MeshInstance3D" parent="LightSignals" unique_id=1593035311]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, -2.5)
-mesh = SubResource("CapsuleMesh_trtub")
-
-[node name="light" type="MeshInstance3D" parent="LightSignals/stick" unique_id=1944832564]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.25, 0)
+[node name="light1" type="MeshInstance3D" parent="LightSignals" unique_id=1944832564]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6857253, -0.95316625, 1.8999999)
 mesh = SubResource("QuadMesh_h5a4a")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LightSignals/stick/light" unique_id=1327348486]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LightSignals/light1" unique_id=1327348486]
 libraries/ = SubResource("AnimationLibrary_3x5ep")
 autoplay = &"Blink"
 
-[node name="stick2" type="MeshInstance3D" parent="LightSignals" unique_id=1285681799]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
-mesh = SubResource("CapsuleMesh_trtub")
-
-[node name="light" type="MeshInstance3D" parent="LightSignals/stick2" unique_id=980371786]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.25, 0)
+[node name="light2" type="MeshInstance3D" parent="LightSignals" unique_id=980371786]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.65041107, -0.9531664, 1.8999999)
 mesh = SubResource("QuadMesh_h5a4a")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="LightSignals/stick2/light" unique_id=583409760]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LightSignals/light2" unique_id=583409760]
 libraries/ = SubResource("AnimationLibrary_3x5ep")
 autoplay = &"Blink"
 
@@ -170,6 +138,7 @@ autostart = true
 [node name="Components" type="Node3D" parent="." unique_id=712918394]
 
 [node name="GatlingComponent" parent="Components" unique_id=1411392360 instance=ExtResource("4_55la7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9339695, 0.881811)
 
 [node name="HaulerEngine" type="AudioStreamPlayer3D" parent="." unique_id=276355132]
 stream = ExtResource("5_0dnsn")
