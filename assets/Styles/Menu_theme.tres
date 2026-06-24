@@ -1,14 +1,51 @@
 [gd_resource type="Theme" format=3 uid="uid://cdyptnkr683qe"]
 
 [ext_resource type="StyleBox" uid="uid://mekqwk8nr6lj" path="res://assets/Styles/stylebox_hover.tres" id="1_85ykx"]
-[ext_resource type="StyleBox" uid="uid://4em20eovcsiy" path="res://assets/Styles/stylebox_normal.tres" id="2_t2uxk"]
 [ext_resource type="StyleBox" uid="uid://ykpvydy0dpqa" path="res://assets/Styles/stylebox_pressed.tres" id="3_lu5nl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ioi7f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85ykx"]
+content_margin_left = 4.0
+bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdo3h"]
+content_margin_left = 4.0
+bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lu5nl"]
+content_margin_left = 4.0
+bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbl2h"]
+bg_color = Color(0.16457507, 0.18739727, 0.2045179, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2uxk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.13725491, 0.15294118, 0.16862746, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfybo"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.16470589, 0.1882353, 0.20392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8vrv"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
 
 [resource]
 Button/styles/disabled = null
 Button/styles/focus = null
 Button/styles/hover = ExtResource("1_85ykx")
-Button/styles/normal = ExtResource("2_t2uxk")
+Button/styles/normal = SubResource("StyleBoxEmpty_ioi7f")
 Button/styles/pressed = ExtResource("3_lu5nl")
 LineEdit/constants/caret_width = 0
 LineEdit/constants/minimum_character_width = 0
@@ -17,5 +54,11 @@ LineEdit/font_sizes/font_size = 16
 LineEdit/fonts/font = null
 LineEdit/icons/clear = null
 LineEdit/styles/focus = null
-LineEdit/styles/normal = ExtResource("2_t2uxk")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_85ykx")
 LineEdit/styles/read_only = null
+OptionButton/styles/hover_pressed = SubResource("StyleBoxFlat_mdo3h")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_lu5nl")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_dbl2h")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_t2uxk")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_sfybo")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_l8vrv")

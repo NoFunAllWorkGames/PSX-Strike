@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d4p38ys8sdrw" path="res://src/ui/settings_panel.gd" id="1_settings"]
 [ext_resource type="Script" uid="uid://ciuywupygoej4" path="res://src/ui/controls_settings.gd" id="2_controls"]
+[ext_resource type="Theme" uid="uid://cdyptnkr683qe" path="res://assets/Styles/Menu_theme.tres" id="2_hy3ve"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4in54"]
 
@@ -15,6 +16,7 @@ script = ExtResource("1_settings")
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=1093461877]
 layout_mode = 2
+theme = ExtResource("2_hy3ve")
 theme_override_font_sizes/font_size = 8
 tab_alignment = 1
 current_tab = 0
@@ -44,6 +46,7 @@ text = "Fullscreen"
 
 [node name="FullScreenOption" type="OptionButton" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=1178738658]
 layout_mode = 2
+theme = ExtResource("2_hy3ve")
 theme_override_font_sizes/font_size = 8
 item_count = 3
 popup/item_0/text = "Fullscreen"

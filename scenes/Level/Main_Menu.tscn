@@ -7,8 +7,56 @@
 [ext_resource type="Texture2D" uid="uid://btlic2ws8no14" path="res://assets/Textures/B1773rm4n_avatar.png" id="4_4vbsx"]
 [ext_resource type="Texture2D" uid="uid://poj1pl23xu34" path="res://assets/Textures/francobhalla_avatar.png" id="5_xurhj"]
 [ext_resource type="PackedScene" uid="uid://dh5k2pm8w3fx" path="res://scenes/UI/Settings_Panel.tscn" id="6_settings"]
+[ext_resource type="Texture2D" uid="uid://cfgp37gimueud" path="res://assets/Logo/PSX-Strike_Menu.png" id="8_ioi7f"]
+[ext_resource type="PackedScene" uid="uid://p6sr1pkwhaqf" path="res://assets/Models/player_ship_archon_body.glb" id="9_xe3n3"]
+
+[sub_resource type="Gradient" id="Gradient_xurhj"]
+colors = PackedColorArray(0.047280326, 0.058092393, 0.06620072, 1, 0.04593374, 0.07505355, 0.11186341, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ic0xj"]
+gradient = SubResource("Gradient_xurhj")
+fill_from = Vector2(0.6869565, 0.8521739)
+fill_to = Vector2(0, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xurhj"]
+
+[sub_resource type="Animation" id="Animation_xe3n3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wvm2d"]
+resource_name = "menu_idle"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 3.1415927, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gqeas"]
+_data = {
+&"RESET": SubResource("Animation_xe3n3"),
+&"menu_idle": SubResource("Animation_wvm2d")
+}
 
 [node name="MainMenu" type="CanvasLayer" unique_id=2128258435]
 script = ExtResource("1_menum")
@@ -23,9 +71,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="BackgroundImage" type="TextureRect" parent="Control" unique_id=1680957298]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_ic0xj")
 expand_mode = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1319060639]
@@ -37,26 +89,41 @@ offset_top = -57.5
 offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
+theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=832852888]
+custom_minimum_size = Vector2(126, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 theme_override_constants/separation = -8
 
 [node name="HSeparator" type="HSeparator" parent="Control/MarginContainer/VBoxContainer" unique_id=1185916882]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_xurhj")
 
 [node name="GameName" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=782610253]
+visible = false
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 26
 text = "PSX Strike"
+
+[node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer" unique_id=131128745]
+custom_minimum_size = Vector2(126, 36)
+custom_maximum_size = Vector2(126, 36)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = ExtResource("8_ioi7f")
+expand_mode = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Control/MarginContainer/VBoxContainer" unique_id=688143059]
+layout_mode = 2
+theme_override_constants/separation = 10
+theme_override_styles/separator = SubResource("StyleBoxEmpty_xurhj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer" unique_id=1035408229]
 layout_mode = 2
@@ -279,3 +346,29 @@ text = "Back"
 visible = false
 layout_mode = 2
 theme_override_constants/margin_bottom = 16
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1497898375]
+offset_left = 160.0
+offset_right = 426.0
+offset_bottom = 240.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=320944716]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(266, 240)
+render_target_update_mode = 4
+
+[node name="player_ship_archon_body" parent="SubViewportContainer/SubViewport" unique_id=1450202895 instance=ExtResource("9_xe3n3")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewportContainer/SubViewport/player_ship_archon_body" unique_id=62254255]
+libraries/ = SubResource("AnimationLibrary_gqeas")
+autoplay = &"menu_idle"
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1306550621]
+transform = Transform3D(0.49999997, -0.4330127, 0.75, -2.185569e-08, 0.86602545, 0.49999997, -0.8660254, -0.25, 0.43301266, 3, 2, 2)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=97240714]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3, 3)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/DirectionalLight3D" unique_id=1507084556]
+transform = Transform3D(0.35836592, -0.74075675, 0.5682019, 0.45832604, 0.66982925, 0.5841798, -0.8133333, 0.051071614, 0.57955205, 5.6508946, 1.9689882, 1.5368605)
