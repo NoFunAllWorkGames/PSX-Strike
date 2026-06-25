@@ -4,18 +4,28 @@ Todo
 Right now
 ---------
 
-- Fix the laser beam, maybe change to a mining drill
-- Main base model
-- Model for Hauler
-- Fix entitity sound distance
-- Menu visual uplift
+- Add space station model
+- Fix all menu styles so it's not the default godot style anymore
+    - Reimplement the sidebars in the main menu
+    - Fix Credits page so all people can be seen on the first page
+    - Choose a font which is more readable?
+    - Update inside space station menu
+- Fix Entity sound distance volume
+- Balance the game
 
 Optional
 ------
 
+- Replace Audio:
+    - 353159__kinoton__room-tone-sci-fi-large-hall.ogg | Space Station Ambient
+    - 130883__karma-ron__mysterion-low-ship-humming.ogg | Space Scene / Ship Idle
+    - 833495__wavewire__lootpickup_feedback.ogg | Asteroid Resource Pickup Collected
+- Replace Textures:
+    - flare_0.png | Signal light at hauler ship
+    - asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering
 - The further you travel, the more valuable the resources
 - Add a splash screen in the beginning to explain what the game is about
-- Gamepad controls
+- Improve lights
 
 Want
 ----
