@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgnkhrwei01qs"]
 
 [ext_resource type="Script" uid="uid://dfoebjwwt1k4a" path="res://src/components/mining_laser.gd" id="1_3yb6q"]
+[ext_resource type="Texture2D" uid="uid://dftq6a0jfbgf5" path="res://assets/Textures/bullet.png" id="2_6n34o"]
 [ext_resource type="AudioStream" uid="uid://cixymi8nqtvmh" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage1.ogg" id="2_v7p4l"]
 [ext_resource type="AudioStream" uid="uid://bjbh83vvkjtfs" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage2.ogg" id="3_v7p4l"]
 [ext_resource type="AudioStream" uid="uid://drc3rmwubww5n" path="res://assets/Sounds/Laser/LaserBeamDamage/LaserBeamDamage3.ogg" id="4_v7p4l"]
@@ -13,12 +14,15 @@
 [ext_resource type="AudioStream" uid="uid://bx5y00ilryshe" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid3.ogg" id="11_v7p4l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yb6q"]
+transparency = 1
 shading_mode = 0
+albedo_texture = ExtResource("2_6n34o")
+uv1_offset = Vector3(0, 0.3, 0)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ds5mv"]
 material = SubResource("StandardMaterial3D_3yb6q")
-top_radius = 0.05
-bottom_radius = 0.05
+top_radius = 0.3
+bottom_radius = 0.3
 height = 1.0
 radial_segments = 4
 
