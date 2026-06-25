@@ -12,6 +12,10 @@
 script = ExtResource("2_0dnsn")
 metadata/_custom_type_script = "uid://bc7d2og3hegar"
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_or2bg"]
+radius = 1.725
+height = 6.898
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_55la7"]
 size = Vector3(2.3360424, 7.129548, 3.3100781)
 
@@ -90,6 +94,12 @@ hull_contact_area = NodePath("HullContact")
 
 [node name="Body" parent="." unique_id=390230054 instance=ExtResource("3_ydyh5")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+collision_layer = 4
+collision_mask = 0
+
+[node name="BodyHitbox" type="CollisionShape3D" parent="Body" unique_id=666186160]
+transform = Transform3D(1, -8.742278e-08, 8.742278e-08, 8.742278e-08, -4.371139e-08, -1, 8.742278e-08, 1, -4.371138e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_or2bg")
 
 [node name="HullContact" type="Area3D" parent="." unique_id=1918120761]
 collision_layer = 0
@@ -97,7 +107,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="HullContact_CollisionShape3D" type="CollisionShape3D" parent="HullContact" unique_id=572436670]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.025860429, 0.14378908, -0.005251158)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 shape = SubResource("BoxShape3D_55la7")
 
 [node name="CollisionAudio" type="AudioStreamPlayer" parent="." unique_id=500965541]
@@ -129,7 +139,6 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionRange" unique_id=1442000537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118270874, 0.18613434, -0.004447937)
 shape = SubResource("SphereShape3D_h0scj")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=38283854]
