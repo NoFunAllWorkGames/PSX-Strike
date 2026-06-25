@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://btlic2ws8no14" path="res://assets/Textures/B1773rm4n_avatar.png" id="4_4vbsx"]
 [ext_resource type="Texture2D" uid="uid://poj1pl23xu34" path="res://assets/Textures/francobhalla_avatar.png" id="5_xurhj"]
 [ext_resource type="PackedScene" uid="uid://dh5k2pm8w3fx" path="res://scenes/UI/Settings_Panel.tscn" id="6_settings"]
+[ext_resource type="Texture2D" uid="uid://beqda5q1ubpqr" path="res://assets/Textures/Vaughnald_avatar.png" id="8_gqeas"]
 [ext_resource type="Texture2D" uid="uid://cfgp37gimueud" path="res://assets/Logo/PSX-Strike_Menu.png" id="8_ioi7f"]
+[ext_resource type="Texture2D" uid="uid://bap53ao5vmpu6" path="res://assets/Textures/vehN_avatar.png" id="9_pyew7"]
 [ext_resource type="PackedScene" uid="uid://p6sr1pkwhaqf" path="res://assets/Models/player_ship_archon_body.glb" id="9_xe3n3"]
 
 [sub_resource type="Gradient" id="Gradient_xurhj"]
@@ -104,12 +106,6 @@ theme_override_constants/separation = -8
 layout_mode = 2
 theme_override_constants/separation = 20
 theme_override_styles/separator = SubResource("StyleBoxEmpty_xurhj")
-
-[node name="GameName" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=782610253]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 26
-text = "PSX Strike"
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer" unique_id=131128745]
 custom_minimum_size = Vector2(126, 36)
@@ -246,7 +242,7 @@ size_flags_horizontal = 3
 [node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer/Description" unique_id=220277237]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "Original Concept, GDD, Milestones"
+text = "Original Concept"
 
 [node name="B1773rm4n" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=1716564272]
 layout_mode = 2
@@ -337,6 +333,96 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Audio files"
+
+[node name="Vaughnald" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=501251776]
+layout_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald" unique_id=2062244352]
+layout_mode = 2
+texture = ExtResource("8_gqeas")
+expand_mode = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald" unique_id=279842372]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer" unique_id=1466109471]
+layout_mode = 2
+
+[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=164255759]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=1576208893]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Vaughnald"
+
+[node name="spacer_right" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=1171190613]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Studio" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=412958398]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "                                     "
+
+[node name="Description" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer" unique_id=370122024]
+layout_mode = 2
+
+[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Description" unique_id=818508730]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Description" unique_id=964579003]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "3D Models"
+
+[node name="vehN" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=1391824190]
+layout_mode = 2
+
+[node name="Avatar" type="TextureRect" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN" unique_id=1957387762]
+layout_mode = 2
+texture = ExtResource("9_pyew7")
+expand_mode = 3
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN" unique_id=2076146480]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer" unique_id=39994037]
+layout_mode = 2
+
+[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=800165603]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=1548087719]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "vehN"
+
+[node name="spacer_right" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=1241224926]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Studio" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=734530400]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "                                     "
+
+[node name="Description" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer" unique_id=1150374446]
+layout_mode = 2
+
+[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Description" unique_id=498039628]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Description" unique_id=1084151653]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "UI"
 
 [node name="CreditsBackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=714562052]
 layout_mode = 2
