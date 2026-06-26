@@ -17,7 +17,6 @@ const ROCK_SOUNDS: Array[AudioStream] = [
 	preload("res://assets/Sounds/Collisions/WithRocks/CollisionRock2.ogg"),
 ]
 
-const HULL_CONTACT_SCALE := 1.5
 
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
@@ -49,13 +48,12 @@ func _on_hull_contact_play_sound(body: Node3D) -> void:
 
 func _apply_procedural_mesh() -> void:
 	var mesh: ArrayMesh = ProceduralAsteroidMeshBuilder.build(mesh_seed, mesh_radius)
-	var convex_shape: ConvexPolygonShape3D = mesh.create_convex_shape()
 	_mesh_instance.mesh = mesh
-	_collision_shape.shape = convex_shape
-	_collision_shape.scale = Vector3.ONE
 
-	_hull_contact_shape.shape = convex_shape
-	_hull_contact_shape.scale = Vector3.ONE * HULL_CONTACT_SCALE
+	var sphere_shape := SphereShape3D.new()
+	sphere_shape.radius = mesh_radius * 2.0
+	_collision_shape.shape = sphere_shape
+	_hull_contact_shape.shape = sphere_shape
 
 func take_damage(applied_damage: float) -> void:
 	health -= applied_damage
@@ -66,8 +64,9 @@ func take_damage(applied_damage: float) -> void:
 func die() -> void:
 	_damage_bar.hide_bar()
 	var pickup_instance := asteroid_pickup.instantiate()
+	pickup_instance.resource = gained_resource
+	pickup_instance.is_precious = is_precious
 	var items_scene: Node = $"../../../Items"
 	items_scene.add_child(pickup_instance)
 	pickup_instance.global_position = global_transform.origin
-	pickup_instance.resource = gained_resource
 	call_deferred("queue_free")

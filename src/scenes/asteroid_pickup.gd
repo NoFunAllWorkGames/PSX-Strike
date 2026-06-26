@@ -1,11 +1,19 @@
 extends Area3D
 
+const PRECIOUS_TINT := Color(0.8, 0.0, 0.8)
+
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var _mesh: MeshInstance3D = $MeshInstance3D
 
 var resource: int
+var is_precious: bool = false
 
 func _ready() -> void:
+	if is_precious:
+		var mat := _mesh.mesh.material.duplicate() as StandardMaterial3D
+		mat.albedo_color = PRECIOUS_TINT
+		_mesh.material_override = mat
 	body_entered.connect(_on_body_entered)
 
 func _on_body_entered(body: Node3D) -> void:

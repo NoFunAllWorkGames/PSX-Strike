@@ -17,6 +17,7 @@ uniform vec4 fill_color : source_color = vec4(0.0, 1.0, 0.0, 1.0);   // remainin
 uniform vec4 bg_color : source_color = vec4(0.0, 0.0, 0.0, 0.0);      // lost health (transparent)
 uniform vec4 border_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);  // frame around the bar
 uniform vec2 border_size = vec2(0.02, 0.08); // border thickness in UV space (0-1 across the quad)
+const float BAR_SCALE = 2.0;
 
 // Vertex shader: runs for each corner of the quad mesh.
 // Makes the bar always face the camera (billboarding) without GDScript _process().
@@ -37,9 +38,9 @@ void vertex() {
 	// - read each axis length from MODEL_MATRIX to keep the quad size 
 	// - write those lengths into view-space axes (screen-right, screen-up, screen-forward)
 	// Bar stays the same size, stays at the same world spot and faces the player.
-	MODELVIEW_MATRIX[0] = vec4(length(MODEL_MATRIX[0].xyz), 0.0, 0.0, 0.0);
-	MODELVIEW_MATRIX[1] = vec4(0.0, length(MODEL_MATRIX[1].xyz), 0.0, 0.0);
-	MODELVIEW_MATRIX[2] = vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz), 0.0);
+	MODELVIEW_MATRIX[0] = vec4(length(MODEL_MATRIX[0].xyz) * BAR_SCALE, 0.0, 0.0, 0.0);
+	MODELVIEW_MATRIX[1] = vec4(0.0, length(MODEL_MATRIX[1].xyz) * BAR_SCALE, 0.0, 0.0);
+	MODELVIEW_MATRIX[2] = vec4(0.0, 0.0, length(MODEL_MATRIX[2].xyz) * BAR_SCALE, 0.0);
 }
 
 // Fragment shader: runs once per pixel on the quad.

@@ -5,6 +5,7 @@ Right now
 ---------
 
 - Add space station model
+- Create simple interiour scene for inside the space station
 - Fix all menu styles so it's not the default godot style anymore
     - Reimplement the sidebars in the main menu
     - Fix Credits page so all people can be seen on the first page
@@ -25,7 +26,6 @@ Optional
     - asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering
 - The further you travel, the more valuable the resources
 - Add a splash screen in the beginning to explain what the game is about
-- Improve lights
 
 Want
 ----

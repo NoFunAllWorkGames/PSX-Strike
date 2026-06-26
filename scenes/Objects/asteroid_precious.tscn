@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://chbnba4g11b4m" path="res://src/scenes/asteroid.gd" id="1_akfqu"]
 [ext_resource type="Script" uid="uid://j5l7j8gcn84i" path="res://src/components/asteroid_damage_bar.gd" id="2_qhg7p"]
 [ext_resource type="Shader" uid="uid://cbb55nyo6jyr7" path="res://src/shaders/asteroid_damage_bar.gdshader" id="3_shader"]
-[ext_resource type="Material" path="res://assets/asteroid_precious_material.tres" id="4_mat"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_6mo6b"]
+[ext_resource type="Material" uid="uid://cm420p2or6phg" path="res://assets/asteroid_precious_material.tres" id="4_mat"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_damagebar"]
 render_priority = 0
@@ -19,38 +17,38 @@ shader_parameter/border_size = Vector2(0.02, 0.08)
 size = Vector2(3, 0.6)
 center_offset = Vector3(0, 2, 0)
 
-[node name="AsteroidPrecious" type="RigidBody3D" node_paths=PackedStringArray("hull_contact_area")]
+[node name="AsteroidPrecious" type="RigidBody3D" unique_id=1095441796 node_paths=PackedStringArray("hull_contact_area")]
 collision_layer = 65
 collision_mask = 2
 gravity_scale = 0.0
 script = ExtResource("1_akfqu")
-hull_contact_area = NodePath("HullContact")
+max_health = 600.0
+health = 600.0
 mesh_radius = 0.5
 is_precious = true
+hull_contact_area = NodePath("HullContact")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=893938142]
 material_override = ExtResource("4_mat")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_6mo6b")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1825506147]
 
-[node name="HullContact" type="Area3D" parent="."]
+[node name="HullContact" type="Area3D" parent="." unique_id=717560659]
 collision_layer = 0
 collision_mask = 2
 monitorable = false
 
-[node name="HullContact_CollisionShape3D" type="CollisionShape3D" parent="HullContact"]
-shape = SubResource("SphereShape3D_6mo6b")
+[node name="HullContact_CollisionShape3D" type="CollisionShape3D" parent="HullContact" unique_id=909830245]
 
-[node name="CollisionAudio" type="AudioStreamPlayer" parent="."]
+[node name="CollisionAudio" type="AudioStreamPlayer" parent="." unique_id=1016255521]
 volume_db = 5.0
 bus = &"SFX"
 
-[node name="DamageBar" type="MeshInstance3D" parent="."]
+[node name="DamageBar" type="MeshInstance3D" parent="." unique_id=839771913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6699467, 0)
 material_override = SubResource("ShaderMaterial_damagebar")
 mesh = SubResource("QuadMesh_damagebar")
 script = ExtResource("2_qhg7p")
 
-[node name="Timer" type="Timer" parent="DamageBar"]
+[node name="Timer" type="Timer" parent="DamageBar" unique_id=925019417]
 one_shot = true

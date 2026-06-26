@@ -6,9 +6,6 @@ extends Area3D
 @export var spread: float = 600.0
 
 @export_group("Asteroid Settings")
-@export var max_health: float = 300.0
-@export var health: float = 300.0
-
 @export var asteroid_scene: PackedScene = preload("res://scenes/Objects/asteroid_precious.tscn")
 @export var resource_range: int = 25
 
@@ -33,8 +30,6 @@ func spawn_gaussian_cloud() -> void:
 		var asteroid_instance = asteroid_scene.instantiate()
 		asteroid_instance.transform.origin = final_pos
 		asteroid_instance.rotation = Vector3(randf() * TAU, randf() * TAU, randf() * TAU)
-		asteroid_instance.health = health
-		asteroid_instance.max_health = max_health
 		asteroid_instance.gained_resource = gained_resource
 		asteroid_instance.mesh_seed = randi()
 		add_child(asteroid_instance)

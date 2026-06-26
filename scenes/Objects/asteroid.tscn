@@ -5,8 +5,6 @@
 [ext_resource type="Shader" uid="uid://cbb55nyo6jyr7" path="res://src/shaders/asteroid_damage_bar.gdshader" id="3_shader"]
 [ext_resource type="Material" uid="uid://cr37psoj5ggli" path="res://assets/asteroid_material.tres" id="4_mat"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_6mo6b"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_damagebar"]
 render_priority = 0
 shader = ExtResource("3_shader")
@@ -30,7 +28,6 @@ hull_contact_area = NodePath("HullContact")
 material_override = ExtResource("4_mat")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2099872403]
-shape = SubResource("SphereShape3D_6mo6b")
 
 [node name="HullContact" type="Area3D" parent="." unique_id=18296200]
 collision_layer = 0
