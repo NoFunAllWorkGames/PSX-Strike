@@ -388,10 +388,45 @@ visible = false
 layout_mode = 2
 theme_override_constants/margin_bottom = 16
 
+[node name="Text" type="Control" parent="." unique_id=658533041]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.824997
+offset_top = 76.745
+offset_right = 196.17511
+offset_bottom = 226.745
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="Text" unique_id=1216579247]
+layout_mode = 0
+offset_left = 16.824997
+offset_top = -4.7450027
+offset_right = 226.92
+offset_bottom = 250.715
+theme_override_font_sizes/font_size = 10
+text = "You are a mining ship and
+have 2 minutes time to 
+get the most ore out of it.
+Don't disturb the haulers and
+don't let the entity get you.
+In the space station you can sell
+the ore from the asteroids.
+At the end there will be a high score."
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1497898375]
-offset_left = 160.0
-offset_right = 426.0
-offset_bottom = 240.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -148.0
+offset_top = -1.0
+offset_right = 118.00012
+offset_bottom = 239.0
+grow_horizontal = 0
+scale = Vector2(0.35, 0.35)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=320944716]
 transparent_bg = true
@@ -406,7 +441,8 @@ libraries/ = SubResource("AnimationLibrary_gqeas")
 autoplay = &"menu_idle"
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1306550621]
-transform = Transform3D(0.49999997, -0.4330127, 0.75, -2.185569e-08, 0.86602545, 0.49999997, -0.8660254, -0.25, 0.43301266, 3, 2, 2)
+transform = Transform3D(0.49999997, -0.4330127, 0.75, -2.185569e-08, 0.86602545, 0.49999997, -0.8660254, -0.25, 0.43301266, 3, 1.7047904, 1.8479841)
+fov = 34.398125
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=97240714]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3, 3)
