@@ -91,9 +91,9 @@ offset_top = -57.5
 offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
+theme_override_constants/margin_left = 53
 theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_right = 53
 theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=832852888]
@@ -197,7 +197,6 @@ theme_override_constants/margin_bottom = 8
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel" unique_id=454317488]
 layout_mode = 2
-theme_override_constants/separation = 13
 
 [node name="Suntyger" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=719040854]
 layout_mode = 2
@@ -214,33 +213,24 @@ size_flags_horizontal = 3
 [node name="Title" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer" unique_id=1355700420]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer/Title" unique_id=167468340]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Name" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer/Title" unique_id=1649212221]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 8
 text = "Suntyger"
 
-[node name="spacer_right" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer/Title" unique_id=763807594]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Studio" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer/Title" unique_id=251631407]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "New Horizon Studios"
 
 [node name="Description" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer" unique_id=1496199313]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer/Description" unique_id=67793152]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Suntyger/HBoxContainer/Description" unique_id=220277237]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "Original Concept"
 
@@ -259,33 +249,24 @@ size_flags_horizontal = 3
 [node name="Title" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer" unique_id=520379153]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer/Title" unique_id=439588317]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Name" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer/Title" unique_id=253067793]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 8
 text = "B1773rm4n"
 
-[node name="spacer_right" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer/Title" unique_id=1133042065]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Studio" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer/Title" unique_id=2056426864]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "No Fun All Work Games"
 
 [node name="Description" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer" unique_id=621696622]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer/Description" unique_id=1248781414]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/B1773rm4n/HBoxContainer/Description" unique_id=1817481419]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "Everything else"
 
@@ -304,33 +285,24 @@ size_flags_horizontal = 3
 [node name="Title" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer" unique_id=1565290512]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer/Title" unique_id=736506203]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Name" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer/Title" unique_id=985458349]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 8
 text = "francobhalla"
 
-[node name="spacer_right" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer/Title" unique_id=1382615162]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Studio" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer/Title" unique_id=1544544728]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "                                     "
 
 [node name="Description" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer" unique_id=335048073]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer/Description" unique_id=1268025077]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/francobhalla/HBoxContainer/Description" unique_id=355216444]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "Audio files"
 
@@ -349,33 +321,24 @@ size_flags_horizontal = 3
 [node name="Title" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer" unique_id=1466109471]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=164255759]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Name" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=1576208893]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 8
 text = "Vaughnald"
 
-[node name="spacer_right" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=1171190613]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Studio" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Title" unique_id=412958398]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "                                     "
 
 [node name="Description" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer" unique_id=370122024]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Description" unique_id=818508730]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/Vaughnald/HBoxContainer/Description" unique_id=964579003]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "3D Models"
 
@@ -394,38 +357,30 @@ size_flags_horizontal = 3
 [node name="Title" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer" unique_id=39994037]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=800165603]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Name" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=1548087719]
 layout_mode = 2
+size_flags_horizontal = 2
 theme_override_font_sizes/font_size = 8
 text = "vehN"
 
-[node name="spacer_right" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=1241224926]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Studio" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Title" unique_id=734530400]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "                                     "
 
 [node name="Description" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer" unique_id=1150374446]
 layout_mode = 2
 
-[node name="spacer_left" type="Control" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Description" unique_id=498039628]
-layout_mode = 2
-size_flags_horizontal = 3
-
 [node name="Work" type="Label" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer/vehN/HBoxContainer/Description" unique_id=1084151653]
 layout_mode = 2
+size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
 text = "UI"
 
 [node name="CreditsBackButton" type="Button" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=714562052]
 layout_mode = 2
+theme = ExtResource("3_xurhj")
 text = "Back"
 
 [node name="SettingsPanel" parent="Control/MarginContainer/VBoxContainer" unique_id=2113878392 instance=ExtResource("6_settings")]
