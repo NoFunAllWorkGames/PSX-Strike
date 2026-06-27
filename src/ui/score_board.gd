@@ -49,7 +49,7 @@ func _on_nearby_scores_loaded(scores: Array) -> void:
 		var entry: Dictionary = scores[index]
 		_add_grid_row(
 			myscore_grid,
-			_similar_compared_label(index, scores.size()),
+			_similar_compared_label(index),
 			str(entry.get("player_name", "(unnamed)")),
 			str(int(entry.get("cargo", 0))),
 			str(int(entry.get("money", 0))),
@@ -64,12 +64,14 @@ func _recent_age_label(index: int, count: int) -> String:
 		return "This run"
 	return ""
 
-func _similar_compared_label(index: int, count: int) -> String:
-	if index == count / 2:
-		return "This run"
-	if index < count / 2:
+func _similar_compared_label(index: int) -> String:
+	if index < 2:
 		return "Better"
-	return "Worse"
+	if index == 2:
+		return "This run"
+	if index > 2:
+		return "Worse"
+	return ""
 
 func _populate_recent_grid(grid: GridContainer, scores: Array) -> void:
 	grid.get_node("RankHeader").text = "Age"
