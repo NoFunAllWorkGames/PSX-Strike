@@ -1,8 +1,8 @@
 extends CanvasLayer
 
-@onready var highscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Highscore
-@onready var recentscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Recentscore
-@onready var myscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Myscore
+@onready var highscore_grid: GridContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Highscores/Highscore
+@onready var recentscore_grid: GridContainer = $"Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Recent Scores/Recentscore"
+@onready var myscore_grid: GridContainer = $"Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/My Scores/Myscore"
 @onready var main_menu_button: Button = $Overlay/CenterContainer/ScorePanel/VBoxContainer/MainMenuButton
 @onready var tab_container: TabContainer = $Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer
 

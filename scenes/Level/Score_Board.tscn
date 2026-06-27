@@ -75,22 +75,33 @@ custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 12
-current_tab = 1
-tab_1/title = "Recent"
-tab_2/title = "Similar"
+current_tab = 0
 
-[node name="Highscore" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=460056461 instance=ExtResource("2_grid")]
-visible = false
+[node name="Recent Scores" type="ScrollContainer" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=1600582317]
+layout_mode = 2
+horizontal_scroll_mode = 0
 metadata/_tab_index = 0
 
-[node name="Recentscore" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=494211492 instance=ExtResource("2_grid")]
-metadata/_tab_index = 1
-metadata/_tab_name = "Recent"
+[node name="Recentscore" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Recent Scores" unique_id=494211492 instance=ExtResource("2_grid")]
+layout_mode = 2
 
-[node name="Myscore" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=172277084 instance=ExtResource("2_grid")]
+[node name="My Scores" type="ScrollContainer" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=1587021948]
 visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+
+[node name="Myscore" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/My Scores" unique_id=172277084 instance=ExtResource("2_grid")]
+layout_mode = 2
+
+[node name="Highscores" type="ScrollContainer" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer" unique_id=1465232348]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
 metadata/_tab_index = 2
-metadata/_tab_name = "Similar"
+
+[node name="Highscore" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer/TabContainer/Highscores" unique_id=460056461 instance=ExtResource("2_grid")]
+layout_mode = 2
 
 [node name="MainMenuButton" type="Button" parent="Overlay/CenterContainer/ScorePanel/VBoxContainer" unique_id=1770772188]
 layout_mode = 2
