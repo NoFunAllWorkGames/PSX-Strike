@@ -1,6 +1,6 @@
 extends Control
 
-const RESET_ENTITY_COST := 10
+const RESET_ENTITY_COST := 100
 
 @onready var reset_button: Button = $MarginContainer/VBoxContainer/Reset
 @onready var heal_button: Button = $MarginContainer/VBoxContainer/Heal

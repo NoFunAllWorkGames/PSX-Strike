@@ -13,6 +13,9 @@ Right now
     - Update inside space station menu
 - Fix Entity sound distance volume
 - Balance the game
+- Calculate the score a bit different in highscore
+- Change font size on Score Board and make it more clear
+- Show yourself on the highscore page
 
 Optional
 ------

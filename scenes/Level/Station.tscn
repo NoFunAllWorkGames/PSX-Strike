@@ -107,13 +107,15 @@ theme_override_constants/separation = 21
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
-text = "Reset Entity"
+text = "Reset Entity
+100 Money"
 
 [node name="Heal" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="1" unique_id=2130985888]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
-text = "Heal"
+text = "Heal
+1 Money/HP"
 
 [node name="Sell" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="2" unique_id=316648595]
 layout_mode = 2
