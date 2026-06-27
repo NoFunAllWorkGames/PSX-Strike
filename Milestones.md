@@ -10,8 +10,8 @@ Legend:
 MVP
 ---
 
-- 🙅‍♂️ Concept art of ship, turrets, station, enemy ships, and the Entity
 - 📝 Main song
+- 🙅‍♂️ Concept art of ship, turrets, station, enemy ships, and the Entity
 - ✅ Space Scene
 - ✅ Player-ship movement
 - ✅ Camera Movement
@@ -23,12 +23,12 @@ MVP
 🚧 Vertical Slice
 --------------
 
-- 📝 Switching & Firing Armaments (Laser repeater, Ballistic Cannon, Missile pod) & Ammo counters
-- 📝 Basic ship model, including mining laser & armaments
 - 📝 Basic station model
+- 📝 One Ambient gameplay sound track
+- ✅ Basic ship model, including mining laser & armaments
 - ✅ Asteroid models
 - ✅ Sound effects for collisions
-- 📝 One Ambient gameplay sound track
+- 🙅‍♂️ Switching & Firing Armaments (Laser repeater, Ballistic Cannon, Missile pod) & Ammo counters
 - 🙅‍♂️ Basic Turret models
 - 🙅‍♂️ Turrets can be deployed
 - ✅ Mining Laser
