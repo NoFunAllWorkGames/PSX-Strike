@@ -10,8 +10,7 @@ const SCORE_ENCRYPTED_POST_URL := "https://nofunallworkgames.fyi/api/PSXstrike/s
 
 signal newest_scores_loaded(scores: Array)
 signal highest_scores_loaded(scores: Array)
-signal nearby_scores_loaded(payload: Dictionary)
-signal score_request_failed()
+signal nearby_scores_loaded(scores: Array)
 
 @onready var _newest_highscores_request: HTTPRequest = $NewestHighscoresRequest
 @onready var _highest_highscores_request: HTTPRequest = $HighestHighscoresRequest
@@ -54,12 +53,11 @@ func post_scores() -> void:
 		"client_id": client_id,
 		"player_name": UserSettings.player_name,
 		"timestamp": Time.get_unix_time_from_system(),
-		"cargo": GameManager.cargo.cargo_amount,
-		"money": GameManager.station_resources.money_amount,
-		"resources": GameManager.station_resources.resources_amount,
+		"cargo": int(GameManager.cargo.cargo_amount),
+		"money": int(GameManager.station_resources.money_amount),
+		"resources": int(GameManager.station_resources.resources_amount),
 	}
 	var headers = ["Content-Type: application/json"]
-
 	return request(SCORE_POST_URL, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
 
 ## used in Score_Board.tscn
@@ -71,24 +69,18 @@ func fetch_all_highscores() -> void:
 func fetch_highscores_newest() -> void:
 	if _newest_highscores_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
 		return
-	var error := _newest_highscores_request.request(HIGHSCORES_BASE_URL + "/newest")
-	if error != OK:
-		score_request_failed.emit()
+	_newest_highscores_request.request(HIGHSCORES_BASE_URL + "/newest")
 
 func fetch_highscores_highest() -> void:
 	if _highest_highscores_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
 		return
-	var error := _highest_highscores_request.request(HIGHSCORES_BASE_URL + "/highest")
-	if error != OK:
-		score_request_failed.emit()
+	_highest_highscores_request.request(HIGHSCORES_BASE_URL + "/highest")
 
 func fetch_highscores_nearby() -> void:
 	if _nearby_highscores_request.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
 		return
 	var url: String = HIGHSCORES_BASE_URL + "/nearby?client_id=" + client_id.uri_encode()
-	var error := _nearby_highscores_request.request(url)
-	if error != OK:
-		score_request_failed.emit()
+	_nearby_highscores_request.request(url)
 
 func _on_newest_highscores_request_completed(
 	_result: int,
@@ -97,10 +89,6 @@ func _on_newest_highscores_request_completed(
 	body: PackedByteArray,
 ) -> void:
 	var data: Variant = _read_highscores_response(body)
-	if data == null:
-		score_request_failed.emit()
-		return
-	# { "scores": [ { "player_name": "...", "total": 123, ... }, ... ] }
 	newest_scores_loaded.emit(data.get("scores", []))
 
 func _on_highest_highscores_request_completed(
@@ -110,10 +98,6 @@ func _on_highest_highscores_request_completed(
 	body: PackedByteArray,
 ) -> void:
 	var data: Variant = _read_highscores_response(body)
-	if data == null:
-		score_request_failed.emit()
-		return
-	# { "scores": [ { "player_name": "...", "total": 123, ... }, ... ] }
 	highest_scores_loaded.emit(data.get("scores", []))
 
 func _on_nearby_highscores_request_completed(
@@ -123,21 +107,9 @@ func _on_nearby_highscores_request_completed(
 	body: PackedByteArray,
 ) -> void:
 	var data: Variant = _read_highscores_response(body)
-	if data == null:
-		score_request_failed.emit()
-		return
-	# { "better": [ { "player_name": "...", "total": 123, ... }, ... ],
-	# "worse": [ { "player_name": "...", "total": 123, ... }, ... ],
-	# "reference": { "player_name": "...", "total": 123, ... } }
-	nearby_scores_loaded.emit(data)
+	nearby_scores_loaded.emit(data.get("scores", []))
 
 func _read_highscores_response(body: PackedByteArray) -> Variant:
 	var json := JSON.new()
-	if json.parse(body.get_string_from_utf8()) != OK:
-		return null
-
-	var data: Variant = json.data
-	if typeof(data) != TYPE_DICTIONARY:
-		return null
-
-	return data
+	json.parse(body.get_string_from_utf8())
+	return json.data
