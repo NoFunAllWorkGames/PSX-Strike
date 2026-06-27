@@ -92,6 +92,7 @@ enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_p5kko")
 stream = ExtResource("7_o803n")
 autoplay = true
 bus = &"Music"
+parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Canvases" parent_id_path=PackedInt32Array(1266257925) index="0" unique_id=473764402]
 
