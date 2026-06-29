@@ -15,6 +15,7 @@ Right now
 - Balance the game
 - Add explosion effect
 - Change splash screen
+- Give mouse sensitivity option
 
 Optional
 ------
