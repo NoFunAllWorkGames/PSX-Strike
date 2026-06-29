@@ -34,6 +34,7 @@ Networking="*uid://dgwa42db8gjh7"
 
 window/size/viewport_width=426
 window/size/viewport_height=240
+window/size/mode=4
 window/size/initial_position_type=3
 window/size/initial_position=Vector2i(943, 239)
 window/size/initial_screen=1
