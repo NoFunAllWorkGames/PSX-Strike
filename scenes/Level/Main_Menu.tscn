@@ -13,6 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://p6sr1pkwhaqf" path="res://assets/Models/player_ship_archon_body.glb" id="9_xe3n3"]
 [ext_resource type="AudioStream" uid="uid://bob3qqd2yfctb" path="res://assets/Sounds/Soundtrack/Strike_SoundtrackMain.ogg" id="12_pyew7"]
 
+[sub_resource type="Gradient" id="Gradient_sfybo"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hy3ve"]
+gradient = SubResource("Gradient_sfybo")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(0, 1)
+
 [sub_resource type="Gradient" id="Gradient_xurhj"]
 colors = PackedColorArray(0.047280326, 0.058092393, 0.06620072, 1, 0.04593374, 0.07505355, 0.11186341, 1)
 
@@ -73,11 +81,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BlackBars" type="TextureRect" parent="Control" unique_id=87420724]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_hy3ve")
+expand_mode = 3
+
 [node name="BackgroundImage" type="TextureRect" parent="Control" unique_id=1680957298]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 53.0
+offset_right = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture2D_ic0xj")
@@ -92,7 +112,7 @@ offset_top = -57.5
 offset_bottom = 57.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 53
+theme_override_constants/margin_left = 58
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 53
 theme_override_constants/margin_bottom = 50
@@ -179,8 +199,9 @@ text = "Quit"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=873486148]
 oversampling_override = 1.0
-title = "You sure?"
+title = "Are you sure?"
 initial_position = 1
+max_size = Vector2i(200, 100)
 ok_button_text = "Delete"
 dialog_text = "Delete the savegame?"
 dialog_autowrap = true
@@ -190,7 +211,6 @@ cancel_button_text = "NO!"
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8

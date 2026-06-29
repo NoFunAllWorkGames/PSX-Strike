@@ -17,8 +17,7 @@ bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
 content_margin_left = 4.0
 bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dbl2h"]
-bg_color = Color(0.16457507, 0.18739727, 0.2045179, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tiw3s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2uxk"]
 content_margin_left = 4.0
@@ -58,7 +57,7 @@ LineEdit/styles/normal = SubResource("StyleBoxFlat_85ykx")
 LineEdit/styles/read_only = null
 OptionButton/styles/hover_pressed = SubResource("StyleBoxFlat_mdo3h")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_lu5nl")
-TabContainer/styles/panel = SubResource("StyleBoxFlat_dbl2h")
+TabContainer/styles/panel = SubResource("StyleBoxEmpty_tiw3s")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_t2uxk")
 TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_sfybo")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_l8vrv")

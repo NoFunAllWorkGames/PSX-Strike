@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://djhtcgttpg1oo"]
 
 [ext_resource type="Script" uid="uid://crdxwk33o1qc3" path="res://src/ui/pause_menu.gd" id="1_ckicd"]
-[ext_resource type="PackedScene" path="res://scenes/UI/Settings_Panel.tscn" id="2_settings"]
+[ext_resource type="Theme" uid="uid://cdyptnkr683qe" path="res://assets/Styles/Menu_theme.tres" id="2_48fxt"]
+[ext_resource type="PackedScene" uid="uid://dh5k2pm8w3fx" path="res://scenes/UI/Settings_Panel.tscn" id="2_settings"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1957793238]
 process_mode = 3
@@ -14,8 +15,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_48fxt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1246939428]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 theme_override_constants/separation = 8
 
@@ -44,7 +47,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Quit"
 
-[node name="SettingsPanel" parent="CenterContainer" instance=ExtResource("2_settings")]
+[node name="SettingsPanel" parent="CenterContainer" unique_id=2120281060 instance=ExtResource("2_settings")]
 visible = false
 layout_mode = 2
 
