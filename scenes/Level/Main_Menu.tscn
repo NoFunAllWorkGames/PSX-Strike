@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cfgp37gimueud" path="res://assets/Logo/PSX-Strike_Menu.png" id="8_ioi7f"]
 [ext_resource type="Texture2D" uid="uid://bap53ao5vmpu6" path="res://assets/Textures/vehN_avatar.png" id="9_pyew7"]
 [ext_resource type="PackedScene" uid="uid://p6sr1pkwhaqf" path="res://assets/Models/player_ship_archon_body.glb" id="9_xe3n3"]
+[ext_resource type="AudioStream" uid="uid://bob3qqd2yfctb" path="res://assets/Sounds/Soundtrack/Strike_SoundtrackMain.ogg" id="12_pyew7"]
 
 [sub_resource type="Gradient" id="Gradient_xurhj"]
 colors = PackedColorArray(0.047280326, 0.058092393, 0.06620072, 1, 0.04593374, 0.07505355, 0.11186341, 1)
@@ -109,7 +110,6 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_xurhj")
 
 [node name="TextureRect" type="TextureRect" parent="Control/MarginContainer/VBoxContainer" unique_id=131128745]
 custom_minimum_size = Vector2(126, 36)
-custom_maximum_size = Vector2(126, 36)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -413,3 +413,8 @@ transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3, 3)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport/DirectionalLight3D" unique_id=1507084556]
 transform = Transform3D(0.35836592, -0.74075675, 0.5682019, 0.45832604, 0.66982925, 0.5841798, -0.8133333, 0.051071614, 0.57955205, 5.6508946, 1.9689882, 1.5368605)
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=2061859651]
+stream = ExtResource("12_pyew7")
+autoplay = true
+bus = &"Music"

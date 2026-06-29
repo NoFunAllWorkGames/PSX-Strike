@@ -21,6 +21,7 @@ extends CanvasLayer
 
 
 func _ready() -> void:
+	$Soundtrack.play()
 	GameManager.game_state = Enums.GameState.MAIN_MENU
 	start_button.pressed.connect(_on_start_pressed)
 	new_game.pressed.connect(_on_new_game_pressed)
