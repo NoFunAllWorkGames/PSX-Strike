@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_66bpb"]
 [ext_resource type="Script" uid="uid://2oris1t1saux" path="res://src/scenes/station.gd" id="2_4dbit"]
 [ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station_left_buttons.gd" id="2_station"]
-[ext_resource type="AudioStream" uid="uid://dasn6p12iij6t" path="res://assets/Sounds/353159__kinoton__room-tone-sci-fi-large-hall.ogg" id="3_t16i2"]
+[ext_resource type="AudioStream" uid="uid://db12o736ydbmr" path="res://assets/Sounds/Ambience/StationAmbience.ogg" id="4_8mik3"]
 [ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="5_l3t8d"]
 [ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="5_qjulp"]
 [ext_resource type="Script" uid="uid://c4q6dri8n2xsu" path="res://src/ui/station_right_column.gd" id="6_p6bjf"]
@@ -159,7 +159,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.8821)
 current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="6" unique_id=865072657]
-stream = ExtResource("3_t16i2")
+stream = ExtResource("4_8mik3")
 autoplay = true
 bus = &"Music"
 parameters/looping = true
