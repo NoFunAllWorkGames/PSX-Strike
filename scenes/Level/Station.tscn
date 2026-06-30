@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="5_l3t8d"]
 [ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="5_qjulp"]
 [ext_resource type="Script" uid="uid://c4q6dri8n2xsu" path="res://src/ui/station_right_column.gd" id="6_p6bjf"]
+[ext_resource type="AudioStream" uid="uid://3ggcjfvgukgi" path="res://assets/Sounds/Interaction/ResourceSell.ogg" id="8_mpfln"]
+[ext_resource type="AudioStream" uid="uid://cpv1dvb68lu4m" path="res://assets/Sounds/Interaction/ResourceSellError.ogg" id="9_8mik3"]
 
 [sub_resource type="Environment" id="Environment_66bpb"]
 background_mode = 3
@@ -235,5 +237,13 @@ layout_mode = 2
 [node name="ResourceValue" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/ResourcePanel/CenterContainer" index="0" unique_id=987218467]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
+
+[node name="ResourceSell" type="AudioStreamPlayer" parent="." index="4" unique_id=1344609329]
+stream = ExtResource("8_mpfln")
+bus = &"SFX"
+
+[node name="ResourceSellError" type="AudioStreamPlayer" parent="." index="5" unique_id=91650345]
+stream = ExtResource("9_8mik3")
+bus = &"SFX"
 
 [connection signal="pressed" from="HBoxContainer/Left/MarginContainer/VBoxContainer/Sell" to="." method="_on_sell_pressed"]

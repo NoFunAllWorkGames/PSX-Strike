@@ -18,7 +18,9 @@ func _ready() -> void:
 
 func _on_sell_pressed() -> void:
 	if GameManager.station_resources.resources_amount == 0:
+		$ResourceSellError.play()
 		return
+	$ResourceSell.play()
 	var current_station_money = GameManager.station_resources.money_amount
 	var converted_money = GameManager.station_resources.convert_all_resources_to_money()
 	var money_amount = current_station_money + converted_money

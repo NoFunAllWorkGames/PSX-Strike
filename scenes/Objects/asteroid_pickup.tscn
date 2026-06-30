@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://rmuxinxt0ku2" path="res://src/scenes/asteroid_pickup.gd" id="1_m4tws"]
 [ext_resource type="Texture2D" uid="uid://caq1albo86lvj" path="res://assets/Textures/asteroid-icon_vecteezy.png" id="1_updaf"]
-[ext_resource type="AudioStream" uid="uid://dpdy3pxukjjac" path="res://assets/Sounds/833495__wavewire__lootpickup_feedback.ogg" id="3_wusco"]
+[ext_resource type="AudioStream" uid="uid://cygm0675hn6xr" path="res://assets/Sounds/Interaction/ResourcePickup.ogg" id="3_x77i8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m4tws"]
 size = Vector3(1.5, 1.5, 1.5)
@@ -143,4 +143,5 @@ libraries/ = SubResource("AnimationLibrary_yhgt7")
 autoplay = &"floating"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=973386752]
-stream = ExtResource("3_wusco")
+stream = ExtResource("3_x77i8")
+volume_db = -3.193
