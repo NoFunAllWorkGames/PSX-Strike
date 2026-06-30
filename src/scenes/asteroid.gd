@@ -69,4 +69,5 @@ func die() -> void:
 	var items_scene: Node = $"../../../Items"
 	items_scene.add_child(pickup_instance)
 	pickup_instance.global_position = global_transform.origin
+	AudioPlayer.play_asteroid_blast()
 	call_deferred("queue_free")

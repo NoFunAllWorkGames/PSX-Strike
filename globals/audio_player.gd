@@ -38,3 +38,7 @@ func play_ui_button_hover() -> void:
 func play_mining_laser_miss_fade_out() -> void:
 	const scene_path = "res://scenes/SoundNodes/MiningLaserMissFadeOutPlayer.tscn"
 	play_audio_stream(scene_path)
+
+func play_asteroid_blast() -> void:
+	const scene_path = "res://scenes/SoundNodes/AsteroidBlastPlayer.tscn"
+	play_audio_stream(scene_path)

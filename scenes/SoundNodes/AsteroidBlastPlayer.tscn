@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c8k2m5n7p4q1r"]
+
+[ext_resource type="AudioStream" uid="uid://b6ixjqrymp8s3" path="res://assets/Sounds/Interaction/AsterioidBlast.ogg" id="1_blast"]
+
+[node name="AsteroidBlastPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_blast")
+bus = &"SFX"
