@@ -42,3 +42,7 @@ func play_mining_laser_miss_fade_out() -> void:
 func play_asteroid_blast() -> void:
 	const scene_path = "res://scenes/SoundNodes/AsteroidBlastPlayer.tscn"
 	play_audio_stream(scene_path)
+
+func play_asteroid_collision() -> void:
+	const scene_path = "res://scenes/SoundNodes/AsteroidCollisionPlayer.tscn"
+	play_audio_stream(scene_path)

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dy0pw52vc1"]
+
+[ext_resource type="AudioStream" uid="uid://cv6vvq7gtl6hk" path="res://assets/Sounds/Collisions/WithRocks/CollisionRock1.ogg" id="1_rock1"]
+[ext_resource type="AudioStream" uid="uid://db0wesarqte6" path="res://assets/Sounds/Collisions/WithRocks/CollisionRock2.ogg" id="2_rock2"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_rocks"]
+streams_count = 2
+stream_0/stream = ExtResource("1_rock1")
+stream_1/stream = ExtResource("2_rock2")
+
+[node name="AsteroidCollisionPlayer" type="AudioStreamPlayer" unique_id=783422349]
+stream = SubResource("AudioStreamRandomizer_rocks")
+volume_db = 5.0
+bus = &"SFX"

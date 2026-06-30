@@ -12,11 +12,6 @@ class_name Asteroid
 @export var hull_contact_area: Area3D
 
 const ProceduralAsteroidMeshBuilder := preload("res://src/utils/procedural_asteroid_mesh.gd")
-const ROCK_SOUNDS: Array[AudioStream] = [
-	preload("res://assets/Sounds/Collisions/WithRocks/CollisionRock1.ogg"),
-	preload("res://assets/Sounds/Collisions/WithRocks/CollisionRock2.ogg"),
-]
-
 
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
@@ -24,7 +19,6 @@ var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 @onready var _collision_shape: CollisionShape3D = $CollisionShape3D
 @onready var _hull_contact_shape: CollisionShape3D = $HullContact/HullContact_CollisionShape3D
 @onready var _damage_bar = $DamageBar
-@onready var _collision_audio: AudioStreamPlayer = $CollisionAudio
 
 
 func _ready() -> void:
@@ -42,18 +36,12 @@ func _on_hull_contact_play_sound(body: Node3D) -> void:
 	if body != GameManager.PlayerShip:
 		return
 
-	_collision_audio.stream = ROCK_SOUNDS.pick_random()
-	_collision_audio.play()
+	AudioPlayer.play_asteroid_collision()
 
 
 func _apply_procedural_mesh() -> void:
 	var mesh: ArrayMesh = ProceduralAsteroidMeshBuilder.build(mesh_seed, mesh_radius)
 	_mesh_instance.mesh = mesh
-
-	var sphere_shape := SphereShape3D.new()
-	sphere_shape.radius = mesh_radius * 2.0
-	_collision_shape.shape = sphere_shape
-	_hull_contact_shape.shape = sphere_shape
 
 func take_damage(applied_damage: float) -> void:
 	health -= applied_damage
