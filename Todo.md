@@ -16,6 +16,8 @@ Right now
 - Add explosion effect
 - Change splash screen
 - Give mouse sensitivity option
+- make the binary export smaller with scons
+- optmize web export for itch
 
 Optional
 ------
