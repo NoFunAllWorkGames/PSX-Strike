@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var save: Button = $CenterContainer/VBoxContainer/Save
-@onready var v_box_container: VBoxContainer = $CenterContainer/VBoxContainer
+@onready var save: Button = $CenterContainer/MarginContainer/MenuContent/VBoxContainer/Save
+@onready var v_box_container: VBoxContainer = $CenterContainer/MarginContainer/MenuContent/VBoxContainer
 @onready var settings_panel: MarginContainer = $CenterContainer/SettingsPanel
 
 func _ready() -> void:

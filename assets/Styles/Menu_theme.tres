@@ -42,7 +42,7 @@ bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
 
 [resource]
 Button/styles/disabled = null
-Button/styles/focus = null
+Button/styles/focus = SubResource("StyleBoxEmpty_ioi7f")
 Button/styles/hover = ExtResource("1_85ykx")
 Button/styles/normal = SubResource("StyleBoxEmpty_ioi7f")
 Button/styles/pressed = ExtResource("3_lu5nl")

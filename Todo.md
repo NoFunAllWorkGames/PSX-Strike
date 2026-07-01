@@ -18,6 +18,7 @@ Right now
 - Give mouse sensitivity option
 - make the binary export smaller with scons
 - optmize web export for itch
+- Improve ingame esc menu background/style
 
 Optional
 ------
