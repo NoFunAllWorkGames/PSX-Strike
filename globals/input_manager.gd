@@ -14,6 +14,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
+	_handle_tab_menu(event)
 	_handle_escape(event)
 
 
@@ -35,6 +36,14 @@ func _handle_escape(event: InputEvent) -> bool:
 		get_viewport().set_input_as_handled()
 		return true
 	_last_escape_ms = now
+
+	get_viewport().set_input_as_handled()
+	return true
+
+
+func _handle_tab_menu(event: InputEvent) -> bool:
+	if not event.is_action_pressed("tab_menu"):
+		return false
 
 	if GameManager.player_is_dead:
 		get_viewport().set_input_as_handled()

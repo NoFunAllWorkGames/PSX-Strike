@@ -18,7 +18,8 @@ Right now
 - Give mouse sensitivity option
 - make the binary export smaller with scons
 - optmize web export for itch
-- Improve ingame esc menu background/style
+- Improve ingame pause menu background/style
+- Fix the ingame pause menu in submenus (broken visually)
 
 Optional
 ------

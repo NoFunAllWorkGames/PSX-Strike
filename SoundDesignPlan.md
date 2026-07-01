@@ -13,7 +13,7 @@ UI/Main menu
 
 - Hover on item 🟡
 - Click on item 🟡
-- Esc into the pause menu 🟡
+- Tab into the pause menu 🟡
       
 The Ship
 --------
