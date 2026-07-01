@@ -1,12 +1,12 @@
 extends HTTPRequest
 
-# Player ID
-var client_id: String = OS.get_unique_id()
+const WEB_CLIENT_ID_PATH := "user://web_client_id.txt"
+
+var client_id: String = ""
 
 const PUBLIC_KEY_PATH := "res://PSXstrike_keys.pem"
 const HIGHSCORES_BASE_URL := "https://nofunallworkgames.fyi/api/PSXstrike/highscores"
 const SCORE_POST_URL := "https://nofunallworkgames.fyi/api/PSXstrike/score"
-const SCORE_ENCRYPTED_POST_URL := "https://nofunallworkgames.fyi/api/PSXstrike/score_encrypted"
 
 signal newest_scores_loaded(scores: Array)
 signal highest_scores_loaded(scores: Array)
@@ -18,35 +18,48 @@ signal nearby_scores_loaded(scores: Array)
 
 
 func _ready() -> void:
+	client_id = _resolve_client_id()
 	_newest_highscores_request.request_completed.connect(_on_newest_highscores_request_completed)
 	_highest_highscores_request.request_completed.connect(_on_highest_highscores_request_completed)
 	_nearby_highscores_request.request_completed.connect(_on_nearby_highscores_request_completed)
+
+static func is_web() -> bool:
+	return OS.has_feature("web")
 
 
 func _load_public_key_pem() -> String:
 	return FileAccess.get_file_as_string(PUBLIC_KEY_PATH).strip_edges()
 
-## TODO Not yet used
-func encrypt_data(plain_text: String) -> PackedByteArray:
-	var crypto = Crypto.new()
-	var key = CryptoKey.new()
 
-	var public_key_pem = _load_public_key_pem()
-	if public_key_pem.is_empty():
-		return PackedByteArray()
+func _resolve_client_id() -> String:
+	if is_web():
+		# Check if the client id file exists
+		if FileAccess.file_exists(WEB_CLIENT_ID_PATH):
+			return FileAccess.get_file_as_string(WEB_CLIENT_ID_PATH).strip_edges()
 
-	var error = key.load_from_string(public_key_pem, false)
-	if error != OK:
-		push_error("Failed to load public key. Error code: " + str(error))
-		return PackedByteArray()
+		# Create a new UUID client id
+		var id := _generate_uuid_v4()
+		var file := FileAccess.open(WEB_CLIENT_ID_PATH, FileAccess.WRITE)
+		if file:
+			file.store_string(id)
+		return id
 
-	var data_bytes = plain_text.to_utf8_buffer()
-	return crypto.encrypt(key, data_bytes)
+	if not is_web():
+		return OS.get_unique_id()
 
-## TODO Not yet used
-func post_data_encrypted(data: PackedByteArray) -> int:
-	var headers = ["Content-Type: application/octet-stream"]
-	return request_raw(SCORE_ENCRYPTED_POST_URL, headers, HTTPClient.METHOD_POST, data)
+	return "Error"
+
+func _generate_uuid_v4() -> String:
+	var bytes := Crypto.new().generate_random_bytes(16)
+	bytes[6] = (bytes[6] & 0x0f) | 0x40
+	bytes[8] = (bytes[8] & 0x3f) | 0x80
+	return "%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x" % [
+		bytes[0], bytes[1], bytes[2], bytes[3],
+		bytes[4], bytes[5],
+		bytes[6], bytes[7],
+		bytes[8], bytes[9],
+		bytes[10], bytes[11], bytes[12], bytes[13], bytes[14], bytes[15],
+	]
 
 func post_scores() -> void:
 	var data = {
