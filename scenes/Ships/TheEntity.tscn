@@ -7,7 +7,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rghxa"]
 render_priority = 0
 shader = ExtResource("1_hfjux")
-shader_parameter/distortion_intensity = 0.0210000009975
 
 [sub_resource type="SphereMesh" id="SphereMesh_6ugoe"]
 material = SubResource("ShaderMaterial_rghxa")

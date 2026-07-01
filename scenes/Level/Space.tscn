@@ -68,9 +68,6 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_sky_contribution = 0.0
 ambient_light_energy = 0.5
 reflected_light_source = 1
-tonemap_mode = 3
-adjustment_brightness = 1.15
-adjustment_contrast = 0.945
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4pnen"]
 bg_color = Color(0, 0.73333335, 0, 1)
@@ -191,7 +188,6 @@ gizmo_extents = 3.0
 
 [node name="TheEntity" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Enemies" parent_id_path=PackedInt32Array(1450650547) index="0" unique_id=586411818 node_paths=PackedStringArray("spawn_area") instance=ExtResource("18_o803n")]
 spawn_area = NodePath("../../Environment/OuterArea")
-distortion_intensity = 0.1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SubViewportContainer/SubViewport/World" parent_id_path=PackedInt32Array(1213749867) index="4" unique_id=1617069734]
 environment = SubResource("Environment_l0l3b")

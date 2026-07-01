@@ -7,7 +7,6 @@ const JITTER_RADIUS := 1.2
 const ROTATION_JITTER := 0.25
 
 @export var spawn_area: Area3D
-@export_range(0.0, 0.1) var distortion_intensity: float = 0.021
 
 @onready var mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
@@ -44,7 +43,6 @@ func _ready() -> void:
 
 func _setup_mesh_and_collision() -> void:
 	var sphere_mesh := mesh_instance.mesh as SphereMesh
-	(sphere_mesh.material as ShaderMaterial).set_shader_parameter("distortion_intensity", distortion_intensity)
 	_base_radius = sphere_mesh.radius
 	_sphere_shape = collision_shape.shape as SphereShape3D
 	_base_audio_unit_size = entity_audio.unit_size

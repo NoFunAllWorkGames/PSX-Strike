@@ -6,4 +6,3 @@ albedo_color = Color(0.71395856, 0.08475635, 0.4610381, 1)
 rim_enabled = true
 rim = 0.3
 rim_tint = 1.0
-clearcoat_enabled = true

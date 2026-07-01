@@ -16,8 +16,6 @@ const ProceduralAsteroidMeshBuilder := preload("res://src/utils/procedural_aster
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
 @onready var _mesh_instance: MeshInstance3D = $MeshInstance3D
-@onready var _collision_shape: CollisionShape3D = $CollisionShape3D
-@onready var _hull_contact_shape: CollisionShape3D = $HullContact/HullContact_CollisionShape3D
 @onready var _damage_bar = $DamageBar
 
 

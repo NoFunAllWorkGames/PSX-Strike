@@ -21,6 +21,9 @@ size = Vector3(2.3360424, 7.129548, 3.3100781)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0scj"]
 transparency = 1
+disable_ambient_light = true
+disable_fog = true
+disable_specular_occlusion = true
 albedo_color = Color(1, 1, 1, 0.90000004)
 albedo_texture = ExtResource("3_c1sg8")
 emission_enabled = true
@@ -30,7 +33,7 @@ billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_h5a4a"]
 material = SubResource("StandardMaterial3D_h0scj")
-size = Vector2(2, 2)
+size = Vector2(4, 4)
 
 [sub_resource type="Animation" id="Animation_8ocvd"]
 resource_name = "Blink"
@@ -54,22 +57,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:mesh:material:albedo_color")
+tracks/0/path = NodePath(".:mesh:material:emission_energy_multiplier")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0.90000004)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:mesh:material:emission_energy_multiplier")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -119,7 +110,7 @@ bus = &"SFX"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5034482, 1.5947182)
 
 [node name="light1" type="MeshInstance3D" parent="LightSignals" unique_id=1944832564]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6857253, -0.95316625, 1.8999999)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.6857253, -0.9007567, 1.8960588)
 mesh = SubResource("QuadMesh_h5a4a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LightSignals/light1" unique_id=1327348486]
@@ -127,7 +118,7 @@ libraries/ = SubResource("AnimationLibrary_3x5ep")
 autoplay = &"Blink"
 
 [node name="light2" type="MeshInstance3D" parent="LightSignals" unique_id=980371786]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.65041107, -0.9531664, 1.8999999)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.65041107, -0.9007569, 1.8960588)
 mesh = SubResource("QuadMesh_h5a4a")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="LightSignals/light2" unique_id=583409760]
