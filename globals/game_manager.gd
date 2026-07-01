@@ -330,6 +330,6 @@ func name_manager() -> String:
 func quit_game() -> void:
 	if OS.has_feature("web"):
 		get_tree().quit()
-		JavaScriptBridge.eval("window.history.back()")
+		JavaScriptBridge.eval("window.history.reload()")
 		return
 	get_tree().quit()

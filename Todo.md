@@ -20,6 +20,8 @@ Right now
 - optmize web export for itch
 - Improve ingame pause menu background/style
 - Fix the ingame pause menu in submenus (broken visually)
+- Ship engine sound is way too low volume on browser mode
+- Fix fullscreen in browser mode
 
 Optional
 ------
