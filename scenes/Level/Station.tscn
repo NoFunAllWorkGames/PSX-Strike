@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station_left_buttons.gd" id="2_station"]
 [ext_resource type="AudioStream" uid="uid://db12o736ydbmr" path="res://assets/Sounds/Ambience/StationAmbience.ogg" id="4_8mik3"]
 [ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="5_l3t8d"]
-[ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="5_qjulp"]
+[ext_resource type="AudioStream" uid="uid://jdvitajuvxp" path="res://assets/Sounds/Engine/ShipEngine.ogg" id="6_8mik3"]
 [ext_resource type="Script" uid="uid://c4q6dri8n2xsu" path="res://src/ui/station_right_column.gd" id="6_p6bjf"]
 [ext_resource type="AudioStream" uid="uid://3ggcjfvgukgi" path="res://assets/Sounds/Interaction/ResourceSell.ogg" id="8_mpfln"]
 [ext_resource type="AudioStream" uid="uid://cpv1dvb68lu4m" path="res://assets/Sounds/Interaction/ResourceSellError.ogg" id="9_8mik3"]
@@ -160,9 +160,9 @@ current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="6" unique_id=865072657]
 stream = ExtResource("4_8mik3")
-volume_db = 10.0
+volume_db = -4.0
 autoplay = true
-bus = &"Music"
+bus = &"SFX"
 parameters/looping = true
 
 [node name="PlayerShipArchon" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("5_l3t8d")]
@@ -174,7 +174,7 @@ libraries/ = SubResource("AnimationLibrary_47i8t")
 autoplay = &"hover"
 
 [node name="Engine_Hovering2" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="10" unique_id=202474421]
-stream = ExtResource("5_qjulp")
+stream = ExtResource("6_8mik3")
 autoplay = true
 bus = &"SFX"
 parameters/looping = true

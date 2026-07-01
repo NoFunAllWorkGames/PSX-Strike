@@ -144,4 +144,5 @@ autoplay = &"floating"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=973386752]
 stream = ExtResource("3_x77i8")
-volume_db = -3.193
+volume_db = -3.649
+bus = &"SFX"

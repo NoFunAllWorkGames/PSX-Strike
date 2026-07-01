@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://banmxady1gnji" path="res://src/ships/player_ship_archon.gd" id="1_uaftn"]
 [ext_resource type="Resource" uid="uid://b24lvmtude8j1" path="res://src/data/cargo_res.tres" id="2_b1s2j"]
-[ext_resource type="AudioStream" uid="uid://t0e2u8va2js3" path="res://assets/Sounds/130883__karma-ron__mysterion-low-ship-humming.ogg" id="2_fy63f"]
 [ext_resource type="PackedScene" uid="uid://p6sr1pkwhaqf" path="res://assets/Models/player_ship_archon_body.glb" id="2_ipt2d"]
+[ext_resource type="AudioStream" uid="uid://jdvitajuvxp" path="res://assets/Sounds/Engine/ShipEngine.ogg" id="3_ipt2d"]
 [ext_resource type="Script" uid="uid://co7qjmw5034m6" path="res://src/components/shooting.gd" id="3_qjll1"]
 [ext_resource type="Script" uid="uid://jd23mfxamfk3" path="res://src/components/cargo_component.gd" id="4_5iwu1"]
 [ext_resource type="AnimationLibrary" uid="uid://bbiofxxpbtyk5" path="res://scenes/Ships/animation_library.tres" id="7_b5nh1"]
@@ -28,17 +28,6 @@ size = Vector2(0, 0)
 collision_layer = 2
 collision_mask = 101
 script = ExtResource("1_uaftn")
-acceleration = null
-deceleration = null
-max_speed = null
-engine_hover_pitch_at_rest = null
-engine_hover_pitch_at_max_speed = null
-pitch_speed_degrees = null
-look_sensitivity = null
-min_pitch_degrees = null
-max_pitch_degrees = null
-max_lifepoints = null
-lifepoints = null
 
 [node name="player_ship_archon_body" parent="." unique_id=616139151 instance=ExtResource("2_ipt2d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -58,7 +47,7 @@ current = true
 fov = 80.0
 
 [node name="Engine_Hovering" type="AudioStreamPlayer" parent="." unique_id=202474421]
-stream = ExtResource("2_fy63f")
+stream = ExtResource("3_ipt2d")
 autoplay = true
 bus = &"SFX"
 parameters/looping = true
