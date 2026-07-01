@@ -21,9 +21,7 @@ Optional
 ------
 
 - Replace Audio:
-    - 353159__kinoton__room-tone-sci-fi-large-hall.ogg | Space Station Ambient
     - 130883__karma-ron__mysterion-low-ship-humming.ogg | Space Scene / Ship Idle
-    - 833495__wavewire__lootpickup_feedback.ogg | Asteroid Resource Pickup Collected
 - Replace Textures:
     - flare_0.png | Signal light at hauler ship
     - asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering

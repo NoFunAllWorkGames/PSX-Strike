@@ -160,6 +160,7 @@ current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="6" unique_id=865072657]
 stream = ExtResource("4_8mik3")
+volume_db = 10.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
