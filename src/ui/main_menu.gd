@@ -11,6 +11,7 @@ extends CanvasLayer
 @onready var confirmation_dialog: ConfirmationDialog = $Control/MarginContainer/VBoxContainer/VBoxContainer/ConfirmationDialog
 @onready var main_body_vbox: VBoxContainer = $Control/MarginContainer/VBoxContainer/VBoxContainer
 @onready var player_name_input: LineEdit = $Control/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer/PlayerName
+@onready var how_to_play_label: Label = $Control/howtoplay_Label
 
 # credits
 @onready var credits_panel: MarginContainer = $Control/MarginContainer/VBoxContainer/CreditsPanel
@@ -104,17 +105,21 @@ func _on_button_clicked() -> void:
 # credits
 func _on_credits_button_pressed() -> void:
 	main_body_vbox.hide()
+	how_to_play_label.hide()
 	credits_panel.show()
 
 func _on_close_credits_button_pressed() -> void:
 	credits_panel.hide()
+	how_to_play_label.show()
 	main_body_vbox.show()
 
 # settings
 func _on_settings_button_pressed() -> void:
 	main_body_vbox.hide()
+	how_to_play_label.hide()
 	settings_panel.open()
 
 func _on_close_settings_button_pressed() -> void:
 	settings_panel.close()
+	how_to_play_label.show()
 	main_body_vbox.show()

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://wkn6ou0g1ylf" path="res://src/ui/main_menu.gd" id="1_menum"]
 [ext_resource type="PackedScene" uid="uid://x7df5teokeca" path="res://scenes/Level/Space.tscn" id="2_space"]
+[ext_resource type="Texture2D" uid="uid://buy0ot70sh22u" path="res://assets/Logo/menubg.png" id="3_lnpuo"]
 [ext_resource type="Texture2D" uid="uid://rikakd0opnu8" path="res://assets/Textures/suntyger_avatar.png" id="3_unyvy"]
 [ext_resource type="Theme" uid="uid://cdyptnkr683qe" path="res://assets/Styles/Menu_theme.tres" id="3_xurhj"]
 [ext_resource type="Texture2D" uid="uid://btlic2ws8no14" path="res://assets/Textures/B1773rm4n_avatar.png" id="4_4vbsx"]
@@ -12,14 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bap53ao5vmpu6" path="res://assets/Textures/vehN_avatar.png" id="9_pyew7"]
 [ext_resource type="PackedScene" uid="uid://p6sr1pkwhaqf" path="res://assets/Models/player_ship_archon_body.glb" id="9_xe3n3"]
 [ext_resource type="AudioStream" uid="uid://bob3qqd2yfctb" path="res://assets/Sounds/Soundtrack/Strike_SoundtrackMain.ogg" id="12_pyew7"]
-
-[sub_resource type="Gradient" id="Gradient_sfybo"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hy3ve"]
-gradient = SubResource("Gradient_sfybo")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(0, 1)
 
 [sub_resource type="Gradient" id="Gradient_xurhj"]
 colors = PackedColorArray(0.047280326, 0.058092393, 0.06620072, 1, 0.04593374, 0.07505355, 0.11186341, 1)
@@ -88,8 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_hy3ve")
-expand_mode = 3
+texture = ExtResource("3_lnpuo")
 
 [node name="BackgroundImage" type="TextureRect" parent="Control" unique_id=1680957298]
 layout_mode = 1
@@ -408,10 +400,28 @@ visible = false
 layout_mode = 2
 theme_override_constants/margin_bottom = 16
 
+[node name="howtoplay_Label" type="Label" parent="Control" unique_id=573733681]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 106.0
+offset_right = 353.0
+offset_bottom = 238.0
+theme_override_font_sizes/font_size = 8
+text = "You have 2 minutes time to destroy and collect asteroids.
+
+Don't disturb the haulers and don't let the entity get to you.
+
+You can sell the gathered ore in the space station... Good Luck!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1497898375]
-offset_left = 160.0
-offset_right = 426.0
-offset_bottom = 240.0
+propagate_maximum_size = false
+offset_left = 192.0
+offset_top = -34.0
+offset_right = 458.0
+offset_bottom = 206.0
+scale = Vector2(0.7, 0.7)
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=320944716]
 transparent_bg = true
@@ -426,7 +436,8 @@ libraries/ = SubResource("AnimationLibrary_gqeas")
 autoplay = &"menu_idle"
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=1306550621]
-transform = Transform3D(0.49999997, -0.4330127, 0.75, -2.185569e-08, 0.86602545, 0.49999997, -0.8660254, -0.25, 0.43301266, 3, 2, 2)
+transform = Transform3D(0.70710677, -0.35355338, 0.61237234, 0, 0.8660254, 0.49999997, -0.70710677, -0.35355338, 0.61237234, 2, 1.5, 2)
+fov = 70.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport" unique_id=97240714]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 3, 3)
