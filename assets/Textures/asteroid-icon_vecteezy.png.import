@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://caq1albo86lvj"
 path.s3tc="res://.godot/imported/asteroid-icon_vecteezy.png-cb77acb37a2582d145a0b85e81022e25.s3tc.ctex"
+path.etc2="res://.godot/imported/asteroid-icon_vecteezy.png-cb77acb37a2582d145a0b85e81022e25.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/Textures/asteroid-icon_vecteezy.png"
-dest_files=["res://.godot/imported/asteroid-icon_vecteezy.png-cb77acb37a2582d145a0b85e81022e25.s3tc.ctex"]
+dest_files=["res://.godot/imported/asteroid-icon_vecteezy.png-cb77acb37a2582d145a0b85e81022e25.s3tc.ctex", "res://.godot/imported/asteroid-icon_vecteezy.png-cb77acb37a2582d145a0b85e81022e25.etc2.ctex"]
 
 [params]
 
