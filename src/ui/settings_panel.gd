@@ -10,22 +10,28 @@ signal closed
 @onready var vsync_option: OptionButton = $TabContainer/General/MarginContainer/GridContainer/VSyncOption
 @onready var volume_slider: HSlider = $TabContainer/General/MarginContainer/GridContainer/VolumeControls/VolumeSlider
 @onready var volume_value: Label = $TabContainer/General/MarginContainer/GridContainer/VolumeControls/VolumeValue
+@onready var mouse_sensitivity_slider: HSlider = $TabContainer/Mouse/MarginContainer/GridContainer/MouseSensitivityControls/MouseSensitivitySlider
+@onready var mouse_sensitivity_value: Label = $TabContainer/Mouse/MarginContainer/GridContainer/MouseSensitivityControls/MouseSensitivityValue
+@onready var mouse_back_button: Button = $TabContainer/Mouse/MouseBackButton
 @onready var keyboard_settings: ControlsSettings = $TabContainer/Keyboard
 @onready var keyboard_back_button: Button = $TabContainer/Keyboard/ControlsBackButton
 
 
 func _ready() -> void:
 	settings_back_button.pressed.connect(_on_close_pressed)
+	mouse_back_button.pressed.connect(_on_close_pressed)
 	keyboard_back_button.pressed.connect(_on_close_pressed)
 	fullscreen_option.item_selected.connect(_on_fullscreen_selected)
 	zoom_level_option.item_selected.connect(_on_zoom_selected)
 	vsync_option.item_selected.connect(_on_vsync_selected)
 	volume_slider.value_changed.connect(_on_volume_changed)
+	mouse_sensitivity_slider.value_changed.connect(_on_mouse_sensitivity_changed)
+	_configure_mouse_sensitivity_slider()
 	_configure_option_button_font(fullscreen_option)
 	_configure_option_button_font(zoom_level_option)
 	_configure_option_button_font(vsync_option)
 
-	for button in [settings_back_button, keyboard_back_button]:
+	for button in [settings_back_button, mouse_back_button, keyboard_back_button]:
 		button.mouse_entered.connect(_on_button_hovered)
 		button.pressed.connect(_on_button_clicked)
 
@@ -48,6 +54,8 @@ func sync_ui() -> void:
 	vsync_option.select(UserSettings.vsync_mode)
 	volume_slider.value = UserSettings.volume * 100.0
 	_update_volume_label(volume_slider.value)
+	mouse_sensitivity_slider.value = UserSettings.get_mouse_sensitivity_slider_value()
+	_update_mouse_sensitivity_label()
 	_update_zoom_visibility()
 
 
@@ -74,14 +82,30 @@ func _on_volume_changed(value: float) -> void:
 	UserSettings.set_volume(value / 100.0)
 
 
+func _on_mouse_sensitivity_changed(value: float) -> void:
+	_update_mouse_sensitivity_label()
+	UserSettings.set_mouse_sensitivity_from_slider(value)
+
+
 func _update_volume_label(value: float) -> void:
 	volume_value.text = "%d%%" % roundi(value)
+
+
+func _update_mouse_sensitivity_label() -> void:
+	mouse_sensitivity_value.text = UserSettings.get_mouse_sensitivity_label()
 
 
 func _update_zoom_visibility() -> void:
 	var show_zoom := UserSettings.fullscreen_mode == UserSettings.FullscreenOption.WINDOWED
 	zoom_level_label.visible = show_zoom
 	zoom_level_option.visible = show_zoom
+
+
+func _configure_mouse_sensitivity_slider() -> void:
+	mouse_sensitivity_slider.min_value = 1.0
+	mouse_sensitivity_slider.max_value = float(UserSettings.MOUSE_SENSITIVITY_STEPS)
+	mouse_sensitivity_slider.step = 1.0
+	mouse_sensitivity_slider.rounded = true
 
 
 func _configure_option_button_font(option: OptionButton) -> void:

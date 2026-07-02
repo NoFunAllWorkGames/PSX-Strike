@@ -115,13 +115,61 @@ text = "100%"
 layout_mode = 2
 text = "Back"
 
+[node name="Mouse" type="VBoxContainer" parent="TabContainer" unique_id=1847293051]
+visible = false
+custom_minimum_size = Vector2(148, 0)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 13
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Mouse" unique_id=1847293052]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="TabContainer/Mouse/MarginContainer" unique_id=1847293053]
+layout_mode = 2
+columns = 2
+
+[node name="MouseSensitivity" type="Label" parent="TabContainer/Mouse/MarginContainer/GridContainer" unique_id=1847293054]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Mouse sensitivity"
+
+[node name="MouseSensitivityControls" type="HBoxContainer" parent="TabContainer/Mouse/MarginContainer/GridContainer" unique_id=1847293055]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="TabContainer/Mouse/MarginContainer/GridContainer/MouseSensitivityControls" unique_id=1847293056]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+value = 8.0
+rounded = true
+
+[node name="MouseSensitivityValue" type="Label" parent="TabContainer/Mouse/MarginContainer/GridContainer/MouseSensitivityControls" unique_id=1847293057]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 8
+text = "8"
+
+[node name="MouseBackButton" type="Button" parent="TabContainer/Mouse" unique_id=1847293058]
+layout_mode = 2
+text = "Back"
+
 [node name="Keyboard" type="VBoxContainer" parent="TabContainer" unique_id=1397689149]
 visible = false
 custom_minimum_size = Vector2(148, 0)
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_controls")
-metadata/_tab_index = 1
+metadata/_tab_index = 2
 
 [node name="HSeparator" type="HSeparator" parent="TabContainer/Keyboard" unique_id=900783460]
 layout_mode = 2

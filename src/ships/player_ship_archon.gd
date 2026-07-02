@@ -65,9 +65,10 @@ func _on_mouse_look_relative(relative: Vector2) -> void:
 	_look_pitch = rotation.x
 
 	# Apply the incoming mouse delta as normal
-	_ship_yaw -= relative.x * look_sensitivity
+	var sensitivity: float = UserSettings.mouse_sensitivity
+	_ship_yaw -= relative.x * sensitivity
 	_look_pitch = clampf(
-		_look_pitch - relative.y * look_sensitivity,
+		_look_pitch - relative.y * sensitivity,
 		deg_to_rad(min_pitch_degrees),
 		deg_to_rad(max_pitch_degrees)
 	)

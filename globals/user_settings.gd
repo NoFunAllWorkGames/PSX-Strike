@@ -13,6 +13,11 @@ const SHIP_DESCEND_ACTION := "ship_descend"
 const INTERACT_ACTION := "interact"
 const SHOOT_ACTION := "Shoot"
 
+const DEFAULT_MOUSE_SENSITIVITY := 0.003
+const MIN_MOUSE_SENSITIVITY := 0.0001
+const MAX_MOUSE_SENSITIVITY := 0.04
+const MOUSE_SENSITIVITY_STEPS := 100
+
 const REMAP_ACTIONS := [
 	SHIP_FORWARD_ACTION,
 	SHIP_BACK_ACTION,
@@ -40,6 +45,7 @@ var fullscreen_mode: FullscreenOption = FullscreenOption.FULLSCREEN
 var zoom_index: int = 2
 var vsync_mode: VSyncOption = VSyncOption.ENABLED
 var volume: float = 1.0
+var mouse_sensitivity: float = DEFAULT_MOUSE_SENSITIVITY
 var player_name: String = ""
 
 
@@ -57,6 +63,11 @@ func load_settings() -> void:
 	zoom_index = clampi(config.get_value("display", "zoom_index", zoom_index), 0, ZOOM_MULTIPLIERS.size() - 1)
 	vsync_mode = config.get_value("display", "vsync_mode", vsync_mode) as VSyncOption
 	volume = config.get_value("audio", "volume", config.get_value("audio", "master_volume", volume))
+	mouse_sensitivity = _step_to_sensitivity(
+		_sensitivity_to_step(
+			config.get_value("controls", "mouse_sensitivity", mouse_sensitivity),
+		),
+	)
 	player_name = config.get_value("player", "name", player_name)
 	_load_input_bindings(config)
 
@@ -68,6 +79,7 @@ func save_settings() -> void:
 	config.set_value("display", "zoom_index", zoom_index)
 	config.set_value("display", "vsync_mode", vsync_mode)
 	config.set_value("audio", "volume", volume)
+	config.set_value("controls", "mouse_sensitivity", mouse_sensitivity)
 	config.set_value("player", "name", player_name)
 	config.save(SETTINGS_PATH)
 
@@ -132,6 +144,38 @@ func set_volume(value: float) -> void:
 	volume = clampf(value, 0.0, 1.0)
 	apply_volume()
 	save_settings()
+
+
+func set_mouse_sensitivity(value: float) -> void:
+	mouse_sensitivity = _step_to_sensitivity(_sensitivity_to_step(value))
+	save_settings()
+
+
+func get_mouse_sensitivity_slider_value() -> float:
+	return float(_sensitivity_to_step(mouse_sensitivity))
+
+
+func set_mouse_sensitivity_from_slider(value: float) -> void:
+	set_mouse_sensitivity(_step_to_sensitivity(roundi(value)))
+
+
+func get_mouse_sensitivity_label() -> String:
+	return "%d" % _sensitivity_to_step(mouse_sensitivity)
+
+
+func _step_to_sensitivity(step: int) -> float:
+	var clamped_step := clampi(step, 1, MOUSE_SENSITIVITY_STEPS)
+	return lerpf(
+		MIN_MOUSE_SENSITIVITY,
+		MAX_MOUSE_SENSITIVITY,
+		float(clamped_step - 1) / float(MOUSE_SENSITIVITY_STEPS - 1),
+	)
+
+
+func _sensitivity_to_step(value: float) -> int:
+	var clamped_value := clampf(value, MIN_MOUSE_SENSITIVITY, MAX_MOUSE_SENSITIVITY)
+	var t := inverse_lerp(MIN_MOUSE_SENSITIVITY, MAX_MOUSE_SENSITIVITY, clamped_value)
+	return clampi(roundi(t * float(MOUSE_SENSITIVITY_STEPS - 1)) + 1, 1, MOUSE_SENSITIVITY_STEPS)
 
 
 func set_player_name(player_name_value: String) -> void:
