@@ -92,6 +92,16 @@ func apply_all() -> void:
 
 func apply_fullscreen() -> void:
 	var window := get_tree().root as Window
+	if OS.has_feature("web"):
+		match fullscreen_mode:
+			FullscreenOption.WINDOWED:
+				window.mode = Window.MODE_WINDOWED
+				apply_zoom()
+			_:
+				# Exclusive fullscreen is not available in browsers; fill the embed viewport instead.
+				window.mode = Window.MODE_FULLSCREEN
+		return
+
 	match fullscreen_mode:
 		FullscreenOption.FULLSCREEN:
 			window.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
