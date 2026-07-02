@@ -4,7 +4,6 @@ Todo
 Right now
 ---------
 
-- Add space station model
 - Create simple interiour scene for inside the space station
 - Fix all menu styles so it's not the default godot style anymore
     - Reimplement the sidebars in the main menu
@@ -26,12 +25,9 @@ Right now
 Optional
 ------
 
-- Replace Audio:
-    - 130883__karma-ron__mysterion-low-ship-humming.ogg | Space Scene / Ship Idle
 - Replace Textures:
     - flare_0.png | Signal light at hauler ship
     - asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering
-- Add an explanation what the game is about
 
 Want
 ----

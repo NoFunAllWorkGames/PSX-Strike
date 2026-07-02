@@ -18,6 +18,15 @@ Team
 - Creation of SoundDesignPlan.md
 - [GitHub commits](https://github.com/NoFunAllWorkGames/PSX-Strike/commits/main/?author=francobhalla)
 
+**vehN**
+
+- UI
+- [GitHub commits](https://github.com/NoFunAllWorkGames/PSX-Strike/commits?author=vehNbot)
+
+**Vaughnald**
+
+- 3D Models
+
 
 Resources
 ==========
@@ -40,11 +49,9 @@ Self-Created Assets
 | Icon_v1.png | Splash and Icon | B1773rm4n |
 | bullet.png | Enemy Projectile | B1773rm4n |
 | explosion.png | Player Death | B1773rm4n |
-| B1773rm4n_avatar.png | Main menu credits | B1773rm4n |
-| suntyger_avatar.png | Main menu credits | Suntyger |
-| francobhalla_avatar.png | Main menu credits | francobhalla |
 | player_ship_archon_body | 3D model + texture | Vaughnald |
 | Hauler Model | 3D model + texture | Vaughnald |
+| Space Station Model | 3D model + texture | Vaughnald |
 
 Audio Self-Created Assets
 -------------------------
@@ -78,8 +85,6 @@ Audio Self-Created, Not Yet Implemented
 | LaserModeSwitch.ogg | Weapon mode switch | francobhalla |
 | LaserHeatError.ogg | Weapon overheat | francobhalla |
 | HaulerFire.ogg | Enemy hauler shooting | francobhalla |
-| HaulerBulletHit.ogg | Enemy bullet hits player | francobhalla |
-| BulletFlyby1–4.ogg | Enemy bullet near-miss | francobhalla |
 
 
 AI Assets

@@ -23,8 +23,8 @@ MVP
 🚧 Vertical Slice
 --------------
 
-- 📝 Basic station model
 - 📝 One Ambient gameplay sound track
+- ✅ Basic station model
 - ✅ Basic ship model, including mining laser & armaments
 - ✅ Asteroid models
 - ✅ Sound effects for collisions
