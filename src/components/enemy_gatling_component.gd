@@ -77,4 +77,4 @@ func _on_bullet_player_hit() -> void:
 	if GameManager.player_is_dead:
 		return
 	hit_sound.play()
-	SignalBus.player_receive_damage.emit(5)
+	SignalBus.player_receive_damage.emit(5, SignalBus.PlayerDeathEffect.EXPLOSION)

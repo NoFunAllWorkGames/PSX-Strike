@@ -1,0 +1,10 @@
+[gd_resource type="AnimationLibrary" format=3 uid="uid://dkad2td50pvll"]
+
+[ext_resource type="Animation" uid="uid://da3pela7wb3rn" path="res://scenes/Ships/player_ship_explosion_reset_animation.tres" id="1_13d4j"]
+[ext_resource type="Animation" uid="uid://cr4eyh4rk0a1h" path="res://scenes/Ships/player_ship_explosion_animation.tres" id="2_h3xx0"]
+
+[resource]
+_data = {
+&"RESET": ExtResource("1_13d4j"),
+&"explosion": ExtResource("2_h3xx0")
+}

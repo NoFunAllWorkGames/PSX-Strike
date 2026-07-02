@@ -6,8 +6,9 @@
 [ext_resource type="AudioStream" uid="uid://jdvitajuvxp" path="res://assets/Sounds/Engine/ShipEngine.ogg" id="3_ipt2d"]
 [ext_resource type="Script" uid="uid://co7qjmw5034m6" path="res://src/components/shooting.gd" id="3_qjll1"]
 [ext_resource type="Script" uid="uid://jd23mfxamfk3" path="res://src/components/cargo_component.gd" id="4_5iwu1"]
-[ext_resource type="AnimationLibrary" uid="uid://bbiofxxpbtyk5" path="res://scenes/Ships/animation_library.tres" id="7_b5nh1"]
 [ext_resource type="Texture2D" uid="uid://cwxpfc484iin0" path="res://assets/Textures/explosion.png" id="7_ipt2d"]
+[ext_resource type="AnimationLibrary" uid="uid://bq04gbyuqn27u" path="res://scenes/Ships/PlayerShipArchon_explosion.tres" id="8_upyqg"]
+[ext_resource type="AnimationLibrary" uid="uid://6r0axervfhw" path="res://animations/disintegration_PlayerShipArchon.tres" id="9_cwaqh"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_upyqg"]
 points = PackedVector3Array(0.8549152, -0.109210506, -0.2636129, -0.5704958, -0.2668, 0.969697, -0.36037198, 0.40185833, 0.82290345, 0.34657335, 0.2657332, -0.7683154, 0.5754622, -0.26365456, -0.9607348, 0.5505038, -0.2668, 0.969697, 0.36455667, 0.39610437, 0.808783, -0.5704958, -0.2668, -0.969697, -0.38450664, 0.21640082, -0.8394599, 0.8938589, 0.06653333, -0.76170594, -0.8835722, 0.06653333, -0.28559, 0.8938589, 0.06653333, -0.28559, -0.8835722, 0.06653333, -0.7619048, -0.33612517, 0.2657332, -0.7683154, -0.8842871, -0.11741242, -0.76664585, 0.37109402, 0.2190094, -0.85407144, 0.8949818, -0.117496796, -0.76680523, 0.37273833, 0.34230265, 0.857909, -0.5442822, -0.17757243, 0.97692513, 0.54529613, -0.17345259, 0.9604373, -0.5388452, -0.1751568, -0.9672576, 0.3448996, 0.37807944, 0.48136947, -0.85841405, -0.11206153, -0.26788938, 0.5443057, -0.17301255, -0.9586763, 0.5754622, -0.26365456, 0.93064123, -0.33445218, 0.37807944, 0.48136947, -0.45229828, 0.0970185, 0.9151287, 0.5789274, -0.235479, -0.96657205, -0.41625908, 0.12671047, -0.8732287, 0.45719332, 0.0966592, 0.9043426, -0.41805902, 0.21768388, 0.87695855)
@@ -24,10 +25,11 @@ resource_local_to_scene = true
 material = SubResource("StandardMaterial3D_jm38r")
 size = Vector2(0, 0)
 
-[node name="PlayerShipArchon" type="CharacterBody3D" unique_id=34192894]
+[node name="PlayerShipArchon" type="CharacterBody3D" unique_id=34192894 node_paths=PackedStringArray("mesh_instance")]
 collision_layer = 2
 collision_mask = 101
 script = ExtResource("1_uaftn")
+mesh_instance = NodePath("player_ship_archon_body/Cube")
 
 [node name="player_ship_archon_body" parent="." unique_id=616139151 instance=ExtResource("2_ipt2d")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -70,7 +72,12 @@ bus = &"SFX"
 mesh = SubResource("QuadMesh_op28h")
 
 [node name="ExplosionAnimation" type="AnimationPlayer" parent="." unique_id=1313225870]
-libraries/ = ExtResource("7_b5nh1")
+libraries/ = ExtResource("8_upyqg")
 
 [node name="AudioListener3D" type="AudioListener3D" parent="." unique_id=708486521]
 current = true
+
+[node name="disintegration" type="AnimationPlayer" parent="." unique_id=1186744692]
+libraries/ = ExtResource("9_cwaqh")
+
+[editable path="player_ship_archon_body"]

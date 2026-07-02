@@ -17,7 +17,12 @@ signal cargo_state_changed(amount: int, capacity: int)
 signal right_column_updated()
 
 ## Player Ship
-signal player_receive_damage(amount: int)
+enum PlayerDeathEffect {
+	EXPLOSION,
+	DISINTEGRATION,
+}
+
+signal player_receive_damage(amount: int, death_effect: PlayerDeathEffect)
 
 ## Ship control
 signal shoot_action_pressed()

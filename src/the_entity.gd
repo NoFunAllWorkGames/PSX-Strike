@@ -134,4 +134,4 @@ func _check_player_collision() -> void:
 		return
 
 	if get_overlapping_bodies().has(GameManager.PlayerShip):
-		SignalBus.player_receive_damage.emit(1000)
+		SignalBus.player_receive_damage.emit(1000, SignalBus.PlayerDeathEffect.DISINTEGRATION)

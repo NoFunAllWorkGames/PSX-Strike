@@ -1,0 +1,68 @@
+[gd_resource type="AnimationLibrary" format=3 uid="uid://6r0axervfhw"]
+
+[ext_resource type="Shader" uid="uid://dsdg4tsbmwqmx" path="res://src/shaders/archon_disintegrate.gdshader" id="1_iea3c"]
+[ext_resource type="Texture2D" uid="uid://d0gnvsyqoq4w" path="res://assets/Models/player_ship_archon_body_texPlayerShipv2.png" id="2_2tayo"]
+
+[sub_resource type="Animation" id="Animation_cwaqh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_ship_archon_body/Cube:surface_material_override/0")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bve73"]
+frequency = 0.35
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_bve73"]
+noise = SubResource("FastNoiseLite_bve73")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bve73"]
+render_priority = 0
+shader = ExtResource("1_iea3c")
+shader_parameter/albedo_texture = ExtResource("2_2tayo")
+shader_parameter/noise_texture = SubResource("NoiseTexture3D_bve73")
+shader_parameter/tear_progress = 0.0
+shader_parameter/explosion_force = 1.0
+shader_parameter/random_seed = Vector3(0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_jm38r"]
+resource_name = "disintegration"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player_ship_archon_body/Cube:surface_material_override/0")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_bve73")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player_ship_archon_body/Cube:surface_material_override/0:shader_parameter/tear_progress")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[resource]
+_data = {
+&"RESET": SubResource("Animation_cwaqh"),
+&"disintegration": SubResource("Animation_jm38r")
+}

@@ -20,6 +20,7 @@ extends CharacterBody3D
 @onready var engine_hovering: AudioStreamPlayer = $Engine_Hovering
 @onready var current_weapon = preload("res://scenes/Objects/mining_laser.tscn")
 @onready var explosion_animation: AnimationPlayer = $ExplosionAnimation
+@onready var disintegration_animation: AnimationPlayer = $disintegration
 
 # For self-destruction by max speed
 const SUSTAINED_SPEED_DAMAGE_RATIO := 0.95
@@ -31,6 +32,9 @@ var speed_timer: float = 0.0
 var _ship_yaw: float = 0.0
 var _look_pitch: float = 0.0
 var _is_dead: bool = false
+var _pending_death_effect: SignalBus.PlayerDeathEffect = SignalBus.PlayerDeathEffect.DISINTEGRATION
+
+@export var mesh_instance: MeshInstance3D
 
 func _enter_tree() -> void:
 	InputManager.capture_mouse()
@@ -41,6 +45,7 @@ func _ready() -> void:
 	_ship_yaw = rotation.y
 	_look_pitch = rotation.x
 	camera_pivot.rotation = Vector3.ZERO
+	_setup_disintegrate_shader()
 	SignalBus.player_receive_damage.connect(_on_player_receive_damage)
 
 func _exit_tree() -> void:
@@ -103,7 +108,10 @@ func _max_speed_selfdestruction(delta: float) -> void:
 	if speed >= damage_threshold:
 		speed_timer += delta
 		if speed_timer >= 1.0:
-			SignalBus.player_receive_damage.emit(1000)
+			SignalBus.player_receive_damage.emit(
+				1000,
+				SignalBus.PlayerDeathEffect.EXPLOSION
+			)
 			speed_timer = 0.0
 	elif speed < reset_threshold:
 		speed_timer = 0.0
@@ -129,9 +137,13 @@ func heal(amount: int) -> int:
 	return healed
 
 
-func _on_player_receive_damage(damage: int) -> void:
+func _on_player_receive_damage(
+	damage: int,
+	death_effect: SignalBus.PlayerDeathEffect
+) -> void:
 	if _is_dead:
 		return
+	_pending_death_effect = death_effect
 	lifepoints -= damage
 	if lifepoints <= 0:
 		go_die()
@@ -145,7 +157,17 @@ func go_die() -> void:
 	SignalBus.shoot_action_released.emit()
 
 	engine_hovering.stop()
-	explosion_animation.play("explosion")
+
+	var death_animation: AnimationPlayer
+	match _pending_death_effect:
+		SignalBus.PlayerDeathEffect.EXPLOSION:
+			if mesh_instance:
+				mesh_instance.visible = false
+			death_animation = explosion_animation
+			death_animation.play("explosion")
+		_:
+			death_animation = disintegration_animation
+			death_animation.play("disintegration")
 
 	# post scores via network
 	Networking.post_scores()
@@ -155,6 +177,26 @@ func go_die() -> void:
 	InputManager.enable_freelook_click_capture = false
 	InputManager.release_mouse()
 
-	await explosion_animation.animation_finished
-	explosion_animation.play("RESET")
+	await death_animation.animation_finished
+	death_animation.play("RESET")
+	if death_animation == explosion_animation:
+		disintegration_animation.play("RESET")
+	else:
+		explosion_animation.play("RESET")
 	GameManager.open_score_board_overlay()
+
+
+func _setup_disintegrate_shader() -> void:
+	if not mesh_instance or not mesh_instance is MeshInstance3D:
+		return
+
+	var cube := mesh_instance as MeshInstance3D
+	var shader_mat := cube.get_surface_override_material(0) as ShaderMaterial
+	if not shader_mat:
+		return
+
+	var surface_mat := cube.mesh.surface_get_material(0)
+	if surface_mat is StandardMaterial3D:
+		var albedo_texture: Texture2D = surface_mat.albedo_texture
+		if albedo_texture:
+			shader_mat.set_shader_parameter("albedo_texture", albedo_texture)
