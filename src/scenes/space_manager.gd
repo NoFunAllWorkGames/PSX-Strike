@@ -40,6 +40,9 @@ func _ready() -> void:
 
 	SignalBus.update_ui.emit()
 
+	if entry_state == Enums.GameState.NEW_GAME:
+		GameManager.open_controls_overview.call_deferred()
+
 
 func _spawn_asteroid_fields() -> void:
 	$HBoxContainer/SubViewportContainer/SubViewport/World/Environment/NoiseAsteroid.spawn_gaussian_cloud()

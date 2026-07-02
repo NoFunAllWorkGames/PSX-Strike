@@ -30,6 +30,11 @@ func _handle_escape(event: InputEvent) -> bool:
 	if event.keycode != KEY_ESCAPE:
 		return false
 
+	if GameManager.controls_overview_open:
+		GameManager.close_controls_overview()
+		get_viewport().set_input_as_handled()
+		return true
+
 	var now := Time.get_ticks_msec()
 	if now - _last_escape_ms <= _DOUBLE_ESC_MS:
 		GameManager.quit_game()
@@ -42,6 +47,9 @@ func _handle_escape(event: InputEvent) -> bool:
 
 
 func _handle_tab_menu(event: InputEvent) -> bool:
+	if GameManager.controls_overview_open:
+		return false
+
 	if not event.is_action_pressed("tab_menu"):
 		return false
 
@@ -62,6 +70,8 @@ func _handle_tab_menu(event: InputEvent) -> bool:
 
 
 func _handle_scene_input(event: InputEvent) -> void:
+	if GameManager.controls_overview_open:
+		return
 	if GameManager.player_is_dead:
 		return
 	if GameManager.game_state == Enums.GameState.PAUSED:

@@ -30,6 +30,11 @@ var _pause_menu_instance: Node
 const SCORE_BOARD_SCENE := preload("res://scenes/Level/Score_Board.tscn")
 var _score_board_instance: Node
 
+# Controls overview (new game)
+const CONTROLS_OVERVIEW_SCENE := preload("res://scenes/UI/Controls_Overview.tscn")
+var _controls_overview_instance: Node
+var controls_overview_open: bool = false
+
 func _ready() -> void:
 	# Unpauses the game
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -72,6 +77,7 @@ func return_to_main_menu() -> void:
 	print("Returning to Main Menu")
 	player_is_dead = false
 	_close_score_board_overlay()
+	_close_controls_overview()
 	_close_pause_overlay()
 	get_tree().paused = false
 	InputManager.release_mouse()
@@ -99,6 +105,32 @@ func _close_score_board_overlay() -> void:
 	if is_instance_valid(_score_board_instance):
 		_score_board_instance.queue_free()
 		_score_board_instance = null
+
+
+func open_controls_overview() -> void:
+	if controls_overview_open:
+		return
+	controls_overview_open = true
+	_controls_overview_instance = CONTROLS_OVERVIEW_SCENE.instantiate()
+	get_tree().root.add_child(_controls_overview_instance)
+	get_tree().paused = true
+	InputManager.release_mouse()
+
+
+func close_controls_overview() -> void:
+	if not controls_overview_open:
+		return
+	controls_overview_open = false
+	if is_instance_valid(_controls_overview_instance):
+		_controls_overview_instance.queue_free()
+		_controls_overview_instance = null
+	get_tree().paused = false
+	if game_state == Enums.GameState.SPACE:
+		InputManager.capture_mouse()
+
+
+func _close_controls_overview() -> void:
+	close_controls_overview()
 
 
 func transition_to(target_path: String) -> void:
