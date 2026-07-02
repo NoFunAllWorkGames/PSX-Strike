@@ -5,6 +5,12 @@
 [ext_resource type="Shader" uid="uid://cbb55nyo6jyr7" path="res://src/shaders/asteroid_damage_bar.gdshader" id="3_shader"]
 [ext_resource type="Material" uid="uid://cm420p2or6phg" path="res://assets/asteroid_precious_material.tres" id="4_mat"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_btgcs"]
+radius = 1.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4n7j4"]
+radius = 2.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_damagebar"]
 render_priority = 0
 shader = ExtResource("3_shader")
@@ -32,6 +38,7 @@ hull_contact_area = NodePath("HullContact")
 material_override = ExtResource("4_mat")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1825506147]
+shape = SubResource("SphereShape3D_btgcs")
 
 [node name="HullContact" type="Area3D" parent="." unique_id=717560659]
 collision_layer = 0
@@ -39,6 +46,7 @@ collision_mask = 2
 monitorable = false
 
 [node name="HullContact_CollisionShape3D" type="CollisionShape3D" parent="HullContact" unique_id=909830245]
+shape = SubResource("SphereShape3D_4n7j4")
 
 [node name="DamageBar" type="MeshInstance3D" parent="." unique_id=839771913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6699467, 0)
