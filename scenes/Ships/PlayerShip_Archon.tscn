@@ -84,5 +84,3 @@ libraries/ = ExtResource("9_cwaqh")
 [node name="DisintegrationSound" type="AudioStreamPlayer" parent="." unique_id=1986744693]
 stream = ExtResource("10_bve73")
 bus = &"SFX"
-
-[editable path="player_ship_archon_body"]
