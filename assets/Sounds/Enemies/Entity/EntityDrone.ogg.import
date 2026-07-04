@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/EntityDrone.ogg-15606ffd7b442db2b08cff74e9ceb
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

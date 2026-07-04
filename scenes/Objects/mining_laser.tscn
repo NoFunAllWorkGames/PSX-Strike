@@ -57,6 +57,7 @@ mesh = SubResource("CylinderMesh_ds5mv")
 [node name="OnHitAudio" type="AudioStreamPlayer" parent="." unique_id=1319964675]
 stream = SubResource("AudioStreamRandomizer_os6a8")
 bus = &"SFX"
+parameters/looping = true
 
 [node name="OnStartShootingAudio" type="AudioStreamPlayer" parent="." unique_id=1353806585]
 stream = SubResource("AudioStreamRandomizer_v7p4l")
@@ -66,3 +67,4 @@ bus = &"SFX"
 stream = SubResource("AudioStreamRandomizer_6n34o")
 volume_db = 1.0
 bus = &"SFX"
+parameters/looping = true

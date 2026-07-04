@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/LaserBeamVoid1.ogg-0bc41cd3c4a688f211e59755c6
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

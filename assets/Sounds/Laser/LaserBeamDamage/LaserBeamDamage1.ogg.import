@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/LaserBeamDamage1.ogg-0cc92c17b4c92b09152dc24d
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

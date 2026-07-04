@@ -449,3 +449,4 @@ transform = Transform3D(0.35836592, -0.74075675, 0.5682019, 0.45832604, 0.669829
 stream = ExtResource("12_pyew7")
 autoplay = true
 bus = &"Music"
+parameters/looping = true

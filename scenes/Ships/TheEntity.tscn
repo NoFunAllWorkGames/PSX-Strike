@@ -34,3 +34,4 @@ volume_db = 20.0
 unit_size = 49.96
 autoplay = true
 bus = &"SFX"
+parameters/looping = true
