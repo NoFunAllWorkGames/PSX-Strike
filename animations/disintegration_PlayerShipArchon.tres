@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://dsdg4tsbmwqmx" path="res://src/shaders/archon_disintegrate.gdshader" id="1_iea3c"]
 [ext_resource type="Texture2D" uid="uid://d0gnvsyqoq4w" path="res://assets/Models/player_ship_archon_body_texPlayerShipv2.png" id="2_2tayo"]
-[ext_resource type="AudioStream" uid="uid://bkcvu8j46u06a" path="res://assets/Sounds/Laser/LaserArmFire/LaserArmFire2.ogg" id="3_bve73"]
 
 [sub_resource type="Animation" id="Animation_cwaqh"]
 length = 0.001
@@ -61,21 +60,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("DisintegrationSound")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_bve73")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [resource]
 _data = {

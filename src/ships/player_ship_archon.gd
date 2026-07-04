@@ -21,6 +21,7 @@ extends CharacterBody3D
 @onready var current_weapon = preload("res://scenes/Objects/mining_laser.tscn")
 @onready var explosion_animation: AnimationPlayer = $ExplosionAnimation
 @onready var disintegration_animation: AnimationPlayer = $disintegration
+@onready var disintegration_sound: AudioStreamPlayer = $DisintegrationSound
 
 # For self-destruction by max speed
 const SUSTAINED_SPEED_DAMAGE_RATIO := 0.95
@@ -167,6 +168,7 @@ func go_die() -> void:
 			death_animation.play("explosion")
 		_:
 			death_animation = disintegration_animation
+			disintegration_sound.play()
 			death_animation.play("disintegration")
 
 	# post scores via network

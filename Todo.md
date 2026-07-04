@@ -26,7 +26,7 @@ Audio
 - Check and restructure the SoundDesignPlan
 - check if any sounds are missing
 - Fix Entity sound distance volume
-- Ship engine sound is way too low volume on browser mode
+- Ship engine sound seems generally missing or too low volume
 
 
 3D
@@ -35,6 +35,17 @@ Audio
 - Create simple interior scene for inside the space station
 
 
+Bugs
+----
+
+Web
+----
+
+- Sometimes you have to right click to give the game focus again, I think that happens after undocking
+- undocking is a bit weird now
+- biggest issue are the asteroid life bars. It seems the first one works and then they are broken
+- When going back to the main menu, you have to go out of fullscreen to be able to click something again
+- Entity sound randomly stopped and restarted after exiting Station
 
 
 Optional
