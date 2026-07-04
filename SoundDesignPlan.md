@@ -11,45 +11,44 @@ Legend:
 UI/Main menu
 ------------
 
-- Hover on item 🟡
-- Click on item 🟡
-- Tab into the pause menu 🟡
+- Hover on item 🟢
+- Click on item 🟢
+- Tab into the pause menu 🟢
       
 The Ship
 --------
 
 **Engine**:
 
-- Idle 🟡
-- Accelerate 🟡
-- Deaccelerate 🟡
-- Max/constant speed 🟡
+- Idle 🟢
+- Accelerate 🟢
+- Deaccelerate 🟢
+- Max/constant speed 🟢
 
 **Collision**:
 
-- With Asterioids/Rocks 🟡
-- With enemy ships 🟡
-- Wall/surfaces of the space station 🟡
+- With Asterioids/Rocks 🟢
+- With enemy ships 🟢
+- Wall/surfaces of the space station 🟢
 
 **Damage:**
 
-- Small hits from enemy ships 🟡
-- Large hits from enemy ships 🟡
-- Total loss/Complete destruction 🟡
+- hits from Hauler 🟢
+- Disintegration 🟣
 
 
 **Weaponry:**
 
 - Mining Laser:
-    - Fire - Igniting the Laser 🟡
-    - Constant fire into the void - Laser sound looped 🟡
-    - Laser touching the rock/asteroid/enemy ship - Burn sound 🟣
+    - Fire - Igniting the Laser 🟢
+    - Constant fire into the void - Laser sound looped 🟢
+    - Laser touching the rock/asteroid/enemy ship - Burn sound 🟢
     - Mode Switch sound 🟣
     - Overheat Error sound 🟣
 - Mining Laser to Armament Switch Sound
 - Armaments:
     - Laser Repeaters - bursts of Laser sound 🟣
-    - Ballistic cannons
+    - Ballistic cannons 
         - Shoot
         - Out of ammo
     - Missile Pods
@@ -62,26 +61,26 @@ The Ship
 
 **The Entity:**
 
-- Instrument Glitch sounds 
-- Error sounds which suggests complete loss of control
+- Instrument Glitch sounds 🟢
+- Error sounds which suggests complete loss of control 
 
 **Cargo:**
 
-- Collection 🟡
-- Deposit
+- Collection 🟢
+- Deposit 🟢
 
 Enemies
 -------
 
 **Ships**:
 
-- Engine sounds 🟡
-- Shoot sounds based on their weapon
+- Engine sounds 🟢
+- Shoot sounds based on their weapon 🟢
 
 **The Entity**
 
-- Heavy Engine sounds 🟣
-- Rumble 🟣
+- Heavy Engine sounds 🟢
+- Rumble 🟢
 
 Control Room Voice Over
 -----------------------
