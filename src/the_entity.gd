@@ -80,6 +80,7 @@ func reset_to_initial() -> void:
 
 func _physics_process(_delta: float) -> void:
 	if GameManager.player_is_dead:
+		entity_audio.stop()
 		return
 	global_position = _origin + _random_jitter_offset()
 	mesh_instance.rotation = Vector3(
