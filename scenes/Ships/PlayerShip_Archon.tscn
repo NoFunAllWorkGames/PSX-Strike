@@ -51,6 +51,7 @@ fov = 80.0
 
 [node name="Engine_Hovering" type="AudioStreamPlayer" parent="." unique_id=202474421]
 stream = ExtResource("3_ipt2d")
+volume_db = 4.0
 autoplay = true
 bus = &"SFX"
 parameters/looping = true

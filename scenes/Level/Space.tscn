@@ -104,6 +104,7 @@ enemy_spawn_slots = Array[ExtResource("3_oo3mg")]([SubResource("Resource_p5kko")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Managers" parent_id_path=PackedInt32Array(832875041) index="1" unique_id=832089378]
 stream = ExtResource("7_o803n")
+volume_db = -6.0
 autoplay = true
 bus = &"Music"
 parameters/looping = true
