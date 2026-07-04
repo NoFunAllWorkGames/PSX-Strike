@@ -11,6 +11,7 @@ General
 - optmize web export for itch
 - Fix fullscreen in browser mode
 - Everyone update the credits if possible
+- Asteroid life bars are still broken...
 
 UI
 --
@@ -33,8 +34,19 @@ Audio
 --
 
 - Create simple interior scene for inside the space station
+- Update Asteroid Resource Pickup texture
 
 
+Bugs
+----
+
+Web
+----
+
+- Sometimes you have to right click to give the game focus again, I think that happens after undocking
+- undocking is a bit weird now
+- biggest issue are the asteroid life bars. It seems the first one works and then they are broken
+- When going back to the main menu, you have to go out of fullscreen to be able to click something again
 
 
 Optional
