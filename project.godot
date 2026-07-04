@@ -55,6 +55,11 @@ folder_colors={
 "res://src/": "red"
 }
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/custom_font="uid://bd4rqcfukka8q"
+
 [input]
 
 ship_forward={

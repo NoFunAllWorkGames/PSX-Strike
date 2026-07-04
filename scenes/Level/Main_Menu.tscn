@@ -403,10 +403,10 @@ theme_override_constants/margin_bottom = 16
 [node name="howtoplay_Label" type="Label" parent="Control" unique_id=573733681]
 layout_mode = 0
 offset_left = 214.0
-offset_top = 106.0
+offset_top = 94.0
 offset_right = 353.0
-offset_bottom = 238.0
-theme_override_font_sizes/font_size = 8
+offset_bottom = 235.0
+theme_override_font_sizes/font_size = 9
 text = "You have 2 minutes time to destroy and collect asteroids.
 
 Don't disturb the haulers and don't let the entity get to you.
