@@ -178,11 +178,6 @@ func go_die() -> void:
 	InputManager.release_mouse()
 
 	await death_animation.animation_finished
-	death_animation.play("RESET")
-	if death_animation == explosion_animation:
-		disintegration_animation.play("RESET")
-	else:
-		explosion_animation.play("RESET")
 	GameManager.open_score_board_overlay()
 
 
