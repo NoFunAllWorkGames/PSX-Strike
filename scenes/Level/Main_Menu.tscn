@@ -316,7 +316,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 8
-text = "Audio files"
+text = "Sound Designer"
 
 [node name="Vaughnald" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer/CreditsPanel/VBoxContainer" unique_id=501251776]
 layout_mode = 2

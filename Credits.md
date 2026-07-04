@@ -26,6 +26,7 @@ Team
 **Vaughnald**
 
 - 3D Models
+- Textures
 
 
 Resources
