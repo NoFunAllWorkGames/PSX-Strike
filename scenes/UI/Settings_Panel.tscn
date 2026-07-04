@@ -19,10 +19,11 @@ layout_mode = 2
 theme = ExtResource("2_hy3ve")
 theme_override_font_sizes/font_size = 8
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="General" type="VBoxContainer" parent="TabContainer" unique_id=81355090]
-custom_minimum_size = Vector2(148, 0)
+visible = false
+custom_minimum_size = Vector2(148, 140)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 13
@@ -116,11 +117,9 @@ layout_mode = 2
 text = "Back"
 
 [node name="Mouse" type="VBoxContainer" parent="TabContainer" unique_id=1847293051]
-visible = false
-custom_minimum_size = Vector2(148, 0)
+custom_minimum_size = Vector2(148, 140)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 13
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Mouse" unique_id=1847293052]
@@ -138,7 +137,7 @@ columns = 2
 [node name="MouseSensitivity" type="Label" parent="TabContainer/Mouse/MarginContainer/GridContainer" unique_id=1847293054]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
-text = "Mouse sensitivity"
+text = "Sensitivity"
 
 [node name="MouseSensitivityControls" type="HBoxContainer" parent="TabContainer/Mouse/MarginContainer/GridContainer" unique_id=1847293055]
 layout_mode = 2
@@ -165,7 +164,7 @@ text = "Back"
 
 [node name="Keyboard" type="VBoxContainer" parent="TabContainer" unique_id=1397689149]
 visible = false
-custom_minimum_size = Vector2(148, 0)
+custom_minimum_size = Vector2(148, 140)
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_controls")

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://2oris1t1saux" path="res://src/scenes/station.gd" id="2_4dbit"]
 [ext_resource type="Script" uid="uid://ct2ycjqmoqrsg" path="res://src/ui/station_left_buttons.gd" id="2_station"]
 [ext_resource type="AudioStream" uid="uid://db12o736ydbmr" path="res://assets/Sounds/Ambience/StationAmbience.ogg" id="4_8mik3"]
+[ext_resource type="Theme" uid="uid://cdyptnkr683qe" path="res://assets/Styles/Menu_theme.tres" id="4_aod7c"]
 [ext_resource type="PackedScene" uid="uid://duiklfa8xdjer" path="res://scenes/Ships/PlayerShip_Archon.tscn" id="5_l3t8d"]
 [ext_resource type="AudioStream" uid="uid://jdvitajuvxp" path="res://assets/Sounds/Engine/ShipEngine.ogg" id="6_8mik3"]
 [ext_resource type="Script" uid="uid://c4q6dri8n2xsu" path="res://src/ui/station_right_column.gd" id="6_p6bjf"]
@@ -97,15 +98,16 @@ offset_right = 66.0
 offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_aod7c")
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_right = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Left/MarginContainer" index="0" unique_id=911939098]
-custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
 theme_override_constants/separation = 21
 
 [node name="Reset" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="0" unique_id=456226324]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
@@ -113,6 +115,7 @@ text = "Reset Entity
 100 Money"
 
 [node name="Heal" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="1" unique_id=2130985888]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 disabled = true
@@ -120,11 +123,13 @@ text = "Heal
 1 Money/HP"
 
 [node name="Sell" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="2" unique_id=316648595]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Sell Resource"
 
 [node name="undock" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="3" unique_id=1988813574]
+custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Undock"
@@ -203,6 +208,7 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer" index="0" unique_id=126188825]
 layout_mode = 2
+theme = ExtResource("4_aod7c")
 theme_override_constants/separation = 16
 
 [node name="MoneyPanel" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer" index="0" unique_id=1509913976]
