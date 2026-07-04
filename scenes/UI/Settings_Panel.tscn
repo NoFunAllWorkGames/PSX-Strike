@@ -7,6 +7,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4in54"]
 
 [node name="SettingsPanel" type="MarginContainer" unique_id=21692525]
+custom_minimum_size = Vector2(164, 184)
 size_flags_vertical = 3
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
@@ -19,11 +20,10 @@ layout_mode = 2
 theme = ExtResource("2_hy3ve")
 theme_override_font_sizes/font_size = 8
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="General" type="VBoxContainer" parent="TabContainer" unique_id=81355090]
-visible = false
-custom_minimum_size = Vector2(148, 140)
+custom_minimum_size = Vector2(148, 159)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 13
@@ -117,7 +117,8 @@ layout_mode = 2
 text = "Back"
 
 [node name="Mouse" type="VBoxContainer" parent="TabContainer" unique_id=1847293051]
-custom_minimum_size = Vector2(148, 140)
+visible = false
+custom_minimum_size = Vector2(148, 159)
 layout_mode = 2
 size_flags_vertical = 3
 metadata/_tab_index = 1
@@ -164,7 +165,6 @@ text = "Back"
 
 [node name="Keyboard" type="VBoxContainer" parent="TabContainer" unique_id=1397689149]
 visible = false
-custom_minimum_size = Vector2(148, 140)
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_controls")
@@ -180,14 +180,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
+vertical_scroll_mode = 0
 
 [node name="ScrollContent" type="VBoxContainer" parent="TabContainer/Keyboard/ScrollContainer" unique_id=959011239]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 8
+size_flags_vertical = 3
+theme_override_constants/separation = 4
 
 [node name="CenterContainer" type="CenterContainer" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent" unique_id=18810786]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="GridContainer" type="GridContainer" parent="TabContainer/Keyboard/ScrollContainer/ScrollContent/CenterContainer" unique_id=280899822]
 layout_mode = 2
