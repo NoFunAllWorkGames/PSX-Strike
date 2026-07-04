@@ -36,7 +36,6 @@ Downloaded Assets
 
 | Filename | Used for | Source |
 | ---      | ---      | ---    |
-| flare_0.png | Signal light at enemy ship | https://opengameart.org/content/flare-effect-blender |
 | NightSkyHDRI007/ | Space background | https://ambientcg.com/view?id=NightSkyHDRI007 |
 | WallTextureSpaceStation_Tripwire_Pinterest.jpg | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
 | asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering | https://www.vecteezy.com/vector-art/41412951-black-vector-asteroid-icon-isolated-on-white-background |
@@ -52,6 +51,7 @@ Self-Created Assets
 | player_ship_archon_body | 3D model + texture | Vaughnald |
 | Hauler Model | 3D model + texture | Vaughnald |
 | Space Station Model | 3D model + texture | Vaughnald |
+| texFlare0.png | Signal light at Hauler ship | Vaughnald |
 
 Audio Self-Created Assets
 -------------------------

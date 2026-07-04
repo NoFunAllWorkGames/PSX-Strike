@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://docj8om136amr" path="res://src/ships/enemy_ship_hauler.gd" id="1_2lvl2"]
 [ext_resource type="Script" uid="uid://bc7d2og3hegar" path="res://src/data/enemy_ship_hauler_res.gd" id="2_0dnsn"]
 [ext_resource type="AudioStream" uid="uid://eywjbbg0htud" path="res://assets/Sounds/Collisions/WithHauler/WithHauler.ogg" id="3_55la7"]
-[ext_resource type="Texture2D" uid="uid://b7bodi22eo6l7" path="res://assets/Textures/flare_0.png" id="3_c1sg8"]
 [ext_resource type="PackedScene" uid="uid://catxh8e56o1b6" path="res://assets/Models/modelHauler0.glb" id="3_ydyh5"]
 [ext_resource type="PackedScene" uid="uid://0gehker18uf3" path="res://scenes/Weapons/gatling_component.tscn" id="4_55la7"]
 [ext_resource type="AudioStream" uid="uid://blnsytvwretvr" path="res://assets/Sounds/Engine/HaulerEngine.ogg" id="5_0dnsn"]
+[ext_resource type="Texture2D" uid="uid://bm8fego534d5v" path="res://assets/Textures/texFlare0.png" id="5_55la7"]
 
 [sub_resource type="Resource" id="Resource_h5a4a"]
 script = ExtResource("2_0dnsn")
@@ -21,11 +21,12 @@ size = Vector3(2.3360424, 7.129548, 3.3100781)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h0scj"]
 transparency = 1
+blend_mode = 1
 disable_ambient_light = true
 disable_fog = true
 disable_specular_occlusion = true
 albedo_color = Color(1, 1, 1, 0.90000004)
-albedo_texture = ExtResource("3_c1sg8")
+albedo_texture = ExtResource("5_55la7")
 emission_enabled = true
 emission = Color(0, 0, 1, 1)
 emission_energy_multiplier = 0.0
@@ -33,7 +34,7 @@ billboard_mode = 1
 
 [sub_resource type="QuadMesh" id="QuadMesh_h5a4a"]
 material = SubResource("StandardMaterial3D_h0scj")
-size = Vector2(4, 4)
+size = Vector2(3, 3)
 
 [sub_resource type="Animation" id="Animation_8ocvd"]
 resource_name = "Blink"
@@ -49,7 +50,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [16.0, 0.0]
+"values": [1.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_3s1mv"]
