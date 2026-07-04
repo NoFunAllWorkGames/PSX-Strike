@@ -17,8 +17,8 @@ border_width_right = 20
 border_width_bottom = 20
 border_color = Color(0.05882353, 0.07058824, 0.078431375, 1)
 border_blend = true
-expand_margin_left = 213.0
-expand_margin_right = 213.0
+expand_margin_left = 160.0
+expand_margin_right = 160.0
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1957793238]
 process_mode = 3
@@ -30,6 +30,8 @@ material = SubResource("ShaderMaterial_evxxc")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 53.0
+offset_right = -53.0
 grow_horizontal = 2
 grow_vertical = 2
 
