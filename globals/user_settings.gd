@@ -213,7 +213,7 @@ func get_binding_label(action: String) -> String:
 	var event := _get_action_event(action)
 	if event == null:
 		return "Unbound"
-	return event.as_text()
+	return event.as_text().replace(" (Physical)", "")
 
 
 func _get_action_event(action: String) -> InputEvent:
