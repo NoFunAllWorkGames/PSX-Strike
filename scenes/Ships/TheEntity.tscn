@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://cko023nb6gfc" path="res://src/shaders/TheEntityShader.gdshader" id="1_hfjux"]
 [ext_resource type="Script" uid="uid://by6qv7217q7aw" path="res://src/the_entity.gd" id="1_rghxa"]
-[ext_resource type="AudioStream" uid="uid://b6pkdbdl82lqv" path="res://assets/Sounds/Enemies/Entity/EntityDrone.ogg" id="3_6ugoe"]
+[ext_resource type="AudioStream" uid="uid://b5rftsdwfrmlq" path="res://assets/Sounds/Enemies/Entity/EntityDroneMono.ogg" id="3_6ugoe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rghxa"]
 render_priority = 0
@@ -30,8 +30,9 @@ autostart = true
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1966615172]
 stream = ExtResource("3_6ugoe")
 attenuation_model = 2
-volume_db = 20.0
+volume_db = 25.0
 unit_size = 49.96
 autoplay = true
+panning_strength = 2.0
 bus = &"SFX"
 parameters/looping = true
