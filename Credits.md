@@ -53,6 +53,7 @@ Self-Created Assets
 | Hauler Model | 3D model + texture | Vaughnald |
 | Space Station Model | 3D model + texture | Vaughnald |
 | texFlare0.png | Signal light at Hauler ship | Vaughnald |
+| modelInterior1 | Inside the Space Station Walls | Vaughnald |
 
 Audio Self-Created Assets
 -------------------------

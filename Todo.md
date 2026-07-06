@@ -28,13 +28,6 @@ Audio
 - Fix Entity sound distance volume
 - Ship engine sound seems generally missing or too low volume
 
-
-3D
---
-
-- Create simple interior scene for inside the space station
-
-
 Bugs
 ----
 

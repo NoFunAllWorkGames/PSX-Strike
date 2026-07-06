@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://c4q6dri8n2xsu" path="res://src/ui/station_right_column.gd" id="6_p6bjf"]
 [ext_resource type="AudioStream" uid="uid://3ggcjfvgukgi" path="res://assets/Sounds/Interaction/ResourceSell.ogg" id="8_mpfln"]
 [ext_resource type="AudioStream" uid="uid://cpv1dvb68lu4m" path="res://assets/Sounds/Interaction/ResourceSellError.ogg" id="9_8mik3"]
+[ext_resource type="PackedScene" uid="uid://pb3peh3f65mr" path="res://assets/Models/modelInterior1.glb" id="12_uhlyq"]
 
 [sub_resource type="Gradient" id="Gradient_xurhj"]
 offsets = PackedFloat32Array(0.31620553, 0.47826087, 0.715415)
@@ -162,25 +163,18 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Undock"
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=784646800]
-
-[node name="World_Environment_CSGCombiner3D#CSGBox3D" type="CSGBox3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/CSGCombiner3D" index="0" unique_id=2016404182]
-size = Vector3(10, 10, 10)
-
-[node name="World_Environment_CSGCombiner3D_CSGBox3D#CSGBox3D" type="CSGBox3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment/CSGCombiner3D/World_Environment_CSGCombiner3D#CSGBox3D" index="0" unique_id=1150529129]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.32476807)
-operation = 2
-size = Vector3(9, 9, 9.649536)
+[node name="WallsModel" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1829606188 instance=ExtResource("12_uhlyq")]
+transform = Transform3D(1.4142135, 0, -1.4142135, 0, 2, 0, 1.4142135, 0, 1.4142135, -0.79137087, 0.6561618, 2.3825102)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="1" unique_id=680473445]
 environment = SubResource("Environment_66bpb")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1037236335]
-transform = Transform3D(0.06247424, -0.56292033, 0.8241466, 0.042549964, 0.82651114, 0.56130993, -0.99713916, 0, 0.0755879, 4.0954504, 4.2945895, 0)
+transform = Transform3D(0.055092085, -0.6846756, 0.7267629, 0.051753186, 0.72884804, 0.6827168, -0.99713916, 3.7146328e-09, 0.0755879, 0.68629146, 4.57428, 0)
 spot_range = 10.146455
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=240293946]
-transform = Transform3D(-0.062474146, 0.56292033, -0.8241466, 0.042549964, 0.82651114, 0.56130993, 0.9971391, -4.9212055e-08, -0.07558782, -3.4846368, 4.2945895, 0)
+transform = Transform3D(-0.06247415, 0.56292033, -0.8241466, 0.042549968, 0.82651114, 0.56130993, 0.99713916, -5.2303697e-08, -0.075587824, -2.9606225, 3.4495285, 0)
 spot_range = 9.971667
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="4" unique_id=1907330310]
@@ -188,7 +182,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8494253, -0.54659843, 6.59
 spot_range = 9.971667
 
 [node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="5" unique_id=1498511072]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.8821)
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, -0.63352585, 0.66029406, 5.8821)
 current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="6" unique_id=865072657]
