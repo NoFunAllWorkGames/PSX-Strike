@@ -7,11 +7,8 @@ General
 - Balance the game
 - Add explosion effect
 - Add particles when something is hit by the laser
-- Change splash screen
 - make the binary export smaller with scons
 - optmize web export for itch
-- Fix fullscreen in browser mode
-- Everyone update the credits if possible
 
 UI
 --
@@ -48,4 +45,3 @@ Replace Textures:
 | ---      | ---      | ---    |
 | NightSkyHDRI007/ | Space background | https://ambientcg.com/view?id=NightSkyHDRI007 |
 | WallTextureSpaceStation_Tripwire_Pinterest.jpg | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
-| asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering | https://www.vecteezy.com/vector-art/41412951-black-vector-asteroid-icon-isolated-on-white-background |
