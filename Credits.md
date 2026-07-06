@@ -76,6 +76,7 @@ Audio Self-Created Assets
 | CollisionRock1–2.ogg | Collision with asteroids | francobhalla |
 | CollisionStnHard/Med/Soft.ogg | Collision with station | francobhalla |
 | WithHauler.ogg | Collision with enemy hauler | francobhalla |
+| LaserBeamHaulerSurface.ogg | Mining laser hit station or hauler sound | francobhalla |
 
 
 Audio Self-Created, Not Yet Implemented

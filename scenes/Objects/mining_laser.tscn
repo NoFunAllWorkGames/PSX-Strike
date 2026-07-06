@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bkgpx3wm5tl8j" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid1.ogg" id="9_v7p4l"]
 [ext_resource type="AudioStream" uid="uid://b37qcdewcna2" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid2.ogg" id="10_v7p4l"]
 [ext_resource type="AudioStream" uid="uid://bx5y00ilryshe" path="res://assets/Sounds/Laser/LaserBeamVoid/LaserBeamVoid3.ogg" id="11_v7p4l"]
+[ext_resource type="AudioStream" uid="uid://b3de0em5lhp7n" path="res://assets/Sounds/Laser/LaserBeamHaulerSurface.ogg" id="12_hauler"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3yb6q"]
 transparency = 1
@@ -56,6 +57,11 @@ mesh = SubResource("CylinderMesh_ds5mv")
 
 [node name="OnHitAudio" type="AudioStreamPlayer" parent="." unique_id=1319964675]
 stream = SubResource("AudioStreamRandomizer_os6a8")
+bus = &"SFX"
+parameters/looping = true
+
+[node name="OnHaulerSurfaceAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_hauler")
 bus = &"SFX"
 parameters/looping = true
 
