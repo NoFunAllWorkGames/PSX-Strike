@@ -39,7 +39,6 @@ Downloaded Assets
 | ---      | ---      | ---    |
 | NightSkyHDRI007/ | Space background | https://ambientcg.com/view?id=NightSkyHDRI007 |
 | WallTextureSpaceStation_Tripwire_Pinterest.jpg | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
-| asteroid-icon_vecteezy.png | Asteroid Resource Pickup Hovering | https://www.vecteezy.com/vector-art/41412951-black-vector-asteroid-icon-isolated-on-white-background |
 
 Self-Created Assets
 -------------------
@@ -53,7 +52,8 @@ Self-Created Assets
 | Hauler Model | 3D model + texture | Vaughnald |
 | Space Station Model | 3D model + texture | Vaughnald |
 | texFlare0.png | Signal light at Hauler ship | Vaughnald |
-| modelInterior1 | Inside the Space Station Walls | Vaughnald |
+| modelInterior1.glb | Inside the Space Station Walls | Vaughnald |
+| texPickup4.png | Asteroid Pickup Texture | Vaughnald |
 
 Audio Self-Created Assets
 -------------------------

@@ -6,6 +6,7 @@ General
 
 - Balance the game
 - Add explosion effect
+- Add particles when something is hit by the laser
 - Change splash screen
 - make the binary export smaller with scons
 - optmize web export for itch
@@ -16,9 +17,6 @@ UI
 --
 
 - Fix all menu styles so it's not the default godot style anymore
-- Choose a font which is more readable?
-- Update inside space station menu
-- Improve ingame pause menu background/style
 
 Audio
 -----
