@@ -14,8 +14,8 @@ config/name="PSXStrike"
 run/main_scene="uid://bl6lu8aby3qjs"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=60
-boot_splash/image="uid://bvxdihgjfpcl4"
-config/icon="uid://bvxdihgjfpcl4"
+boot_splash/image="uid://cr4w4o2iq4on3"
+config/icon="uid://by0h30sny0gdp"
 
 [audio]
 
