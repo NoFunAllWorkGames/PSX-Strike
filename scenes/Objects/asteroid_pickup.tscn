@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cygm0675hn6xr" path="res://assets/Sounds/Interaction/ResourcePickup.ogg" id="3_x77i8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m4tws"]
-size = Vector3(1.5, 1.5, 1.5)
+size = Vector3(2, 2, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x77i8"]
 transparency = 1
