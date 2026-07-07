@@ -13,12 +13,12 @@
 [ext_resource type="AudioStream" uid="uid://cpv1dvb68lu4m" path="res://assets/Sounds/Interaction/ResourceSellError.ogg" id="9_8mik3"]
 [ext_resource type="PackedScene" uid="uid://pb3peh3f65mr" path="res://assets/Models/modelInterior1.glb" id="12_uhlyq"]
 
-[sub_resource type="Gradient" id="Gradient_xurhj"]
+[sub_resource type="Gradient" id="Gradient_uhlyq"]
 offsets = PackedFloat32Array(0.31620553, 0.47826087, 0.715415)
 colors = PackedColorArray(0.0392389, 0.049217984, 0.056694247, 1, 0.2685526, 0.32393572, 0.3895154, 1, 0.019607844, 0.03137255, 0.05490196, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tbsdu"]
-gradient = SubResource("Gradient_xurhj")
+gradient = SubResource("Gradient_uhlyq")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0.82905984, 0)
 
@@ -30,7 +30,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon/Engine_Hovering2:pitch_scale")
+tracks/0/path = NodePath("World/Characters/PlayerShipArchon/Engine_Hovering2:pitch_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,7 +42,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon:position")
+tracks/1/path = NodePath("World/Characters/PlayerShipArchon:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -59,7 +59,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon/Engine_Hovering2:pitch_scale")
+tracks/0/path = NodePath("World/Characters/PlayerShipArchon/Engine_Hovering2:pitch_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,7 +71,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon:position")
+tracks/1/path = NodePath("World/Characters/PlayerShipArchon:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -90,7 +90,10 @@ _data = {
 [node name="Station" unique_id=1408701904 instance=ExtResource("1_66bpb")]
 script = ExtResource("2_4dbit")
 
-[node name="BackgroundImage" type="TextureRect" parent="." index="0" unique_id=402650465]
+[node name="BackgroundLayer" type="CanvasLayer" parent="." index="0" unique_id=402650464]
+layer = -1
+
+[node name="BackgroundImage" type="TextureRect" parent="BackgroundLayer" index="0" unique_id=402650465]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -99,7 +102,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_tbsdu")
 expand_mode = 3
 
-[node name="BlackBars" type="TextureRect" parent="." index="1" unique_id=2020720708]
+[node name="BlackBars" type="TextureRect" parent="BackgroundLayer" index="1" unique_id=2020720708]
 self_modulate = Color(1, 1, 1, 0.078431375)
 anchors_preset = 15
 anchor_right = 1.0
@@ -108,34 +111,63 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_8lbiv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Canvases" parent_id_path=PackedInt32Array(1266257925) index="0" unique_id=907530879]
+[node name="WallsModel" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1829606188 instance=ExtResource("12_uhlyq")]
+transform = Transform3D(1.4142135, 0, -1.4142135, 0, 2, 0, 1.4142135, 0, 1.4142135, -0.79137087, 0.6561618, 2.3825102)
 
-[node name="Left" parent="HBoxContainer" parent_id_path=PackedInt32Array(1439984215) index="0" unique_id=350120575]
-clip_contents = true
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="1" unique_id=680473445]
+environment = SubResource("Environment_66bpb")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1037236335]
+transform = Transform3D(0.055092085, -0.6846756, 0.7267629, 0.051753186, 0.72884804, 0.6827168, -0.99713916, 3.7146328e-09, 0.0755879, 0.68629146, 4.57428, 0)
+spot_range = 10.146455
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=240293946]
+transform = Transform3D(-0.06247415, 0.56292033, -0.8241466, 0.042549968, 0.82651114, 0.56130993, 0.99713916, -5.2303697e-08, -0.075587824, -2.9606225, 3.4495285, 0)
+spot_range = 9.971667
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="4" unique_id=1907330310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8494253, -0.54659843, 6.5910835)
+spot_range = 9.971667
+
+[node name="Camera3D" type="Camera3D" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="5" unique_id=1498511072]
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, -0.63352585, 0.66029406, 5.8821)
+current = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="World/Environment" parent_id_path=PackedInt32Array(1932253135) index="6" unique_id=865072657]
+stream = ExtResource("4_8mik3")
+volume_db = -4.0
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
+
+[node name="PlayerShipArchon" parent="World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("5_l3t8d")]
+transform = Transform3D(-1.7161298, -0.23104332, 1.0007585, 0, 1.9487401, 0.44990215, -1.0270826, 0.38604525, -1.6721455, 0, 0, 0)
+
+[node name="World_Characters_PlayerShipArchon#AnimationPlayer" type="AnimationPlayer" parent="World/Characters/PlayerShipArchon" index="9" unique_id=1505904149]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_47i8t")
+autoplay = &"hover"
+
+[node name="Engine_Hovering2" type="AudioStreamPlayer" parent="World/Characters/PlayerShipArchon" index="10" unique_id=202474421]
+stream = ExtResource("6_8mik3")
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
+
+[node name="UI" parent="Canvases/CanvasLayer" parent_id_path=PackedInt32Array(473764402) index="0" unique_id=975752303]
+mouse_filter = 1
+
+[node name="VBoxContainerLeft" type="VBoxContainer" parent="Canvases/CanvasLayer/UI" index="0" unique_id=911939098]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 20.5
+offset_right = 132.0
+offset_bottom = 219.5
+theme = ExtResource("4_aod7c")
+theme_override_constants/separation = 21
 script = ExtResource("2_station")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Left" index="0" unique_id=689971713]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -80.5
-offset_right = 66.0
-offset_bottom = 80.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_aod7c")
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_right = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Left/MarginContainer" index="0" unique_id=911939098]
-layout_mode = 2
-theme_override_constants/separation = 21
-
-[node name="Reset" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="0" unique_id=456226324]
+[node name="Reset" type="Button" parent="Canvases/CanvasLayer/UI/VBoxContainerLeft" index="0" unique_id=456226324]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
@@ -143,7 +175,7 @@ disabled = true
 text = "Reset Entity
 100 Money"
 
-[node name="Heal" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="1" unique_id=2130985888]
+[node name="Heal" type="Button" parent="Canvases/CanvasLayer/UI/VBoxContainerLeft" index="1" unique_id=2130985888]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
@@ -151,128 +183,68 @@ disabled = true
 text = "Heal
 1 Money/HP"
 
-[node name="Sell" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="2" unique_id=316648595]
+[node name="Sell" type="Button" parent="Canvases/CanvasLayer/UI/VBoxContainerLeft" index="2" unique_id=316648595]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Sell Resource"
 
-[node name="undock" type="Button" parent="HBoxContainer/Left/MarginContainer/VBoxContainer" index="3" unique_id=1988813574]
+[node name="undock" type="Button" parent="Canvases/CanvasLayer/UI/VBoxContainerLeft" index="3" unique_id=1988813574]
 custom_minimum_size = Vector2(0, 34)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Undock"
 
-[node name="WallsModel" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="0" unique_id=1829606188 instance=ExtResource("12_uhlyq")]
-transform = Transform3D(1.4142135, 0, -1.4142135, 0, 2, 0, 1.4142135, 0, 1.4142135, -0.79137087, 0.6561618, 2.3825102)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="1" unique_id=680473445]
-environment = SubResource("Environment_66bpb")
-
-[node name="SpotLight3D" type="SpotLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="2" unique_id=1037236335]
-transform = Transform3D(0.055092085, -0.6846756, 0.7267629, 0.051753186, 0.72884804, 0.6827168, -0.99713916, 3.7146328e-09, 0.0755879, 0.68629146, 4.57428, 0)
-spot_range = 10.146455
-
-[node name="SpotLight3D2" type="SpotLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="3" unique_id=240293946]
-transform = Transform3D(-0.06247415, 0.56292033, -0.8241466, 0.042549968, 0.82651114, 0.56130993, 0.99713916, -5.2303697e-08, -0.075587824, -2.9606225, 3.4495285, 0)
-spot_range = 9.971667
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="4" unique_id=1907330310]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8494253, -0.54659843, 6.5910835)
-spot_range = 9.971667
-
-[node name="Camera3D" type="Camera3D" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="5" unique_id=1498511072]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, -0.63352585, 0.66029406, 5.8821)
-current = true
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Environment" parent_id_path=PackedInt32Array(1932253135) index="6" unique_id=865072657]
-stream = ExtResource("4_8mik3")
-volume_db = -4.0
-autoplay = true
-bus = &"SFX"
-parameters/looping = true
-
-[node name="PlayerShipArchon" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters" parent_id_path=PackedInt32Array(356321642) index="0" unique_id=34192894 instance=ExtResource("5_l3t8d")]
-transform = Transform3D(-1.7161298, -0.23104332, 1.0007585, 0, 1.9487401, 0.44990215, -1.0270826, 0.38604525, -1.6721455, 0, 0, 0)
-
-[node name="World_Characters_PlayerShipArchon#AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="9" unique_id=1505904149]
-root_node = NodePath("../../../../../../..")
-libraries/ = SubResource("AnimationLibrary_47i8t")
-autoplay = &"hover"
-
-[node name="Engine_Hovering2" type="AudioStreamPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon" index="10" unique_id=202474421]
-stream = ExtResource("6_8mik3")
-autoplay = true
-bus = &"SFX"
-parameters/looping = true
-
-[node name="Right" parent="HBoxContainer" parent_id_path=PackedInt32Array(1439984215) index="2" unique_id=1952944656]
-script = ExtResource("6_p6bjf")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Right" index="0" unique_id=262170700]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.0
-offset_top = -60.5
-offset_right = 66.0
-offset_bottom = 60.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_right = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Right/MarginContainer" index="0" unique_id=1810562819]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer" index="0" unique_id=126188825]
-layout_mode = 2
+[node name="VBoxContainerRight" type="VBoxContainer" parent="Canvases/CanvasLayer/UI" index="1" unique_id=126188825]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 83.5
+offset_right = 312.0
+offset_bottom = 155.5
 theme = ExtResource("4_aod7c")
 theme_override_constants/separation = 16
+script = ExtResource("6_p6bjf")
 
-[node name="MoneyPanel" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer" index="0" unique_id=1509913976]
+[node name="MoneyPanel" type="VBoxContainer" parent="Canvases/CanvasLayer/UI/VBoxContainerRight" index="0" unique_id=1509913976]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 4
 
-[node name="MoneyLabel" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/MoneyPanel" index="0" unique_id=1737955464]
+[node name="MoneyLabel" type="Label" parent="Canvases/CanvasLayer/UI/VBoxContainerRight/MoneyPanel" index="0" unique_id=1737955464]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Money"
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/MoneyPanel" index="1" unique_id=2029197699]
+[node name="CenterContainer" type="CenterContainer" parent="Canvases/CanvasLayer/UI/VBoxContainerRight/MoneyPanel" index="1" unique_id=2029197699]
 layout_mode = 2
 
-[node name="MoneyValue" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/MoneyPanel/CenterContainer" index="0" unique_id=1867360820]
+[node name="MoneyValue" type="Label" parent="Canvases/CanvasLayer/UI/VBoxContainerRight/MoneyPanel/CenterContainer" index="0" unique_id=1867360820]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="ResourcePanel" type="VBoxContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer" index="1" unique_id=597197440]
+[node name="ResourcePanel" type="VBoxContainer" parent="Canvases/CanvasLayer/UI/VBoxContainerRight" index="1" unique_id=597197440]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 4
 
-[node name="ResourceLabel" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/ResourcePanel" index="0" unique_id=966244182]
+[node name="ResourceLabel" type="Label" parent="Canvases/CanvasLayer/UI/VBoxContainerRight/ResourcePanel" index="0" unique_id=966244182]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Resources"
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/ResourcePanel" index="1" unique_id=1140177812]
+[node name="CenterContainer" type="CenterContainer" parent="Canvases/CanvasLayer/UI/VBoxContainerRight/ResourcePanel" index="1" unique_id=1140177812]
 layout_mode = 2
 
-[node name="ResourceValue" type="Label" parent="HBoxContainer/Right/MarginContainer/CenterContainer/VBoxContainer/ResourcePanel/CenterContainer" index="0" unique_id=987218467]
+[node name="ResourceValue" type="Label" parent="Canvases/CanvasLayer/UI/VBoxContainerRight/ResourcePanel/CenterContainer" index="0" unique_id=987218467]
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 
-[node name="ResourceSell" type="AudioStreamPlayer" parent="." index="6" unique_id=1344609329]
+[node name="ResourceSell" type="AudioStreamPlayer" parent="." index="5" unique_id=1344609329]
 stream = ExtResource("8_mpfln")
 bus = &"SFX"
 
-[node name="ResourceSellError" type="AudioStreamPlayer" parent="." index="7" unique_id=91650345]
+[node name="ResourceSellError" type="AudioStreamPlayer" parent="." index="6" unique_id=91650345]
 stream = ExtResource("9_8mik3")
 bus = &"SFX"
 
-[connection signal="pressed" from="HBoxContainer/Left/MarginContainer/VBoxContainer/Sell" to="." method="_on_sell_pressed"]
+[connection signal="pressed" from="Canvases/CanvasLayer/UI/VBoxContainerLeft/Sell" to="." method="_on_sell_pressed"]

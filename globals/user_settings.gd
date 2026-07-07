@@ -1,7 +1,7 @@
 extends Node
 
 const SETTINGS_PATH := "user://settings.cfg"
-const NATIVE_SIZE := Vector2i(426, 240)
+const NATIVE_SIZE := Vector2i(320, 240)
 const ZOOM_MULTIPLIERS := [1, 2, 4]
 
 const SHIP_FORWARD_ACTION := "ship_forward"

@@ -23,6 +23,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="ScoreBoard" type="CanvasLayer" unique_id=528254755]
+process_mode = 3
 layer = 129
 script = ExtResource("1_score")
 
@@ -41,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_dim")
 
 [node name="CenterContainer" type="CenterContainer" parent="Overlay" unique_id=2005282943]
@@ -53,7 +55,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="ScorePanel" type="PanelContainer" parent="Overlay/CenterContainer" unique_id=1771692256]
-custom_minimum_size = Vector2(320, 220)
+custom_minimum_size = Vector2(304, 220)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

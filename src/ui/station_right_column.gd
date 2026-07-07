@@ -1,7 +1,7 @@
 extends Control
 
-@onready var money_value: Label = $MarginContainer/CenterContainer/VBoxContainer/MoneyPanel/CenterContainer/MoneyValue
-@onready var resource_value: Label = $MarginContainer/CenterContainer/VBoxContainer/ResourcePanel/CenterContainer/ResourceValue
+@onready var money_value: Label = $MoneyPanel/CenterContainer/MoneyValue
+@onready var resource_value: Label = $ResourcePanel/CenterContainer/ResourceValue
 
 func _ready() -> void:
 	SignalBus.right_column_updated.connect(_on_right_column_updated)

@@ -134,8 +134,8 @@ func _close_controls_overview() -> void:
 
 
 func transition_to(target_path: String) -> void:
-	# set global scene variables
-	previous_scene_path = get_tree().current_scene.scene_file_path
+	var current := get_tree().current_scene
+	previous_scene_path = current.scene_file_path if current else ""
 	current_scene_path = target_path
 
 	print("Changing scene from: " + previous_scene_path)

@@ -4,11 +4,6 @@ const SpaceWorldPersistenceScript := preload("res://src/scenes/space_world_persi
 
 func _ready() -> void:
 
-	# Just for Space Scene debugging
-	# Because I don't want to start the game from the main menu
-	if not GameManager.game_state:
-		GameManager.load_game()
-
 	var entry_state := GameManager.game_state
 	GameManager.game_state = Enums.GameState.SPACE
 
@@ -18,7 +13,7 @@ func _ready() -> void:
 
 	# Instantiating make overwrites an already existing ship
 	# on the other hand the level is the one that creates the ship
-	const Player_Parent_Node := NodePath("HBoxContainer/SubViewportContainer/SubViewport/World/Characters")
+	const Player_Parent_Node := NodePath("World/Characters")
 	var player_parent_node: Node = get_node(Player_Parent_Node)
 
 
@@ -45,18 +40,18 @@ func _ready() -> void:
 
 
 func _spawn_asteroid_fields() -> void:
-	$HBoxContainer/SubViewportContainer/SubViewport/World/Environment/NoiseAsteroid.spawn_gaussian_cloud()
-	$HBoxContainer/SubViewportContainer/SubViewport/World/Environment/NoiseAsteroidPrecious.spawn_gaussian_cloud()
+	$World/Environment/NoiseAsteroid.spawn_gaussian_cloud()
+	$World/Environment/NoiseAsteroidPrecious.spawn_gaussian_cloud()
 
 func spawn_new_game() -> void:
-	var spawn_marker: Marker3D = $HBoxContainer/SubViewportContainer/SubViewport/World/Environment/PlayerSpawnPoint
+	var spawn_marker: Marker3D = $World/Environment/PlayerSpawnPoint
 	GameManager.PlayerShip.global_transform = spawn_marker.global_transform
 	GameManager.saved_player_transform = GameManager.PlayerShip.global_transform
 
 func undock_ship():
 	print("Undocking ship from station")
 	# Set to the starting position and alignment
-	var spawn_undock_station: Marker3D = $HBoxContainer/SubViewportContainer/SubViewport/World/Environment/SpaceStation/SpawnUndockStation
+	var spawn_undock_station: Marker3D = $World/Environment/SpaceStation/SpawnUndockStation
 	var spawn_position = spawn_undock_station.global_position as Vector3
 	var marker_basis = spawn_undock_station.global_transform.basis
 	var opposite_direction = marker_basis.z.normalized()

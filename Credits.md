@@ -32,13 +32,6 @@ Team
 Resources
 ==========
 
-Downloaded Assets
------------------
-
-| Filename | Used for | Source |
-| ---      | ---      | ---    |
-| WallTextureSpaceStation_Tripwire_Pinterest.jpg | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
-
 Self-Created Assets
 -------------------
 
@@ -92,5 +85,10 @@ Audio Self-Created, Not Yet Implemented
 
 AI Assets
 ---------
+
+None!
+
+Downloaded Assets
+-----------------
 
 None!

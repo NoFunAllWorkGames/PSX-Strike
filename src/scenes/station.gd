@@ -8,7 +8,7 @@ func _ready() -> void:
 	GameManager.station_resources.resources_amount += unloaded_amount
 	# Remove player character camera
 	var player_ship := get_node_or_null(
-		"HBoxContainer/SubViewportContainer/SubViewport/World/Characters/PlayerShipArchon"
+		"World/Characters/PlayerShipArchon"
 	)
 	if player_ship:
 		var camera := player_ship.get_node_or_null("CameraPivot/SpringArm3D/Camera3D") as Camera3D

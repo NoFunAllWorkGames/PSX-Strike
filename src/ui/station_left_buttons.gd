@@ -2,9 +2,9 @@ extends Control
 
 const RESET_ENTITY_COST := 100
 
-@onready var reset_button: Button = $MarginContainer/VBoxContainer/Reset
-@onready var heal_button: Button = $MarginContainer/VBoxContainer/Heal
-@onready var undock_button: Button = $MarginContainer/VBoxContainer/undock
+@onready var reset_button: Button = $Reset
+@onready var heal_button: Button = $Heal
+@onready var undock_button: Button = $undock
 
 
 func _ready() -> void:

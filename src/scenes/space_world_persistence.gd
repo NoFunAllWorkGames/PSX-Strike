@@ -7,9 +7,9 @@ const SpaceWorldStateResource := preload("res://src/data/space_world_state.gd")
 
 const SPACE_SCENE_PATH := "res://scenes/Level/Space.tscn"
 const STATION_SCENE_PATH := "res://scenes/Level/Station.tscn"
-const WORLD_ENEMIES_PATH := "HBoxContainer/SubViewportContainer/SubViewport/World/Enemies"
-const NOISE_ASTEROID_PATH := "HBoxContainer/SubViewportContainer/SubViewport/World/Environment/NoiseAsteroid"
-const PRECIOUS_ASTEROID_PATH := "HBoxContainer/SubViewportContainer/SubViewport/World/Environment/NoiseAsteroidPrecious"
+const WORLD_ENEMIES_PATH := "World/Enemies"
+const NOISE_ASTEROID_PATH := "World/Environment/NoiseAsteroid"
+const PRECIOUS_ASTEROID_PATH := "World/Environment/NoiseAsteroidPrecious"
 const ENEMY_SPAWNER_PATH := "Managers/EnemySpawner"
 const THE_ENTITY_PATH := WORLD_ENEMIES_PATH + "/TheEntity"
 const HAULER_SCENE := preload("res://scenes/Ships/enemy_ship_hauler.tscn")

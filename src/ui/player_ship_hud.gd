@@ -38,15 +38,21 @@ func _setup_health_bar_overlay() -> void:
 
 func _process(_delta: float) -> void:
 	var player := GameManager.PlayerShip
+	if not is_instance_valid(player):
+		return
 	health_progress_bar.value = player.lifepoints
 	_update_health_overlay(player)
 
 func _sync_health_bar() -> void:
 	var player := GameManager.PlayerShip
+	if not is_instance_valid(player):
+		return
 	health_progress_bar.max_value = player.max_lifepoints
 	_update_health_overlay(player)
 
 func _update_health_overlay(player: CharacterBody3D) -> void:
+	if not is_instance_valid(player):
+		return
 	if player.is_overspeed_warning():
 		_health_overlay_label.text = OVERSPEED_TEXT
 		_health_overlay_label.add_theme_color_override("font_color", OVERSPEED_FONT_COLOR)

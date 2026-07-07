@@ -67,11 +67,11 @@ text = "Zoom level"
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 item_count = 3
-popup/item_0/text = "1x (426x240)"
+popup/item_0/text = "1x (320x240)"
 popup/item_0/id = 0
-popup/item_1/text = "2x (852x480)"
+popup/item_1/text = "2x (640x480)"
 popup/item_1/id = 1
-popup/item_2/text = "4x (1704x960)"
+popup/item_2/text = "4x (1280x960)"
 popup/item_2/id = 2
 
 [node name="VSync" type="Label" parent="TabContainer/General/MarginContainer/GridContainer" unique_id=837221745]

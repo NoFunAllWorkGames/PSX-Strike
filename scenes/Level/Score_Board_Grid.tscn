@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://bfbv3he0kcjto"]
 
 [node name="ScoreBoardGrid" type="GridContainer" unique_id=1704061634]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 columns = 6
 
 [node name="RankHeader" type="Label" parent="." unique_id=1046285734]
-custom_minimum_size = Vector2(56, 0)
+custom_minimum_size = Vector2(41, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Compared"
 clip_text = true
 
 [node name="NameHeader" type="Label" parent="." unique_id=175118184]
-custom_minimum_size = Vector2(88, 0)
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 8
@@ -21,7 +26,7 @@ text = "Name"
 clip_text = true
 
 [node name="CargoHeader" type="Label" parent="." unique_id=718620878]
-custom_minimum_size = Vector2(44, 0)
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Cargo 1x"
@@ -29,7 +34,7 @@ horizontal_alignment = 2
 clip_text = true
 
 [node name="MoneyHeader" type="Label" parent="." unique_id=1691553495]
-custom_minimum_size = Vector2(44, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Money 2x"
@@ -37,7 +42,7 @@ horizontal_alignment = 2
 clip_text = true
 
 [node name="ResourcesHeader" type="Label" parent="." unique_id=636410566]
-custom_minimum_size = Vector2(56, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Resources 2x"
@@ -45,7 +50,7 @@ horizontal_alignment = 2
 clip_text = true
 
 [node name="TotalHeader" type="Label" parent="." unique_id=786932200]
-custom_minimum_size = Vector2(44, 0)
+custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
 text = "Total"
@@ -53,13 +58,13 @@ horizontal_alignment = 2
 clip_text = true
 
 [node name="RankValue" type="Label" parent="." unique_id=431467512]
-custom_minimum_size = Vector2(56, 0)
+custom_minimum_size = Vector2(41, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 clip_text = true
 
 [node name="NameValue" type="Label" parent="." unique_id=12400136]
-custom_minimum_size = Vector2(88, 0)
+custom_minimum_size = Vector2(30, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 10
@@ -67,28 +72,28 @@ text = "Loading..."
 clip_text = true
 
 [node name="CargoValue" type="Label" parent="." unique_id=1135225506]
-custom_minimum_size = Vector2(44, 0)
+custom_minimum_size = Vector2(35, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 2
 clip_text = true
 
 [node name="MoneyValue" type="Label" parent="." unique_id=1472884588]
-custom_minimum_size = Vector2(44, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 2
 clip_text = true
 
 [node name="ResourcesValue" type="Label" parent="." unique_id=302397007]
-custom_minimum_size = Vector2(56, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 2
 clip_text = true
 
 [node name="TotalValue" type="Label" parent="." unique_id=606571335]
-custom_minimum_size = Vector2(44, 0)
+custom_minimum_size = Vector2(23, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 horizontal_alignment = 2
