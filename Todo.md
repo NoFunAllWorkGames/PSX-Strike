@@ -29,6 +29,7 @@ Bugs
 Web
 ----
 
+- If I select windowed in settings it works but next time opening it always starts at full screen but it says the last selected option. So I have to toggle back to full screen and then windowed each time.
 - Sometimes you have to right click to give the game focus again, I think that happens after undocking
 - undocking is a bit weird now
 - biggest issue are the asteroid life bars. It seems the first one works and then they are broken

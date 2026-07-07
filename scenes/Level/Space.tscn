@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://x7df5teokeca"]
 
 [ext_resource type="PackedScene" uid="uid://cocc38n36ifjn" path="res://scenes/Template.tscn" id="1_3swrr"]
-[ext_resource type="Sky" uid="uid://wimhj3dn3heq" path="res://assets/Skybox/NightSkyHDRI007/NightSkyHDRI007_2K.tres" id="2_c73yp"]
+[ext_resource type="Sky" uid="uid://wimhj3dn3heq" path="res://assets/Materials/Skybox.tres" id="2_c73yp"]
 [ext_resource type="Script" uid="uid://cbdjubbobjtoo" path="res://src/ui/action_prompt.gd" id="2_irlk4"]
 [ext_resource type="Script" uid="uid://dsei3auxk88gc" path="res://src/scenes/space_manager.gd" id="2_p5kko"]
 [ext_resource type="Script" uid="uid://d5625svdj516" path="res://src/data/enemy_spawn_slot.gd" id="3_oo3mg"]
@@ -78,7 +78,6 @@ size = Vector3(1000, 1000, 1000)
 
 [sub_resource type="Environment" id="Environment_l0l3b"]
 background_mode = 2
-background_energy_multiplier = 0.25
 sky = ExtResource("2_c73yp")
 ambient_light_source = 3
 ambient_light_color = Color(1, 1, 1, 1)

@@ -2,20 +2,22 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmswejkv4si2"
-path="res://.godot/imported/NightSkyHDRI007_2K_TONEMAPPED.jpg-21554c68e2999296711a82e2c98a5d3a.ctex"
+uid="uid://dhjxxmwa3lm2r"
+path.s3tc="res://.godot/imported/texSkybox1.png-2e8ab1d61a95f439c7e14cf16109145a.s3tc.ctex"
+path.etc2="res://.godot/imported/texSkybox1.png-2e8ab1d61a95f439c7e14cf16109145a.etc2.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://assets/Skybox/NightSkyHDRI007/NightSkyHDRI007_2K_TONEMAPPED.jpg"
-dest_files=["res://.godot/imported/NightSkyHDRI007_2K_TONEMAPPED.jpg-21554c68e2999296711a82e2c98a5d3a.ctex"]
+source_file="res://assets/Textures/texSkybox1.png"
+dest_files=["res://.godot/imported/texSkybox1.png-2e8ab1d61a95f439c7e14cf16109145a.s3tc.ctex", "res://.godot/imported/texSkybox1.png-2e8ab1d61a95f439c7e14cf16109145a.etc2.ctex"]
 
 [params]
 
-compress/mode=3
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -34,7 +36,7 @@ process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
-process/hdr_as_srgb=true
+process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0

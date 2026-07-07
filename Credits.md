@@ -37,7 +37,6 @@ Downloaded Assets
 
 | Filename | Used for | Source |
 | ---      | ---      | ---    |
-| NightSkyHDRI007/ | Space background | https://ambientcg.com/view?id=NightSkyHDRI007 |
 | WallTextureSpaceStation_Tripwire_Pinterest.jpg | Side view placeholder texture | https://ca.pinterest.com/pin/524106475360786091/ |
 
 Self-Created Assets
@@ -54,6 +53,7 @@ Self-Created Assets
 | texFlare0.png | Signal light at Hauler ship | Vaughnald |
 | modelInterior1.glb | Inside the Space Station Walls | Vaughnald |
 | texPickup4.png | Asteroid Pickup Texture | Vaughnald |
+| texSkybox1.png | Skybox Texture | Vaughnald |
 
 Audio Self-Created Assets
 -------------------------
