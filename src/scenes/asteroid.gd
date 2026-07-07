@@ -12,11 +12,13 @@ class_name Asteroid
 @export var hull_contact_area: Area3D
 
 const ProceduralAsteroidMeshBuilder := preload("res://src/utils/procedural_asteroid_mesh.gd")
+const HitParticlesScene := preload("res://assets/Materials/hit_particles.tscn")
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
-@onready var _hit_effect = $hit_particles
 @onready var _mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var _damage_bar = $DamageBar
+
+var _active_hit_effect: CPUParticles3D
 
 
 func _ready() -> void:
@@ -44,9 +46,22 @@ func _apply_procedural_mesh() -> void:
 func take_damage(applied_damage: float) -> void:
 	health -= applied_damage
 	_damage_bar.show_health()
-	_hit_effect.play()
+	_spawn_hit_effect()
 	if health <= 0.0:
 		die()
+
+func _spawn_hit_effect() -> void:
+	if _active_hit_effect != null and is_instance_valid(_active_hit_effect):
+		return
+
+	var hit_effect: CPUParticles3D = HitParticlesScene.instantiate()
+	get_parent().add_child(hit_effect)
+	hit_effect.global_transform = global_transform
+	hit_effect.restart()
+	hit_effect.emitting = true
+	hit_effect.finished.connect(hit_effect.queue_free, CONNECT_ONE_SHOT)
+	_active_hit_effect = hit_effect
+	hit_effect.tree_exiting.connect(func() -> void: _active_hit_effect = null)
 
 func die() -> void:
 	_damage_bar.hide_bar()
