@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://j5l7j8gcn84i" path="res://src/components/asteroid_damage_bar.gd" id="2_qhg7p"]
 [ext_resource type="Shader" uid="uid://cbb55nyo6jyr7" path="res://src/shaders/asteroid_damage_bar.gdshader" id="3_shader"]
 [ext_resource type="Material" uid="uid://cm420p2or6phg" path="res://assets/asteroid_precious_material.tres" id="4_mat"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_btgcs"]
 radius = 1.5
 

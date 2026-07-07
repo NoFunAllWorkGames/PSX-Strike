@@ -18,8 +18,7 @@ var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 @onready var _mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var _damage_bar = $DamageBar
 
-var _active_hit_effect: CPUParticles3D
-
+var _can_restart := true
 
 func _ready() -> void:
 	if mesh_seed < 0:
@@ -51,17 +50,17 @@ func take_damage(applied_damage: float) -> void:
 		die()
 
 func _spawn_hit_effect() -> void:
-	if _active_hit_effect != null and is_instance_valid(_active_hit_effect):
-		return
-
 	var hit_effect: CPUParticles3D = HitParticlesScene.instantiate()
 	get_parent().add_child(hit_effect)
 	hit_effect.global_transform = global_transform
-	hit_effect.restart()
-	hit_effect.emitting = true
-	hit_effect.finished.connect(hit_effect.queue_free, CONNECT_ONE_SHOT)
-	_active_hit_effect = hit_effect
-	hit_effect.tree_exiting.connect(func() -> void: _active_hit_effect = null)
+	if _can_restart:
+		_can_restart = false
+		hit_effect.restart()
+		hit_effect.set_emitting(true)
+		
+		await get_tree().create_timer(hit_effect.lifetime * 0.33).timeout
+		hit_effect.finished.connect(hit_effect.queue_free, CONNECT_ONE_SHOT)
+		_can_restart = true
 
 func die() -> void:
 	_damage_bar.hide_bar()
