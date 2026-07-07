@@ -20,7 +20,6 @@ var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
 
 func _ready() -> void:
-
 	if mesh_seed < 0:
 		mesh_seed = randi()
 	_apply_procedural_mesh()
