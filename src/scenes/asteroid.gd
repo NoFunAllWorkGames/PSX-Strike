@@ -12,14 +12,15 @@ class_name Asteroid
 @export var hull_contact_area: Area3D
 
 const ProceduralAsteroidMeshBuilder := preload("res://src/utils/procedural_asteroid_mesh.gd")
-
 var asteroid_pickup = preload("res://scenes/Objects/asteroid_pickup.tscn")
 
+@onready var _hit_effect = $hit_particles
 @onready var _mesh_instance: MeshInstance3D = $MeshInstance3D
 @onready var _damage_bar = $DamageBar
 
 
 func _ready() -> void:
+
 	if mesh_seed < 0:
 		mesh_seed = randi()
 	_apply_procedural_mesh()
@@ -44,6 +45,7 @@ func _apply_procedural_mesh() -> void:
 func take_damage(applied_damage: float) -> void:
 	health -= applied_damage
 	_damage_bar.show_health()
+	_hit_effect.play()
 	if health <= 0.0:
 		die()
 

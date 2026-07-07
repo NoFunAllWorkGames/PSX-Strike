@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://35845hxcyx51"]
+
+[ext_resource type="Script" uid="uid://httvp6q3fqku" path="res://src/scenes/hit_particles.gd" id="1_uluyv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxlrf"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cqbwt"]
+material = SubResource("StandardMaterial3D_nxlrf")
+radius = 0.28
+height = 0.785
+radial_segments = 4
+rings = 0
+
+[sub_resource type="Curve" id="Curve_lytyn"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7454545, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+metadata/_snap_count = 2
+
+[sub_resource type="Gradient" id="Gradient_g70ga"]
+offsets = PackedFloat32Array(0, 0.90361446)
+colors = PackedColorArray(10.299823, 3.3977811, 0, 1, 1, 0.69803923, 0, 1)
+
+[node name="hit_particles" type="Node3D" unique_id=683693537]
+script = ExtResource("1_uluyv")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=1467835851]
+emitting = false
+amount = 100
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.3
+local_coords = true
+mesh = SubResource("CapsuleMesh_cqbwt")
+emission_shape = 1
+emission_sphere_radius = 1.0
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+direction = Vector3(-1, 1, 1)
+spread = 75.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+angular_velocity_min = 60.0
+angular_velocity_max = 500.0
+linear_accel_max = 100.0
+angle_min = 40.0
+angle_max = 310.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+scale_amount_curve = SubResource("Curve_lytyn")
+color_initial_ramp = SubResource("Gradient_g70ga")

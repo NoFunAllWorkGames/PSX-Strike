@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://j5l7j8gcn84i" path="res://src/components/asteroid_damage_bar.gd" id="2_qhg7p"]
 [ext_resource type="Shader" uid="uid://cbb55nyo6jyr7" path="res://src/shaders/asteroid_damage_bar.gdshader" id="3_shader"]
 [ext_resource type="Material" uid="uid://cr37psoj5ggli" path="res://assets/asteroid_material.tres" id="4_mat"]
+[ext_resource type="PackedScene" uid="uid://35845hxcyx51" path="res://scenes/Level/hit_particles.tscn" id="5_ylg4g"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_btgcs"]
 radius = 1.5
@@ -52,3 +53,5 @@ script = ExtResource("2_qhg7p")
 
 [node name="Timer" type="Timer" parent="DamageBar" unique_id=1085501214]
 one_shot = true
+
+[node name="hit_particles" parent="." unique_id=683693537 instance=ExtResource("5_ylg4g")]
