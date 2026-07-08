@@ -71,18 +71,6 @@ Audio Self-Created Assets
 | WithHauler.ogg | Collision with enemy hauler | francobhalla |
 | LaserBeamHaulerSurface.ogg | Mining laser hit station or hauler sound | francobhalla |
 
-
-Audio Self-Created, Not Yet Implemented
----------------------------------------
-
-| Filename | Used for | Creator |
-| ---      | ---      | ---     |
-| LaserArmFire1–4.ogg | Armament laser bursts | francobhalla |
-| LaserModeSwitch.ogg | Weapon mode switch | francobhalla |
-| LaserHeatError.ogg | Weapon overheat | francobhalla |
-| HaulerFire.ogg | Enemy hauler shooting | francobhalla |
-
-
 AI Assets
 ---------
 
