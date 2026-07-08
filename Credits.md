@@ -23,7 +23,7 @@ Team
 - UI
 - [GitHub commits](https://github.com/NoFunAllWorkGames/PSX-Strike/commits?author=vehNbot)
 
-**Vaughnald**
+**DoubleDose**
 
 - 3D Models
 - Textures
@@ -40,13 +40,13 @@ Self-Created Assets
 | Icon_v1.png | Splash and Icon | B1773rm4n |
 | bullet.png | Enemy Projectile | B1773rm4n |
 | explosion.png | Player Death | B1773rm4n |
-| player_ship_archon_body | 3D model + texture | Vaughnald |
-| Hauler Model | 3D model + texture | Vaughnald |
-| Space Station Model | 3D model + texture | Vaughnald |
-| texFlare0.png | Signal light at Hauler ship | Vaughnald |
-| modelInterior1.glb | Inside the Space Station Walls | Vaughnald |
-| texPickup4.png | Asteroid Pickup Texture | Vaughnald |
-| texSkybox1.png | Skybox Texture | Vaughnald |
+| player_ship_archon_body | 3D model + texture | DoubleDose |
+| Hauler Model | 3D model + texture | DoubleDose |
+| Space Station Model | 3D model + texture | DoubleDose |
+| texFlare0.png | Signal light at Hauler ship | DoubleDose |
+| modelInterior1.glb | Inside the Space Station Walls | DoubleDose |
+| texPickup4.png | Asteroid Pickup Texture | DoubleDose |
+| texSkybox1.png | Skybox Texture | DoubleDose |
 
 Audio Self-Created Assets
 -------------------------

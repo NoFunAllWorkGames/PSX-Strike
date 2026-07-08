@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beqda5q1ubpqr"
-path="res://.godot/imported/Vaughnald_avatar.png-e08c13ea9c2fa208833d5ee08e3d33cd.ctex"
+uid="uid://ox0otr4g6ldg"
+path="res://.godot/imported/DoubleDose_avatar.png-f2c1d11aedee87b6a6c7bb492c95a0ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Textures/Vaughnald_avatar.png"
-dest_files=["res://.godot/imported/Vaughnald_avatar.png-e08c13ea9c2fa208833d5ee08e3d33cd.ctex"]
+source_file="res://assets/Textures/DoubleDose_avatar.png"
+dest_files=["res://.godot/imported/DoubleDose_avatar.png-f2c1d11aedee87b6a6c7bb492c95a0ac.ctex"]
 
 [params]
 
