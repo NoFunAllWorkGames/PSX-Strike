@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://btlic2ws8no14" path="res://assets/Textures/B1773rm4n_avatar.png" id="4_4vbsx"]
 [ext_resource type="Texture2D" uid="uid://poj1pl23xu34" path="res://assets/Textures/francobhalla_avatar.png" id="5_xurhj"]
 [ext_resource type="PackedScene" uid="uid://dh5k2pm8w3fx" path="res://scenes/UI/Settings_Panel.tscn" id="6_settings"]
-[ext_resource type="Texture2D" uid="uid://beqda5q1ubpqr" path="res://assets/Textures/DoubleDose_avatar.png" id="8_gqeas"]
+[ext_resource type="Texture2D" uid="uid://ox0otr4g6ldg" path="res://assets/Textures/DoubleDose_avatar.png" id="8_gqeas"]
 [ext_resource type="Texture2D" uid="uid://cfgp37gimueud" path="res://assets/Logo/PSX-Strike_Menu.png" id="8_ioi7f"]
 [ext_resource type="Texture2D" uid="uid://bap53ao5vmpu6" path="res://assets/Textures/vehN_avatar.png" id="9_pyew7"]
 [ext_resource type="PackedScene" uid="uid://p6sr1pkwhaqf" path="res://assets/Models/player_ship_archon_body.glb" id="9_xe3n3"]
@@ -196,12 +196,16 @@ theme_override_font_sizes/font_size = 12
 text = "Quit"
 
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="Control/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" unique_id=873486148]
+transparent_bg = true
 oversampling_override = 1.0
 title = "Are you sure?"
 initial_position = 1
-max_size = Vector2i(200, 100)
+wrap_controls = false
+transparent = true
+max_size = Vector2i(220, 120)
+theme = ExtResource("3_xurhj")
 ok_button_text = "Delete"
-dialog_text = "Delete the savegame?"
+dialog_text = "   Delete the savegame?"
 dialog_autowrap = true
 cancel_button_text = "NO!"
 

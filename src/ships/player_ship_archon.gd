@@ -35,6 +35,8 @@ var _look_pitch: float = 0.0
 var _is_dead: bool = false
 var _pending_death_effect: SignalBus.PlayerDeathEffect = SignalBus.PlayerDeathEffect.DISINTEGRATION
 
+const _death_explosion := preload("res://assets/Materials/death_explosion_particles.tscn")
+
 @export var mesh_instance: MeshInstance3D
 
 func _enter_tree() -> void:
@@ -149,6 +151,16 @@ func _on_player_receive_damage(
 	if lifepoints <= 0:
 		go_die()
 
+func _death_animation() -> void:
+	disintegration_sound.play()
+	visible = false
+	var death_effect: CPUParticles3D = _death_explosion.instantiate()
+	get_parent().add_child(death_effect)
+	death_effect.global_transform = global_transform
+	death_effect.restart()
+	death_effect.set_emitting(true)
+	death_effect.finished.connect(death_effect.queue_free, CONNECT_ONE_SHOT)
+
 func go_die() -> void:
 	if _is_dead:
 		return
@@ -157,19 +169,8 @@ func go_die() -> void:
 	GameManager.halt_simulation_for_player_death()
 	SignalBus.shoot_action_released.emit()
 
+	_death_animation()
 	engine_hovering.stop()
-
-	var death_animation: AnimationPlayer
-	match _pending_death_effect:
-		SignalBus.PlayerDeathEffect.EXPLOSION:
-			if mesh_instance:
-				mesh_instance.visible = false
-			death_animation = explosion_animation
-			death_animation.play("explosion")
-		_:
-			death_animation = disintegration_animation
-			disintegration_sound.play()
-			death_animation.play("disintegration")
 
 	# post scores via network
 	Networking.post_scores()
@@ -179,7 +180,7 @@ func go_die() -> void:
 	InputManager.enable_freelook_click_capture = false
 	InputManager.release_mouse()
 
-	await death_animation.animation_finished
+	await get_tree().create_timer(3).timeout
 	GameManager.open_score_board_overlay()
 
 

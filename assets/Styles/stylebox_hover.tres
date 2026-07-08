@@ -3,4 +3,3 @@
 [resource]
 content_margin_left = 2.0
 bg_color = Color(0.13614377, 0.15422466, 0.1686885, 1)
-draw_center = true

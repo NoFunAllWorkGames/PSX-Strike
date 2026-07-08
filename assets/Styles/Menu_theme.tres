@@ -3,6 +3,42 @@
 [ext_resource type="StyleBox" uid="uid://mekqwk8nr6lj" path="res://assets/Styles/stylebox_hover.tres" id="1_85ykx"]
 [ext_resource type="StyleBox" uid="uid://ykpvydy0dpqa" path="res://assets/Styles/stylebox_pressed.tres" id="3_lu5nl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdo3h"]
+bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.05882353, 0.07058824, 0.078431375, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 20
+expand_margin_left = 8.0
+expand_margin_top = 32.0
+expand_margin_right = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_55yi4"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 4.0
+bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.05882353, 0.07058824, 0.078431375, 1)
+border_blend = true
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbsdu"]
 bg_color = Color(0.09411765, 0.10980392, 0.12156863, 0.16470589)
 
@@ -12,7 +48,7 @@ bg_color = Color(0.09411765, 0.10980392, 0.12156863, 0.16470589)
 content_margin_left = 4.0
 bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdo3h"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlp81"]
 content_margin_left = 4.0
 bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
 
@@ -44,6 +80,11 @@ content_margin_bottom = 4.0
 bg_color = Color(0.09411765, 0.10980392, 0.12156863, 1)
 
 [resource]
+AcceptDialog/constants/buttons_min_height = 24
+AcceptDialog/constants/buttons_min_width = 70
+AcceptDialog/constants/buttons_separation = 0
+AcceptDialog/styles/embedded_border = SubResource("StyleBoxFlat_mdo3h")
+AcceptDialog/styles/panel = SubResource("StyleBoxFlat_55yi4")
 Button/styles/disabled = SubResource("StyleBoxFlat_tbsdu")
 Button/styles/focus = SubResource("StyleBoxEmpty_ioi7f")
 Button/styles/hover = ExtResource("1_85ykx")
@@ -58,7 +99,7 @@ LineEdit/icons/clear = null
 LineEdit/styles/focus = null
 LineEdit/styles/normal = SubResource("StyleBoxFlat_85ykx")
 LineEdit/styles/read_only = null
-OptionButton/styles/hover_pressed = SubResource("StyleBoxFlat_mdo3h")
+OptionButton/styles/hover_pressed = SubResource("StyleBoxFlat_wlp81")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_lu5nl")
 TabContainer/styles/panel = SubResource("StyleBoxEmpty_tiw3s")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_t2uxk")

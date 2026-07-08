@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cr67kqi4xrh5a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhikh"]
+vertex_color_use_as_albedo = true
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 2.35
+emission_on_uv2 = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_frf1h"]
+material = SubResource("StandardMaterial3D_lhikh")
+radial_segments = 8
+rings = 4
+
+[sub_resource type="Curve" id="Curve_cwaqh"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 360), 0.0, -2114.5635, 0, 0, Vector2(0.75272727, -360), 0.0, 0.0, 0, 0, Vector2(1, 360), 6194.175, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_jm38r"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.48363635, 91.26213), -711.9737, -711.9737, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_n7pav"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2509091, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 2
+
+[sub_resource type="Gradient" id="Gradient_5gsw0"]
+offsets = PackedFloat32Array(0, 0.53815264, 1)
+colors = PackedColorArray(1, 0.22352941, 0, 1, 1, 0.5568628, 0, 1, 1, 1, 0, 1)
+
+[node name="CPUParticles3D" type="CPUParticles3D" unique_id=1017862300]
+amount = 150
+lifetime = 2.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.2
+local_coords = true
+mesh = SubResource("SphereMesh_frf1h")
+emission_shape = 1
+emission_sphere_radius = 0.01
+direction = Vector3(0, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 15.0
+angular_velocity_min = 720.0
+angular_velocity_max = 720.0
+angular_velocity_curve = SubResource("Curve_cwaqh")
+linear_accel_curve = SubResource("Curve_jm38r")
+angle_min = 10.0
+angle_max = 180.0
+scale_amount_min = 0.25
+scale_amount_curve = SubResource("Curve_n7pav")
+color_ramp = SubResource("Gradient_5gsw0")

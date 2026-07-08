@@ -31,7 +31,6 @@ func _ready() -> void:
 	start_button.pressed.connect(_on_start_pressed)
 	new_game.pressed.connect(_on_new_game_pressed)
 	quit_button.pressed.connect(_on_quit_pressed)
-	confirmation_dialog.visibility_changed.connect(_style_confimation_dialogue)
 	confirmation_dialog.confirmed.connect(_on_deletion_confirmed)
 
 	# credits
@@ -106,14 +105,6 @@ func _on_deletion_confirmed() -> void:
 
 func _on_quit_pressed() -> void:
 	GameManager.quit_game()
-
-func _style_confimation_dialogue() -> void:
-	var ok_button :Button = confirmation_dialog.get_ok_button()
-	var style_normal := StyleBoxFlat.new()
-	style_normal.bg_color = Color("770000ff")
-	ok_button.add_theme_stylebox_override("normal", style_normal)
-	ok_button.add_theme_stylebox_override("hover", style_normal)
-	ok_button.add_theme_stylebox_override("pressed", style_normal)
 
 func _on_button_hovered() -> void:
 	AudioPlayer.play_ui_button_hover()
