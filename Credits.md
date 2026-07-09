@@ -21,6 +21,7 @@ Team
 **vehN**
 
 - UI
+- Particles
 - [GitHub commits](https://github.com/NoFunAllWorkGames/PSX-Strike/commits?author=vehNbot)
 
 **DoubleDose**
@@ -37,9 +38,9 @@ Self-Created Assets
 
 | Filename | Used for | Creator |
 | ---      | ---      | ---     |
-| Icon_v1.png | Splash and Icon | B1773rm4n |
+| Icon.png | thumbnail Icon | B1773rm4n |
+| Splash.png | Splashscreen | B1773rm4n |
 | bullet.png | Enemy Projectile | B1773rm4n |
-| explosion.png | Player Death | B1773rm4n |
 | player_ship_archon_body | 3D model + texture | DoubleDose |
 | Hauler Model | 3D model + texture | DoubleDose |
 | Space Station Model | 3D model + texture | DoubleDose |
@@ -47,6 +48,10 @@ Self-Created Assets
 | modelInterior1.glb | Inside the Space Station Walls | DoubleDose |
 | texPickup4.png | Asteroid Pickup Texture | DoubleDose |
 | texSkybox1.png | Skybox Texture | DoubleDose |
+| hit_particles | mining laser hit particles | vehN |
+| death_explosion_particles | Player death explosion | vehN |
+| menubg.png | 2D background menu | vehN |
+| PSX-Strike_Menu.png | Title name | vehN |
 
 Audio Self-Created Assets
 -------------------------

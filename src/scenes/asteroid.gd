@@ -57,7 +57,7 @@ func _spawn_hit_effect() -> void:
 		_can_restart = false
 		hit_effect.restart()
 		hit_effect.set_emitting(true)
-		
+
 		await get_tree().create_timer(hit_effect.lifetime * 0.33).timeout
 		hit_effect.finished.connect(hit_effect.queue_free, CONNECT_ONE_SHOT)
 		_can_restart = true

@@ -5,7 +5,6 @@ General
 ---------
 
 - Balance the game
-- Add explosion effect
 - make the binary export smaller with scons
 - optmize web export for itch
 
