@@ -34,14 +34,10 @@ Networking="*uid://dgwa42db8gjh7"
 
 window/size/viewport_width=320
 window/size/viewport_height=240
-window/size/mode=4
-window/size/initial_position_type=3
-window/size/initial_position=Vector2i(943, 239)
-window/size/initial_screen=1
-window/size/window_width_override=1280
-window/size/window_height_override=960
+window/size/initial_position_type=0
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+window/dpi/allow_hidpi=false
 
 [dotnet]
 
